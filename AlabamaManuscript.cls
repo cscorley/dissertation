@@ -373,7 +373,7 @@ Dr.\ \MakeUppercase{FOURTH}
    \end{center}
    \vspace{-\baselineskip}
    \begin{spacing}{2.0}
-      \input{abbreviation}
+      \input{tex/abbreviations}
    \end{spacing}
    \cleardoublepage
 }

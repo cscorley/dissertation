@@ -20,18 +20,28 @@ DEP_FILES	= $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES)
 all: $(TEX_FILES) $(PAPER).pdf
 
 $(TEX_FILES): $(MD_FILES)
+	pandoc --to=latex markdown/00_abstract.md \
+		--output=tex/00_abstract.tex
 	pandoc --to=latex markdown/01_introduction.md \
-		--output=chapters/01_introduction.tex
+		--output=tex/01_introduction.tex
 	pandoc --to=latex markdown/02_related.md \
-		--output=chapters/02_related.tex
+		--output=tex/02_related.tex
 	pandoc --to=latex markdown/03_previous.md \
-		--output=chapters/03_previous.tex
+		--output=tex/03_previous.tex
 	pandoc --to=latex markdown/04_proposed.md \
-		--output=chapters/04_proposed.tex
+		--output=tex/04_proposed.tex
 	pandoc --to=latex markdown/05_schedule.md \
-		--output=chapters/05_schedule.tex
+		--output=tex/05_schedule.tex
 	pandoc --to=latex markdown/06_conclusion.md \
-		--output=chapters/06_conclusion.tex
+		--output=tex/06_conclusion.tex
+	pandoc --to=latex markdown/99_appendix.md \
+		--output=tex/99_appendix.tex
+	pandoc --to=latex markdown/extra/abbreviations.md \
+		--output=tex/abbreviations.tex
+	pandoc --to=latex markdown/extra/dedication.md \
+		--output=tex/dedication.tex
+	pandoc --to=latex markdown/extra/acknowledgments.md \
+		--output=tex/acknowledgments.tex
 
 $(PAPER).pdf: $(DEP_FILES)
 	$(LATEX) $(PAPER)
