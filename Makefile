@@ -12,12 +12,27 @@ GFX_FILES	= #$(GEN_GFX)
 CLS_FILES	= $(shell find . -name '*.cls')
 TEX_FILES	= $(shell find . -name '*.tex')
 BIB_FILES	= $(shell find . -name '*.bib')
+MD_FILES	= $(shell find . -name '*.md')
 EDIT_FILES=$(shell cat $(PAPER).tex | grep "\\input{" | sed -e 's/\\input{\(.*\)}/\1\.tex/')
 
 DEP_FILES	= $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES)
 
 
-all: $(PAPER).pdf
+all: $(TEX_FILES) $(PAPER).pdf
+
+$(TEX_FILES): $(MD_FILES)
+	pandoc --to=latex markdown/01_introduction.md \
+		--output=chapters/01_introduction.tex
+	pandoc --to=latex markdown/02_related.md \
+		--output=chapters/02_related.tex
+	pandoc --to=latex markdown/03_previous.md \
+		--output=chapters/03_previous.tex
+	pandoc --to=latex markdown/04_proposed.md \
+		--output=chapters/04_proposed.tex
+	pandoc --to=latex markdown/05_schedule.md \
+		--output=chapters/05_schedule.tex
+	pandoc --to=latex markdown/06_conclusion.md \
+		--output=chapters/06_conclusion.tex
 
 $(PAPER).pdf: $(DEP_FILES)
 	$(LATEX) $(PAPER)
