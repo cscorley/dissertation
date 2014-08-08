@@ -13,7 +13,6 @@ CLS_FILES	= $(shell find . -name '*.cls')
 TEX_FILES	= $(shell find . -name '*.tex')
 BIB_FILES	= $(shell find . -name '*.bib')
 MD_FILES	= $(shell find . -name '*.md')
-EDIT_FILES=$(shell cat $(PAPER).tex | grep "\\input{" | sed -e 's/\\input{\(.*\)}/\1\.tex/')
 
 DEP_FILES	= $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES)
 
@@ -40,8 +39,8 @@ $(PAPER).pdf: $(DEP_FILES)
 	$(LATEX) $(PAPER)
 	$(LATEX) $(PAPER)
 
-edit: $(EDIT_FILES)
-	vim $(EDIT_FILES)
+edit: 
+	vim markdown/*
 
 tidy:
 	$(RM) *.aux

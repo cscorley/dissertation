@@ -1,10 +1,10 @@
 Approach
 ========
 
-#. build model from changesets
-#. do not infer a $\theta_{changesets}$
-#. infer a $\theta_{files}$ and $\theta_{developers}$
-#. on a new commit, repeat step 2 \emph{only on the changed document}
+1. Build model from changesets
+2. *Do not* infer a $\theta_{changesets}$
+3. Infer a $\theta_{files}$ and $\theta_{developers}$
+4. On a new commit, repeat step 2 *only on the changed document*
 
 Primary studies
 ===============
