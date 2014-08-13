@@ -36,8 +36,6 @@ $(TEX_FILES): $(MD_FILES)
 		--output=tex/06_conclusion.tex
 	pandoc --to=latex markdown/99_appendix.md \
 		--output=tex/99_appendix.tex
-	pandoc --to=latex markdown/extra/abbreviations.md \
-		--output=tex/abbreviations.tex
 	pandoc --to=latex markdown/extra/dedication.md \
 		--output=tex/dedication.tex
 	pandoc --to=latex markdown/extra/acknowledgments.md \
