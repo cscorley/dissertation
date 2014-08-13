@@ -61,6 +61,9 @@ tidy:
 	$(RM) *.blg
 	$(RM) *.lot
 	$(RM) *.lof
+	$(RM) *.nlo
+	$(RM) *.nls
+
 
 
 clean: tidy

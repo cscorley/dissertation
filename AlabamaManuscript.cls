@@ -363,20 +363,6 @@ Dr.\ \MakeUppercase{FOURTH}
    \end{spacing}
    \cleardoublepage
 }
-\newcommand{\listofsymbols}{%
-   \phantomsection
-   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
-   \vspace*{0.5in}
-   \vspace*{\baselineskip}
-   \begin{center}
-      LIST OF ABBREVIATIONS
-   \end{center}
-   \vspace{-\baselineskip}
-   \begin{spacing}{2.0}
-      \input{tex/abbreviations}
-   \end{spacing}
-   \cleardoublepage
-}
 
 \def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
                          \refstepcounter{chapter}%
