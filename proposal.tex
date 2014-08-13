@@ -15,6 +15,7 @@
 \usepackage{cleveref}
 \usepackage{epigraph}
 \usepackage{booktabs}
+\usepackage[]{nomencl}
 \setlength\epigraphwidth{\textwidth}
 \setlength\epigraphrule{0pt}
 
@@ -24,7 +25,10 @@
 \BeforeBeginEnvironment{lstlisting}{\begin{singlespace}}
 \AfterEndEnvironment{lstlisting}{\end{singlespace}\noindent\ignorespaces}
 
-\author{Christopher Scott Corley} %% Your name!
+\renewcommand{\nomname}{List of Abbreviations}
+\newcommand{\abbr}[2]{#2 (#1)\nomenclature{#1}{#2}}
+
+\author{Christopher Scott Corley}
 
 \title{Online Topic Modeling for Software Maintenance}
 \date{2014}
@@ -48,7 +52,8 @@
 \tableofcontents
 \listoftables
 \listoffigures
-\listofsymbols
+\makenomenclature
+\printnomenclature
 
 \begin{body}
 

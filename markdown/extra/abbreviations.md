@@ -1,6 +1,0 @@
-
-\begin{center}
-\begin{longtable}{l    l}
-TEST & TEST
-\end{longtable}
-\end{center}

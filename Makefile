@@ -45,6 +45,8 @@ $(TEX_FILES): $(MD_FILES)
 
 $(PAPER).pdf: $(DEP_FILES)
 	$(LATEX) $(PAPER)
+	$(LATEX) $(PAPER)
+	makeindex $(PAPER).nlo -s nomencl.ist -o $(PAPER).nls
 	$(BIBTEX) $(PAPER)
 	$(LATEX) $(PAPER)
 	$(LATEX) $(PAPER)
