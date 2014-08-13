@@ -47,6 +47,7 @@
 \renewcommand{\nomname}{List of Abbreviations}
 \newcommand{\abbr}[2]{#2 (#1)\nomenclature{#1}{#2}}
 \newcommand{\scite}[1]{~\cite{#1}}
+\newcommand{\sref}[1]{~\ref{#1}}
 \makenomenclature
 
 \author{Christopher Scott Corley}
@@ -107,8 +108,9 @@
 
 \end{body}
 
-\nocite{*}
+%\nocite{*}
 \bibliography{proposal}
+
 \begin{appendices}
 \input{tex/99_appendix}
 \end{appendices}
