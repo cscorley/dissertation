@@ -63,6 +63,8 @@ tidy:
 	$(RM) *.lof
 	$(RM) *.nlo
 	$(RM) *.nls
+	$(RM) *.bst
+	$(RM) *.ilg
 
 
 
