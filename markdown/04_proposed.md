@@ -9,13 +9,13 @@ Approach
 Primary studies
 ===============
 
-Feature location
+Feature location {#feature-location-study}
 ----------------
 
-Bug localization
+Bug localization {#bug-localization-study}
 ----------------
 
-Developer identification
+Developer identification {#developer-identification-study}
 ------------------------
 
 Supporting studies
