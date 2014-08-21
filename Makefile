@@ -12,45 +12,21 @@ GFX_FILES	= #$(GEN_GFX)
 CLS_FILES	= $(shell find . -name '*.cls')
 TEX_FILES	= $(shell find . -name '*.tex')
 BIB_FILES	= $(shell find . -name '*.bib')
-MD_FILES	= $(shell find . -name '*.md')
+MD_FILES	= $(shell find ./chapters -name '*.md' | sort)
 
-DEP_FILES	= $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES)
+DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(MD_FILES)
 
 
-all: $(TEX_FILES) $(PAPER).pdf
-
-$(TEX_FILES): $(MD_FILES)
-	pandoc --to=latex markdown/00_abstract.md \
-		--output=tex/00_abstract.tex
-	pandoc --to=latex markdown/01_introduction.md \
-		--output=tex/01_introduction.tex
-	pandoc --to=latex markdown/02_related.md \
-		--output=tex/02_related.tex
-	pandoc --to=latex markdown/03_previous.md \
-		--output=tex/03_previous.tex
-	pandoc --to=latex markdown/04_proposed.md \
-		--output=tex/04_proposed.tex
-	pandoc --to=latex markdown/05_schedule.md \
-		--output=tex/05_schedule.tex
-	pandoc --to=latex markdown/06_conclusion.md \
-		--output=tex/06_conclusion.tex
-	pandoc --to=latex markdown/99_appendix.md \
-		--output=tex/99_appendix.tex
-	pandoc --to=latex markdown/extra/dedication.md \
-		--output=tex/dedication.tex
-	pandoc --to=latex markdown/extra/acknowledgments.md \
-		--output=tex/acknowledgments.tex
+all: $(PAPER).pdf
 
 $(PAPER).pdf: $(DEP_FILES)
-	$(LATEX) $(PAPER)
-	$(LATEX) $(PAPER)
-	$(BIBTEX) $(PAPER)
-	makeindex $(PAPER).nlo -s nomencl.ist -o $(PAPER).nls
-	$(LATEX) $(PAPER)
-	$(LATEX) $(PAPER)
+	pandoc --template=./AlabamaManuscript.latex \
+		-A extra/appendix.md -H extra/header.tex \
+		--filter pandoc-citeproc --chapters --listings \
+		metadata.yaml $(MD_FILES) -o $(PAPER).pdf 
 
 edit: 
-	vim markdown/*
+	vim chapters/*
 
 tidy:
 	$(RM) *.aux
@@ -65,7 +41,6 @@ tidy:
 	$(RM) *.nls
 	$(RM) *.bst
 	$(RM) *.ilg
-
 
 
 clean: tidy

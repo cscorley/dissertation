@@ -1,0 +1,18 @@
+
+---
+documentclass: AlabamaManuscript
+author: Christopher Scott Corley
+title: Online Topic Modeling for Software Maintenance
+date: 2014
+abstract: |
+    I can write an abstract.
+
+    It might be long.
+csl: bracket-chicago-author-date.csl
+bibliography: proposal.bibtex
+toc: Yes
+lof: Yes
+lot: Yes
+loa: Yes
+---
+

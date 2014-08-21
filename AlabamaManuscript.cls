@@ -333,6 +333,23 @@ Dr.\ \MakeUppercase{FOURTH}
 }
 
 %---- List of Tables
+\newcommand{\listofabbreviations}{%
+   \phantomsection
+   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
+   \vspace*{0.5in}
+   \vspace*{\baselineskip}
+   \begin{center}
+      LIST OF ABBREVIATIONS 
+   \end{center}
+   \vspace{-\baselineskip}
+   \begin{spacing}{1.0}
+      \@starttoc{loa}
+   \end{spacing}
+   \cleardoublepage
+}
+
+
+%---- List of Tables
 \renewcommand{\listoftables}{%
    \phantomsection
    \addcontentsline{toc}{chapter}{LIST OF TABLES}
