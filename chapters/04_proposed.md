@@ -62,16 +62,16 @@ reassigned to the appropriate developer. Jeong et
 al. [@Jeong2009Improving] found that reassignment occurs between
 37\%44\% of the time and introduces an average of 50 days delay in
 completing the request. Automated support for triaging helps to decrease
-change request timetotriage and to correct, or prevent, human error.
+change request time-to-triage and to correct, or prevent, human error.
 
 McDonald and Ackerman [@McDonald1998Just] show that there are two
 expertise finding problems: identification and selection. In
 a semiautomated system, expertise identification is automated, and
-suggests an expert for selection. In a fullyautomated system, the
+suggests an expert for selection. In a fully-automated system, the
 expert is identified and selected for assignment to the change request.
-Anvik [@Anvik2006Automating] notes that a fullyautomated approach
-may not be feasible given the amount of contextual knowledge required
-for triage.
+Anvik [@Anvik2006Automating] notes that a fully-automated approach may
+not be feasible given the amount of contextual knowledge required for
+triage.
 
 ## Supporting studies
 
