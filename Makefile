@@ -20,10 +20,22 @@ DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(
 all: $(PAPER).pdf
 
 $(PAPER).pdf: $(DEP_FILES)
-	pandoc --template=./AlabamaManuscript.latex \
-		-A extra/appendix.md -H extra/header.tex \
-		--filter pandoc-citeproc --chapters --listings \
+	pandoc \
+		--filter pandoc-citeproc \
+		--toc \
+		--chapters \
+		--listings \
+		--template=./AlabamaManuscript.latex \
+		-A extra/appendix.md \
+		-H extra/header.tex \
 		metadata.yaml $(MD_FILES) -o $(PAPER).pdf 
+	pandoc \
+		--filter pandoc-citeproc \
+		--toc \
+		--chapters \
+		--listings \
+		-A extra/appendix.md \
+		metadata.yaml $(MD_FILES) -o $(PAPER).html
 
 edit: 
 	vim chapters/*
