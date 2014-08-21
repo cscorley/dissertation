@@ -55,8 +55,7 @@ relate to each other and to source code entities such as packages or
 classes. -->
 
 
-Motivation
-==========
+## Motivation
 
 <!--
 - Software evolves quickly
@@ -106,8 +105,7 @@ This gains the benefit of an increase in query time, but also could lead
 to a more reliable model.
 
 
-Research goals
-==============
+## Research goals
 
 The primary research goal of this proposal is to evaluate the performance
 and reliability of topic models built on the source code histories. This
@@ -129,17 +127,4 @@ researchers and practitioners.
   for using changeset-based models
 -->
 
-
-Outline
-========
-
-In this proposal we propose an approach towards building practical,
-online topic models for automating software maintenance tasks.  In
-Chapter\ref{ch:related} we discuss the background and related works.
-Chapter\ref{ch:previous} covers previous work already achieved towards
-the research goals.  Chapter\ref{ch:proposed} outlines the primary
-studies and their evaluations, along with supporting studies.  A
-projected schedule for completion of these studies is given in
-Chapter\ref{ch:schedule}.  Finally, we conclude this proposal in
-Chapter\ref{ch:conclusion}.
 

@@ -1,10 +1,7 @@
 # Previous Work
 
-Traceability link recovery
---------------------------
+## Traceability link recovery
 
-Modeling ownership
-------------------
+## Modeling ownership
 
-Modeling changeset topics
--------------------------
+## Modeling changeset topics

@@ -1,15 +1,13 @@
 # Proposed work
 
-Approach
---------
+## Approach
 
 1. Build model from changesets
 2. *Do not* infer a $\theta_{changesets}$
 3. Infer a $\theta_{files}$ and $\theta_{developers}$
 4. On a new commit, repeat step 2 *only on the changed document*
 
-Primary studies
----------------
+## Primary studies
 
 ### Feature location {#featurelocationstudy}
 
@@ -75,8 +73,7 @@ Anvik [@Anvik2006Automating] notes that a fullyautomated approach
 may not be feasible given the amount of contextual knowledge required
 for triage.
 
-Supporting studies
-------------------
+## Supporting studies
 
 ### Corpora of software histories
 
