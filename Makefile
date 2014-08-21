@@ -35,7 +35,9 @@ $(PAPER).pdf: $(DEP_FILES)
 		--chapters \
 		--listings \
 		-A extra/appendix.md \
-		metadata.yaml $(MD_FILES) -o $(PAPER).html
+		metadata.yaml $(MD_FILES) -o $(PAPER).tex
+	pandoc -s $(PAPER).tex -o $(PAPER).html
+	$(RM) $(PAPER).tex
 
 edit: 
 	vim chapters/*
@@ -57,6 +59,8 @@ tidy:
 
 clean: tidy
 	$(RM) $(PAPER).pdf
+	$(RM) $(PAPER).tex
+	$(RM) $(PAPER).html
 
 %.pdf: %.eps
 	epstopdf --outfile=$@ $<

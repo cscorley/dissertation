@@ -104,6 +104,24 @@ latent variables.
 This gains the benefit of an increase in query time, but also could lead
 to a more reliable model.
 
+![Alt text\label{figgg}](image.png)
+
+A reference to the Figure \ref{figgg}.
+
+[Related work]
+
+I am a fan of using Google^[<http://google.com>]
+
+  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
+
+Table:  Demonstration of simple table syntax\label{demo}
+
+A reference to the Table \ref{demo}.
+
 
 ## Research goals
 

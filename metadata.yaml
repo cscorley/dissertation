@@ -13,5 +13,8 @@ bibliography: proposal.bibtex
 lof: Yes
 lot: Yes
 loa: Yes
+linkcolor: magenta
+urlcolor:  blue
+citecolor: red
 ---
 
