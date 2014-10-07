@@ -11,9 +11,13 @@
 
 ### Feature location {#featurelocationstudy}
 
+- Defer this to bug localization since that's what the datasets really
+  are?
 
 ### Bug localization {#buglocalizationstudy}
 
+
+### Traceability link recovery {#traceabilitystudy}
 
 ### Developer identification {#developeridentificationstudy}
 

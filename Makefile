@@ -35,9 +35,7 @@ $(PAPER).pdf: $(DEP_FILES)
 		--chapters \
 		--listings \
 		-A extra/appendix.md \
-		metadata.yaml $(MD_FILES) -o $(PAPER).tex
-	pandoc -s $(PAPER).tex -o $(PAPER).html
-	$(RM) $(PAPER).tex
+		metadata.yaml $(MD_FILES) -o $(PAPER).html
 
 edit: 
 	vim chapters/*

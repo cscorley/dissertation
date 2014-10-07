@@ -1,5 +1,29 @@
 # Introduction
 
+Basic idea:
+
+- Lots of software maintenance tasks being automated by topic modeling
+- Topic modeling is now online, but we are not using it?
+- We build topic models from source code, meaning the model is tied to a
+  specific instance of it
+    - This makes the models not very useful in practice. Slow, outdated.
+- Why not build topic models out of the changesets
+    - Changesets are a view of the source code over time
+    - We can build comparable topic models with changesets
+- We can better evaluate the accuracy of the techniques because we
+    can process changesets overtime, sort of like a similuation of
+    what actually happened (or as close as we can get to it)
+- We only need *one* model per branch. The doc-topic can be any *any*
+  granularity desired, and the model does not need to be re-built from
+  scratch everytime.
+- Look at how does the changeset model compare to the typical source
+  code model
+    - Combinations of: context/added/removed lines in the diff
+    - Per-file changed or whole changeset
+    - Ignore whitespaces
+    - Only look at the changed words instead of the entire lines
+        - Combinations of: context/added/removed
+
 Software developers are often confronted with maintenance tasks that
 involve navigation of repositories that preserve vast amounts of project
 history.  Navigating these software repositories can be a time-consuming
@@ -104,7 +128,7 @@ latent variables.
 This gains the benefit of an increase in query time, but also could lead
 to a more reliable model.
 
-![Alt text\label{figgg}](image.png)
+![Alt text\label{figgg}](changeset.pdf)
 
 A reference to the Figure \ref{figgg}.
 
