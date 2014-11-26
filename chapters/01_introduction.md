@@ -128,9 +128,6 @@ latent variables.
 This gains the benefit of an increase in query time, but also could lead
 to a more reliable model.
 
-![Alt text\label{figgg}](changeset.pdf)
-
-A reference to the Figure \ref{figgg}.
 
 [Related work]
 
