@@ -1,5 +1,11 @@
 # Introduction
 
+<!-- 
+    Introduction to problem
+-->
+
+[@Rehurek:2011]
+
 Basic idea:
 
 - Lots of software maintenance tasks being automated by topic modeling
@@ -81,6 +87,10 @@ classes. -->
 
 ## Motivation
 
+<!-- 
+     Statement of purpose
+-->
+
 <!--
 - Software evolves quickly
 - Current file-based models do not keep up-to-date models
@@ -144,7 +154,7 @@ Table:  Demonstration of simple table syntax\label{demo}
 A reference to the Table \ref{demo}.
 
 
-## Research goals
+## Research Goals, Questions, and Hypotheses
 
 The primary research goal of this proposal is to evaluate the performance
 and reliability of topic models built on the source code histories. This
@@ -167,3 +177,13 @@ researchers and practitioners.
 -->
 
 
+## Limitations and Assumptions
+
+<!--
+    Possible threats?
+-->
+
+## Terminology and Background
+
+In this section, an overview of common terminology used by both software
+engineering and information retrieval areas is given.

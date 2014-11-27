@@ -9,7 +9,7 @@ abstract: |
 
     It might be long.
 csl: bracket-chicago-author-date.csl
-bibliography: proposal.bibtex
+bibliography: proposal.bib
 lof: Yes
 lot: Yes
 loa: Yes

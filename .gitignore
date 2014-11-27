@@ -34,3 +34,4 @@
 *.pdf
 *.html
 .DS_Store
+*.bak

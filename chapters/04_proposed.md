@@ -1,5 +1,8 @@
 # Proposed work
 
+In this chapter, I outline the proposed work and methodologies to be used for
+each.
+
 ## Approach
 
 1. Build model from changesets
@@ -11,18 +14,23 @@
 
 ### Feature location {#featurelocationstudy}
 
+#### Motivation
+#### Background
+#### Proposal
+
 - Defer this to bug localization since that's what the datasets really
   are?
 
-### Bug localization {#buglocalizationstudy}
-
-
 ### Traceability link recovery {#traceabilitystudy}
+
+#### Motivation
+#### Background
+#### Proposal
+
 
 ### Developer identification {#developeridentificationstudy}
 
-
-#### Introduction
+#### Motivation
 
 Software features are functionalities that
 are defined by requirements and
@@ -77,10 +85,12 @@ Anvik [@Anvik2006Automating] notes that a fully-automated approach may
 not be feasible given the amount of contextual knowledge required for
 triage.
 
+#### Background
+#### Proposal
+
 ## Supporting studies
 
 ### Corpora of software histories
-
 
 ### Implementing topic models with growing vocabulary
 

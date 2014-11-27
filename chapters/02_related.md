@@ -1,10 +1,10 @@
 # Related work
 
+In this section, we review the literature in detail.
+
 ## Topic Modeling {#related-topic-modeling}
 
 ## Feature location {#related-feature-location}
-
-## Bug localization {#related-bug-localization}
 
 ## Developer identification {#related-developer-identification}
 
