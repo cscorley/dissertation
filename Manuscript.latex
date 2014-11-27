@@ -135,9 +135,22 @@ $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 \date{$date$}
+\location{\MakeUppercase{$location$}}
+\thesistype{\MakeUppercase{$thesistype$}}
+\submissioninfo{
+$for(submissioninfos)$
+$submissioninfos$\\
+$endfor$
+}
 $for(header-includes)$
 $header-includes$
 $endfor$
+
+\newcommand{\committeemembers}{
+$for(committee)$
+\MakeUppercase{$committee$}\\
+$endfor$
+}
 
 \begin{document}
 $if(title)$
@@ -174,7 +187,9 @@ $if(toc)$
 }
 $endif$
 $if(loa)$
-\listofabbreviations
+\begin{abbreviations}
+    \input{tmp/abbreviations.tex}
+\end{abbreviations}
 $endif$
 $if(lot)$
 \listoftables

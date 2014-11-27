@@ -1,8 +1,17 @@
 ---
-documentclass: AlabamaManuscript
+documentclass: Manuscript
+template: Manuscript.latex
 author: Christopher Scott Corley
 title: Online Topic Modeling for Software Maintenance
 date: 2014
+location: Tuscaloosa, Alabama
+thesistype: A dissertation (proposal)
+submissioninfos:
+    - Submitted in partial fulfillment of the requirements
+    - for the degree of Doctor of Philosophy
+    - in the Department of Computer Science
+    - in the Graduate School of
+    - The University of Alabama
 abstract: |
     I can write an abstract.
 
@@ -18,5 +27,9 @@ acknowledgments: No
 linkcolor: magenta
 urlcolor:  blue
 citecolor: red
+committee:
+    - Dr. Jeffrey C. Carver, Committee Chair
+    - Dr. Nicholas A. Kraft
+    - Dr. Jeffrey G. Gray
 ---
 

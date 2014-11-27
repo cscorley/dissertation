@@ -38,11 +38,14 @@ $(PAPER).pdf: $(DEP_FILES) $(GENERATED)
 		--toc \
 		--chapters \
 		--listings \
-		--template=./AlabamaManuscript.latex \
+		--template=./Manuscript.latex \
 		-H extra/header.tex \
 		--from=markdown \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).pdf
+
+$(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \
+		--standalone \
 		--filter pandoc-citeproc \
 		--smart \
 		--toc \

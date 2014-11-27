@@ -4,10 +4,11 @@
 % Department of Computer Science
 % The University of Alabama
 %
-% Nicholas A. Kraft <nkraft@cs.ua.edu>
+% Nicholas A. Kraft <nicholas.a.kraft@us.abb.com>
+% Christopher S. Corley <cscorley@crimson.ua.edu>
 
-\def\filedate{2011/01/18}
-\def\fileversion{v1.0}
+\def\filedate{2014/11/27}
+\def\fileversion{v1.1}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{AlabamaManuscript}[%
@@ -23,12 +24,17 @@
 \renewcommand{\title}[1]{\gdef\ETD@title{#1}}
 \renewcommand{\author}[1]{\gdef\ETD@author{#1}}
 \renewcommand{\date}[1]{\gdef\ETD@date{#1}}
-\newcommand{\department}[1]{\gdef\ETD@department{#1}}
+\newcommand{\submissioninfo}[1]{\gdef\ETD@submissioninfo{#1}}
+\newcommand{\thesistype}[1]{\gdef\ETD@thesistype{#1}}
+\newcommand{\location}[1]{\gdef\ETD@location{#1}}
 
 \title{---}
 \author{---}
 \date{---}
-\department{---}
+\submissioninfo{---}
+\thesistype{---}
+\location{---}
+
 
 %---- Private variables
 \newcommand{\ETD@draft}{false}
@@ -169,27 +175,19 @@
          \MakeUppercase{\ETD@author}\\
          \begin{spacing}{1.0}
             \vspace{\baselineskip}
-Dr.\ \MakeUppercase{Jeffrey C. Carver}, COMMITTEE CHAIR\\
-Dr.\ \MakeUppercase{Nicholas A. Kraft}\\
-Dr.\ \MakeUppercase{Jeffrey G. Gray}\\
-Dr.\ \MakeUppercase{THIRD}\\
-Dr.\ \MakeUppercase{FOURTH}
+                \committeemembers
             \vspace{\baselineskip}
          \end{spacing}
          \vspace{\baselineskip}
-         A DISSERTATION (PROPOSAL)\\
+         \ETD@thesistype\\
          \vspace{\baselineskip}
          \begin{spacing}{1.0}
             \vspace{\baselineskip}
-            Submitted in partial fulfillment of the requirements\\
-            for the degree of Doctor of Philosophy\\
-            in the Department of Computer Science\\
-            in the Graduate School of\\
-            The University of Alabama
+            \ETD@submissioninfo
             \vspace{\baselineskip}
          \end{spacing}
          \vspace{2\baselineskip}
-         TUSCALOOSA, ALABAMA\\
+         \ETD@location\\
          \vspace{\baselineskip}
          \ETD@date
       \end{spacing}
@@ -262,6 +260,22 @@ Dr.\ \MakeUppercase{FOURTH}
    %\changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
 }
 
+\newenvironment{abbreviations}{%
+   \phantomsection
+   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
+   \vspace*{0.5in}
+   \vspace*{\baselineskip}
+   \begin{center}
+      LIST OF ABBREVIATIONS
+   \end{center}
+   \vspace{-\baselineskip}
+   \begin{spacing}{1.0}
+}{%
+   \end{spacing}
+   \cleardoublepage
+   %\changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
+}
+
 %---- Table of Contents
 \renewcommand{\tableofcontents}{%
    %\pagestyle{toccont}
@@ -273,7 +287,7 @@ Dr.\ \MakeUppercase{FOURTH}
       CONTENTS
    \end{center}
    \vspace{-\baselineskip}
-   \begin{spacing}{1.0}
+   \begin{spacing}{1.0} % change to 0.5
       \@starttoc{toc}
    \end{spacing}
    \cleardoublepage
@@ -333,24 +347,6 @@ Dr.\ \MakeUppercase{FOURTH}
 }
 
 %---- List of Tables
-\newcommand{\listofabbreviations}{%
-   \phantomsection
-   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
-   \vspace*{0.5in}
-   \vspace*{\baselineskip}
-   \begin{center}
-      LIST OF ABBREVIATIONS 
-   \end{center}
-   \vspace{-\baselineskip}
-   \begin{spacing}{1.0}
-      \@starttoc{loa}
-      \input{tmp/abbreviations.tex}
-   \end{spacing}
-   \cleardoublepage
-}
-
-
-%---- List of Tables
 \renewcommand{\listoftables}{%
    \phantomsection
    \addcontentsline{toc}{chapter}{LIST OF TABLES}
@@ -389,7 +385,7 @@ Dr.\ \MakeUppercase{FOURTH}
                                    {\protect\numberline{\thechapter}#1}%
                     \else
                       \addcontentsline{toc}{chapter}{#1}%
-                    \fi 
+                    \fi
                     \chaptermark{#1}%
                     \if@twocolumn
                       \@topnewpage[\@makechapterhead{#2}]%
@@ -456,7 +452,7 @@ Dr.\ \MakeUppercase{FOURTH}
       \advance\leftmargin\bibindent
       \itemindent -\bibindent
       \listparindent \itemindent
-      \parsep \z@ 
+      \parsep \z@
       \usecounter{enumi}
    }
    \def\newblock{}
