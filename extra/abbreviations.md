@@ -1,11 +1,96 @@
-Term 1
+$\alpha$
 
-:   Definition 1
+:    in LDA, a smoothing parameter for document-topic distributions
 
-Term 2 with *inline markup*
+$\beta$
 
-:   Definition 2
+:    in LDA, a smoothing parameter for topic-term distributions
 
-        { some code, part of Definition 2 }
+$\theta$
 
-    Third paragraph of definition 2.
+:    the document-topic matrix of a corpus
+
+$\theta_d$
+
+:    the topic membership vector of document d
+
+$\phi$
+
+:    the topic-term matrix of a corpus
+
+$\phi_i$
+
+:    the topic-term matrix of a corpus of the $i$th topic
+
+D
+
+:    the term-document matrix of a corpus
+
+C
+
+:    a corpus
+
+d
+
+:    a document
+
+K
+
+:    in LDA, the number of topics; in LSI, the reduction factor
+
+N
+
+:    the number of terms in a document
+
+V
+
+:    the vocabulary of a corpus
+
+w
+
+:    a term
+
+z
+
+:    a topic
+
+IR
+
+:    Information Retrieval
+
+LDA
+
+:    Latent Dirichlet Allocation
+
+LOC
+
+:    Lines of Code
+
+LSA
+
+:    Latent Semantic Analysis
+
+LSI
+
+:    Latent Semantic Indexing
+
+PLSI
+
+:    Probabilistic Latent Semantic Indexing
+
+SLOC
+
+:    Source Lines of Code
+
+SVD
+
+:    Singular Value Decomposition
+
+VCS
+
+:    Version Control System
+
+VSM
+
+:    Vector Space Model
+
