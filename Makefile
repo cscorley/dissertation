@@ -26,7 +26,7 @@ $(PAPER).pdf: $(DEP_FILES)
 		--chapters \
 		--listings \
 		--template=./AlabamaManuscript.latex \
-		-A extra/appendix.md \
+		-A extra/appendices.tex \
 		-H extra/header.tex \
 		metadata.yaml $(MD_FILES) -o $(PAPER).pdf 
 	pandoc \
@@ -34,7 +34,7 @@ $(PAPER).pdf: $(DEP_FILES)
 		--toc \
 		--chapters \
 		--listings \
-		-A extra/appendix.md \
+		-A extra/appendices.tex \
 		metadata.yaml $(MD_FILES) -o $(PAPER).html
 
 edit: 
