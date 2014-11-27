@@ -275,11 +275,14 @@
   Timestamp                = {2014.11.27}
 }
 
-@Misc{Basili-etal:1994,
+@Article{Basili-etal:1994,
   Title                    = {The Goal Question Metric Approach},
-
   Author                   = {V. Basili and G. Caldiera and H.D. Rombach},
+  Journal                  = {Encyclopedia of software engineering},
   Year                     = {1994},
+  Number                   = {1994},
+  Pages                    = {528--532},
+  Volume                   = {2},
 
   Owner                    = {cscorley},
   Timestamp                = {2014.11.27},
@@ -511,8 +514,9 @@
   Timestamp                = {2014.11.27}
 }
 
-@Article{Bird-etal:2010,
+@Misc{Bird-etal:2010,
   Title                    = {An Analysis of the Effect of Code Ownership on Software Quality across {Windows}, {Eclipse}, and {Firefox}},
+
   Author                   = {C. Bird and N. Nagappan and B. Murphy and H. Gall and P. Devanbu},
   Year                     = {2010},
 
@@ -923,7 +927,9 @@
   Author                   = {Deerwester, S. and Dumais, S. and Furnas, G. and Landauer, T. and Harshman R.},
   Journal                  = {Journal of the American Society of Information Science},
   Year                     = {1990},
+  Number                   = {6},
   Pages                    = {391--407},
+  Volume                   = {41},
 
   Owner                    = {cscorley},
   Timestamp                = {2014.11.27}
@@ -1168,16 +1174,6 @@
   Timestamp                = {2014.11.27}
 }
 
-@Article{Goeminne-Mens:2011,
-  Title                    = {A comparison of identity merge algorithms for software repositories},
-  Author                   = {M. G{\"{o}}minne and T. Mens},
-  Journal                  = {Science of Computer Programming},
-  Year                     = {2011},
-
-  Owner                    = {cscorley},
-  Timestamp                = {2014.11.27}
-}
-
 @Article{German:2006,
   Title                    = {{An empirical study of fine-grained software modifications}},
   Author                   = {German, Daniel M.},
@@ -1260,6 +1256,18 @@
   Booktitle                = {Proc.\ of the 8\textsuperscript{th} Int'l Wksp.\ on Principles of Software Evolution},
   Year                     = {2005},
   Pages                    = {1--10},
+
+  Owner                    = {cscorley},
+  Timestamp                = {2014.11.27}
+}
+
+@Article{Goeminne-Mens:2013,
+  Title                    = {A comparison of identity merge algorithms for software repositories},
+  Author                   = {M. Goeminne and T. Mens},
+  Journal                  = {Science of Computer Programming},
+  Year                     = {2013},
+  Number                   = {8},
+  Volume                   = {78},
 
   Owner                    = {cscorley},
   Timestamp                = {2014.11.27}
@@ -1511,18 +1519,6 @@
   Pages                    = {234--245},
 
   Owner                    = {cscorley},
-  Timestamp                = {2014.11.27}
-}
-
-@Article{Iso:2006,
-  Title                    = {International Standard - {ISO/IEC} 14764 {IEEE} Std 14764-2006},
-  Author                   = {Iso},
-  Journal                  = {ISO/IEC 14764:2006 (E) IEEE Std 14764-2006 Revision of IEEE Std 1219-1998)},
-  Year                     = {2006},
-
-  Owner                    = {cscorley},
-  Posted-at                = {2012-07-26 15:48:09},
-  Priority                 = {2},
   Timestamp                = {2014.11.27}
 }
 
@@ -2132,18 +2128,18 @@
   Timestamp                = {2014.11.27}
 }
 
-@Article{Port-etal:2011,
+@InProceedings{Port-etal:2011,
   Title                    = {Experiences with text mining large collections of unstructured systems development artifacts at jpl},
   Author                   = {Dan Port and Allen Nikora and Jairus Hihn and LiGuo Huang},
-  Journal                  = {Software Engineering, International Conference on},
+  Booktitle                = {Software Engineering, International Conference on},
   Year                     = {2011},
-  Pages                    = {701--710},
 
   Address                  = {Los Alamitos, CA, USA},
-  Doi                      = {10.1145/1985793.1985891},
-  ISBN                     = {978-1-4503-0445-0},
-  Owner                    = {cscorley},
+  Pages                    = {701--710},
   Publisher                = {IEEE Computer Society},
+
+  Doi                      = {10.1145/1985793.1985891},
+  Owner                    = {cscorley},
   Timestamp                = {2014.11.27},
   Url                      = {http://trs-new.jpl.nasa.gov/dspace/bitstream/2014/42005/1/11-0891.pdf}
 }
@@ -2322,6 +2318,9 @@
   Author                   = {Ratcliff, J.W. and Metzener, D.},
   Journal                  = {Dr. Dobb's Journal},
   Year                     = {1988},
+  Number                   = {7},
+  Pages                    = {46},
+  Volume                   = {13},
 
   Owner                    = {cscorley},
   Timestamp                = {2014.11.27},
@@ -2360,10 +2359,13 @@
   Timestamp                = {2014.11.27}
 }
 
-@Article{Revelle-Coppit:,
+@InProceedings{Revelle:2008,
   Title                    = {Improving Feature Location by Combining Dynamic Analysis and Static Inferences},
-  Author                   = {Revelle, Meghan and Coppit, David},
+  Author                   = {Revelle, Meghan},
+  Booktitle                = {Virginia Space Grant Consortium Student Research Conference},
+  Year                     = {2008},
 
+  Abstract                 = {Developing software that meets the requirements for which it is needed is a difficult task, and it is near impossible to ensure that the software correctly performs its intended function in all situations without any errors. Fixing these errors, or bugs, is a part of software maintenance. Often times, the person who is trying to fix the software (the maintainer) is not the same person who originally wrote the code for the software. The maintainer's job is hard because he/she first has to gain enough understanding of the code to know where to look for the problem, then he/she has to actually fix it.  One way to make the maintainer's job easier is to automatically identify the parts of the code that correspond to a specific feature of the software, a process known as feature location.  In my research, I am developing a technique for feature location that employs both static and dynamic analysis.  The approach uses dynamic analysis to gain an initial mapping of features to source code and then expands and refines the mapping statically according to a set of rules.  These rules help identify features for source code not included in the dynamic analysis.  Evaluation of the approach is ongoing, but preliminary results indicate that the technique can locate feature code with good accuracy and completeness.},
   Owner                    = {cscorley},
   Timestamp                = {2014.11.27}
 }
@@ -2617,7 +2619,8 @@
 @InCollection{Song-etal:2005,
   Title                    = {{ExpertiseNet: Relational and Evolutionary Expert Modeling User Modeling 2005}},
   Author                   = {Song, Xiaodan and Tseng, Belle L. and Lin, Ching-Yung and Sun, Ming-Ting},
-  Publisher                = {Springer Berlin / Heidelberg},
+  Booktitle                = {User Modeling 2005},
+  Publisher                = {Springer},
   Year                     = {2005},
 
   Address                  = {Berlin, Heidelberg},
@@ -2742,9 +2745,11 @@
   Author                   = {Chong Wang and
  David M. Blei and
  David Heckerman},
-  Journal                  = {CoRR},
+  Journal                  = {arXiv preprint arXiv:1206.3298},
   Year                     = {2012},
-  Volume                   = {abs/1206.3298},
+  Number                   = {1},
+  Pages                    = {8},
+  Volume                   = {1},
 
   Bibsource                = {DBLP, http://dblp.uni-trier.de},
   Owner                    = {cscorley},
@@ -2978,19 +2983,6 @@
   Posted-at                = {2012-07-03 22:47:59},
   Priority                 = {2},
   Publisher                = {IEEE},
-  Timestamp                = {2014.11.27}
-}
-
-@Article{IEEE:1990,
-  Title                    = {{IEEE Standard Glossary of Software Engineering Terminology}},
-  Journal                  = {IEEE Std 610.12-1990},
-  Year                     = {1990},
-  Pages                    = {1},
-
-  Doi                      = {10.1109/IEEESTD.1990.101064},
-  Owner                    = {cscorley},
-  Posted-at                = {2012-07-26 15:48:09},
-  Priority                 = {2},
   Timestamp                = {2014.11.27}
 }
 
