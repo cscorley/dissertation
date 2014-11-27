@@ -58,8 +58,8 @@ identifiers, comments, and literals). Such topics often correspond to
 the concepts and features implemented by the source code
 [@Baldi-etal:2008], and exploring such topics shows promise in helping
 developers to understand the entities that make up a system and to
-understand how those entities relate [@Kuhn-etal:07; @Maskeri-etal:08;
-@Savage-etal:10; @Gethers-etal:11a]. Recent approaches to exploring
+understand how those entities relate [@Kuhn-etal:2007; @Maskeri-etal:2008;
+@Savage-etal:2010; @Gethers-etal:2011a]. Recent approaches to exploring
 linguistic topics in source code use machine learning techniques that
 model correlations among words, such as latent semantic indexing (LSI)
 [@Deerwester-etal:1990] and latent Dirichlet allocation (LDA)
@@ -69,7 +69,7 @@ documents, such as RTM [@Chang-Blei:2010].
 Topic models of source code have many applications in addition to
 general program comprehension. These applications include feature
 location\needcite, bug localization [@Rao-etal:2013], triaging
-incoming change requests [@Kagdi-etal:2011], aspect
+incoming change requests [@Kagdi-etal:2012], aspect
 mining [@Baldi-etal:2008], and traceability link
 recovery [@Asuncion-etal:2010]. Yet, while researchers have had
 success in using topic models on source code entities, there is a
@@ -126,7 +126,7 @@ tasks such as feature location and bug localization, they still are
 unable to stay up-to-date entirely.
 Additionally, much of the work for assigning developers to change
 requests still uses files as input and an array of heuristics to
-identify a developer [@Kagdi-etal:2011]\needcite.
+identify a developer [@Kagdi-etal:2012]\needcite.
 These methods also have the same flaw in that they ultimately rely on
 files for information.
 
