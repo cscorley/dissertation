@@ -149,6 +149,18 @@ $if(abstract)$
 $abstract$
 \end{abstract}
 $endif$
+$if(dedication)$
+\begin{dedication}
+    \begin{center}
+$dedication$
+    \end{center}
+\end{dedication}
+$endif$
+$if(acknowledgments)$
+\begin{acknowledgments}
+$acknowledgments$
+\end{acknowledgments}
+$endif$
 
 $for(include-before)$
 $include-before$
@@ -198,4 +210,9 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+$if(appendices)$
+\begin{appendices}
+    \input{tmp/appendices.tex}
+\end{appendices}
+$endif$
 \end{document}

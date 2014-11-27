@@ -1,4 +1,3 @@
-
 ---
 documentclass: AlabamaManuscript
 author: Christopher Scott Corley
@@ -13,6 +12,9 @@ bibliography: proposal.bib
 lof: Yes
 lot: Yes
 loa: Yes
+appendices: Yes
+dedication: No # Mom and Sis
+acknowledgments: No
 linkcolor: magenta
 urlcolor:  blue
 citecolor: red

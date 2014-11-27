@@ -4,6 +4,8 @@
     Introduction to problem
 -->
 
+![Changeset process](figures/changeset.pdf)
+
 [@Rehurek:2011]
 
 Basic idea:

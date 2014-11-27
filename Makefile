@@ -12,32 +12,46 @@ GFX_FILES	= #$(GEN_GFX)
 CLS_FILES	= $(shell find . -name '*.cls')
 TEX_FILES	= $(shell find . -name '*.tex')
 BIB_FILES	= $(shell find . -name '*.bib')
-MD_FILES	= $(shell find ./chapters -name '*.md' | sort)
+MD_FILES	= $(shell find . -name '*.md' | sort)
+CHAP_FILES	= $(shell find ./chapters -name '*.md' | sort)
+EXTRA_FILES	= $(shell find ./extra -name '*.md' | sort)
+
+GENERATED = $(shell find ./extra -name '*.md' | sort | sed -e 's/^\.\/extra\///g' | sed -e 's/\.md//g')
 
 DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(MD_FILES)
 
 
 all: $(PAPER).pdf
 
-$(PAPER).pdf: $(DEP_FILES)
+$(GENERATED) :: $(EXTRA_FILES)
+	mkdir -p tmp
+	pandoc \
+		--chapters \
+		--from=markdown \
+		--to=latex \
+		extra/$@.md -o tmp/$@.tex
+
+$(PAPER).pdf: $(DEP_FILES) $(GENERATED)
 	pandoc \
 		--filter pandoc-citeproc \
+		--smart \
 		--toc \
 		--chapters \
 		--listings \
 		--template=./AlabamaManuscript.latex \
-		-A extra/appendices.tex \
 		-H extra/header.tex \
-		metadata.yaml $(MD_FILES) -o $(PAPER).pdf 
+		--from=markdown \
+		metadata.yaml $(CHAP_FILES) -o $(PAPER).pdf
 	pandoc \
 		--filter pandoc-citeproc \
+		--smart \
 		--toc \
 		--chapters \
 		--listings \
-		-A extra/appendices.tex \
-		metadata.yaml $(MD_FILES) -o $(PAPER).html
+		--from=markdown \
+		metadata.yaml $(CHAP_FILES) -o $(PAPER).html
 
-edit: 
+edit:
 	vim chapters/*
 
 tidy:

@@ -72,7 +72,7 @@ Triaging can be a time consuming and error prone process when done
 manually. If a change request was assigned in error, it will need to be
 reassigned to the appropriate developer. Jeong et
 al. [@Jeong-etal:2009] found that reassignment occurs between
-37\%44\% of the time and introduces an average of 50 days delay in
+37\%--44\% of the time and introduces an average of 50 days delay in
 completing the request. Automated support for triaging helps to decrease
 change request time-to-triage and to correct, or prevent, human error.
 

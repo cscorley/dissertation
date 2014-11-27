@@ -169,7 +169,7 @@
          \MakeUppercase{\ETD@author}\\
          \begin{spacing}{1.0}
             \vspace{\baselineskip}
-            Dr. \MakeUppercase{Jeffrey C. Carver}, COMMITTEE CHAIR\\
+Dr.\ \MakeUppercase{Jeffrey C. Carver}, COMMITTEE CHAIR\\
 Dr.\ \MakeUppercase{Nicholas A. Kraft}\\
 Dr.\ \MakeUppercase{Jeffrey G. Gray}\\
 Dr.\ \MakeUppercase{THIRD}\\
@@ -344,6 +344,7 @@ Dr.\ \MakeUppercase{FOURTH}
    \vspace{-\baselineskip}
    \begin{spacing}{1.0}
       \@starttoc{loa}
+      \input{tmp/abbreviations.tex}
    \end{spacing}
    \cleardoublepage
 }
