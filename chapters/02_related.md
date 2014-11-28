@@ -200,5 +200,5 @@ In addition to the transformations outlined in Section
 
 ## Developer identification {#related-triage}
 
-## Traceability link recovery {#related-traceability}
+## Configuration of Topic Models {#related-config}
 

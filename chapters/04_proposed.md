@@ -45,14 +45,6 @@ as well as $\theta_{Query}$, i.e., the topic-document probability distribution o
 Then a similarity measure for probability distributions, such as
 cosine similarity or Hellinger distance, can be used to make pairwise comparisons
 between $\theta_{Query}$ and $\theta_{Snapshot}$.
-Hellinger distance ($H$) can be defined as:
-
-\begin{equation}
-    H(P, Q) = \frac{1}{\sqrt{2}} \; \sqrt{\sum_{i=1}^{k} (\sqrt{P_i} - \sqrt{Q_i})^2}
-\label{eq:hellinger}
-\end{equation}
-
-where $P$ and $Q$ are two discrete probability distributions of length $k$.
 
 
 ### Proposal
@@ -215,7 +207,7 @@ project.
 
 
 
-## Traceability link recovery {#study-trace}
+## Combining and Configuring Changset-based Topic Models {#study-config}
 
 ### Motivation
 

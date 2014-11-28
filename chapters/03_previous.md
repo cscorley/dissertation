@@ -13,17 +13,33 @@
 ## Modeling changeset topics {#mud2014}
 
 In addition to the terminology described in Section \ref{terminology}, we
-use the following terminology to describe document extraction of changesets. A
-*diff* is a set of text which represents the differences between two texts. A
-*patch* is a set of instructions (i.e., diffs) that is used to transform one
-set of texts into another. *Context lines* denote text useful for transforming
-the text, but do not represent the differences. *Added lines* are lines which
-were added in order to transform the first text into the second. Similarly,
-*removed lines* are lines which are removed for this same purpose. Figure
-\ref{fig:diff} shows an example of what a changeset might look like. A
-*changeset*, ideally, represents a single feature modification, addition, or
-deletion, which may crosscut many source code entities. A *commit* is a
-representation of a changeset in a version control system, such as Git or
+use the following terminology to describe document extraction of changesets.
+
+diff:
+:   set of text which represents the differences between two texts
+
+patch:
+:   a set of instructions (i.e., diffs) that is used to transform one set of
+texts into another
+
+context lines:
+:   lines of a diff that denote text useful for transforming the text, but do
+not represent the differences
+
+added lines:
+:   lines of a diff that were *added* in order to transform the first text into
+the second
+
+removed lines:
+:   lines of a diff that were *removed* in order to transform the first text into
+the second
+
+changeset
+:   ideally represents a single feature modification, addition, or deletion,
+which may crosscut many source code entities
+
+commit
+:   a representation of a changeset in a version control system, such as Git or
 Subversion.
 
 - Document extraction
