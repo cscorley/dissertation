@@ -1,9 +1,5 @@
 # Introduction
 
-![Changeset process](figures/changeset.pdf)
-
-[@Rehurek:2011]
-
 Basic idea:
 
 - Lots of software maintenance tasks being automated by topic modeling
