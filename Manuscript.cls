@@ -268,7 +268,7 @@
    \begin{center}
       LIST OF ABBREVIATIONS
    \end{center}
-   \vspace{-\baselineskip}
+   \vspace{\baselineskip} % used to be -\baselineskip
    \begin{spacing}{1.0}
 }{%
    \end{spacing}

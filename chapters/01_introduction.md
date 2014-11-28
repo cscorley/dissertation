@@ -1,9 +1,5 @@
 # Introduction
 
-<!-- 
-    Introduction to problem
--->
-
 ![Changeset process](figures/changeset.pdf)
 
 [@Rehurek:2011]
@@ -78,20 +74,9 @@ success in using topic models on source code entities, there is a
 fundamental issue with the current approaches. This issue is that the
 input documents used to build a topic model are source code entities,
 and will be the motivating point of this work.
-<!-- Yet, while researchers have used the extrinsic properties of topics
-in software engineering tasks, they have not yet measured their
-intrinsic properties. We believe that understanding these intrinsic
-properties will lead to a better understanding of how topics are
-implemented and thus will lead to a better understanding of how topics
-relate to each other and to source code entities such as packages or
-classes. -->
 
 
 ## Motivation
-
-<!-- 
-     Statement of purpose
--->
 
 <!--
 - Software evolves quickly
@@ -155,7 +140,6 @@ Table:  Demonstration of simple table syntax\label{demo}
 
 A reference to the Table \ref{demo}.
 
-
 ## Research Goals, Questions, and Hypotheses
 
 The primary research goal of this proposal is to evaluate the performance
@@ -187,5 +171,69 @@ researchers and practitioners.
 
 ## Terminology and Background
 
-In this section, an overview of common terminology used by both software
-engineering and information retrieval areas is given.
+We adopt terminology similar to that of @Biggers-etal:2014. In particular,
+we the following terms:
+
+A *term* (or *word*), $w$, is the basic unit of discrete data in a lexicon and is a sequence of letters.
+A *token* is a sequence of non-whitespace characters containing one or more term.
+An *entity* is a named source element such as a class or method,
+and an *identifier* is a token representing the name of an entity.
+*Comments* and *literals* are sequences of tokens delimited by
+language-specific markers (e.g., /\* \*/ and quotes).
+The *document*, $d$, is a sequence of words $d = (w_1, \ldots, w_m)$,
+and a *corpus* , $C$, is a set of documents $C = (d_1, \ldots, d_n)$.
+
+The left side of Figure~\ref{fig:snapshot} illustrates the document extraction
+process. A document extractor takes source code as input and produces a corpus
+as output. Each document in the corpus contains the words associated with a
+source code entity such as a class or method. The text extractor is the first
+part of the document extractor. It parses the source code and produces a token
+stream for each class. The preprocessor is the second part of the document
+extractor. It applies a series of transformations to each token and produces
+one or more words from the token. The transformations [@Marcus-etal:2004;
+@Marcus-Menzies:2010] commonly used are:
+
+Splitting
+
+:   separate tokens into constituent words based on common coding
+  style conventions (e.g., the use of camel case or underscores) and on the
+  presence of non-letters (e.g., punctuation or digits)
+
+Normalizing
+
+:   replace each upper case letter with the corresponding lower
+  case letter
+
+Filtering
+
+:   remove common words such as articles (e.g., "an" or "the"),
+  programming language keywords, standard library entity names, or short words
+
+Stemming
+
+:   removing prefixes and suffixes to leave just the root word
+
+The right side of Figure~\ref{fig:snapshot} illustrates the retrieval process.
+The main prerequisite of the retrieval process is to build the search engine.
+The search engine is constructed from the topic model trained from the corpus
+and an index of that corpus inferred from that model, known as $\theta$.
+The primary function of the search engine is to rank documents in relation to the query.
+The search engine performs a pairwise classification of the query
+to each document and ranks the documents according score.
+
+To accomplish the classification step using a topic model,
+the search engine infers $\theta_{Snapshot}$, i.e.,
+the topic-document probability distribution of each document in the snapshot corpus,
+as well as $\theta_{Query}$, i.e., the topic-document probability distribution of the query.
+Then a similarity measure for probability distributions, such as
+cosine similarity or Hellinger distance, can be used to make pairwise comparisons
+between $\theta_{Query}$ and $\theta_{Snapshot}$.
+Hellinger distance ($H$) can be defined as:
+
+\begin{equation}
+    H(P, Q) = \frac{1}{\sqrt{2}} \; \sqrt{\sum_{i=1}^{k} (\sqrt{P_i} - \sqrt{Q_i})^2}
+\label{eq:hellinger}
+\end{equation}
+
+where $P$ and $Q$ are two discrete probability distributions of length $k$.
+

@@ -4,7 +4,7 @@
 
 ## Modeling ownership
 
-## Duplication detection
+## Duplicate bug report detection
 
 <!--
     relates to triage steps

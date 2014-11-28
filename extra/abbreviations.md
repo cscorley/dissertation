@@ -10,17 +10,9 @@ $\theta$
 
 :    the document-topic matrix of a corpus
 
-$\theta_d$
-
-:    the topic membership vector of document d
-
 $\phi$
 
 :    the topic-term matrix of a corpus
-
-$\phi_i$
-
-:    the topic-term matrix of a corpus of the $i$th topic
 
 D
 
