@@ -1,5 +1,6 @@
 # Introduction
 
+
 Basic idea:
 
 - Lots of software maintenance tasks being automated by topic modeling
@@ -165,7 +166,13 @@ researchers and practitioners.
     Possible threats?
 -->
 
-## Terminology and Background
+## Terminology and Background {#intro-terminology}
+
+- Terminology
+- Document extraction
+    - Preprocessing
+- Training
+- Retrieval
 
 We adopt terminology similar to that of @Biggers-etal:2014. In particular,
 we the following terms:
@@ -179,14 +186,7 @@ language-specific markers (e.g., /\* \*/ and quotes).
 The *document*, $d$, is a sequence of words $d = (w_1, \ldots, w_m)$,
 and a *corpus* , $C$, is a set of documents $C = (d_1, \ldots, d_n)$.
 
-The left side of Figure~\ref{fig:snapshot} illustrates the document extraction
-process. A document extractor takes source code as input and produces a corpus
-as output. Each document in the corpus contains the words associated with a
-source code entity such as a class or method. The text extractor is the first
-part of the document extractor. It parses the source code and produces a token
-stream for each class. The preprocessor is the second part of the document
-extractor. It applies a series of transformations to each token and produces
-one or more words from the token. The transformations [@Marcus-etal:2004;
+The transformations [@Marcus-etal:2004;
 @Marcus-Menzies:2010] commonly used are:
 
 Splitting
@@ -209,27 +209,5 @@ Stemming
 
 :   removing prefixes and suffixes to leave just the root word
 
-The right side of Figure~\ref{fig:snapshot} illustrates the retrieval process.
-The main prerequisite of the retrieval process is to build the search engine.
-The search engine is constructed from the topic model trained from the corpus
-and an index of that corpus inferred from that model, known as $\theta$.
-The primary function of the search engine is to rank documents in relation to the query.
-The search engine performs a pairwise classification of the query
-to each document and ranks the documents according score.
 
-To accomplish the classification step using a topic model,
-the search engine infers $\theta_{Snapshot}$, i.e.,
-the topic-document probability distribution of each document in the snapshot corpus,
-as well as $\theta_{Query}$, i.e., the topic-document probability distribution of the query.
-Then a similarity measure for probability distributions, such as
-cosine similarity or Hellinger distance, can be used to make pairwise comparisons
-between $\theta_{Query}$ and $\theta_{Snapshot}$.
-Hellinger distance ($H$) can be defined as:
-
-\begin{equation}
-    H(P, Q) = \frac{1}{\sqrt{2}} \; \sqrt{\sum_{i=1}^{k} (\sqrt{P_i} - \sqrt{Q_i})^2}
-\label{eq:hellinger}
-\end{equation}
-
-where $P$ and $Q$ are two discrete probability distributions of length $k$.
 

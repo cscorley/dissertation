@@ -12,19 +12,22 @@
 \usepackage{subfig}
 \usepackage{textcase}
 \usepackage{xcolor}
+\usepackage{rotating}
 \setlength\epigraphwidth{\textwidth}
 \setlength\epigraphrule{0pt}
 
-\definecolor{lightred}{RGB}{150,0,0}
+\definecolor{lightred}{RGB}{175,50,50}
 \definecolor{lightgreen}{RGB}{0,150,0}
-\definecolor{lightblue}{RGB}{0,0,150}
+\definecolor{lightblue}{RGB}{50,50,175}
 
 \lstdefinelanguage{diff}{
+  morecomment=[f][\color{lightblue}]{diff },
+  morecomment=[f][\color{lightblue}]{index },
   morecomment=[f][\color{lightblue}]{@@},     % group identifier
   morecomment=[f][\color{lightred}]-,         % deleted lines
   morecomment=[f][\color{lightgreen}]+,       % added lines
-  morecomment=[f][\color{black}]{---}, % Diff header lines (must appear after +,-)
-  morecomment=[f][\color{black}]{+++},
+  morecomment=[f][\color{lightblue}]{---}, % Diff header lines (must appear after +,-)
+  morecomment=[f][\color{lightblue}]{+++},
 }
 \hyphenation{}
 
