@@ -28,7 +28,7 @@ source code entity such as a class or method. The text extractor is the first
 part of the document extractor. It parses the source code and produces a token
 stream for each class. The preprocessor is the second part of the document
 extractor. It applies a series of transformations to each token and produces
-one or more words from the token. 
+one or more words from the token.
 
 The right side of Figure \ref{fig:snapshot-flt} illustrates the retrieval process.
 The main prerequisite of the retrieval process is to build the search engine.
@@ -64,7 +64,7 @@ algorithm using changesets, the FLT maintains an up-to-date model without
 incurring the non-trivial computational cost associated with retraining
 traditional FLTs.
 
-#### Approach
+#### Approach {#flt-proposed-approach}
 
 ![Feature location using changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
 
@@ -164,20 +164,62 @@ for assignment to the change request. Anvik [@Anvik-etal:2006] notes that a
 fully-automated approach may not be feasible given the amount of contextual
 knowledge required for triage.
 
-### Background
-
+### Background {#triage-background}
 ### Proposal
+
+
 
 #### Approach
 
+![Developer identification using changesets\label{fig:changeset-triage}](figures/changeset-triage.pdf)
+
+The changeset topic modeling approach requires two types of document
+extraction:  and one for the every changeset in the source code history and a
+developer profile of the words each individual developer changed in those
+changesets. The left side of Figure \ref{fig:changeset-triage} illustrates the
+dual-document extraction approach.
+
+The document extraction process for the changesets remains the same as covered in
+Section \ref{flt-proposed-approach}.
+
+
+The right side of Figure \ref{fig:changeset-triage} illustrates the retrieval
+process. The key intuition to our approach is that a topic model such as LDA or
+LSI can infer any given document's topic proportions regardless of the
+documents used to train the model. Hence, we train a topic model on the
+changeset corpus, but search for related developers over the developer corpus.
+In the search engine, we can use a dynamic programming to keep
+$\theta_{Developers}$ up-to-date as new changesets are added to the model. That
+is, upon a update to the model, new inferences of only the source code
+documents affected by this changeset are made. Additionally, we can then query
+the model as needed and rank the results of that query against
+$\theta_{Developers}$. Note that we never infer a $\theta_{Changeset}$ for the
+changeset documents on which the model is built.
+
+To leverage the online functionality of the topic models, we can also intermix
+the model training and retrieval steps. First, we initialize a model in online
+mode. Then, as changes are made, the model is updated with the new changesets
+as they are committed. That is, with changesets, we incrementally update a
+model and can query it at any moment. This insight means that we can also
+evaluate our approach *temporally*. That is, we we can approximate how the
+automatic developer identification would perform throughout the evolution of a
+project.
+
+
 #### Evaluation
+
+- DIT using both LSI and LDA
+- Datasets?
+- We can also do temporal stuff to approximate how the DIT would perform
+  throughout the evolution of a project.
+
 
 
 ## Traceability link recovery {#study-trace}
 
 ### Motivation
 
-### Background 
+### Background
 
 ### Proposal
 

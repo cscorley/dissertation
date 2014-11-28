@@ -37,6 +37,12 @@ M
 N
 :   the number of documents in a corpus
 
+DIT
+:   Developer identification technique
+
+FLT
+:   Feature location technique
+
 IR
 :   Information Retrieval
 
