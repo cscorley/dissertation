@@ -216,3 +216,13 @@ project.
 ### Proposal
 
 
+#### Approach
+
+![Combining changeset-based feature location and developer identifiation
+\label{fig:changeset-combo}](figures/changeset-combo.pdf)
+
+
+#### Evaluation
+
+
+
