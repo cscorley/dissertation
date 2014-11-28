@@ -1,88 +1,69 @@
 $\alpha$
-
-:    in LDA, a smoothing parameter for document-topic distributions
+:   in LDA, a smoothing parameter for document-topic distributions
 
 $\beta$
-
-:    in LDA, a smoothing parameter for topic-term distributions
+:   in LDA, a smoothing parameter for topic-term distributions
 
 $\theta$
-
-:    the document-topic matrix of a corpus
+:   the document-topic matrix of a corpus
 
 $\phi$
-
-:    the topic-term matrix of a corpus
-
-D
-
-:    the term-document matrix of a corpus
-
-C
-
-:    a corpus
+:   the topic-term matrix of a corpus
 
 d
+:   a document
 
-:    a document
-
-K
-
-:    in LDA, the number of topics; in LSI, the reduction factor
-
-N
-
-:    the number of terms in a document
+C
+:   a corpus, or the term-document matrix
 
 V
-
-:    the vocabulary of a corpus
+:   the vocabulary of a corpus
 
 w
-
-:    a term
+:   a term
 
 z
+:   a topic
 
-:    a topic
+K
+:   in LDA, the number of topics; in LSI, the reduction factor
+
+D
+:   the numer of terms in a document
+
+M
+:   the number of unique terms in a corpus
+
+N
+:   the number of documents in a corpus
 
 IR
-
-:    Information Retrieval
+:   Information Retrieval
 
 LDA
-
-:    Latent Dirichlet Allocation
+:   Latent Dirichlet Allocation
 
 LOC
-
-:    Lines of Code
+:   Lines of Code
 
 LSA
-
-:    Latent Semantic Analysis
+:   Latent Semantic Analysis
 
 LSI
-
-:    Latent Semantic Indexing
+:   Latent Semantic Indexing
 
 PLSI
-
-:    Probabilistic Latent Semantic Indexing
+:   Probabilistic Latent Semantic Indexing
 
 SLOC
-
-:    Source Lines of Code
+:   Source Lines of Code
 
 SVD
-
-:    Singular Value Decomposition
+:   Singular Value Decomposition
 
 VCS
-
-:    Version Control System
+:   Version Control System
 
 VSM
-
-:    Vector Space Model
+:   Vector Space Model
 

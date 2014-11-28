@@ -12,7 +12,7 @@
 
 ## Modeling changeset topics {#mud2014}
 
-In addition to the terminology described in Section \ref{intro-terminology}, we
+In addition to the terminology described in Section \ref{terminology}, we
 use the following terminology to describe document extraction of changesets. A
 *diff* is a set of text which represents the differences between two texts. A
 *patch* is a set of instructions (i.e., diffs) that is used to transform one
