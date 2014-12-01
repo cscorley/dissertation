@@ -70,7 +70,7 @@ The document extraction process for the snapshot remains the same as covered in 
 The document extractor for the changesets parses each changeset for the removed, added, and context lines.
 From there, each line is tokenized by the text extractor.
 In a changeset it may be desirable to parse further for source code entities
-using island grammar parsing[@Moonen:2001],
+using island grammar parsing [@Moonen:2001],
 although not necessary for this approach.
 It may also be desirable to only use portions of the changeset, such as only using added or removed lines.
 The same preprocessor transformations as before also occur in changesets.

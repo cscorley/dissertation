@@ -6,7 +6,7 @@ We then discuss how these TR approaches are applied in software engineering.
 Finally, we discuss various areas of software engineering in which TR
 has been applied.
 
-## Text Retrieval {#related-TR}
+## Text Retrieval {#related-general-TR}
 
 In this section, we review and summarize the terminology and text retrieval
 process.
@@ -15,42 +15,42 @@ process.
 
 We use the following terminology to describe text retrieval:
 
-term (word) $w$:
+term (word), $w$:
 :   the smallest free-form of a language
 
-token
+token:
 :   a sequence of non-whitespace characters containing one or more term
 
-document $d$:
+document, $d$:
 :   a sequence of $D$ terms $w_1, w_2, ..., w_D$, often represented as a
 bag of words (i.e., $M$-length vector of term frequencies or weights)
 
-corpus $C$:
+corpus, $C$:
 :   a sequence of $N$ documents $d_1, d_2, ..., d_N$ (i.e., a $M \times N$
 document-term matrix)
 
-vocabulary $V$:
+vocabulary, $V$:
 :   a set of $M$ unique terms that appear in a corpus $\{w_1, w_2, ..., w_M\}$
 
-topic $z$:
+topic, $z$:
 :   a concept or theme of related terms, often represented as a distribution of
 term proportions
 
-topic model $\phi$:
+topic model, $\phi$:
 :   a mathematical representation of the thematic structure of a corpus, or how
 much a term $w$ contributes to each topic $z$ (i.e., a $M \times K$ topic-term
 matrix)
 
-inferrence $\theta_d$
+inferrence, $\theta_d$
 :   the thematic structure of a given document (i.e., a $K$-length topic
 proportion vector)
 
-index $\theta$:
+index, $\theta$:
 :   a corpus that has been transformed for searching, e.g., in LDA by
 inferring the thematic structure of each document (i.e., a $N \times K$
 document-topic matrix)
 
-query $q$:
+query, $q$:
 :   a document created by a user
 
 search engine:
@@ -94,7 +94,7 @@ token. The transformations commonly used are:
     :   adjust the representation of a term in a document by some scheme,
     such as term-frequency inverse-document-frequency (tf-idf)
     [@Salton-Buckley:1988]
-6. Pruning:
+6. Prune:
     :   remove term that occur in, for example, over 80% or under 2% of the
     documents [@Madsen-etal:2004].
 
@@ -119,6 +119,43 @@ as:
 \end{equation}
 
 where $P$ and $Q$ are two discrete probability distributions of length $K$.
+
+## Text Retrieval for Software {#related-software-TR}
+
+### Terminology 
+
+We adopt and extend terminology from @Biggers-etal:2014.
+In particular, we define the following:
+
+entity
+:   a named source element such as a method, class, or package
+
+identifier
+:   a token representing the name of an entity
+
+comment
+:   a sequence of tokens delimited by language specific markers (e.g., `/* */`
+or `#`)
+
+literal
+:   a sequence of tokens delimited by language specific markers (e.g., `' '`
+for strings)
+
+In addition to the transformations outlined in Section
+\ref{document-extraction}, extended transformations [@Marcus-etal:2004;
+@Marcus-Menzies:2010] commonly used in software are:
+
+1. Split:
+    :    separate tokens into constituent words based on common coding style
+    conventions (e.g., the use of camel case or underscores) and on the presence
+    of non-letters (e.g., punctuation or digits)
+2. Filter:
+    :   remove common words such programming language keywords, or standard
+    library entity names
+3. Weight:
+    :   adjust the representation of a term in a document by some scheme, such
+    as by the entity type [@Bassett-Kraft:2013].
+
 
 ### Boolean Model
 
@@ -161,40 +198,6 @@ word from the corpus being assigned to the topic.
 @Hoffman-etal:2010 introduce a version of LDA which is online.
 @Zhai-Boyd-Graber:2013 introduce an extension of LDA in which the model also
 does not need to know about the corpus vocabulary prior to training.
-
-## Text Retrieval on Software
-
-We adopt and extend terminology from @Biggers-etal:2014.
-In particular, we define the following:
-
-entity
-:   a named source element such as a method, class, or package
-
-identifier
-:   a token representing the name of an entity
-
-comment
-:   a sequence of tokens delimited by language specific markers (e.g., `/* */`
-or `#`)
-
-literal
-:   a sequence of tokens delimited by language specific markers (e.g., `' '`
-for strings)
-
-In addition to the transformations outlined in Section
-\ref{document-extraction}, extended transformations [@Marcus-etal:2004;
-@Marcus-Menzies:2010] commonly used in software are:
-
-1. Split:
-    :    separate tokens into constituent words based on common coding style
-    conventions (e.g., the use of camel case or underscores) and on the presence
-    of non-letters (e.g., punctuation or digits)
-2. Filter:
-    :   remove common words such programming language keywords, or standard
-    library entity names
-3. Weight:
-    :   adjust the representation of a term in a document by some scheme, such
-    as by the entity type [@Bassett-Kraft:2013].
 
 ## Feature location {#related-flt}
 

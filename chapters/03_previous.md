@@ -12,6 +12,10 @@
 
 ## Modeling changeset topics {#mud2014}
 
+This section discusses the work in @Corley-etal:2014.
+
+### Terminology
+
 In addition to the terminology described in Section \ref{terminology}, we
 use the following terminology to describe document extraction of changesets.
 
@@ -42,6 +46,8 @@ commit
 :   a representation of a changeset in a version control system, such as Git or
 Subversion.
 
+### Approach
+
 - Document extraction
 - Preprocessing
 - Training
@@ -49,7 +55,6 @@ Subversion.
 
 \begin{figure*}[t]
 \centering
-\footnotesize
 \begin{lstlisting}[language=diff, basicstyle=\ttfamily]
 diff --git a/lao b/tzu
 index 635ef2c..5af88a8 100644
@@ -73,11 +78,11 @@ index 635ef2c..5af88a8 100644
 +Deeper and more profound,
 +The door of all subtleties!
 \end{lstlisting}
-\caption{Example of a \texttt{git diff}.
+\caption{Example of a \texttt{git diff}}
 Black or blue lines denote metadata about the change useful for patching.
 In particular, black lines represent context lines (beginning with a single space).
 Red lines (beginning with a single~\texttt{-}) denote line removals,
-and green lines (beginning with a single~\texttt{+}) denote line additions.}
+and green lines (beginning with a single~\texttt{+}) denote line additions.
 \label{fig:diff}
 \vspace{-10pt}
 \end{figure*}
