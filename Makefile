@@ -44,22 +44,14 @@ $(PAPER).pdf: $(DEP_FILES) $(GENERATED)
 		--from=markdown \
 		-M biblio-files=$(PAPER) \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
+	make latex
+	make latex
+
+latex: $(PAPER).tex
 	pdflatex $(PAPER)
 	pdflatex $(PAPER)
 	bibtex $(PAPER)
 	pdflatex $(PAPER)
-
-debug: $(DEP_FILES) $(GENERATED)
-	pandoc \
-		--filter pandoc-citeproc \
-		--smart \
-		--toc \
-		--chapters \
-		--listings \
-		--template=./Manuscript.latex \
-		-H extra/header.tex \
-		--from=markdown \
-		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \
