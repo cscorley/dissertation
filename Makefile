@@ -34,6 +34,23 @@ $(GENERATED) :: $(EXTRA_FILES)
 
 $(PAPER).pdf: $(DEP_FILES) $(GENERATED)
 	pandoc \
+		--natbib \
+		--smart \
+		--toc \
+		--chapters \
+		--listings \
+		--template=./Manuscript.latex \
+		-H extra/header.tex \
+		--from=markdown \
+		-M biblio-files=$(PAPER) \
+		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
+	pdflatex $(PAPER)
+	pdflatex $(PAPER)
+	bibtex $(PAPER)
+	pdflatex $(PAPER)
+
+debug: $(DEP_FILES) $(GENERATED)
+	pandoc \
 		--filter pandoc-citeproc \
 		--smart \
 		--toc \
@@ -42,7 +59,7 @@ $(PAPER).pdf: $(DEP_FILES) $(GENERATED)
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
 		--from=markdown \
-		metadata.yaml $(CHAP_FILES) -o $(PAPER).pdf
+		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \

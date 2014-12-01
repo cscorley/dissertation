@@ -1,9 +1,21 @@
 ---
 documentclass: Manuscript
-template: Manuscript.latex
-author: Christopher Scott Corley
-title: Online Topic Modeling for Software Maintenance
-date: 2014
+#template: Manuscript.latex
+classoption:
+    - draft
+fontfamily: times #libertine
+fontsize: 12pt
+
+links-as-notes: Yes
+lof: Yes
+lot: Yes
+loa: Yes
+appendices: Yes
+linkcolor: magenta
+urlcolor:  blue
+citecolor: brown
+
+# front matter
 location: Tuscaloosa, Alabama
 thesistype: A dissertation (proposal)
 submissioninfos:
@@ -12,24 +24,24 @@ submissioninfos:
     - in the Department of Computer Science
     - in the Graduate School of
     - The University of Alabama
-abstract: |
-    I can write an abstract.
 
-    It might be long.
-csl: bracket-chicago-author-date.csl
-bibliography: proposal.bib
-lof: Yes
-lot: Yes
-loa: Yes
-appendices: Yes
-dedication: No # Mom and Sis
-acknowledgments: No
-linkcolor: magenta
-urlcolor:  blue
-citecolor: red
+author: Christopher Scott Corley
+title: Online Topic Modeling for Software Maintenance
+date: 2014
 committee:
     - Jeffrey C. Carver, Committee Chair
     - Nicholas A. Kraft
     - Jeffrey G. Gray
+
+abstract: |
+    I can write an abstract.
+
+    It might be long.
+
+# change the dedication and acknowledgements to text
+dedication: No
+
+acknowledgments: No
+
 ---
 

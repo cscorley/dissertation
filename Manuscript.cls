@@ -1,13 +1,14 @@
-% $Id: AlabamaManuscript.cls 17328 2011-07-07 01:11:59Z nkraft $
-%
 % Manuscript Class for an ETD
 % Department of Computer Science
 % The University of Alabama
 %
-% Nicholas A. Kraft <nicholas.a.kraft@us.abb.com>
+% Original by
+% Nicholas A. Kraft <nkraft@cs.ua.edu>, <nicholas.a.kraft@us.abb.com>
+%
+% Modified by
 % Christopher S. Corley <cscorley@crimson.ua.edu>
 
-\def\filedate{2014/11/27}
+\def\filedate{2014/12/01}
 \def\fileversion{v1.1}
 
 \NeedsTeXFormat{LaTeX2e}
@@ -15,7 +16,6 @@
    \filedate\space\fileversion
    Manuscript Class for a UA ETD
    ]
-
 
 %-- Variable declaration/initialization
 %--
@@ -52,11 +52,9 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions
 
-\LoadClass[12pt,letterpaper,onecolumn,oneside]{report}
-
+\LoadClass[letterpaper,onecolumn,oneside]{report}
 
 %-- Packages
-%--
 
 %---- fonts
 \RequirePackage[T1]{fontenc}
@@ -67,26 +65,24 @@
 \RequirePackage{pifont}                % Zapf Dingbats
 
 %---- other
-\RequirePackage{longtable}
-\RequirePackage{booktabs}
-\RequirePackage{calc}
-\RequirePackage[strict]{changepage}
-\RequirePackage{comment}
-\RequirePackage[pdftex,dvipsnames]{color}
-\RequirePackage{fancyhdr}
 \RequirePackage[bottom,hang,stable]{footmisc}
+\RequirePackage[caption=false]{subfig}
+\RequirePackage[pdftex,dvipsnames]{color}
 \RequirePackage[pdftex]{geometry}
 \RequirePackage[pdftex]{graphicx}
+\RequirePackage[square,longnamesfirst,sort&compress]{natbib}
+\RequirePackage{booktabs}
+\RequirePackage{calc}
+\RequirePackage{comment}
+\RequirePackage{fancyhdr}
 \RequirePackage{ifthen}
 \RequirePackage{indentfirst}
 \RequirePackage{lineno}
 \RequirePackage{lipsum}
 \RequirePackage{listings}
-\RequirePackage[square,longnamesfirst,sort&compress]{natbib}
+\RequirePackage{longtable}
 \RequirePackage{setspace}
-\RequirePackage[caption=false]{subfig}
 \RequirePackage{titlesec}
-%\RequirePackage[subfigure]{tocloft}
 \RequirePackage{ulem}
 \RequirePackage[
 ,  pdftex
@@ -159,14 +155,14 @@
 
 
 %-- Preliminary pages
-%--
 
 %---- Title page and copyright page
 \renewcommand{\maketitle}[1]{%
    \cleardoublepage
    \thispagestyle{empty}
    \phantomsection
-   \changepage{-1in}{0in}{0in}{0in}{0in}{1in}{0in}{0in}{0in}
+   \vspace*{0.5in}
+   \vspace*{\baselineskip}
    \begin{center}
       \begin{spacing}{2.0}
          \MakeUppercase{\ETD@title}\\
@@ -194,7 +190,6 @@
    \end{center}
 
    \cleardoublepage
-   \changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
    \thispagestyle{empty}
    \phantomsection
    \vspace*{\fill}
@@ -210,7 +205,6 @@
    \setcounter{page}{2}
    \phantomsection
    \addcontentsline{toc}{chapter}{ABSTRACT}
-   %\changepage{-1in}{0in}{0in}{0in}{0in}{1in}{0in}{0in}{0in}
    \vspace*{0.5in}
    \vspace*{\baselineskip}
    \begin{center}
@@ -221,14 +215,12 @@
 }{%
    \end{spacing}
    \cleardoublepage
-   %\changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
 }
 
 %---- Dedication
 \newenvironment{dedication}{%
    \phantomsection
    \addcontentsline{toc}{chapter}{DEDICATION}
-   %\changepage{-1in}{0in}{0in}{0in}{0in}{1in}{0in}{0in}{0in}
    \vspace*{0.5in}
    \vspace*{\baselineskip}
    \begin{center}
@@ -239,14 +231,12 @@
 }{%
    \end{spacing}
    \cleardoublepage
-   %\changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
 }
 
 %---- Acknowledgments
 \newenvironment{acknowledgments}{%
    \phantomsection
    \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
-   %\changepage{-1in}{0in}{0in}{0in}{0in}{1in}{0in}{0in}{0in}
    \vspace*{0.5in}
    \vspace*{\baselineskip}
    \begin{center}
@@ -257,7 +247,6 @@
 }{%
    \end{spacing}
    \cleardoublepage
-   %\changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
 }
 
 \newenvironment{abbreviations}{%
@@ -273,13 +262,10 @@
 }{%
    \end{spacing}
    \cleardoublepage
-   %\changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
 }
 
 %---- Table of Contents
 \renewcommand{\tableofcontents}{%
-   %\pagestyle{toccont}
-   %\thispagestyle{tocstart}
    \phantomsection
    \vspace*{0.5in}
    \vspace*{\baselineskip}
@@ -287,17 +273,14 @@
       CONTENTS
    \end{center}
    \vspace{-\baselineskip}
-   \begin{spacing}{1.0} % change to 0.5
+   \begin{spacing}{1.0} 
       \@starttoc{toc}
    \end{spacing}
    \cleardoublepage
-   %\pagestyle{fancy}
-   %\thispagestyle{fancy}
 }
 \renewcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
-    %\vskip 1.0em \@plus\p@
     \setlength\@tempdima{1.5em}%
     \begingroup
       \leavevmode
@@ -308,7 +291,6 @@
 \renewcommand*\l@section[2]{
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
-    %\vskip 1.0em \@plus\p@
     \setlength\@tempdima{1.5em}%
     \begingroup
       \leavevmode
@@ -319,7 +301,6 @@
 \renewcommand*\l@subsection[2]{
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
-    %\vskip 1.0em \@plus\p@
     \setlength\@tempdima{1.5em}%
     \begingroup
       \leavevmode
@@ -330,7 +311,6 @@
 \renewcommand*\l@figure[2]{
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
-    %\vskip 1.0em \@plus\p@
     \setlength\@tempdima{1.5em}%
     \begingroup
       \leavevmode
@@ -408,7 +388,6 @@
   }
 
 %-- Body
-%--
 
 \newenvironment{body}{%
    \setcounter{page}{1}
@@ -434,14 +413,11 @@
 	\phantomsection
 	\addcontentsline{toc}{chapter}{REFERENCES}
 	\cleardoublepage
-   %\changepage{-1in}{0in}{0in}{0in}{0in}{1in}{0in}{0in}{0in}
    \vspace*{0.5in}
    \vspace*{\baselineskip}
    \begin{center}
       REFERENCES
    \end{center}
-   %\vspace{-.75\baselineskip}
-   \vspace{-.5\baselineskip}
    \list{%
       [\arabic{enumi}]
    }{%
@@ -460,7 +436,6 @@
    \sfcode`\.=1000\relax
 }{%
 	\cleardoublepage
-   %\changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
 }
 
 \renewcommand{\cite}[1]{\citep{#1}}
