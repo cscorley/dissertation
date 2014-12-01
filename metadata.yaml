@@ -5,8 +5,8 @@ classoption:
     - draft
 fontfamily: times #libertine
 fontsize: 12pt
+bibliography: proposal.bib
 
-links-as-notes: Yes
 lof: Yes
 lot: Yes
 loa: Yes
