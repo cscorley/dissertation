@@ -89,14 +89,14 @@ token. The transformations commonly used are:
 4. Stem:
     :   remove prefixes and suffixes to leave just the root word (e.g.,
     "name", "names", "named", and "naming" all reduce to "name"). A common
-    stemmer used is by @Porter:1980.
+    stemmer used is by @Porter_1980.
 5. Weigh:
     :   adjust the representation of a term in a document by some scheme,
     such as term-frequency inverse-document-frequency (tf-idf)
-    [@Salton-Buckley:1988]
+    [@Salton-Buckley_1988]
 6. Prune:
     :   remove term that occur in, for example, over 80% or under 2% of the
-    documents [@Madsen-etal:2004].
+    documents [@Madsen-etal_2004].
 
 #### Model Construction and Retrieval
 
@@ -124,7 +124,7 @@ where $P$ and $Q$ are two discrete probability distributions of length $K$.
 
 ### Terminology 
 
-We adopt and extend terminology from @Biggers-etal:2014.
+We adopt and extend terminology from @Biggers-etal_2014.
 In particular, we define the following:
 
 entity
@@ -142,8 +142,8 @@ literal
 for strings)
 
 In addition to the transformations outlined in Section
-\ref{document-extraction}, extended transformations [@Marcus-etal:2004;
-@Marcus-Menzies:2010] commonly used in software are:
+\ref{document-extraction}, extended transformations [@Marcus-etal_2004;
+@Marcus-Menzies_2010] commonly used in software are:
 
 1. Split:
     :    separate tokens into constituent words based on common coding style
@@ -154,7 +154,7 @@ In addition to the transformations outlined in Section
     library entity names
 3. Weight:
     :   adjust the representation of a term in a document by some scheme, such
-    as by the entity type [@Bassett-Kraft:2013].
+    as by the entity type [@Bassett-Kraft_2013].
 
 
 ### Boolean Model
@@ -168,7 +168,7 @@ single keywords joined by boolean expressions such as `AND`, `OR`, and `NOT`.
 ### Vector Space Model
 
 The Vector Space Model (VSM) is an algebraic model introduced by
-@Salton-etal:1975. VSM uses the corpus directly as an index. Each document in
+@Salton-etal_1975. VSM uses the corpus directly as an index. Each document in
 the index is represented as a vector of term weights: words which appear in a
 document will be assigned a weight by some weighting scheme, and words that do
 not appear have weights of zero. Queries are transformed into a vector of term
@@ -178,16 +178,16 @@ weights of the same length.
 
 #### Latent Semantic Indexing
 
-Latent semantic indexing [@Deerwester-etal:1990] is an indexing and retrieval
+Latent semantic indexing [@Deerwester-etal_1990] is an indexing and retrieval
 methodology that extends the VSM.
 
-@Rehurek:2011 outlines extensions to LSI which enable the algorithm to be
+@Rehurek_2011 outlines extensions to LSI which enable the algorithm to be
 *online*. Online LSI allows the model to be updated incrementally without
 needing to know about the documents prior to model construction.
 
 #### Latent Dirichlet Allocation
 
-Latent Dirichlet allocation [@Blei-etal:2003] is a generative topic model. LDA
+Latent Dirichlet allocation [@Blei-etal_2003] is a generative topic model. LDA
 models each document in a corpus of discrete data as a finite mixture over a
 set of topics and models each topic as an infinite mixture over a set of topic
 probabilities.  That is, LDA models each document as a probability distribution
@@ -195,8 +195,8 @@ indicating the likelihood that it expresses each topic and models each topic
 that it infers as a probability distribution indicating the likelihood of a
 word from the corpus being assigned to the topic.
 
-@Hoffman-etal:2010 introduce a version of LDA which is online.
-@Zhai-Boyd-Graber:2013 introduce an extension of LDA in which the model also
+@Hoffman-etal_2010 introduce a version of LDA which is online.
+@Zhai-Boyd-Graber_2013 introduce an extension of LDA in which the model also
 does not need to know about the corpus vocabulary prior to training.
 
 ## Feature location {#related-flt}

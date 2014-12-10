@@ -12,7 +12,7 @@
 
 ## Modeling changeset topics {#mud2014}
 
-This section discusses the work in @Corley-etal:2014.
+This section discusses the work in @Corley-etal_2014.
 
 ### Terminology
 
