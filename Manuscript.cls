@@ -186,6 +186,12 @@
          \ETD@location\\
          \vspace{\baselineskip}
          \ETD@date
+         \ifthenelse{\equal{\ETD@draft}{true}}{%
+             \\
+            \vspace{\baselineskip}
+            \vspace{\baselineskip}
+            {\it Draft last updated on \today}
+        }{}
       \end{spacing}
    \end{center}
 
