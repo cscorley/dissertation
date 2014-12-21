@@ -34,6 +34,7 @@ $(GENERATED) :: $(EXTRA_FILES)
 
 $(PAPER).pdf: $(DEP_FILES) $(GENERATED)
 	pandoc \
+		--bibliography ${HOME}/papers/papers.bib \
 		--filter pandoc-citeproc \
 		--smart \
 		--toc \
@@ -46,6 +47,7 @@ $(PAPER).pdf: $(DEP_FILES) $(GENERATED)
 
 debug: $(DEP_FILES) $(GENERATED)
 	pandoc \
+		--bibliography ${HOME}/papers/papers.bib \
 		--filter pandoc-citeproc \
 		--smart \
 		--toc \

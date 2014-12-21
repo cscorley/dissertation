@@ -5,7 +5,6 @@ classoption:
     - draft
 fontfamily: times #libertine
 fontsize: 12pt
-bibliography: papers.bib
 
 lof: Yes
 lot: Yes
