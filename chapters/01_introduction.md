@@ -1,6 +1,7 @@
 # Introduction
 
 
+<!--
 Basic idea:
 
 - Lots of software maintenance tasks being automated by topic modeling
@@ -24,6 +25,7 @@ Basic idea:
     - Ignore whitespaces
     - Only look at the changed words instead of the entire lines
         - Combinations of: context/added/removed
+-->
 
 Software developers are often confronted with maintenance tasks that
 involve navigation of repositories that preserve vast amounts of project
@@ -135,6 +137,12 @@ that can be used in multiple contexts.
 This will require building a prototype tool that could be used by both
 researchers and practitioners.
 
+### Research Question 1: How does training a topic model on changesets affect the performance of a topic-modeling-based feature location techinque?
+
+### Research Question 2: How does training a topic model on changesets affect the performance of a topic-modeling-based developer identification techinque?
+
+### Research Question 3: What are the best configurations for a single topic model trained on changesets to be used both feature location and developer identification?
+
 <!--
 - To evaluate models built on changesets to other models (typically
   based on files only, but may include additional information)
@@ -150,3 +158,11 @@ researchers and practitioners.
 <!--
     Possible threats?
 -->
+
+- Subject systems
+- Datasets
+- Changesets are reliable
+    - Repository history isn't rewritten
+    - processing 1 document at a time (instead of in batch) produce comparable
+      topic models
+
