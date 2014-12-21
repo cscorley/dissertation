@@ -1,9 +1,8 @@
 ---
 documentclass: Manuscript
-#template: Manuscript.latex
 classoption:
     - draft
-fontfamily: times #libertine
+fontfamily: libertine
 fontsize: 12pt
 
 lof: Yes

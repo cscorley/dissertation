@@ -13,6 +13,9 @@ $\phi$
 d
 :   a document
 
+q
+:   a query document
+
 C
 :   a corpus, or the term-document matrix
 
@@ -29,13 +32,19 @@ K
 :   in LDA, the number of topics; in LSI, the reduction factor
 
 D
-:   the numer of terms in a document
+:   In LSI, the document-topic matrix of a corpus
 
 M
 :   the number of unique terms in a corpus
 
 N
 :   the number of documents in a corpus
+
+S
+:   In LSI, an $K \times K$ singular values matrix
+
+T
+:   an $M \times K$ term-topic vector matrix
 
 DIT
 :   Developer identification technique

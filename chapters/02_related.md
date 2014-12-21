@@ -127,17 +127,17 @@ where $P$ and $Q$ are two discrete probability distributions of length $K$.
 We adopt and extend terminology from @Biggers-etal_2014.
 In particular, we define the following:
 
-entity
+entity:
 :   a named source element such as a method, class, or package
 
-identifier
+identifier:
 :   a token representing the name of an entity
 
-comment
+comment:
 :   a sequence of tokens delimited by language specific markers (e.g., `/* */`
 or `#`)
 
-literal
+literal:
 :   a sequence of tokens delimited by language specific markers (e.g., `' '`
 for strings)
 
@@ -168,32 +168,76 @@ single keywords joined by boolean expressions such as `AND`, `OR`, and `NOT`.
 ### Vector Space Model
 
 The Vector Space Model (VSM) is an algebraic model introduced by
-@Salton-etal_1975. VSM uses the corpus directly as an index. Each document in
-the index is represented as a vector of term weights: words which appear in a
-document will be assigned a weight by some weighting scheme, and words that do
-not appear have weights of zero. Queries are transformed into a vector of term
-weights of the same length.
+@Salton-etal_1975. VSM uses the $M \times N$ term-document matrix $C$ directly as
+an index, where $M$ is the number of unique terms in the corpus and $N$ is the
+number of documents in the corpus. Each document in C is represented as a
+vector of term weights: words which appear in a document will be assigned a
+weight by some weighting scheme, and words that do not appear have weights of
+zero. That is, $C_{ij}$ is the weight of the $i$th term in the $j$th document
+in the corpus $C$.
+
+To search in the VSM, a query document $q$ (i.e., any document of interest) is
+transformed into a vector of term weights. Then, pairwise comparison of this
+document to each document in the index is performed. Any vector-based
+measurement metric, such as cosine similarity or Hellinger distance, can be
+used during the pairwise comparisons to measure the query document similarity.
+Documents in the index are then ranked according to how similar they are to the
+query document.
 
 ### Topic Models
 
 #### Latent Semantic Indexing
 
-Latent semantic indexing [@Deerwester-etal_1990] is an indexing and retrieval
-methodology that extends the VSM.
+Latent semantic indexing (LSI) [@Deerwester-etal_1990] is an indexing and
+retrieval methodology that extends the VSM. LSI relies on a mathematical
+technique called singular value decomposition (SVD) to find latent structure in
+a corpus represented in the VSM.
 
-@Rehurek_2011 outlines extensions to LSI which enable the algorithm to be
-*online*. Online LSI allows the model to be updated incrementally without
-needing to know about the documents prior to model construction.
+LSI begins with the $M \times N$ term-document matrix $C$, as in VSM.
+SVD computes $C$ into three matrices by its rank $r$ ($\leq min(M, N)$):
+
+1) $T$, an $M \times r$ term-concept vector matrix;
+2) $S$, an $r \times r$ singular values matrix;
+3) $D$, an $N \times r$ concept-document vector matrix.
+
+That is, $C = TSD^T$.
+
+However, SVD allows for a reduction strategy to use smaller matrices that
+approximate $C$ to reduce noise. That is, the features in $S$ can be reduced by
+only keeping the first $K$ largest values, where $K < r$, and removing the
+remaining values. Corresponding columns in $T$ and rows in $D$ of values
+removed from $S$ are also removed. The result of this operation is a topic
+space approximation $C_K$, or $C \approx C_K = T_KS_KD_K^T$. Now, the dot
+product between two columns in $C_K$ reflects the extent to which two documents
+(i.e., the columns) contain similar concepts.
+
+To search in LSI, a query document $q$ is transformed into the LSI topic space.
+First, $q$ is vectorized into a vector of term weights, as in VSM.
+Next, because $C = TSD^T$, and hence $D = C^TS^{-1}$, $q$ is multiplied by
+$TS^{-1}$ to transform $q$ into the topic space. Afterwards, the dot product of
+this vector is performed against all documents of $C_K$ as before.
+
+Several extensions to SVD which enable the algorithm to be *online* have been
+identified [@Zha-Simon_1999; @Levey-Lindenbaum_2000; @Gorrell-Webb_2005;
+@Brand_2006], thereby allowing for an online LSI. Online LSI allows the model to
+be updated incrementally without needing to know about the documents prior to
+model construction. @Rehurek_2011 further extends the work of @Brand_2006 to an
+LSI implementation that is both online and distributed. @Halko-etal_2011 also
+outline an algorithm which is distributed, but not online.
 
 #### Latent Dirichlet Allocation
 
-Latent Dirichlet allocation [@Blei-etal_2003] is a generative topic model. LDA
-models each document in a corpus of discrete data as a finite mixture over a
-set of topics and models each topic as an infinite mixture over a set of topic
-probabilities.  That is, LDA models each document as a probability distribution
-indicating the likelihood that it expresses each topic and models each topic
-that it infers as a probability distribution indicating the likelihood of a
-word from the corpus being assigned to the topic.
+Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative topic
+model, where documents are assumed to have been generated according to a
+document-topic distribution and topic-word distribution. Of course, the goal of
+LDA is not to generate new documents from these distributions, although you
+certainly could, but instead infer the distributions of observed documents.
+That is, LDA models each document as a probability distribution indicating the
+likelihood that it expresses each topic and models each topic that it infers as
+a probability distribution indicating the likelihood of a word from the corpus
+being assigned to the topic. @Girolami-Kaban_2003 show that pLSI and LDA are
+equivalent under a uniform Dirichlet prior.
+
 
 @Hoffman-etal_2010 introduce a version of LDA which is online.
 @Zhai-Boyd-Graber_2013 introduce an extension of LDA in which the model also

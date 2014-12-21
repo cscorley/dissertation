@@ -48,7 +48,7 @@ $(PAPER).pdf: $(DEP_FILES) $(GENERATED)
 debug: $(DEP_FILES) $(GENERATED)
 	pandoc \
 		--bibliography ${HOME}/papers/papers.bib \
-		--filter pandoc-citeproc \
+		--natbib \
 		--smart \
 		--toc \
 		--chapters \
