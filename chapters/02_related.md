@@ -122,7 +122,7 @@ where $P$ and $Q$ are two discrete probability distributions of length $K$.
 
 ## Text Retrieval for Software {#related-software-TR}
 
-### Terminology 
+### Terminology
 
 We adopt and extend terminology from @Biggers-etal_2014.
 In particular, we define the following:
@@ -186,6 +186,16 @@ query document.
 
 ### Topic Models
 
+A topic model is a statistical model for discovering the abstract *topics* that
+occur in a corpus. For example, documents on Babe Ruth and baseball should end
+up in the same topic, while Dennis Rodman and basketball should end up in
+another. Additionally, documents may also express multiple topics. That is, a
+document on Dennis Rodman could be related to multiple topics: basketball,
+tattoos, and vibrant hair coloring.
+
+In this section, we will describe several topic modeling algorithms and give a
+brief overview of the related works.
+
 #### Latent Semantic Indexing
 
 Latent semantic indexing (LSI) [@Deerwester-etal_1990] is an indexing and
@@ -196,38 +206,50 @@ a corpus represented in the VSM.
 LSI begins with the $M \times N$ term-document matrix $C$, as in VSM.
 SVD computes $C$ into three matrices by its rank $r$ ($\leq min(M, N)$):
 
-1) $T$, an $M \times r$ term-concept vector matrix;
+1) $T$ (also called $\phi$), an $M \times r$ term-topic vector matrix;
 2) $S$, an $r \times r$ singular values matrix;
-3) $D$, an $N \times r$ concept-document vector matrix.
+3) $D$ (also called $\theta$), an $N \times r$ topic-document vector matrix.
 
 That is, $C = TSD^T$.
 
 However, SVD allows for a reduction strategy to use smaller matrices that
-approximate $C$ to reduce noise. That is, the features in $S$ can be reduced by
-only keeping the first $K$ largest values, where $K < r$, and removing the
-remaining values. Corresponding columns in $T$ and rows in $D$ of values
-removed from $S$ are also removed. The result of this operation is a topic
-space approximation $C_K$, or $C \approx C_K = T_KS_KD_K^T$. Now, the dot
+approximate $C$ to reduce noise [@Salton-McGill_1983]. That is, the features in
+$S$ can be reduced by only keeping the first $K$ largest values, where $K < r$,
+and removing the remaining values. Corresponding columns in $T$ and rows in $D$
+of values removed from $S$ are also removed. The result of this operation is a
+topic space approximation $C_K$, or $C \approx C_K = T_KS_KD_K^T$. Now, the dot
 product between two columns in $C_K$ reflects the extent to which two documents
-(i.e., the columns) contain similar concepts.
+(i.e., the columns) contain similar topics.
 
 To search in LSI, a query document $q$ is transformed into the LSI topic space.
-First, $q$ is vectorized into a vector of term weights, as in VSM.
-Next, because $C = TSD^T$, and hence $D = C^TS^{-1}$, $q$ is multiplied by
-$TS^{-1}$ to transform $q$ into the topic space. Afterwards, the dot product of
-this vector is performed against all documents of $C_K$ as before.
+First, $q$ is vectorized into a vector of term weights, as in VSM. Next,
+because $C = TSD^T$, and hence $D = C^TS^{-1}$, $q$ is multiplied by $TS^{-1}$
+to transform $q$ into a topic-document vector. Afterwards, the of
+this vector can be performed against all documents of $C_K$ as before.
 
 Several extensions to SVD which enable the algorithm to be *online* have been
 identified [@Zha-Simon_1999; @Levey-Lindenbaum_2000; @Gorrell-Webb_2005;
-@Brand_2006], thereby allowing for an online LSI. Online LSI allows the model to
-be updated incrementally without needing to know about the documents prior to
-model construction. @Rehurek_2011 further extends the work of @Brand_2006 to an
-LSI implementation that is both online and distributed. @Halko-etal_2011 also
+@Brand_2006], thereby allowing for an online LSI. Online LSI allows the model
+to be updated incrementally without needing to know about the documents prior
+to model construction. @Rehurek_2011 further extends the work of @Brand_2006 to
+an LSI implementation that is both online and distributed. @Halko-etal_2011
 outline an algorithm which is distributed, but not online.
+
+#### Probabilistic Latent Semantic Indexing
+
+Probabilistic Latent Semantic Indexing (PLSI) [@Hofmann_1999] is a generative
+model that extends LSI to define a latent variable that is the topics in
+documents.
+The general algorithm is as follows.
+
+1) Select a document $d$ with probability $P(d)$.
+2) Select a topic $z$ with probability $P(z|d)$.
+3) Generate a word $w$ with probability $P(w|z)$.
+
 
 #### Latent Dirichlet Allocation
 
-Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative topic
+Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative
 model, where documents are assumed to have been generated according to a
 document-topic distribution and topic-word distribution. Of course, the goal of
 LDA is not to generate new documents from these distributions, although you
@@ -235,17 +257,56 @@ certainly could, but instead infer the distributions of observed documents.
 That is, LDA models each document as a probability distribution indicating the
 likelihood that it expresses each topic and models each topic that it infers as
 a probability distribution indicating the likelihood of a word from the corpus
-being assigned to the topic. @Girolami-Kaban_2003 show that pLSI and LDA are
-equivalent under a uniform Dirichlet prior.
+being assigned to the topic.
 
+LDA assumes the following generative process:
+
+1) Choose $\theta \sim \mathrm{Dir}(\alpha)$.
+2) Choose $\phi \sim \mathrm{Dir}(\beta)$.
+3) For each of the $N$ words $w_n$:
+    a) Choose a topic $z_k \sim \mathrm{Multinomial}(\theta_d).$
+    b) Choose a word $w_n \sim \mathrm{Multinomial}(\phi_{z})$.
+
+Here,
+$\alpha$ is the Dirichlet hyperparameter for the per-document topic distributions,
+$\beta$ is the Dirichlet hyperparameter for the per-term topic distributions,
+$\theta$ is a $N \times K$ topic-document distribution matrix,
+with $\theta_d$ as the topic-document distribution for document d,
+and
+$\phi$ is a $M \times K$ term-topic distribution matrix,
+with $\phi_z$ as the term-topic distribution for topic z.
+
+The hyperparameters $\alpha$ and $\beta$ are used to influence the "smoothness"
+of the model. Topic distribution per document is influenced by $\alpha$, and
+term distribution per topic is influenced by $\beta$. For example, as $\beta$
+is lowered, each topic will become more specific, i.e., a topic is likely to be
+made up of words not in any other topics, while increasing $\beta$ causes each
+topic to become more general, i.e., it causes words to begin to appear across
+multiple topics. Likewise, lowering $\alpha$ causes each document to express
+less topics while raising $\alpha$ causes documents to relate to more topics.
+
+
+@Girolami-Kaban_2003 show that pLSI and LDA are
+equivalent under a uniform Dirichlet prior.
 
 @Hoffman-etal_2010 introduce a version of LDA which is online.
 @Zhai-Boyd-Graber_2013 introduce an extension of LDA in which the model also
 does not need to know about the corpus vocabulary prior to training.
 
-## Feature location {#related-flt}
+## State of the Art
 
-## Developer identification {#related-triage}
+### Feature location {#related-flt}
 
-## Configuration of Topic Models {#related-config}
+#### VSM-based Techniques
+#### LSI-based Techniques
+#### LDA-based Techniques
+
+### Developer identification {#related-triage}
+
+#### VSM-based Techniques
+#### LSI-based Techniques
+#### LDA-based Techniques
+
+
+### Configuration of Topic Models {#related-config}
 
