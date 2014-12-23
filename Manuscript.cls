@@ -131,7 +131,7 @@
 \titlespacing{\section}{0pt}{*0}{*0}
 \titlespacing{\subsection}{0pt}{*0}{*0}
 \titlespacing{\subsubsection}{0pt}{*0}{*0}
-\titlespacing{\paragraph}{0pt}{*0}{2em}
+\titlespacing{\paragraph}{0pt}{1.5em}{3em}
 
 %---- ulem
 \normalem

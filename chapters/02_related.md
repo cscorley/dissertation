@@ -155,10 +155,8 @@ occur in a corpus. For example, documents on Babe Ruth and baseball should end
 up in the same topic, while Dennis Rodman and basketball should end up in
 another. Additionally, documents may also express multiple topics. That is, a
 document on Dennis Rodman could be related to multiple topics: basketball,
-tattoos, and vibrant hair coloring.
-
-In this section, we will describe several topic modeling algorithms and give a
-brief overview of the related works.
+tattoos, and vibrant hair coloring. In this section, we will describe several
+topic modeling algorithms and give a brief overview of the related works.
 
 ##### Latent Semantic Indexing
 
@@ -201,7 +199,7 @@ outline an algorithm which is distributed, but not online.
 
 ##### Probabilistic Latent Semantic Indexing
 
-Probabilistic Latent Semantic Indexing (PLSI) [@Hofmann_1999] is a generative
+Probabilistic Latent Semantic Indexing (pLSI) [@Hofmann_1999] is a generative
 model that extends LSI to define a latent variable that is the topics in
 documents.
 The general algorithm is as follows.
@@ -243,10 +241,10 @@ with $\phi_z$ as the term-topic distribution for topic z.
 The hyperparameters $\alpha$ and $\beta$ are used to influence the "smoothness"
 of the model. Topic distribution per document is influenced by $\alpha$, and
 term distribution per topic is influenced by $\beta$. For example, as $\beta$
-is lowered, each topic will become more specific, i.e., a topic is likely to be
-made up of words not in any other topics, while increasing $\beta$ causes each
-topic to become more general, i.e., it causes words to begin to appear across
-multiple topics. Likewise, lowering $\alpha$ causes each document to express
+is lowered, each topic will become more specific (i.e., a topic is likely to be
+made up of words not in any other topics), while increasing $\beta$ causes each
+topic to become more general (i.e., it causes words to begin to appear across
+multiple topics). Likewise, lowering $\alpha$ causes each document to express
 less topics while raising $\alpha$ causes documents to relate to more topics.
 
 
@@ -257,11 +255,13 @@ equivalent under a uniform Dirichlet prior.
 @Zhai-Boyd-Graber_2013 introduce an extension of LDA in which the model also
 does not need to know about the corpus vocabulary prior to training.
 
-## State of the Art
+## Text Retrieval for Software {#related-software-TR}
 
-### Text Retrieval for Software {#related-software-TR}
+There are some additional considerations for applying text retrieval to
+software. In this section, we define new terminology used and discuss where the
+text retrieval process might change.
 
-#### Terminology
+##### Terminology
 
 We adopt and extend terminology from @Biggers-etal_2014.
 In particular, we define the following:
@@ -280,6 +280,8 @@ literal:
 :   a sequence of tokens delimited by language specific markers (e.g., `' '`
 for strings)
 
+##### Text Retrieval Process
+
 In addition to the transformations outlined in Section
 \ref{document-extraction}, extended transformations [@Marcus-etal_2004;
 @Marcus-Menzies_2010] commonly used in software are:
@@ -296,6 +298,9 @@ In addition to the transformations outlined in Section
     as by the entity type [@Bassett-Kraft_2013].
 
 
+
+
+## State of the Art
 
 ### Feature location {#related-flt}
 
