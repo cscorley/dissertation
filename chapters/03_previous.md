@@ -38,11 +38,11 @@ removed lines:
 :   lines of a diff that were *removed* in order to transform the first text into
 the second
 
-changeset
+changeset:
 :   ideally represents a single feature modification, addition, or deletion,
 which may crosscut many source code entities
 
-commit
+commit:
 :   a representation of a changeset in a version control system, such as Git or
 Subversion.
 

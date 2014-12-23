@@ -279,7 +279,7 @@
       CONTENTS
    \end{center}
    \vspace{-\baselineskip}
-   \begin{spacing}{1.0} 
+   \begin{spacing}{1.0}
       \@starttoc{toc}
    \end{spacing}
    \cleardoublepage

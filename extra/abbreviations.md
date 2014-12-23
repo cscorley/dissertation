@@ -5,16 +5,16 @@ $\beta$
 :   in LDA, a smoothing parameter for topic-term distributions
 
 $\theta$
-:   the document-topic matrix of a corpus
+:   the document-topic matrix
 
 $\phi$
-:   the topic-term matrix of a corpus
+:   the term-topic matrix
 
 d
 :   a document
 
 q
-:   a query document
+:   a query, or a document of interest
 
 C
 :   a corpus, or the term-document matrix
@@ -31,9 +31,6 @@ z
 K
 :   in LDA, the number of topics; in LSI, the reduction factor
 
-D
-:   In LSI, the document-topic matrix of a corpus
-
 M
 :   the number of unique terms in a corpus
 
@@ -41,10 +38,7 @@ N
 :   the number of documents in a corpus
 
 S
-:   In LSI, an $K \times K$ singular values matrix
-
-T
-:   an $M \times K$ term-topic vector matrix
+:   In LSI, a singular values matrix
 
 DIT
 :   Developer identification technique

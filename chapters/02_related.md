@@ -1,10 +1,9 @@
 # Related work
 
 In this section, we review the literature in detail.
-First, we review various text retrieval models.
+First, we review various text retrieval models that will be seen throughout
+the work.
 We then discuss how these TR approaches are applied in software engineering.
-Finally, we discuss various areas of software engineering in which TR
-has been applied.
 
 ## Text Retrieval {#related-general-TR}
 
@@ -102,8 +101,9 @@ token. The transformations commonly used are:
 
 The right side of Figure \ref{fig:TR} illustrates the retrieval process. The
 main component of the retrieval process is the search engine, which must first
-be constructed. A search engine typically consists of a model, an index, and a
-classifier for ranking.
+be constructed. A search engine typically consists of an index and a
+classifier for ranking. Search engines based on topic models also need a
+trained model.
 
 The primary function of the search engine is to rank documents in relation to
 the query. First, the corpus is transformed into an index. Next, the engine
@@ -120,44 +120,8 @@ as:
 
 where $P$ and $Q$ are two discrete probability distributions of length $K$.
 
-## Text Retrieval for Software {#related-software-TR}
-
-### Terminology
-
-We adopt and extend terminology from @Biggers-etal_2014.
-In particular, we define the following:
-
-entity:
-:   a named source element such as a method, class, or package
-
-identifier:
-:   a token representing the name of an entity
-
-comment:
-:   a sequence of tokens delimited by language specific markers (e.g., `/* */`
-or `#`)
-
-literal:
-:   a sequence of tokens delimited by language specific markers (e.g., `' '`
-for strings)
-
-In addition to the transformations outlined in Section
-\ref{document-extraction}, extended transformations [@Marcus-etal_2004;
-@Marcus-Menzies_2010] commonly used in software are:
-
-1. Split:
-    :    separate tokens into constituent words based on common coding style
-    conventions (e.g., the use of camel case or underscores) and on the presence
-    of non-letters (e.g., punctuation or digits)
-2. Filter:
-    :   remove common words such programming language keywords, or standard
-    library entity names
-3. Weight:
-    :   adjust the representation of a term in a document by some scheme, such
-    as by the entity type [@Bassett-Kraft_2013].
-
-
-### Boolean Model
+### Text Retrieval Models
+#### Boolean Model
 
 The Boolean model is the simplest of the models used for constructing a search
 engine. This approach builds an index of the corpus by treating each document
@@ -165,7 +129,7 @@ as a set of unique terms. Essentially, all terms are weighted equally: either
 the term is in the document or it isn't. Queries can be constructed with
 single keywords joined by boolean expressions such as `AND`, `OR`, and `NOT`.
 
-### Vector Space Model
+#### Vector Space Model
 
 The Vector Space Model (VSM) is an algebraic model introduced by
 @Salton-etal_1975. VSM uses the $M \times N$ term-document matrix $C$ directly as
@@ -184,7 +148,7 @@ used during the pairwise comparisons to measure the query document similarity.
 Documents in the index are then ranked according to how similar they are to the
 query document.
 
-### Topic Models
+#### Topic Models
 
 A topic model is a statistical model for discovering the abstract *topics* that
 occur in a corpus. For example, documents on Babe Ruth and baseball should end
@@ -196,7 +160,7 @@ tattoos, and vibrant hair coloring.
 In this section, we will describe several topic modeling algorithms and give a
 brief overview of the related works.
 
-#### Latent Semantic Indexing
+##### Latent Semantic Indexing
 
 Latent semantic indexing (LSI) [@Deerwester-etal_1990] is an indexing and
 retrieval methodology that extends the VSM. LSI relies on a mathematical
@@ -235,7 +199,7 @@ to model construction. @Rehurek_2011 further extends the work of @Brand_2006 to
 an LSI implementation that is both online and distributed. @Halko-etal_2011
 outline an algorithm which is distributed, but not online.
 
-#### Probabilistic Latent Semantic Indexing
+##### Probabilistic Latent Semantic Indexing
 
 Probabilistic Latent Semantic Indexing (PLSI) [@Hofmann_1999] is a generative
 model that extends LSI to define a latent variable that is the topics in
@@ -247,7 +211,7 @@ The general algorithm is as follows.
 3) Generate a word $w$ with probability $P(w|z)$.
 
 
-#### Latent Dirichlet Allocation
+##### Latent Dirichlet Allocation
 
 Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative
 model, where documents are assumed to have been generated according to a
@@ -295,23 +259,57 @@ does not need to know about the corpus vocabulary prior to training.
 
 ## State of the Art
 
+### Text Retrieval for Software {#related-software-TR}
+
+#### Terminology
+
+We adopt and extend terminology from @Biggers-etal_2014.
+In particular, we define the following:
+
+entity:
+:   a named source element such as a method, class, or package
+
+identifier:
+:   a token representing the name of an entity
+
+comment:
+:   a sequence of tokens delimited by language specific markers (e.g., `/* */`
+or `#`)
+
+literal:
+:   a sequence of tokens delimited by language specific markers (e.g., `' '`
+for strings)
+
+In addition to the transformations outlined in Section
+\ref{document-extraction}, extended transformations [@Marcus-etal_2004;
+@Marcus-Menzies_2010] commonly used in software are:
+
+1. Split:
+    :    separate tokens into constituent words based on common coding style
+    conventions (e.g., the use of camel case or underscores) and on the presence
+    of non-letters (e.g., punctuation or digits)
+2. Filter:
+    :   remove common words such programming language keywords, or standard
+    library entity names
+3. Weight:
+    :   adjust the representation of a term in a document by some scheme, such
+    as by the entity type [@Bassett-Kraft_2013].
+
+
+
 ### Feature location {#related-flt}
 
-#### VSM-based Techniques
-#### LSI-based Techniques
-#### LDA-based Techniques
+@Dit-etal_2013a provide a taxonomy and survey of feature location techniques.
+
 
 ### Developer identification {#related-triage}
-
-
-#### (QUALIFIER)
 
 In this section we survey the literature on triaging incoming change requests.
 As noted by @Linares-Vasquez-etal_2012,
 there are two broad categories of work in this area:
 change request modeling and software repository mining.
 
-##### Change Request Modeling
+#### Change Request Modeling
 
 @Cubranic-Murphy_2004 propose a machine learning approach that uses text
 categorization on change request descriptions. The approach is validated on the
@@ -347,21 +345,21 @@ assignment. The study also validates previous observations [@Guo-etal_2010]
 that reassignment is not always harmful, but can be beneficial in finding the
 best developer to complete a request.
 
-@Bettenburg-etal_2008 present a tool named infoZilla that implements their
+@Bettenburg-etal_2008b present a tool named infoZilla that implements their
 approach to extract structural information from bug reports. Bug reports often
 contain useful information other than natural language text, such as patches,
 stack traces, and source code. The tool is able to extract this structural
 information from 800 Eclipse bug reports with very high accuracy (97%-100%).
 
-@Bettenburg-etal_2008b investigate what developers consider to be a high quality
+@Bettenburg-etal_2008 investigate what developers consider to be a high quality
 bug report and what users tend to submit. They surveyed developers and bug
 reporters from Apache, Eclipse, and Mozilla and found that there is a mismatch
 between developers consider helpful and what users provide.
 
-@Bettenburg-etal2008c investigate the usefulness of duplicate bug reports. They
+@Bettenburg-etal_2008a investigate the usefulness of duplicate bug reports. They
 extract structural information from duplicate bug reports using infoZilla
-[@Bettenburg-etal_2008], and find that duplicate reports provide significant
-additional information developers consider useful [@Bettenburg-etal_2008b].
+[@Bettenburg-etal_2008b], and find that duplicate reports provide significant
+additional information developers consider useful [@Bettenburg-etal_2008a].
 Using two machine learners, they show that the additional information in
 duplicate reports significantly increased automated triage accuracy by up to
 9%.
@@ -380,10 +378,10 @@ version, and the call stack trace. The approach is evaluated on five Microsoft
 products and results show and average F-measure of 88%. The ReBucket approach
 may help to improve triage by prioritizing which problems require effort first.
 
-@Linstead-etal_2007 report on the use of Author-Topic modeling
+@Linstead-etal_2007a report on the use of Author-Topic modeling
 [@Steyvers-etal_2004] on the Eclipse. The Author-Topic model augments existing
 topic modeling [@Blei-etal_2003] to model the distribution of authors over
-topics in addition to topics over documents.  @Linstead-etal_2007b use bug
+topics in addition to topics over documents.  @Linstead-etal_2007a use bug
 reports to attribute authorship to a single version of Eclipse (3.0).  The
 topics allow for comparison of developers based on their contributions to a
 topic, which could be applied to change request assignment.
@@ -401,24 +399,7 @@ Eclipse, Mylyn, and Mozilla. The study finds LDA improves categorization over
 existing approaches [@Anvik-etal_2006], obtaining recall of 70%-95%.
 
 
-<!--
-Core papers that use natural language processing to measure the
-similarity of a change request and source code~\cite{Kagdi2012Assigning,
-Linares-Vasquez2012Triaging, Matter2009Assigning} are the direct
-beneficiaries to efforts on improving detecting
-duplication~\cite{Bettenburg2008Duplicate, Runeson2007Detection,
-Dang2012ReBucket}, request categorization~\cite{Anvik2006Who,
-Somasundaram2012Automatic}, and structural information
-extraction~\cite{Bettenburg2008What, Bettenburg2008Extracting}. Several
-of the core papers~\cite{Kagdi2012Assigning,
-Linares-Vasquez2012Triaging, Jeong2009Improving} replicate efforts on
-machine learning techiques by Anvik et al.~\cite{Anvik2006Who} to compare
-results. Analysis and surveys on the change request triaging process
-(e.g., \cite{Guo2011Not, Guo2010Characterizing, Bettenburg2008What})
-provide insight on how recommender techniques can be improved.
--->
-
-##### Software Repository Mining
+#### Software Repository Mining
 
 @McDonald-Ackerman_2000 present a heuristic-based recommender system named
 Expertise Recommender. The heuristics used in the recommender were identified
@@ -496,10 +477,6 @@ Fritz et al.~\cite{Fritz2007Does} found.
 Two core studies~\cite{Kagdi2012Assigning, Linares-Vasquez2012Triaging}
 are conducted using the xFinder tool~\cite{Kagdi2008Who}.
 -->
-
-#### VSM-based Techniques
-#### LSI-based Techniques
-#### LDA-based Techniques
 
 
 ### Configuration of Topic Models {#related-config}
