@@ -444,7 +444,6 @@
 	\cleardoublepage
 }
 
-\renewcommand{\cite}[1]{\citep{#1}}
-\newcommand{\shortcite}[1]{\citeyearpar{#1}}
+\renewcommand{\descriptionlabel}[1]{\hspace\labelsep {\itshape\mdseries #1}: \hspace\labelsep }
 
 % vim:syntax=tex
