@@ -261,7 +261,7 @@ There are some additional considerations for applying text retrieval to
 software. In this section, we define new terminology used and discuss where the
 text retrieval process might change.
 
-##### Terminology
+### Terminology {#terminology-software}
 
 We adopt and extend terminology from @Biggers-etal_2014.
 In particular, we define the following:
@@ -280,7 +280,7 @@ literal:
 :   a sequence of tokens delimited by language specific markers (e.g., `' '`
 for strings)
 
-##### Text Retrieval Process
+### Text Retrieval Process
 
 In addition to the transformations outlined in Section
 \ref{document-extraction}, extended transformations [@Marcus-etal_2004;
