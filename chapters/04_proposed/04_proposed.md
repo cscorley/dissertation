@@ -155,16 +155,7 @@ rankings. @Poshyvanyk-etal_2007 define an effectiveness measure that can be
 used for topic-modeling-based FLTs. The effectiveness measure is the rank of
 the first relevant document and represents the number of source code entities a
 developer would have to view before reaching a relevant one. The effectiveness
-measure allows evaluating the FLT by using the mean reciprocal rank (MRR)
-[@Voorhees_1999], defined as:
-
-\begin{equation}
-    MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{e_i}
-\end{equation}
-
-where $Q$ is the set of queries and $e_i$ is the effectiveness measure for some
-query $Q_i$.
-
+measure allows evaluating the FLT by using the mean reciprocal rank (MRR).
 
 For any execution of the experiment, we calculate the MRR of each approach.
 We use the Wilcoxon signed-rank test with Holm correction to determine

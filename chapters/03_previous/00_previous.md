@@ -1,5 +1,14 @@
 # Previous Work
 
+This section aims to show what work has already been completed towards the
+goals of this proposal. First, I will talk about traceability link recovery via
+patch analysis, an approach which has proven useful for building datasets
+[@Moreno-etal_2014]. Then, I will discuss a paper on source code ownership,
+which relates to the developer identification problem. I also discuss a paper
+on duplicate bug report detection, one of the common steps in triaging incoming
+change requests. Finally, I will cover an exploratory study on modeling
+changeset topics.
+
 ## Traceability link recovery {#tefse2011}
 
 This section discusses the work in @Corley-etal_2011.
@@ -14,13 +23,8 @@ This section discusses the work in @Klein-etal_2014.
 
 ## Modeling changeset topics {#mud2014}
 
-This section discusses the work in @Corley-etal_2014.
-
-### Summary
-
-
-In this paper conducted an exploratory study on modeling the topics of
-changesets. We wanted to determine whether topic modeling changesets can
+In @Corley-etal_2014 we conducted an exploratory study on modeling the topics
+of changesets. We wanted to determine whether topic modeling changesets can
 perform as well as, or better than, topic modeling a snapshot. Towards this
 goal, we posed two research questions:
 

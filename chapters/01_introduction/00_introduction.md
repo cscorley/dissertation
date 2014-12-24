@@ -324,6 +324,12 @@ knowing about all documents ahead of time, and have many parameters that need
 to be configured for optimal performance. Likewise, *online* topic models
 include additional parameters that also need to be configured.
 
+Finally, there is an assumption about the topics of a software project itself.
+The assumption is that the topics do not experience topic drifting or large
+changes in vocabulary. Solutions towards topic drift [@Blei-Lafferty_2006] and
+expanding vocabularies [@Zhai-Boyd-Graber_2013] have been suggested by the
+topic modeling communities which may address this issue.
+
 ## Organization
 
 This work is organized as follows.
