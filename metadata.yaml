@@ -11,7 +11,7 @@ loa: Yes
 appendices: Yes
 linkcolor: magenta
 urlcolor:  blue
-citecolor: brown
+citecolor: red
 
 # front matter
 location: Tuscaloosa, Alabama
@@ -41,5 +41,4 @@ dedication: No
 
 acknowledgments: No
 
----
-
+...

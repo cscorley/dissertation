@@ -70,7 +70,7 @@ $(PAPER).html: $(DEP_FILES) $(GENERATED)
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).html
 
 edit:
-	vim chapters/*
+	vim $(CHAP_FILES)
 
 tidy:
 	$(RM) *.aux
