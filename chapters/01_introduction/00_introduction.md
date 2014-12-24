@@ -1,31 +1,5 @@
 # Introduction
 
-
-<!--
-Basic idea:
-
-- Lots of software maintenance tasks being automated by topic modeling
-- Topic modeling is now online, but we are not using it?
-- We build topic models from source code, meaning the model is tied to a
-  specific instance of it
-    - This makes the models not very useful in practice. Slow, outdated.
-- Why not build topic models out of the changesets
-    - Changesets are a view of the source code over time
-    - We can build comparable topic models with changesets
-- We can better evaluate the accuracy of the techniques because we can process
-  changesets overtime, sort of like a similuation of what actually happened (or
-  as close as we can get to it)
-- We only need *one* model per branch. The doc-topic can be any *any*
-  granularity desired, and the model does not need to be re-built from scratch
-  everytime.
-- Look at how does the changeset model compare to the typical source code model
-    - Combinations of: context/added/removed lines in the diff
-    - Per-file changed or whole changeset
-    - Ignore whitespaces
-    - Only look at the changed words instead of the entire lines
-        - Combinations of: context/added/removed
--->
-
 Software developers are often confronted with maintenance tasks that involve
 navigation of repositories that preserve vast amounts of project history.
 Navigating these software repositories can be a time-consuming task, because
@@ -215,21 +189,6 @@ and green lines (beginning with a single~\texttt{+}) denote line additions.
 
 ## Motivation
 
-<!--
-- Software evolves quickly
-- Current file-based models do not keep up-to-date models
-- Keeping them up-to-date involves:
-    - Rebuilding at every commit (slowest)
-    - Rebuilding at intervals (data loss)
-    - Modify the model internally using heuristics
-- In FLTs, file-based models are easy and natural, but not necessary to build
-the model.
-- In triaging, file-based models do not capture the appropriate information,
-e.g., the developer's topics.
-- Models can be built from any text input. We do not need to use the files as a
-proxy. The word occurrences will still occur in changesets!
--->
-
 When modeling a source code repository, the corpus typically represents a
 snapshot of the code. That is, a topic model is often trained on a corpus that
 contains documents that represent files from a particular version of the
@@ -239,10 +198,8 @@ updated corpus. However, it may be possible to automate certain maintenance
 tasks without a model of the complete source code. For example, when assigning
 a developer to a change task, a topic model can be used to associate developers
 with topics that characterize their previous changes. In this scenario, a model
-of the changesets created by each developer may be more useful than a model of
-the files changed by each developer. Moreover, as a typical changeset is
-smaller than a typical file, a changeset-based model is less expensive to keep
-current than a file-based model.
+of the text changed by each developer may be more useful than a model of
+the files changed by each developer.
 
 While using file-based models is a natural fit for program comprehension tasks
 such as feature location and bug localization, they still are unable to stay
@@ -251,11 +208,23 @@ change requests still uses files as input and an array of heuristics to
 identify a developer [@Kagdi-etal_2012]. These methods also have the same flaw
 in that they ultimately rely on files for information.
 
-Like @Rao-etal_2013, the motivation of this work is to create topic models that
-can be incrementally updated over time. However, unlike @Rao-etal_2013, we can
-rely on the source code history itself to build the model without needing to
-manually adjust model latent variables. This gains the benefit of an increase
-in query time, but also could lead to a more reliable model.
+To remedy these shortcomings, we propose to use *changesets* in the training of
+a topic model. Like @Rao-etal_2013, the motivation of this work is to create
+topic models that can be incrementally updated over time. However, unlike
+@Rao-etal_2013, we can rely on the source code history itself to build the
+model without needing to manually adjust model latent variables. This gains the
+benefit of an increase in query time, but also could lead to a more reliable
+model.
+
+The key intuition to this approach is that a topic model algorithm such as
+latent Dirichlet allocation or latent semantic indexing can *infer* any given
+document's topic proportions regardless of the documents used to train the
+model. That is, we can train a model a corpus of changesets and infer the
+topics of an entirely different corpus (e.g., source code entities). Further,
+now that topic modeling can be done in an online manner [@Hoffman-etal_2010;
+@Rehurek_2011], the model can be periodically updated with new changesets as
+they enter a source code repository. This implies that a topic model can be
+kept up-to-date with the source code as work is being done.
 
 ## Research Goals, Questions, and Hypotheses {#thesis-goals}
 
@@ -287,15 +256,6 @@ feature location and developer identification techniques?
 Essentially, we want to know whether using changesets in a topic-modeling-based
 tool is beneficial and whether we can use multiple tools on the same topic
 model.
-
-<!--
-- To evaluate models built on changesets to other models (typically based on
-files only, but may include additional information)
-- Provide a practical framework for building models that can be used in
-multiple contexts (FLT, bug localization, triage).
-- Provide insight for researchers and tool developers on best practices for
-using changeset-based models
--->
 
 
 ## Limitations and Assumptions
