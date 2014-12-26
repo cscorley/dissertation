@@ -84,7 +84,7 @@ bag of words (i.e., $M$-length vector of term frequencies or weights)
 
 corpus, $C$
 :   a sequence of $N$ documents $d_1, d_2, ..., d_N$ (i.e., a $M \times N$
-document-term matrix)
+term-document matrix)
 
 vocabulary, $V$
 :   a set of $M$ unique terms that appear in a corpus $\{w_1, w_2, ..., w_M\}$
@@ -95,7 +95,7 @@ term proportions
 
 topic model, $\phi$
 :   a mathematical representation of the thematic structure of a corpus, or how
-much a term $w$ contributes to each topic $z$ (i.e., a $M \times K$ topic-term
+much a term $w$ contributes to each topic $z$ (i.e., a $K \times M$ topic-term
 matrix)
 
 inferrence, $\theta_d$
@@ -241,15 +241,15 @@ that could be used by both researchers and practitioners.
 Towards achieving these goals, I've identified three core research questions,
 defined below.
 
-Research Question 1:
+Research Question 1
 :   How does training a topic model on changesets affect the performance of a
 topic-modeling-based feature location techinque?
 
-Research Question 2:
+Research Question 2
 :   How does training a topic model on changesets affect the performance of a
 topic-modeling-based developer identification techinque?
 
-Research Question 3:
+Research Question 3
 :   Can a single topic model trained on changesets be effectively used in both
 feature location and developer identification techniques?
 

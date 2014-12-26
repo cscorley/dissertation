@@ -135,12 +135,12 @@ F = \frac{2 \cdot \mathrm{precision} \cdot \mathrm{recall}}{(\mathrm{precision} 
     item at rank $k$ is a relevant document, zero otherwise
 - Mean Average Precision (MAP)
     \begin{equation}
-\operatorname{MAP} = \frac{\sum_{q=1}^Q \operatorname{AveP}(q)}{Q}
+    \operatorname{MAP} = \frac{1}{|Q|} \sum_{q}^Q \operatorname{AveP}(q)
     \label{eq:map}
     \end{equation}
 - Mean Reciprocal Rank (MRR)
     \begin{equation}
-\operatorname{MRR} = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{\text{rank}_i}
+    \operatorname{MRR} = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{rank_i}
     \label{eq:mrr}
     \end{equation}
 
