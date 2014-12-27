@@ -41,6 +41,6 @@ triaging incoming change requests [@Kagdi-etal_2012], traceability link
 recovery [@Asuncion-etal_2010], and several other areas [@Biggers_2012]. Yet,
 while researchers have had success in using topic models on source code
 entities, there is a fundamental issue with the current approaches. This issue
-is that the input documents used to build a topic model are source code
+is that the input documents used to build a topic model are often source code
 entities, and will be the motivating point of this work.
 

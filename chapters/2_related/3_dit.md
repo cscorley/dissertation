@@ -2,11 +2,20 @@
 ## Developer identification {#related-triage}
 
 In this section we survey the literature on triaging incoming change requests.
-As noted by @Linares-Vasquez-etal_2012,
-there are two broad categories of work in this area:
-change request modeling and software repository mining.
+As noted by @Shokripour-etal_2013, there are two broad categories of work in
+this area: activity-based approaches and location-based approaches. An
+activity-based approach uses information gained from a developers *activity*,
+e.g., which change requests they have worked on in the past. Location-based
+approaches resemble a feature location technique in that they rely on source
+code entity information to derive a developer, e.g., which developer has worked
+on the related classes in the past?
 
-#### Change Request Modeling
+#### Activity-based Approaches
+
+@Mockus-Herbsleb_2002 present Expertise Browser to locate expertise. Code
+changes were analysed for Experience Atoms (EA), which represent the smallest
+unit of experience. Developer expertise is based on the number EAs in a certain
+domain or file.
 
 @Cubranic-Murphy_2004 propose a machine learning approach that uses text
 categorization on change request descriptions. The approach is validated on the
@@ -61,12 +70,11 @@ Using two machine learners, they show that the additional information in
 duplicate reports significantly increased automated triage accuracy by up to
 9%.
 
-@Runeson-etal_2007 propose an approach to
-automatically detect duplicate reports based on natural language
-processing. The approach is evaluated on the internal defect reporting
-system of Sony Ericsson Mobile Communications. The approach achieves
-a recall of about 40% of duplicate reports for several similarity
-measures.
+@Runeson-etal_2007 propose an approach to automatically detect duplicate
+reports based on natural language processing. The approach is evaluated on the
+internal defect reporting system of Sony Ericsson Mobile Communications. The
+approach achieves a recall of about 40% of duplicate reports for several
+similarity measures.
 
 @Dang-etal_2012 present ReBucket, a method for clustering crash reports based
 on call stack similarity. A crash report is an automatically generated report
@@ -95,8 +103,11 @@ on three variations of categorization approaches on open source systems
 Eclipse, Mylyn, and Mozilla. The study finds LDA improves categorization over
 existing approaches [@Anvik-etal_2006], obtaining recall of 70%-95%.
 
+@Matter-etal_2009
 
-#### Software Repository Mining
+@Bhattacharya-etal_2012
+
+#### Location-based approaches
 
 @McDonald-Ackerman_2000 present a heuristic-based recommender system named
 Expertise Recommender. The heuristics used in the recommender were identified
@@ -105,11 +116,6 @@ locate expertise. The Expertise Recommender considers developers' expertise
 profile based on who last changed a module, who is closest to the requester in
 the organization, and how connected the requester and expert are based on
 social network analysis.
-
-@Mockus-Herbsleb_2002 present Expertise Browser to locate expertise. Code
-changes were analysed for Experience Atoms (EA), which represent the smallest
-unit of experience. Developer expertise is based on the number EAs in a certain
-domain or file.
 
 @Fritz-etal_2007 investigate whether a programmer's activity indicates
 knowledge of code in an empirical study on nineteen professional Java
@@ -129,16 +135,15 @@ the history of three open source projects: Bugzilla, Eclipse, and Firefox. The
 results are compared to the approach by @McDonald-Ackerman_2000, and are found
 to have higher precision and recall.
 
-@Kagdi-etal_2008 present a tool named xFinder to mine
-developer contributions in order to recommend a ranked list of
-developers for a change. The tool measures the similarity of vectors
-consisting of the number of commits to a file, the number of workdays
-spent on a file, and the most recent workday on the file. To find an
-appropriate developer for a file, similarity between each developer's
-vector and the file vector is measured. For situations where the file
-vector is very dissimilar to all developers (e.g., for a new file),
-package and system experts are given. They validate xFinder on eight
-open source projects and obtain accuracies between 43\%-82\%.
+@Kagdi-etal_2008 present a tool named xFinder to mine developer contributions
+in order to recommend a ranked list of developers for a change. The tool
+measures the similarity of vectors consisting of the number of commits to a
+file, the number of workdays spent on a file, and the most recent workday on
+the file. To find an appropriate developer for a file, similarity between each
+developer's vector and the file vector is measured. For situations where the
+file vector is very dissimilar to all developers (e.g., for a new file),
+package and system experts are given. They validate xFinder on eight open
+source projects and obtain accuracies between 43%-82%.
 
 @Rahman-Devanbu_2011 use the provenance features of Git to track the ownership
 of individual lines of source code.  They then study the impacts of ownership
@@ -158,21 +163,12 @@ expertise. The study compares the accuracy of each heuristic. The results show
 usage expertise based recommendations have an accuracy comparable to
 implementation based recommendations.
 
-<!--
-Core papers that measure expertise~\cite{Schuler2008Mining,
-Kagdi2012Assigning} and authorship~\cite{Linares-Vasquez2012Triaging} in
-source code stem from foundation work by McDonald and
-Ackerman~\cite{McDonald2000Expertise}, and by Mockus and
-Herbsleb~\cite{Mockus2002Expertise}. 
-These works are based on the
-assumption that the number of interactions with a particular part of
-source code is an indicator of expertise. Fritz et
-al.~\cite{Fritz2007Does} support this claim with a study that validates
-the assumption. Matter et al.~\cite{Matter2009Assigning} also find that
-in vocabulary-based expertise there exists a similar decay effect as
-Fritz et al.~\cite{Fritz2007Does} found.
-Two core studies~\cite{Kagdi2012Assigning, Linares-Vasquez2012Triaging}
-are conducted using the xFinder tool~\cite{Kagdi2008Who}.
--->
+@Linares-Vasquez-etal_2012
 
+@Zhou-etal_2012
 
+@Schuler-Zimmermann_2008
+
+@Jeong-etal_2009
+
+@Matter-etal_2009

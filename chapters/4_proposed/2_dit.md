@@ -1,5 +1,10 @@
 ## Developer identification {#study-triage}
 
+Developer identification is a triaging activity in which a team member
+identifies a list of developers that are most apt to complete a change request
+and assigning one or more of those developers to the task
+[@McDonald-Ackerman_1998].
+
 ### Motivation
 
 Software features are functionalities that are defined by requirements and are
@@ -36,7 +41,7 @@ correctly assign a change request.
 Triaging can be a time consuming and error prone process when done manually. If
 a change request was assigned in error, it will need to be reassigned to the
 appropriate developer. Jeong et al. [@Jeong-etal_2009] found that reassignment
-occurs between 37\%--44\% of the time and introduces an average of 50 days
+occurs between 37%--44% of the time and introduces an average of 50 days
 delay in completing the request. Automated support for triaging helps to
 decrease change request time-to-triage and to correct, or prevent, human error.
 
@@ -136,6 +141,9 @@ changeset. Finally, we classify the results from both $\theta$s.
 
 
 ##### Subject Systems
+
+@Kagdi-etal_2012
+<http://www.cs.wm.edu/semeru/data/jsme09-bugs-devs/>
 
 Supposedly, @Hossen-etal_2014 is available, but the URL requires a login.
 <http://serl.cs.wichita.edu/svn/projects/dev-rec-authors/trunk/Paper/icpc2014-appendix/>

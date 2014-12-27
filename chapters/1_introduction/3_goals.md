@@ -3,8 +3,7 @@
 The primary research goal of this proposal is to evaluate the performance and
 reliability of topic models built on the source code histories. This will
 require configuring and executing studies in various contexts of software
-maintenance work, such as feature location, bug localization, and developer
-identification.
+maintenance work, such as feature location and developer identification.
 
 A secondary goal is to create a practical framework for building models that
 can be used in multiple contexts. This will require building a prototype tool
@@ -27,6 +26,4 @@ feature location and developer identification techniques?
 
 Essentially, we want to know whether using changesets in a topic-modeling-based
 tool is beneficial and whether we can use multiple tools on the same topic
-model.
-
-
+model. The former is targeted by RQ1 and RQ2, and the latter by RQ3.
