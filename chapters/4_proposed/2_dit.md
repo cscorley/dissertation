@@ -55,6 +55,23 @@ knowledge required for triage.
 
 ### Background {#triage-background}
 
+Several developer identification techniques build upon feature location
+techniques. We refer the reader to Section \ref{flt-background} for a
+background on how a typical feature location technique might work.
+
+After a ranked list of source code entities related to a particular task have
+been identified by an FLT, we can now use ownership knowledge to determine the
+appropriate developer to complete a task. For example, if file `foo.py` was
+identified as the most related entity, then we would want to know about the
+maintainer, or owner, of `foo.py`. There are multiple ways to determine the
+ownership of a source code entity [@Bird-etal_2011; @Kagdi-etal_2012;
+@Corley-etal_2012].
+
+A simple, example ownership metric is the number of times a developer has
+committed changes to a file. That is, if over the software history Johanna
+modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
+then Johanna would be considered the owner of `foo.py`.
+
 ### Proposal
 
 #### Approach
@@ -118,7 +135,7 @@ First, we need to build a topic model for searching over the source code
 snapshot (i.e., just like in the FLT evaluation). Once relevant documents are
 identified, we need to determine which developer is the *owner* of that
 document. To accomplish this, we turn to the source code history. Following
-@Kagdi-etal_2008, we identify which developer has changed the documents the
+@Bird-etal_2011, we identify which developer has changed the documents the
 most. This implies that the snapshot approach is *dependent* on the performance
 of the snapshot-based FLT.
 
@@ -129,7 +146,8 @@ developer profiles. That is, we infer a $\theta_{Developers}$ from the
 developer corpus and a $\theta_{Queries}$ from the query corpus. Note that we
 \emph{do not} infer a $\theta_{Changesets}$ from the changeset corpus from
 which the model was built! Finally, we classify the results from both
-$\theta$s.
+$\theta$s. While the snapshot approach is dependent on the performance of an
+FLT, the changesets are not.
 
 For the temporal simulation, again as in the FLT, we can take a slightly
 different approach. We first determine which changesets relate to an issue and

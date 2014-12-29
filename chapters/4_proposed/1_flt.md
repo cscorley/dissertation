@@ -101,7 +101,69 @@ RQ1
 RQ2
 :   How well do *temporal simulations* of changeset-based topic models perform for feature location?
 
+##### Subject Systems
+
+There are two publicly-available and recently published datasets that could be
+used in this study. Between these two datasets are over 1200 defects and
+features from 14 open source Java projects. Choosing a publicly-available
+dataset allows for this work to be set in context of work completed by other
+researchers.
+
+Table \ref{table:flt-datasets} summarizes the subject systems from the datasets.
+The first is a dataset of four software systems by @Dit-etal_2013 and contains
+method-level goldsets. This dataset was automatically extracted from changesets
+that relate to the queries (issue reports). The second is a dataset of 14
+software systems by @Moreno-etal_2014 and contains class-level goldsets. This
+dataset was automatically extracted from patches attached to issue reports. The
+four software systems in the first dataset also appear in the second, supplying
+us with both class- and method-level goldsets for the queries.
+
+
+Subject System       Features   Classes   Methods
+--------------      ---------  --------  --------
+ArgoUML v0.22        91         287       701
+ArgoUML v0.24        52         154       357
+ArgoUML v0.26.2      209        706       1560
+BookKeeper v4.1.0    40         152
+Derby v10.7.1.1      32         55
+Derby v10.9.1.0      95         410
+Hibernate v3.5.0b2   20         53
+Jabref v2.6          39         131       280
+jEdit v4.3           150        361       748
+Lucene v4.0          35         103
+Mahout v0.8          30         159
+muCommander v0.8.5   92         303       717
+OpenJPA v2.0.1       35         82
+OpenJPA v2.2.0       18         53
+Pig v0.8.0           85         442
+Pig v0.11.1          48         129
+Solr v4.4.0          55         189
+Tika v1.3            18         34
+ZooKeeper v3.4.5     80         285
+Total                1224       4088      4363
+--------------      ---------  --------  --------
+
+Table: Subject Systems and Goldset Sizes \label{table:flt-datasets}
+
+
+ArgoUML is a UML CASE tool that supports standard UML diagrams^[<http://argouml.tigris.org/>].
+BookKeeper is a distributed logging service^[<http://zookeeper.apache.org/bookkeeper/>].
+Derby is a relational database management system^[<http://db.apache.org/derby/>].
+Eclipse is an intergrated development environment to develop applications in various programming languages^[<https://www.eclipse.org/>].
+Hibernate is a java package used to work with relational databases^[<http://hibernate.org/>].
+JEdit is a Java text editor^[<http://www.jedit.org/>].
+JabRef is a tool for managing bibliographical reference data^[<http://jabref.sourceforge.net/>].
+Lucene is an information retrieval library written in Java^[<http://lucene.apache.org/core/>].
+Mahout is a tool for scaleable machine learning^[<https://mahout.apache.org/>].
+MuCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
+OpenJPA is object relational mapping tool^[<http://openjpa.apache.org/>].
+Pig is a platform for analyzing large datasets consisting of high-level language^[<http://pig.apache.org/>].
+Solr is an enterprised search platform^[<http://lucene.apache.org/solr/>].
+Tika is a toolkit for extracting metadata and text from various types of files^[<http://tika.apache.org/>].
+ZooKeeper is a tool that works as a coordination service to help build distributed applications^[<http://zookeeper.apache.org/bookkeeper/>].
+
 ##### Methodology
+
 
 For snapshots, the process is straightforward. First, we build a model in batch
 mode from the snapshot corpus. That is, the model can see all documents in the
@@ -130,22 +192,6 @@ update the model with the linked commit and infer the $\theta_{Snapshot}$ from
 that commit. This allows our evaluation to capture any entities added to
 address the issue report, as well as changed entities, but does not capture any
 entities that were removed by the change.
-
-##### Subject Systems
-
-There are two publicly-available and recently published datasets that could be
-used in this study. Between these two datasets are over 1200 defects and
-features from 14 open source Java projects. Choosing a publicly-available
-dataset allows for this work to be set in context of work completed by other
-researchers.
-
-The first is a dataset of four software systems by @Dit-etal_2013 and contains
-method-level goldsets. This dataset was automatically extracted from changesets
-that relate to the queries (issue reports). The second is a dataset of 14
-software systems by @Moreno-etal_2014 and contains class-level goldsets. This
-dataset was automatically extracted from patches attached to issue reports. The
-four software systems in the first dataset also appear in the second, supplying
-us with both class- and method-level goldsets for the queries.
 
 ##### Data Collection and Analysis
 
