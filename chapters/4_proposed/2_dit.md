@@ -74,7 +74,7 @@ then Johanna would be considered the owner of `foo.py`.
 
 ### Proposal
 
-#### Approach
+#### Approach {#dit-approach}
 
 ![Developer identification using changesets\label{fig:changeset-triage}](figures/changeset-triage.pdf)
 
@@ -85,7 +85,7 @@ changesets. The left side of Figure \ref{fig:changeset-triage} illustrates the
 dual-document extraction approach.
 
 The document extraction process for the changesets remains the same as covered
-in Section \ref{flt-proposed-approach}. The document extraction process for the
+in Section \ref{flt-approach}. The document extraction process for the
 developer corpus is straightforward. Each developer will have their own
 document consisting of each changeset they have committed to the source code
 repository. That is, a developer document will be constructed only by word they

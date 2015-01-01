@@ -49,7 +49,7 @@ algorithm using changesets, the FLT maintains an up-to-date model without
 incurring the non-trivial computational cost associated with retraining
 traditional FLTs.
 
-#### Approach {#flt-proposed-approach}
+#### Approach {#flt-approach}
 
 ![Feature location using changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
 
