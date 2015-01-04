@@ -38,3 +38,6 @@ now that topic modeling can be done in an online manner [@Hoffman-etal_2010;
 they enter a source code repository. This implies that a topic model can be
 kept up-to-date with the source code as work is being done.
 
+**Thesis Statement**
+:    Training online topic models on software repositories is novel, feasible,
+and usable in multiple contexts.

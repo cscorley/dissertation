@@ -43,7 +43,3 @@ while researchers have had success in using topic models on source code
 entities, there is a fundamental issue with the current approaches. This issue
 is that the input documents used to build a topic model are often source code
 entities, and will be the motivating point of this work.
-
-**Thesis Statement**
-:    Training online topic models on software repositories is novel, feasible,
-and usable in multiple contexts.
