@@ -102,10 +102,10 @@ software repository
 :   collection of commits over time which represent the history of a software
 project, maintained by a VCS
 
+
 \begin{figure*}[t]
 \centering
-{\small
-\begin{lstlisting}[language=diff, basicstyle=\ttfamily]
+\begin{lstlisting}[language=diff]
 diff --git a/lao b/tzu
 index 635ef2c..5af88a8 100644
 --- a/lao
@@ -128,7 +128,6 @@ index 635ef2c..5af88a8 100644
 +Deeper and more profound,
 +The door of all subtleties!
 \end{lstlisting}
-}
 \caption{Example of a \texttt{git diff}}
 Black or blue lines denote metadata about the change useful for patching.
 In particular, black lines represent context lines (beginning with a single space).
