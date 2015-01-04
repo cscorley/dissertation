@@ -143,7 +143,7 @@ ZooKeeper v3.4.5     80         285
 Total                1224       4088      4363
 --------------      ---------  --------  --------
 
-Table: Subject Systems and Goldset Sizes \label{table:flt-datasets}
+Table: Feature location subject systems and goldset sizes \label{table:flt-datasets}
 
 
 ArgoUML is a UML CASE tool that supports standard UML diagrams^[<http://argouml.tigris.org/>].
@@ -174,7 +174,7 @@ results from both $\theta$s.
 For changesets, the process is varies slightly from a snapshot approach. First,
 we build a model in batch mode from the changeset corpus. Then, we infer a
 $\theta_{Snapshot}$ from the snapshot corpus and a $\theta_{Queries}$ from the
-query corpus. Note that we \emph{do not} infer a $\theta_{Changesets}$ from the
+query corpus. Note that we *do not* infer a $\theta_{Changesets}$ from the
 changeset corpus from which the model was built! Finally, we classify the
 results from both $\theta$s.
 

@@ -32,14 +32,17 @@ committee:
     - Nicholas A. Kraft
     - Jeffrey G. Gray
 
-abstract: |
-    I can write an abstract.
-
-    It might be long.
 
 # change the dedication and acknowledgements to text
 dedication: No
 
 acknowledgments: No
 
+abstract: |
+    I can write an abstract.
+
+    It might be long.
+
+
+#
 ...

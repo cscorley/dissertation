@@ -66,6 +66,7 @@ natbib: debug
 	bibtex proposal
 	pdflatex proposal
 	pdflatex proposal
+	scp proposal.pdf christop.club:/srv/http/x/proposal_draft.pdf
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \
