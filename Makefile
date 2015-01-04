@@ -32,7 +32,9 @@ $(GENERATED) :: $(EXTRA_FILES)
 		--to=latex \
 		extra/$@.md -o tmp/$@.tex
 
-$(PAPER).pdf: $(DEP_FILES) $(GENERATED)
+$(PAPER).pdf: natbib
+
+pandoc: $(DEP_FILES) $(GENERATED)
 	pandoc \
 		--bibliography ${HOME}/papers/papers.bib \
 		--filter pandoc-citeproc \
@@ -57,6 +59,13 @@ debug: $(DEP_FILES) $(GENERATED)
 		-H extra/header.tex \
 		--from=markdown \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
+
+natbib: debug
+	pdflatex proposal
+	pdflatex proposal
+	bibtex proposal
+	pdflatex proposal
+	pdflatex proposal
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \

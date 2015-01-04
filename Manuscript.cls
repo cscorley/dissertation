@@ -446,4 +446,7 @@
 
 \renewcommand{\descriptionlabel}[1]{\hspace\labelsep {\itshape\mdseries #1}: \hspace\labelsep }
 
+\renewcommand{\cite}[1]{\citep{#1}}
+\newcommand{\shortcite}[1]{\citeyearpar{#1}}
+
 % vim:syntax=tex

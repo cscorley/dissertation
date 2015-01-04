@@ -52,3 +52,5 @@ RQ2
 :   What configuration considerations must we make when training a multi-use
 topic model?
 
+RQ3
+:   What are the differences, if any, between training models with LSI and LDA?

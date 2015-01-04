@@ -31,8 +31,8 @@ how those entities relate [@Kuhn-etal_2007; @Maskeri-etal_2008;
 linguistic topics in source code use machine learning techniques that model
 correlations among words, such as latent semantic indexing (LSI)
 [@Deerwester-etal_1990] and latent Dirichlet allocation (LDA)
-[@Blei-etal_2003], and ML techniques that also model correlations among
-documents, such as RTM [@Chang-Blei_2010].
+[@Blei-etal_2003], and machine learning techniques that also model correlations
+among documents, such as Relational Topic Models [@Chang-Blei_2010].
 
 Topic models of source code have many applications in addition to general
 program comprehension. These applications include feature location
@@ -44,3 +44,6 @@ entities, there is a fundamental issue with the current approaches. This issue
 is that the input documents used to build a topic model are often source code
 entities, and will be the motivating point of this work.
 
+**Thesis Statement**
+:    Training online topic models on software repositories is novel, feasible,
+and usable in multiple contexts.

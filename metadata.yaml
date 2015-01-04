@@ -4,6 +4,7 @@ classoption:
     - draft
 fontfamily: libertine
 fontsize: 12pt
+biblio-style: chicago
 
 lof: Yes
 lot: Yes
@@ -11,7 +12,7 @@ loa: Yes
 appendices: Yes
 linkcolor: magenta
 urlcolor:  blue
-citecolor: red
+citecolor: gray
 
 # front matter
 location: Tuscaloosa, Alabama
