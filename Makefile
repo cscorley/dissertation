@@ -34,6 +34,9 @@ $(GENERATED) :: $(EXTRA_FILES)
 
 $(PAPER).pdf: natbib
 
+deploy: $(PAPER).pdf
+	scp proposal.pdf christop.club:/srv/http/proposal_draft.pdf
+
 pandoc: $(DEP_FILES) $(GENERATED)
 	pandoc \
 		--bibliography ${HOME}/papers/papers.bib \
@@ -66,7 +69,6 @@ natbib: debug
 	bibtex proposal
 	pdflatex proposal
 	pdflatex proposal
-	scp proposal.pdf christop.club:/srv/http/x/proposal_draft.pdf
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \
@@ -101,6 +103,7 @@ clean: tidy
 	$(RM) $(PAPER).pdf
 	$(RM) $(PAPER).tex
 	$(RM) $(PAPER).html
+	$(RM) -r tmp
 
 %.pdf: %.eps
 	epstopdf --outfile=$@ $<

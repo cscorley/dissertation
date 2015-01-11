@@ -39,46 +39,42 @@ dedication: No
 acknowledgments: No
 
 abstract: |
-   
-    Topic modeling has been applied to several areas of software
-    engineering, such as bug localization, feature location, triaging
-    change requests, and traceability link recovery. Many of these
-    approaches combine mining unstructured data, such as bug reports,
-    with topic modeling a snapshot (or release) of source code. However,
-    source code evolution leads to model obsolescence and thus to the
-    need to retrain the model from the latest snapshot.
 
-    This work investigates ways in which we can remedy the obsolence
-    problem.  Conventional wisdom in the software maintenance
-    communities holds that the information source a topic model is
-    trained upon is the same information source that is of interest for
-    searching. The primary insight to this work is that topic models can
-    be used to *infer* the topics of any information of interest,
-    regardless of the information used to train the model. Pairing
-    online topic modeling with mining software repositories, we can
-    remove the need to retrain a model and achieve model persistance.
-    For this, we suggest training of topic models on the software
-    repository history in the form of the *changeset* -- a textual
-    representation of the changes that occured between two software
-    entities.
+    Topic modeling is a statistical technique for discovering thematic structure
+    within a corpus. Topic models have been applied to several areas of software
+    engineering, such as bug localization, feature location, triaging change
+    requests, and traceability link recovery. Many of these approaches train
+    topic models on a snapshot (or release) of source code, and query them with
+    software artifacts, such as bug descriptions, or human-created queries.
+    However, source code evolution leads to model obsolescence and thus to the
+    need to retrain the model from the latest snapshot, incurring a non-trivial
+    computational cost of model re-learning.
 
-    To show the feasibility of this approach, we will investigate two
-    popular applications of text retrieval in software maintenance:
-    feature location and developer identification. Feature location is a
-    program comprehension activity for finding the source code entity
-    that relates to a feature of interest. Developer identification is
-    similar to feature location, but instead of locating source code
-    entities the task is to identify the developer most apt for working
-    on a feature of interest.
+    This work investigates ways in which we can remedy the obsolence problem.
+    Conventional wisdom in the software maintenance communities holds that the
+    information source a topic model is trained upon is usually same information
+    source that is of interest for searching. The primary insight to this work
+    is that topic models can be used to *infer* the topics of any information of
+    interest, regardless of the information used to train the model. Pairing
+    online topic modeling with mining software repositories, we can remove the
+    need to retrain a model and achieve model persistance.  For this, we suggest
+    training of topic models on the software repository history in the form of
+    the *changeset* -- a textual representation of the changes that occured
+    between two software entities.
 
-    Further, to demonstrate the usability of changeset-based topic
-    models, we will investigate whether topic-modeling-based maintenance
-    tasks can be coalesced into using a *single* changeset-based topic
-    model, rather than needing to train a model for each task at hand.
-
-    In sum, this work aims to show that *training online topic models on
-    software repositories is novel, feasible, and usable in multiple
-    contexts*.
+    To show the feasibility of this approach, we will investigate two popular
+    applications of text retrieval in software maintenance, feature location and
+    developer identification. Feature location is a program comprehension
+    activity for finding the source code entity that relates to a feature of
+    interest. Developer identification is similar to feature location, but
+    instead of locating source code entities the task is to identify the
+    developer most apt for working on a feature of interest.  Further, to
+    demonstrate the usability of changeset-based topic models, we will
+    investigate whether topic-modeling-based maintenance tasks can be coalesced
+    into using a *single* changeset-based topic model, rather than needing to
+    train a model for each task at hand.  In sum, this work aims to show that
+    *training online topic models on software repositories is novel, feasible,
+    and usable in multiple contexts*.
 
 #
 ...

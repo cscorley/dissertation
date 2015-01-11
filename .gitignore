@@ -1,4 +1,5 @@
 papers.bib
+proposal.tex
 tmp/
 *.acn
 *.acr
@@ -37,3 +38,4 @@ tmp/
 *.html
 .DS_Store
 *.bak
+
