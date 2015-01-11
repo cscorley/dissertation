@@ -45,7 +45,7 @@ abstract: |
     engineering, such as bug localization, feature location, triaging change
     requests, and traceability link recovery. Many of these approaches train
     topic models on a snapshot (or release) of source code, and query them with
-    software artifacts, such as bug descriptions, or human-created queries.
+    human-created queries or software artifacts, such as bug descriptions.
     However, source code evolution leads to model obsolescence and thus to the
     need to retrain the model from the latest snapshot, incurring a non-trivial
     computational cost of model re-learning.

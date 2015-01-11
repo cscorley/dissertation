@@ -73,6 +73,7 @@ natbib: debug
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \
 		--standalone \
+		--bibliography ${HOME}/papers/papers.bib \
 		--filter pandoc-citeproc \
 		--smart \
 		--toc \

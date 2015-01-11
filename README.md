@@ -1,4 +1,4 @@
 proposal
 ========
 
-Yadda yad
+[Draft PDF](http://christop.club/proposal_draft.pdf)
