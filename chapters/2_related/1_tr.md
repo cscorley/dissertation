@@ -18,7 +18,7 @@ extractor. It produces a token stream for each document in the data.
 
 The preprocessor is the second part of the document extractor. It applies a
 series of transformations to each token and produces one or more terms from the
-token. The transformations commonly used are:
+token. The transformations commonly used are [@Manning-etal_2008]:
 
 1. Split
     :    separate tokens into constituent words by non-alphabetical characters
@@ -44,10 +44,10 @@ token. The transformations commonly used are:
 ### Search Engine Construction and Retrieval
 
 The right side of Figure \ref{fig:TR} illustrates the retrieval process. The
-main component of the retrieval process is the search engine, which must first
-be constructed. A search engine typically consists of an index and a
-classifier for ranking. Search engines based on topic models also need a
-trained model.
+main component of the retrieval process is the search engine
+[@Manning-etal_2008], which must first be constructed. A search engine
+typically consists of an index and a classifier for ranking. Search engines
+based on topic models also need a trained model.
 
 The primary function of the search engine is to rank documents in relation to
 the query. First, the corpus is transformed into an index. Next, the engine
@@ -107,42 +107,106 @@ rank-based @Lukins-etal_2008
 score J. A. Jones and M. J. Harrold, “Empirical Evaluation of the Tarantula Automatic Fault-Localization Technique,” in Automated Software Engineering, 2005.
 -->
 
-- Top-k
-    \begin{equation}
-    \label{eq:top-k}
-    \end{equation}
-- Precision
-    \begin{equation}
-\mbox{precision}=\frac{|\{\mbox{relevant documents}\}\cap\{\mbox{retrieved documents}\}|}{|\{\mbox{retrieved documents}\}|}
-    \label{eq:precision}
-    \end{equation}
-- Recall
-    \begin{equation}
-\mbox{recall}=\frac{|\{\mbox{relevant documents}\}\cap\{\mbox{retrieved documents}\}|}{|\{\mbox{relevant documents}\}|}
-    \label{eq:recall}
-    \end{equation}
-- F-measure
-    \begin{equation}
-F = \frac{2 \cdot \mathrm{precision} \cdot \mathrm{recall}}{(\mathrm{precision} + \mathrm{recall})}
-    \label{eq:f-measure}
-    \end{equation}
-- Average Precision (AveP)
-    \begin{equation}
-\operatorname{AveP} = \frac{\sum_{k=1}^n (P(k) \times \operatorname{rel}(k))}{|\{\mbox{relevant documents}\}|}
-    \label{eq:avep}
-    \end{equation}
-    where $\operatorname{rel}(k)$ is an indicator function equaling 1 if the
-    item at rank $k$ is a relevant document, zero otherwise
-- Mean Average Precision (MAP)
-    \begin{equation}
-    \operatorname{MAP} = \frac{1}{|Q|} \sum_{q}^Q \operatorname{AveP}(q)
-    \label{eq:map}
-    \end{equation}
-- Mean Reciprocal Rank (MRR)
-    \begin{equation}
-    \operatorname{MRR} = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{rank_i}
-    \label{eq:mrr}
-    \end{equation}
+In the following section, we describe evaluation measures.
+The measures can be divided into two groups: set-based measures and
+ranked-based measures.
+
+For the following discussion, we define the following sets: $A =
+\{\mbox{relevant documents}\}$, the documents which are related for some query
+$q \in Q$; and $B = \{\mbox{retrieved documents}\}$, the documents which were
+retrieved for some query $q \in Q$.
+
+#### Set-based measures
+
+*Recall* is the fraction of relevant documents $B$ that are retrieved and can be
+defined as:
+
+\begin{equation}
+\operatorname{recall} =
+    \frac{|A \cap B|}{|A|}
+    =
+    P(B|A)
+\label{eq:recall}
+\end{equation}
+
+Precision is the fraction of retrieved documents $B$ that are relevant and can be
+defined as:
+
+\begin{equation}
+\operatorname{precision} =
+    \frac{|A \cap B|}{|B|}
+    =
+    P(A|B)
+\label{eq:precision}
+\end{equation}
+
+In some situations, we may want to make trade-offs between precision and
+recall. For this, we can use the *F-measure*. The F-measure is a weighted
+harmonic mean of precision and recall:
+
+\begin{equation}
+\operatorname{F} =
+    \frac{1}{\alpha\frac{1}{\operatorname{precision}} +
+            (1 - \alpha)\frac{1}{\operatorname{recall}}
+            }
+            =
+    \frac{(\beta^2 + 1) \cdot \operatorname{precision} \cdot \operatorname{recall}}{ %
+    \beta^2 \cdot \operatorname{precision} + \operatorname{recall}}
+    \mbox{ }
+    \mbox{ }
+    \mbox{ where }
+    \mbox{ }
+    \mbox{ }
+    \beta^2 = \frac{1 - \alpha}{\alpha}
+\label{eq:f-measureweighted}
+\end{equation}
+
+where $\alpha \in [0,1]$ and thus $\beta^2 \in [0, \infty]$. Usually, a
+*balanced F-measure* is used and equally weights precision and recall by
+$\alpha=0.5$. When using a balanced F-measure, the formula simplifies to:
+
+\begin{equation}
+\operatorname{F} =
+    \frac{2 \cdot \operatorname{precision} \cdot \operatorname{recall}}{(\operatorname{precision} + \operatorname{recall})}
+\label{eq:f-measure}
+\end{equation}
+
+#### Ranked-based measures
+
+Since many text retrieval techniques return a ranking of all documents
+searched, it may be beneficial to consider precision of only the top $k$
+documents. *Precision at $k$* can be defined as:
+
+\begin{equation}
+\operatorname{precision}(k) =
+    \frac{|A \cap B_{1..k}|}{|B_{1..k}|}
+    =
+    P(A|B_{1..k})
+\label{eq:precisionatk}
+\end{equation}
+where $B_{1..k}$ is the top $k$ documents retrieved. This is also written
+as *precision@$k$*.
+
+Mean Average Precision (MAP)
+\begin{equation}
+\operatorname{MAP} =
+    \frac{1}{|Q|}
+    \sum_{q}^{Q}
+    \frac{1}{|A|}
+    \sum_{a}^{A}
+    \operatorname{precision}(\operatorname{rank}(a))
+\label{eq:map}
+\end{equation}
+where $rank$ is a function equaling the rank $i$ where $a = B_i$.
+
+Mean Reciprocal Rank (MRR)
+\begin{equation}
+\operatorname{MRR} =
+    \frac{1}{|Q|} \sum_{q}^{Q} \frac{1}{\operatorname{bestRank}(q)}
+\label{eq:mrr}
+\end{equation}
+where $bestRank$ is a function equaling the rank of the first item $a \in
+A$ for query $q$.
 
 - Stats
     - Spearman rank
