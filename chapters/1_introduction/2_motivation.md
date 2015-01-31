@@ -39,5 +39,5 @@ they enter a source code repository. This implies that a topic model can be
 kept up-to-date with the source code as work is being done.
 
 **Thesis Statement**
-:    Training online topic models on software repositories is novel, feasible,
+:    Training online topic models on software repositories is feasible
 and usable in multiple contexts.
