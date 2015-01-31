@@ -35,7 +35,7 @@ $(GENERATED) :: $(EXTRA_FILES)
 $(PAPER).pdf: natbib
 
 deploy: $(PAPER).pdf
-	scp proposal.pdf christop.club:/srv/http/proposal_draft.pdf
+	scp proposal.pdf christop.club:/srv/http/x/proposal_draft.pdf
 
 pandoc: $(DEP_FILES) $(GENERATED)
 	pandoc \
