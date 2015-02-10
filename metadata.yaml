@@ -5,6 +5,7 @@ classoption:
 fontfamily: libertine
 fontsize: 12pt
 biblio-style: chicago
+biblio-files: papers.bib
 
 lof: Yes
 lot: Yes
