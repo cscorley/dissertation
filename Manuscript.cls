@@ -189,7 +189,6 @@
          \ifthenelse{\equal{\ETD@draft}{true}}{%
              \\
             \vspace{\baselineskip}
-            \vspace{\baselineskip}
             {\it Draft last updated on \today}
         }{}
       \end{spacing}
