@@ -11,9 +11,6 @@ lof: Yes
 lot: Yes
 loa: Yes
 appendices: Yes
-linkcolor: magenta
-urlcolor:  blue
-citecolor: gray
 
 # front matter
 location: Tuscaloosa, Alabama

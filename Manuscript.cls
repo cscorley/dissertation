@@ -399,6 +399,7 @@
    \pagenumbering{arabic}
    \begin{spacing}{2.0}
       \ifthenelse{\equal{\ETD@draft}{true}}{%
+        \renewcommand\linenumberfont{\color{gray}\normalfont\tiny\sffamily}
          \begin{linenumbers}
       }{}
 }{%
