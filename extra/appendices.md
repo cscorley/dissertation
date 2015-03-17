@@ -4,31 +4,34 @@
 ## 2015
 
 * January
-    - Complete primary data collection and analysis for FLT
+    - (**RP1**) Update primary data collection and analysis for FLT
 - February
-    - Finish writing the FLT paper for submission
-    - Begin writing the DIT paper
+    - (**RP1**) Update writing the FLT paper for submission
 * March
-    - Begin programming framework towards DIT
-    - Pilot the DIT
+    - Finish writing proposal
+    - (**RP1**) Re-submit FLT paper to ICSME
 * April
-    - Complete primary data collection and analysis for DIT
+    - Proposal defense
+    - (**RP2**) Begin writing the DIT paper
+    - (**RP2**) Begin programming framework towards DIT
+    - (**RP2**) Pilot the DIT
 * May
-    - Finish writing the DIT paper for submission
-    - Begin writing the combining paper
+    - (**RP2**) Complete primary data collection and analysis for DIT
+    - (**RP2**) Finish writing the DIT paper for submission
+    - (**RP3**) Begin writing the combining paper
 * June
-    - Incorporate the FLT work into the dissertation draft
-    - Incorporate the DIT work into the dissertation draft
+    - (**RP1**) Incorporate the FLT work into the dissertation draft
+    - (**RP2**) Incorporate the DIT work into the dissertation draft
 * July
-    - Incorporate the combining work into the thesis
+    - (**RP3**) Incorporate the combining work into the dissertation draft
 * August
-    - First complete dissertation draft for review
+    - First dissertation draft for review
 * September
-    - Second complete dissertation draft for review
+    - Second dissertation draft for review
 * November
-    - Third complete dissertation draft for review
+    - Third dissertation draft for review
 * December
-    - Forth complete dissertation draft for review
+    - Forth dissertation draft for review
     - Prepare for defense
 
 ## 2016
