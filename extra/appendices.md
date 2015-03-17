@@ -4,7 +4,7 @@
 ## 2015
 
 * January
-    - (**RP1**) Update primary data collection and analysis for FLT
+    - (**RP1**) Update data collection and analysis for FLT
 - February
     - (**RP1**) Update writing the FLT paper for submission
 * March
@@ -13,25 +13,27 @@
 * April
     - Proposal defense
     - (**RP2**) Begin writing the DIT paper
-    - (**RP2**) Begin programming framework towards DIT
-    - (**RP2**) Pilot the DIT
+    - (**RP2**) Begin programming framework for DIT
 * May
-    - (**RP2**) Complete primary data collection and analysis for DIT
-    - (**RP2**) Finish writing the DIT paper for submission
-    - (**RP3**) Begin writing the combining paper
-* June
     - (**RP1**) Incorporate the FLT work into the dissertation draft
-    - (**RP2**) Incorporate the DIT work into the dissertation draft
+    - (**RP2**) Complete data collection and analysis for DIT
+* June
+    - (**RP2**) Finish writing the DIT paper for submission
 * July
-    - (**RP3**) Incorporate the combining work into the dissertation draft
+    - (**RP2**) Incorporate the DIT work into the dissertation draft
+    - (**RP3**) Begin writing the combining paper
+    - (**RP3**) Begin programming framework for combining work
 * August
-    - First dissertation draft for review
+    - (**RP3**) Complete data collection and analysis for combining
+      work
+    - (**RP3**) Begin writing the combining paper for submission
 * September
-    - Second dissertation draft for review
+    - (**RP3**) Incorporate the combining work into the dissertation draft
+    - First dissertation draft for review
 * November
-    - Third dissertation draft for review
+    - Second dissertation draft for review
 * December
-    - Forth dissertation draft for review
+    - Third dissertation draft for review
     - Prepare for defense
 
 ## 2016
