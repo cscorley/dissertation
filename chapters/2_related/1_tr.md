@@ -38,7 +38,7 @@ token. The transformations commonly used are [@Manning-etal_2008]:
     such as term-frequency inverse-document-frequency (tf-idf)
     [@Salton-Buckley_1988]
 6. Prune
-    :   remove term that occur in, for example, over 80% or under 2% of the
+    :   remove terms that occur in, for example, over 80% or under 2% of the
     documents [@Madsen-etal_2004].
 
 ### Search Engine Construction and Retrieval
@@ -47,14 +47,19 @@ The right side of Figure \ref{fig:TR} illustrates the retrieval process. The
 main component of the retrieval process is the search engine
 [@Manning-etal_2008], which must first be constructed. A search engine
 typically consists of an index and a classifier for ranking. Search engines
-based on topic models also need a trained model.
+based on topic models also need a trained model. The primary function of the
+search engine is to rank documents in relation to the query. 
 
-The primary function of the search engine is to rank documents in relation to
-the query. First, the corpus is transformed into an index. Next, the engine
-takes a pairwise classification of the query to each document in the index and
-ranks the documents according to similarity. A similarity measure for
-probability distributions, such as the ones enumerated in the following Section
-\ref{similarity-measures}, can be used for these pairwise comparisons.
+First, the corpus is transformed into an index. If the search engine
+relies on a topic model, then the model is used to infer an index
+document-topic distributions for each document. Otherwise, the document-terms
+may be used directly or have further transformations applied.
+
+Next, the engine takes a pairwise classification of the query to each document
+in the index and ranks the documents according to similarity. A similarity
+measure for probability distributions, such as the ones enumerated in the
+following Section \ref{similarity-measures}, can be used for these pairwise
+comparisons.
 
 ### Similarity measures
 
@@ -268,7 +273,7 @@ SVD computes $C$ into three matrices by its rank $r$ ($\leq min(M, N)$):
 
 1) $T$ (also called $\phi$), an $M \times r$ term-topic vector matrix;
 2) $S$, an $r \times r$ singular values matrix;
-3) $D$ (also called $\theta$), an $N \times r$ topic-document vector matrix.
+3) $D$ (also called $\theta$), an $N \times r$ document-topic vector matrix.
 
 That is, $C = TSD^T$.
 
@@ -313,11 +318,11 @@ Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative
 model, where documents are assumed to have been generated according to a
 document-topic distribution and topic-word distribution. Of course, the goal of
 LDA is not to generate new documents from these distributions, although you
-certainly could, but instead infer the distributions of observed documents.
-That is, LDA models each document as a probability distribution indicating the
-likelihood that it expresses each topic and models each topic that it infers as
-a probability distribution indicating the likelihood of a word from the corpus
-being assigned to the topic.
+certainly could, but instead infer the distributions of observed and unobserved
+documents. That is, LDA models each document as a probability distribution
+indicating the likelihood that it expresses each topic and models each topic
+that it infers as a probability distribution indicating the likelihood of a
+word from the corpus being assigned to the topic.
 
 LDA assumes the following generative process:
 
@@ -370,7 +375,7 @@ In addition to the transformations outlined in Section
 2. Filter
     :   remove common words such programming language keywords, or standard
     library entity names
-3. Weight
+3. Weigh
     :   adjust the representation of a term in a document by some scheme, such
     as by the entity type [@Bassett-Kraft_2013].
 

@@ -7,7 +7,7 @@ their organization can be difficult to understand. Fortunately, topic models
 such as latent Dirichlet allocation (LDA) [@Blei-etal_2003] can help developers
 to navigate and understand software repositories by discovering topics (word
 distributions) that reveal the thematic structure of the data
-[@Linstead-etal_2007; @Thomas-etal_2011; @Hindle-etal_2012].
+[@Linstead-etal_2007; @Thomas-etal_2011; @Hindle-etal_2014].
 
 Program comprehension is a prerequisite to incremental change. A software
 developer who is tasked with changing a large software system spends effort on
@@ -36,7 +36,7 @@ among documents, such as Relational Topic Models [@Chang-Blei_2010].
 
 Topic models of source code have many applications in addition to general
 program comprehension. These applications include feature location
-[@Dit-etal_2013a], bug localization [@Lukins-etal_2008; @Rao-etal_2013],
+[@Dit-etal_2011a], bug localization [@Lukins-etal_2008; @Rao-etal_2013],
 triaging incoming change requests [@Kagdi-etal_2012], traceability link
 recovery [@Asuncion-etal_2010], and several other areas [@Biggers_2012]. Yet,
 while researchers have had success in using topic models on source code

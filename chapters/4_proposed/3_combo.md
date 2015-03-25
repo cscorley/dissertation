@@ -54,3 +54,11 @@ topic model?
 
 RQ3
 :   What are the differences, if any, between training models with LSI and LDA?
+
+##### Methodology
+
+##### Subject Systems
+
+##### Data Collection and Analysis
+
+

@@ -73,6 +73,12 @@ then Johanna would be considered the owner of `foo.py`.
 
 ### Proposal
 
+In this proposal, we introduce a topic-modeling-based DIT in which the model is
+built incrementally from source code *changesets*. By training an online
+learning algorithm using changesets, the DIT maintains an up-to-date model
+without incurring the non-trivial computational cost associated with retraining
+traditional FLTs.
+
 #### Approach {#dit-approach}
 
 ![Developer identification using changesets\label{fig:changeset-triage}](figures/changeset-triage.pdf)
