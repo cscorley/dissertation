@@ -48,7 +48,7 @@ been widely used by many others [@Poshyvanyk-etal_2006;
 @Eaddy-etal_2008; @Cubranic-etal_2005].
 
 @Lukins-etal_2008 introduce an FLT based on LDA and find that it outperforms an
-LSI-based FLT. 
+LSI-based FLT.
 @Lukins-etal_2010
 
 @Biggers-etal_2014 investigate the various configuration parameters for an
@@ -81,3 +81,8 @@ performance of an LDA-based FLT.
     - @Rajlich-Wilde_2002
     - @Revelle-etal_2010
     - @Scanniello-Marcus_2011
+    - @Ali-etal_2012
+    - @Dit-etal_2012
+    - @Saha-etal_2013
+    - @Wang-etal_2013
+    - @Zhou-etal_2012
