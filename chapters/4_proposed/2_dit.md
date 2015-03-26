@@ -77,7 +77,7 @@ In this proposal, we introduce a topic-modeling-based DIT in which the model is
 built incrementally from source code *changesets*. By training an online
 learning algorithm using changesets, the DIT maintains an up-to-date model
 without incurring the non-trivial computational cost associated with retraining
-traditional FLTs.
+traditional DITs.
 
 #### Approach {#dit-approach}
 
