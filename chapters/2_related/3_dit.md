@@ -163,12 +163,20 @@ expertise. The study compares the accuracy of each heuristic. The results show
 usage expertise based recommendations have an accuracy comparable to
 implementation based recommendations.
 
-@Linares-Vasquez-etal_2012
 
-@Zhou-etal_2012
-
-@Schuler-Zimmermann_2008
-
-@Jeong-etal_2009
-
-@Matter-etal_2009
+- @Zhou-etal_2012
+- @Schuler-Zimmermann_2008
+- @Jeong-etal_2009
+- @Matter-etal_2009
+- @Linares-Vasquez-etal_2012
+- @Hossen-etal_2014
+- @Begel-etal_2010 ICSE
+- @Bird-etal_2006 MSR
+- @Bird-etal_2011 FSE
+- @Bortis-VanderHoek_2013 ICSE "A tag-based approach to bug triaging"
+- @Fischer-etal_2003 ICSM
+- @German_2006 MSR
+- @Shokripour-etal_2013 MSR
+- @Song-etal_2005 UM
+- @Tamrawi-etal_2011 FSE
+- @Weissgerber-etal_2007 MSR

@@ -58,51 +58,26 @@ LDA-based FLT.
 performance of an LDA-based FLT.
 
 
-<!--
-### Textual
--->
-
-@Wilson_2010
-@Poshyvanyk-Marcus_2007
-@Gay-etal_2009
-
-@Shepherd-etal_2006
-@Hill-etal_2009
-@Abebe-etal_2009
-
-
-<!--
-### Static & Textual
--->
-
-@Zhao-etal_2006
-@Hill-etal_2007
-@Shao-etal_2012
-
-<!--
-### Dynamic & Textual
--->
-
-@Liu-etal_2007
-@Poshyvanyk-etal_2007
-
-<!--
-### Dynamic & Static & Textual
--->
-
-@Eaddy-etal_2008
-
-<!--
-### Other
--->
-
-@Ratanotayanon-etal_2010
-
-<!--
-### TBD
--->
-
-@Dit-etal_2011
-@Rajlich-Wilde_2002
-@Revelle-etal_2010
-@Scanniello-Marcus_2011
+- Textual
+    - @Wilson_2010
+    - @Poshyvanyk-Marcus_2007
+    - @Gay-etal_2009
+    - @Shepherd-etal_2006
+    - @Hill-etal_2009
+    - @Abebe-etal_2009
+- Static & Textual
+    - @Zhao-etal_2006
+    - @Hill-etal_2007
+    - @Shao-etal_2012
+- Dynamic & Textual
+    - @Liu-etal_2007
+    - @Poshyvanyk-etal_2007
+- Dynamic & Static & Textual
+    - @Eaddy-etal_2008
+- Other
+    - @Ratanotayanon-etal_2010
+- TBD
+    - @Dit-etal_2011
+    - @Rajlich-Wilde_2002
+    - @Revelle-etal_2010
+    - @Scanniello-Marcus_2011
