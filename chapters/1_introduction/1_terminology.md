@@ -105,30 +105,24 @@ project, maintained by a VCS
 
 \begin{figure*}[t]
 \centering
-\begin{lstlisting}[language=diff]
-diff --git a/lao b/tzu
-index 635ef2c..5af88a8 100644
---- a/lao
-+++ b/tzu
-@@ -1,7 +1,6 @@
--The Way that can be told of is not the eternal Way;
--The name that can be named is not the eternal name.
- The Nameless is the origin of Heaven and Earth;
--The Named is the mother of all things.
-+The named is the mother of all things.
-+
- Therefore let there always be non-being,
-   so we may see their subtlety,
- And let there always be being,
-@@ -9,3 +8,6 @@ And let there always be being,
- The two are the same,
- But after they are produced,
-   they have different names.
-+They both may be called deep and profound.
-+Deeper and more profound,
-+The door of all subtleties!
+\begin{lstlisting}[language=diff, basicstyle=\ttfamily\scriptsize, numbers=none]
+diff --git a/src/java/net/sf/jabref/EntryEditor.java b/src/java/net/sf/jabref/EntryEditor.java
+index 8c56723..6b4788e 100644
+--- a/src/java/net/sf/jabref/EntryEditor.java
++++ b/src/java/net/sf/jabref/EntryEditor.java
+@@ -669,7 +669,8 @@ public class EntryEditor extends JPanel implements VetoableChangeListener {
+     public void storeCurrentEdit() {
+         Component comp = Globals.focusListener.getFocused();
+         if ((comp == source) || ((comp instanceof FieldEditor) && this.isAncestorOf(comp))) {
+-            ((FieldEditor)comp).clearAutoCompleteSuggestion();
++            if (comp instanceof FieldEditor)
++                ((FieldEditor)comp).clearAutoCompleteSuggestion();
+             storeFieldAction.actionPerformed(new ActionEvent(comp, 0, ""));
+         }
+     }
 \end{lstlisting}
 \caption{Example of a \texttt{git diff}}
+This changeset addresses JabRef's Issue \#2904968.
 Black or blue lines denote metadata about the change useful for patching.
 In particular, black lines represent context lines (beginning with a single space).
 Red lines (beginning with a single~\texttt{-}) denote line removals,
@@ -136,7 +130,6 @@ and green lines (beginning with a single~\texttt{+}) denote line additions.
 \label{fig:diff}
 \vspace{-10pt}
 \end{figure*}
-
 
 
 
