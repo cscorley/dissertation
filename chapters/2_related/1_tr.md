@@ -48,7 +48,7 @@ main component of the retrieval process is the search engine
 [@Manning-etal_2008], which must first be constructed. A search engine
 typically consists of an index and a classifier for ranking [@Croft-etal_2010].
 Search engines based on topic models also need a trained model. The primary
-function of the search engine is to rank documents in relation to the query. 
+function of the search engine is to rank documents in relation to the query.
 
 First, the corpus is transformed into an index. If the search engine
 relies on a topic model, then the model is used to infer an index
@@ -99,7 +99,7 @@ comparisons.
     \label{eq:tv}
     \end{equation}
 
-### Evaluation Measures
+### Evaluation measures
 
 <!--
 prec rec [66] R. Baeza-Yates, B. Ribeiro-Neto, et al., Modern Information Retrieval, vol. 463.
@@ -250,7 +250,7 @@ evaluating the effectiveness of a search engine [@Croft-etal_2010].
 where $bestRank$ is a function equaling the rank of the first relevant item $a
 \in A$ for query $q$.
 
-##### Discounted Cumulative Gain (DCG) 
+##### Discounted Cumulative Gain (DCG)
 
 Discounted Cumulative Gain is an intuitive measure based on the assumptions
 that highly relevant documents are more useful than marginally relevant
@@ -270,9 +270,49 @@ such that it is 1 if document at rank $i \in A$, and 0 otherwise.
 Note that DCG does not penalize the relevance of the first retrieved document.
 
 
-- Stats
-    - Spearman rank
-    - Wilcoxon
+### Statistical significance tests
+
+The most simplistic experiment for text retrieval involves comparing two
+approaches: a baseline approach and some new approach. A typical design would
+use a set of common queries for each approach, obtaining matched pairs of
+*effectiveness measures*. A popular effectiveness measure used in software is
+by @Poshyvanyk-etal_2007, and uses the rank of the first relevant document
+found.
+
+We can form a null and alternative hypotheses for a one-tailed test
+using the evaluation measures discussed above to determine which of the
+approaches is better and by using a significance test on the effectiveness
+measures to determine if we should reject or accept a hypothesis. We can also
+use a two-sided test to determine if there is a difference between the two
+approaches.
+
+There are several applicable ranked-based significance tests we can use.
+According to @Croft-etal_2010, the most common ones are the t-test, the
+Wilcoxon sign-ranked test, and the sign test.
+
+#### t-test
+
+The t-test assumes a normal distribution of samples. That is, in the case of
+matched pairs, that the difference between effectiveness measures for each
+query is taken from a normal distribution. However, the t-test assumes that the
+effectiveness measure is interval, while effectiveness measures are typically
+ordinal, making the t-test an objectionable choice depending on the
+effectiveness measure used.
+
+#### Wilcoxon signed-rank test
+
+The Wilcoxon sign-ranked test is nonparametric and does not make the same
+assumptions that the t-test does, making it a more desirable choice of a test
+when the effectiveness measure is ordinal. The test can be written as:
+
+\begin{equation}
+    w = \sum_{i=1}^{N} sign(x_i - y_i) \times R_i
+\end{equation}
+
+where $N$ is the number of differences $\neq 0$, $x$ and $y$ are pairs of
+effectiveness measures, $sign(v)$ returns the sign of value $v$, $R_i$ is the
+rank of that value.
+
 
 
 ## Text Retrieval Models
@@ -408,10 +448,8 @@ multiple topics). Likewise, lowering $\alpha$ causes each document to express
 less topics while raising $\alpha$ causes documents to relate to more topics.
 
 
-@Girolami-Kaban_2003 show that pLSI and LDA are
-equivalent under a uniform Dirichlet prior.
-
-@Hoffman-etal_2010 introduce a version of LDA which is online.
+@Girolami-Kaban_2003 show that pLSI and LDA are equivalent under a uniform
+Dirichlet prior. @Hoffman-etal_2010 introduce a version of LDA which is online.
 @Zhai-Boyd-Graber_2013 introduce an extension of LDA in which the model also
 does not need to know about the corpus vocabulary prior to training.
 

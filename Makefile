@@ -80,6 +80,7 @@ $(PAPER).html: $(DEP_FILES) $(GENERATED)
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).html
 
 edit:
+	cp ~/papers/papers.bib .
 	vim $(CHAP_FILES)
 
 tidy:
