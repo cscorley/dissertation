@@ -46,9 +46,9 @@ token. The transformations commonly used are [@Manning-etal_2008]:
 The right side of Figure \ref{fig:TR} illustrates the retrieval process. The
 main component of the retrieval process is the search engine
 [@Manning-etal_2008], which must first be constructed. A search engine
-typically consists of an index and a classifier for ranking. Search engines
-based on topic models also need a trained model. The primary function of the
-search engine is to rank documents in relation to the query. 
+typically consists of an index and a classifier for ranking [@Croft-etal_2010].
+Search engines based on topic models also need a trained model. The primary
+function of the search engine is to rank documents in relation to the query. 
 
 First, the corpus is transformed into an index. If the search engine
 relies on a topic model, then the model is used to infer an index
@@ -176,11 +176,13 @@ $\alpha=0.5$. When using a balanced F-measure, the formula simplifies to:
 \label{eq:f-measure}
 \end{equation}
 
-#### Ranked-based measures
+##### Precision at k
 
-Since many text retrieval techniques return a ranking of all documents
-searched, it may be beneficial to consider precision of only the top $k$
-documents. *Precision at $k$* can be defined as:
+Precision at k is easy to compute and easy to understand. It is the calculated
+precision for the first $k$ retrieved documents. It awards for more relevant
+documents appearing in the first $k$ retrieved documents. However, it has the
+disadvantage of not distinguishing between the actual rankings of the relevant
+document, and is merely a count-based score.
 
 \begin{equation}
 \operatorname{precision}(k) =
@@ -190,28 +192,83 @@ documents. *Precision at $k$* can be defined as:
 \label{eq:precisionatk}
 \end{equation}
 where $B_{1..k}$ is the top $k$ documents retrieved. This is also written
-as *precision@$k$*.
+as *precision@k*.
 
-Mean Average Precision (MAP)
+#### Ranked-based measures
+
+Since many text retrieval techniques return a ranking of all documents
+searched, it is not beneficial to use set-based measures without only looking
+at the top-$k$ documents, as in *precision@k*.
+
+
+##### Average Precision (AP)
+
+Average precision is useful for scoring single queries. It awards for finding
+as many relevant documents as possible at the highest ranks.
+
+\begin{equation}
+\operatorname{AP} =
+    \frac{
+        \sum_{i}^{|B|}
+        (\operatorname{precision(i)} \times \operatorname{rel}(i))
+    } {|A|}
+\label{eq:map}
+\end{equation}
+
+where $rel(i)$ is the binary relevance function of the document at rank $i$,
+such that it is 1 if document at rank $i \in A$, and 0 otherwise.
+
+##### Mean Average Precision (MAP)
+
+Mean average precision uses AP to compute the scores over all queries, and is
+useful for summarizing the effectiveness of multiple queries.
+
 \begin{equation}
 \operatorname{MAP} =
     \frac{1}{|Q|}
     \sum_{q}^{Q}
-    \frac{1}{|A|}
-    \sum_{a}^{A}
-    \operatorname{precision}(\operatorname{rank}(a))
+    AP(q)
 \label{eq:map}
 \end{equation}
-where $rank$ is a function equaling the rank $i$ where $a = B_i$.
 
-Mean Reciprocal Rank (MRR)
+where $AP(q)$ is the average precision for query $q$.
+
+
+##### Mean Reciprocal Rank (MRR)
+
+Reciprocal rank is often useful when there are few, perhaps only one,
+relevant document to the query. *Mean reciprocal rank* is an average
+of reciprocal ranks over many different queries, hence it is useful for
+evaluating the effectiveness of a search engine [@Croft-etal_2010].
+
 \begin{equation}
 \operatorname{MRR} =
     \frac{1}{|Q|} \sum_{q}^{Q} \frac{1}{\operatorname{bestRank}(q)}
 \label{eq:mrr}
 \end{equation}
-where $bestRank$ is a function equaling the rank of the first item $a \in
-A$ for query $q$.
+
+where $bestRank$ is a function equaling the rank of the first relevant item $a
+\in A$ for query $q$.
+
+##### Discounted Cumulative Gain (DCG) 
+
+Discounted Cumulative Gain is an intuitive measure based on the assumptions
+that highly relevant documents are more useful than marginally relevant
+documents and that relevant documents with bad rank is not useful to the user
+[@Jaervelin-Kekaelaeinen_2002]. Essentially, it awards when more relevant
+documents are ranked higher and penalizes, or discounts, when those relevant
+documents are not ranked high.
+
+\begin{equation}
+\operatorname{DCG}(k) = rel(1) + \sum_{i=2}^{k} \frac{rel(i)}{log_2i}
+\label{eq:dcg}
+\end{equation}
+
+where $rel(i)$ is the graded relevance level of the document at rank $i$.
+A simple graded relevance function could be a binary judgement,
+such that it is 1 if document at rank $i \in A$, and 0 otherwise.
+Note that DCG does not penalize the relevance of the first retrieved document.
+
 
 - Stats
     - Spearman rank
