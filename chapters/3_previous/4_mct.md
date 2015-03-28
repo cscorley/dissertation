@@ -26,7 +26,7 @@ and each commit reachable from that tag's commit. The same preprocessing steps
 are employed on all documents extracted. We then used LDA to model the
 documents into topics.
 
-First, we investigated whether changeset copora were any different than
+First, we investigated whether changeset corpora were any different than
 traditional snapshot corpora, and what differences there might be. For two of
 the systems, we found that the changeset vocabulary was a superset to the
 snapshot vocabulary. We measured the cosine distance of each distribution of
