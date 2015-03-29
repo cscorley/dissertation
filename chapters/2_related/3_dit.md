@@ -1,7 +1,7 @@
 
 ## Developer identification {#related-triage}
 
-In this section we survey the literature on triaging incoming change requests.
+In this section we survey the literature on developer identification.
 As noted by @Shokripour-etal_2013, there are two broad categories of work in
 this area: activity-based approaches and location-based approaches. An
 activity-based approach uses information gained from a developers *activity*,

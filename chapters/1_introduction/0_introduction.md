@@ -37,9 +37,9 @@ among documents, such as Relational Topic Models [@Chang-Blei_2010].
 Topic models of source code have many applications in addition to general
 program comprehension. These applications include feature location
 [@Dit-etal_2011a], bug localization [@Lukins-etal_2008; @Rao-etal_2013],
-triaging incoming change requests [@Kagdi-etal_2012], traceability link
-recovery [@Asuncion-etal_2010], and several other areas [@Biggers_2012]. Yet,
-while researchers have had success in using topic models on source code
-entities, there is a fundamental issue with the current approaches. This issue
-is that the input documents used to build a topic model are often source code
-entities, and will be the motivating point of this work.
+developer identification [@Kagdi-etal_2012], traceability link recovery
+[@Asuncion-etal_2010], and several other areas [@Biggers_2012]. Yet, while
+researchers have had success in using topic models on source code entities,
+there is a fundamental issue with the current approaches. This issue is that
+the input documents used to build a topic model are often source code entities,
+and will be the motivating point of this work.
