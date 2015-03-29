@@ -168,8 +168,43 @@ changeset. Finally, we classify the results from both $\theta$s.
 @Kagdi-etal_2012
 <http://www.cs.wm.edu/semeru/data/jsme09-bugs-devs/>
 
-Supposedly, @Hossen-etal_2014 is available, but the URL requires a login.
-<http://serl.cs.wichita.edu/svn/projects/dev-rec-authors/trunk/Paper/icpc2014-appendix/>
+@Linares-Vasquez-etal_2012
+<http://www.cs.wm.edu/semeru/data/icsm2012-authorship/>
+
+There are two publicly-available and recently published datasets that could be
+used in this study. Between these two datasets are over 415 defects and
+features from 5 open source Java projects. Choosing a publicly-available
+dataset allows for this work to be set in context of work completed by other
+researchers.
+
+Table \ref{table:dit-datasets} summarizes the subject systems from the
+datasets. The first is a dataset of 5 software systems by @Kagdi-etal_2012. The
+second is a dataset of 3 software systems by @Linares-Vasquez-etal_2012. Both
+datasets were automatically extracted from changesets that relate to the
+queries (issue reports). 
+
+Subject System           Change Requests
+--------------          ---------------- 
+ArgoUML v0.22           91
+ArgoUML v0.26.2         23
+Eclipse v2.0            14
+Eclipse v3.0            14
+Eclipse v3.3.2          14
+jEdit v4.3              143
+KOffice v2.0-Beta 2     24
+muCommander v0.8.5      92
+Total                   415
+--------------          ---------------- 
+
+Table: Developer identification subject systems and goldset sizes
+\label{table:dit-datasets}
+
+
+ArgoUML is a UML CASE tool that supports standard UML diagrams^[<http://argouml.tigris.org/>].
+Eclipse is an intergrated development environment to develop applications in various programming languages^[<https://www.eclipse.org/>].
+jEdit is a Java text editor^[<http://www.jedit.org/>].
+KOffice is a office productivity suite^[<http://www.kde.org/applications/office>].
+muCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
 
 ##### Data Collection and Analysis
 

@@ -151,11 +151,11 @@ BookKeeper is a distributed logging service^[<http://zookeeper.apache.org/bookke
 Derby is a relational database management system^[<http://db.apache.org/derby/>].
 Eclipse is an intergrated development environment to develop applications in various programming languages^[<https://www.eclipse.org/>].
 Hibernate is a java package used to work with relational databases^[<http://hibernate.org/>].
-JEdit is a Java text editor^[<http://www.jedit.org/>].
+jEdit is a Java text editor^[<http://www.jedit.org/>].
 JabRef is a tool for managing bibliographical reference data^[<http://jabref.sourceforge.net/>].
 Lucene is an information retrieval library written in Java^[<http://lucene.apache.org/core/>].
 Mahout is a tool for scaleable machine learning^[<https://mahout.apache.org/>].
-MuCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
+muCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
 OpenJPA is object relational mapping tool^[<http://openjpa.apache.org/>].
 Pig is a platform for analyzing large datasets consisting of high-level language^[<http://pig.apache.org/>].
 Solr is an enterprised search platform^[<http://lucene.apache.org/solr/>].
