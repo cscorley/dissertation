@@ -13,7 +13,7 @@ report. This patch-based recovery approach has also been in recent work by
 To evaluate this work, we compared our automated approach to manually extracted
 links. Two of the authors inspected each bug report patch and created extracted
 a goldset of changed methods by hand. The tool was employed on the same bug
-report patches, and the other authors verified it's results against the
+report patches, and the other authors verified its results against the
 human-extracted goldset.
 
 We found significant differences between the goldsets and the generated sets.
@@ -22,7 +22,7 @@ false negatives than manual extraction.
 
 The patch parsing functionality of the tool was extracted into an open source
 Python library named *What The Patch!?*[^wtp]. What The Patch!? is a library
-for parsing patch files. It's only purpose is to read a patch file and get it
+for parsing patch files. Its only purpose is to read a patch file and get it
 into some usable form by other programs. The library is installed between 5,000
 and 10,000 times a month from the Python package index[^wtppypi].
 

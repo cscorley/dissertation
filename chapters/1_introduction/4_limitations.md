@@ -13,7 +13,7 @@ The second assumption follows the first, in that the software repository
 history is not changed or re-written after initial training of the topic model.
 New version control software, such as Git and Mecurial, allow for history to be
 re-written arbitrarily. For instance, a repository may contain work on a
-subproject which is then extracted into it's own fully-fledged project at a
+subproject which is then extracted into its own fully-fledged project at a
 later point. This has happened in the case of the Apache Lucene and Solr
 projects.
 
