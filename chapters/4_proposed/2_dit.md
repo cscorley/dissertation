@@ -165,11 +165,13 @@ changeset. Finally, we classify the results from both $\theta$s.
 
 ##### Subject Systems
 
+<!--
 @Kagdi-etal_2012
 <http://www.cs.wm.edu/semeru/data/jsme09-bugs-devs/>
 
 @Linares-Vasquez-etal_2012
 <http://www.cs.wm.edu/semeru/data/icsm2012-authorship/>
+-->
 
 There are two publicly-available and recently published datasets that could be
 used in this study. Between these two datasets are over 415 defects and
