@@ -52,7 +52,7 @@ fully-automated system, the expert is identified and selected for assignment to
 the change request. @Anvik-etal_2006 notes that a fully-automated approach may
 not be feasible given the amount of contextual knowledge required for triage.
 
-### Background {#triage-background}
+### Background {#dit-background}
 
 Several developer identification techniques build upon feature location
 techniques. We refer the reader to Section \ref{flt-background} for a

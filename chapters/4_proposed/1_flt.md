@@ -164,7 +164,6 @@ ZooKeeper is a tool that works as a coordination service to help build distribut
 
 ##### Methodology
 
-
 For snapshots, the process is straightforward. First, we build a model in batch
 mode from the snapshot corpus. That is, the model can see all documents in the
 corpus at once. Then, we infer a $\theta_{Snapshot}$ from the snapshot corpus

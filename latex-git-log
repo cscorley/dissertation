@@ -82,6 +82,8 @@ else {
 # }}}
 
 # LaTeX template {{{
+
+say '{\footnotesize ';
 say '\iflanguage{ngerman}{\shorthandoff{"}}{}';
 
 if ($print_author) {
@@ -201,6 +203,8 @@ for (@lines) {
     $which_line ^= 1; ## toggle bit
 } ## end for (@lines)
 say '\end{longtable}';
+say '}';
+
 # }}}
 
 __END__
