@@ -1,11 +1,10 @@
 ---
 documentclass: Manuscript
-classoption:
-    - draft
 fontfamily: libertine
 fontsize: 12pt
 biblio-style: chicago
 biblio-files: papers.bib
+draft: Yes
 
 lof: Yes
 lot: Yes

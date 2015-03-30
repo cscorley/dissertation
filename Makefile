@@ -21,11 +21,13 @@ GENERATED = $(shell find ./extra -name '*.md' | sort | sed -e 's/^\.\/extra\///g
 
 DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(MD_FILES) $(FIG_FILES)
 
+URL="https://bitbucket.org/cscorley/proposal/commits"
 
 all: $(PAPER).pdf
 
 $(GENERATED) :: $(EXTRA_FILES)
 	mkdir -p tmp
+	./latex-git-log --width=8 --git-c-add=$(URL) > tmp/git-log.tex
 	pandoc \
 		--chapters \
 		--from=markdown \
