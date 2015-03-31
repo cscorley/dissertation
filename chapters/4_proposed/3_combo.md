@@ -7,6 +7,12 @@ topic modeling.
 
 ### Motivation & Background
 
+
+- FLT configuration valued @Biggers-etal_2014
+- Location based DIT benefit from FLT
+- DIT configuration un-explored
+- Explicitly evaluating two tasks on the same configuration is unexplored
+
 ### Proposal
 
 In this proposal, we introduce a *combined* approach that allows for a
@@ -71,16 +77,17 @@ for both tasks. Where this work will differ from the previous two research
 areas is in how the topic model is constructed.
 
 For RQ1, we want to find if the two approaches can rely on the same model with
-minimal interference from one another's needs. For example, the FLT task may
-perform better with less topics, while the DIT task may require many topics for
-optimal performance. Table \ref{table:combo-rq1} outlines the factors about the
-model construction we will consider.
+minimal interference from one another's requirements. For example, the FLT task
+may perform better with less topics, while the DIT task may require many topics
+for optimal performance. Table \ref{table:combo-rq1} outlines the factors about
+the model construction we will consider.
 
 Factor      Values
 ---------   ------
 K           {100, 200, 500}
 $\alpha$    {1/K, 2/K, 5/K}
 $\beta$     {1/K, 2/K, 5/K}
+Task        {FLT, DIT}
 ---------   ------
 
 Table: Case study factors \label{table:combo-rq1}
@@ -105,18 +112,20 @@ Commit message  {yes, no}
 
 Table: Text sources \label{table:combo-rq2}
 
-
+Finally, for RQ3 we will need to employ a deeper historical simulation and
+analysis than in the previous proposed works. This work will be much more
+exploratory than RQ1 and RQ2, as there is no indication thus far of what the
+data will contain. An example approach is to use time series analysis
+techniques to determine how the effectiveness measure changes over time and if
+there is a minimal number of changesets that need to be modeled before the
+approach is effective.
 
 ##### Subject Systems
 
-For this work, we need a common dataset. Fortunately, there are several common
-systems between the four datasets in the previous works [@Dit-etal_2013;
-@Moreno-etal_2014; @Kagdi-etal_2012; @Linares-Vasquez-etal_2012]. Common
-systems can be seen in Tables \ref{table:flt-datasets} and
-\ref{table:dit-datasets} include ArgoUML v0.22, ArgoUML v0.26.2, jEdit v4.3,
-and muCommander v0.8.5.
-
-
-
-##### Data Collection and Analysis
+For this work, we need a common dataset that covers both the FLT domain and DIT
+domain. Fortunately, there are several common systems between the four datasets
+in the previous works [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
+@Linares-Vasquez-etal_2012]. Common systems that can be seen in Tables
+\ref{table:flt-datasets} and \ref{table:dit-datasets} include ArgoUML v0.22,
+ArgoUML v0.26.2, jEdit v4.3, and muCommander v0.8.5.
 
