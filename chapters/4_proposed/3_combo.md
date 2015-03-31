@@ -54,24 +54,58 @@ RQ1
 :   Can the same topic model be used effectively in more than one context?
 
 RQ2
-:   What configuration considerations must we make when training a multi-use
-topic model?
-
-    RQ2.1
-    :   What are the affects of the online decaying parameters?
-
-    RQ2.2
-    :   What are the affects of using only portions of a changeset, such as
-    added, removed, and context lines?
-
-    RQ2.3
-    :   What are the affects of including the commit message in the changeset
-    document?
+:   What are the effects of using different portions of a changeset for corpus
+construction, such as added, removed, context lines, and the commit message?
 
 RQ3
 :   How much repository history is needed before the approaches are effective?
 
+
 ##### Methodology
+
+In this work, we can utilize much of the already created framework from the
+previous two research areas covered in this proposal. After evaluating the
+usefulness of changesets, we will not need to instantiate snapshot models for
+this work. Instead, we will create the single changeset topic model to be used
+for both tasks. Where this work will differ from the previous two research
+areas is in how the topic model is constructed.
+
+For RQ1, we want to find if the two approaches can rely on the same model with
+minimal interference from one another's needs. For example, the FLT task may
+perform better with less topics, while the DIT task may require many topics for
+optimal performance. Table \ref{table:combo-rq1} outlines the factors about the
+model construction we will consider.
+
+Factor      Values
+---------   ------
+K           {100, 200, 500}
+$\alpha$    {1/K, 2/K, 5/K}
+$\beta$     {1/K, 2/K, 5/K}
+---------   ------
+
+Table: Case study factors \label{table:combo-rq1}
+
+
+While RQ1 focuses on model construction, RQ2 focuses on training-corpus
+construction. For RQ2, there are several combinations to consider. While thus
+far we have always included the entire changeset when training, it may be
+beneficial to consider only including portions (i.e., added lines only) while
+excluding other portions (i.e., removed lines). It may also be beneficial to
+include the natural language text of the commit message. Table
+\ref{table:combo-rq2} outlines the 15 combinations over the 4 types of
+changeset text.
+
+Text source     Include? 
+--------------  ---------
+Added lines     {yes, no}
+Removed lines   {yes, no}
+Context lines   {yes, no}
+Commit message  {yes, no}
+--------------  ---------
+
+Table: Text sources \label{table:combo-rq2}
+
+
 
 ##### Subject Systems
 
