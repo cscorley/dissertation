@@ -5,13 +5,15 @@ The two previously proposed approaches could potentially be used in unison with
 a single model, allowing for halving the computational cost required for the
 topic modeling.
 
-### Motivation & Background
+### Motivation
 
-
-- FLT configuration valued @Biggers-etal_2014
-- Location based DIT benefit from FLT
-- DIT configuration un-explored
-- Explicitly evaluating two tasks on the same configuration is unexplored
+When using a topic modeler, many choices must be made in regard to
+configuration. @Biggers-etal_2014 were the first to explore the various
+parameters of a LDA-based FLT.  Unfortunately, these findings may not directly
+apply to a LDA-based DIT.  Further, there is no work on optimal configurations
+when a topic model is used for two tasks. There is also evidence in the
+literature that different configurations may be better suited for different
+tasks [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
 ### Proposal
 
