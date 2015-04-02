@@ -16,9 +16,9 @@ While using file-based models is a natural fit for program comprehension tasks
 such as feature location and bug localization, they still are unable to stay
 up-to-date entirely [@Rao_2013]. Additionally, much of the work for assigning
 developers to change requests still use source code entities as input and an
-array of heuristics to identify a developer [@Kagdi-etal_2012]. These methods
-also have the same flaw in that they ultimately rely on source code entities
-for information.
+array of heuristics to identify a developer [@Kagdi-etal_2012;
+@Hossen-etal_2014]. These methods also have the same flaw in that they
+ultimately rely on source code entities for information.
 
 To remedy these shortcomings, we propose to use *changesets* in the training of
 a topic model. Like @Rao-etal_2013, the motivation of this work is to create

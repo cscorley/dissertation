@@ -202,9 +202,9 @@ Table: Developer identification subject systems and goldset sizes
 \label{table:dit-datasets}
 
 
-ArgoUML is a UML CASE tool that supports standard UML diagrams^[<http://argouml.tigris.org/>].
-Eclipse is an intergrated development environment to develop applications in various programming languages^[<https://www.eclipse.org/>].
-jEdit is a Java text editor^[<http://www.jedit.org/>].
+ArgoUML is a UML diagramming tool^[<http://argouml.tigris.org/>].
+Eclipse is an IDE for development in various programming languages^[<https://www.eclipse.org/>].
+jEdit is a text editor^[<http://www.jedit.org/>].
 KOffice is a office productivity suite^[<http://www.kde.org/applications/office>].
 muCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
 

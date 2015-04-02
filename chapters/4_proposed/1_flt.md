@@ -1,93 +1,146 @@
 ## Feature location {#study-flt}
 
-Feature location is a program comprehension activity in which a developer
-inspects source code to locate the classes or methods that implement a feature
-of interest.
+Feature location is a frequent and fundamental activity for a developer tasked
+with changing a software system. Whether a change task involves adding,
+modifying, or removing a feature, a developer cannot complete the task without
+first locating the source code that implements the feature. The
+state-of-the-practice in feature location is to use an IDE tool based on
+keyword or regex search, but @Ko-etal_2006 observed such tools leading
+developers to failed searches nearly 90% of the time.
 
-### Motivation
+The state-of-the-art in feature location [@Dit-etal_2011] is to use a
+feature location technique (FLT) based, at least in part, on text retrieval
+(TR). The standard methodology [@Marcus-etal_2004] is to extract a document
+for each class or method in a source code snapshot, to train a TR model on
+those documents, and to create an index of the documents from the trained
+model. Topics models (TMs) [@Blei_2012] such as latent Dirichlet allocation
+(LDA) [@Blei-etal_2003] are the state-of-the-art in TR and outperform
+vector-space models (VSMs) in the contexts of natural
+language [@Deerwester-etal_1990; @Blei-etal_2003] and source
+code [@Poshyvanyk-etal_2007; @Lukins-etal_2010]. Yet, modern TMs such as
+online LDA [@Hoffman-etal_2010] natively support only the online addition
+of a new document, whereas VSMs also natively support online modification or
+removal of an existing document. So, TM-based FLTs provide the best accuracy,
+but unlike VSM-based FLTs, they require computationally-expensive retraining
+subsequent to source code changes.
 
-Many feature location techniques (FLTs) are based on text retrieval models, and
-in such FLTs it is typical for the models to be built from source code
-snapshots. However, source code evolution leads to model obsolescence and thus
-to the need to retrain the model from the latest snapshot.
+@Rao_2013 proposed FLTs based on customizations of LDA and latent semantic
+indexing (LSI) that support online modification and removal. These FLTs require
+less-frequent retraining than other TM-based FLTs, but the remaining cost of
+periodic retraining inhibits their application to large software, and the
+reliance on customization hinders their extension to new TMs.
+
+We envision an FLT that is: 
+
+1. accurate like a TM-based FLT, 
+2. inexpensive to update like a VSM-based FLT,
+2. and extensible to accommodate any off-the-shelf TR model that supports online addition of a new document.
+
+Unfortunately, our vision is incompatible with the standard methodology for
+FLTs. Existing VSM-based FLTs fail to satisfy the first criteria, and existing
+TM-based FLTs fail to satisfy the second or third criteria. Indeed, given the
+current state-of-the-art in TR, it is impossible for a FLT to satisfy all three
+criteria while following the standard methodology.
+
+In this work, we propose a new methodology for FLTs. Our methodology is to
+extract a document for each changeset in the source code history and to train a
+TR model on the changeset documents, and then to extract a document for each
+class or method in a source code snapshot and to create an index of the
+class/method documents from the trained (changeset) model. This new methodology
+stems from four key observations:
+
+- Like a class/method definition, a changeset contains program text.
+- Unlike a class/method definition, a changeset is immutable.
+- A changeset corresponds to a commit.
+- An atomic commit involves a single feature.
+
+It follows from the first two observations that it is possible for an FLT
+following our methodology to satisfy all three of the criteria above. The next
+two observations influence the training and indexing steps of our methodology,
+which have the conceptual effect of relating classes (or methods) to changeset
+topics. By contrast, the training and indexing steps of the standard
+methodology have the conceptual effect of relating classes to class topics (or
+methods to method topics).
 
 ### Background {#flt-background}
 
 ![Typical feature location process\label{fig:snapshot-flt}](figures/snapshot-flt.pdf)
 
-The left side of Figure \ref{fig:snapshot-flt} illustrates the document
-extraction process. A document extractor takes source code as input and
-produces a corpus as output. Each document in the corpus contains the words
-associated with a source code entity such as a class or method. The text
-extractor is the first part of the document extractor. It parses the source
-code and produces a token stream for each class. The preprocessor is the second
-part of the document extractor. It applies a series of transformations to each
-token and produces one or more words from the token.
+The left side of Figure \ref{fig:snapshot-flt} illustrates the document extraction
+process.  A document extractor takes a source code snapshot as input and
+produces a corpus as output.  Each document in the corpus contains the words
+associated with a source code entity, such as a class or method.  The text
+extractor is the first part of the document extractor and parses the source
+code to produce a token stream for each document.  The preprocessor is the
+second part of the document extractor.  It applies a series of transformations
+to each token and produces one or more words from the token.
 
 The right side of Figure \ref{fig:snapshot-flt} illustrates the retrieval
 process. The main prerequisite of the retrieval process is to build the search
-engine. The search engine is constructed from the topic model trained from the
-corpus and an index of that corpus inferred from that model, known as $\theta$.
+engine. The search engine is constructed from a topic model trained from a
+corpus and an index of that corpus inferred from that model. This means that an
+index is no more than each input document's thematic structure (i.e., the
+document's inferred topic distribution).
+
 The primary function of the search engine is to rank documents in relation to
-the query. The search engine performs a pairwise classification of the query to
-each document and ranks the documents according score.
-
-To accomplish the classification step using a topic model, the search engine
-infers $\theta_{Snapshot}$, i.e., the topic-document probability distribution
-of each document in the snapshot corpus, as well as $\theta_{Query}$, i.e., the
-topic-document probability distribution of the query. Then a similarity measure
-for probability distributions, such as cosine similarity or Hellinger distance,
-can be used to make pairwise comparisons between $\theta_{Query}$ and
-$\theta_{Snapshot}$.
-
+the query [@Croft-etal_2010].  First, when using a TM-based approach, the
+engine must first infer the thematic structure of the query.  This allows for a
+pairwise classification of the query to each document in the index and ranks
+the documents based on the similarities of their thematic structures.
 
 ### Proposal
 
-In this proposal, we introduce a topic-modeling-based FLT in which the model is built
-incrementally from source code *changesets*. By training an online learning
-algorithm using changesets, the FLT maintains an up-to-date model without
-incurring the non-trivial computational cost associated with retraining
+In this proposal, we introduce a topic-modeling-based FLT in which the model is
+built incrementally from source code *changesets*. By training an online
+learning algorithm using changesets, the FLT maintains an up-to-date model
+without incurring the non-trivial computational cost associated with retraining
 traditional FLTs.
 
 #### Approach {#flt-approach}
 
 ![Feature location using changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
 
-The changeset topic modeling approach requires two types of document
-extraction: one for the snapshot of the state of source code at a commit of
-interest, such as a tagged release, and one for the every changeset in the
-source code history leading up to that commit. The left side of
-Figure \ref{fig:changeset-flt} illustrates the dual-document extraction approach.
+The overall difference in our methodology and the standard methodology
+described in Section \ref{flt-background} is minimal. For example, compare
+Figures \ref{fig:snapshot-flt} and \ref{fig:changeset-flt}. In the changeset
+approach, we only need to replace the documents on which the topic model is
+trained while the remainder of the approach remains the same.
+
+The changeset approach requires two types of document extraction:
+the snapshot of the state of source code at a commit of interest, such as
+a tagged release, and every changeset in the source code history leading up to
+the same commit of interest.  The left side of Figure \ref{fig:changeset-flt}
+illustrates the dual-document extraction approach.
 
 The document extraction process for the snapshot remains the same as covered in
-Section \ref{flt-background}. The document extractor for the changesets parses
-each changeset for the removed, added, and context lines. From there, each line
-is tokenized by the text extractor. In a changeset it may be desirable to parse
-further for source code entities using island grammar parsing [@Moonen_2001],
-although not necessary for this approach. It may also be desirable to only use
-portions of the changeset, such as only using added or removed lines. The same
-preprocessor transformations as before also occur in changesets.
+Section \ref{flt-background} while the document extractor for the changesets
+parses each changeset for the removed, added, and context lines.  From there,
+each line is tokenized by the text extractor.  The same preprocessor
+transformations as before occur in both the snapshot and changesets.  The
+snapshot vocabulary is always a subset of the changeset
+vocabulary [@Corley-etal_2014].
 
 The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
-process. The key intuition to our approach is that a topic model such as LDA or
-LSI can infer any given document's topic proportions regardless of the
-documents used to train the model. Hence, we train a topic model on the
-changeset corpus, but search for related documents over the snapshot corpus. In
-the search engine, we can use a dynamic programming to keep $\theta_{Snapshot}$
-up-to-date as new changesets are added to the model. That is, upon a update to
-the model, new inferences of only the source code documents affected by this
-changeset are made. Additionally, we can then query the model as needed and
-rank the results of that query against $\theta_{Snapshot}$. Note that we never
-infer a $\theta_{Changeset}$ for the changeset documents on which the model is
-built.
+process. The key intuition to our methodology is that a topic model such as LDA
+or LSI can infer *any* document's topic proportions regardless of the documents
+used to train the model.  In fact, this is also what determining the topic
+proportions of a user-created query relies on. Likewise, so are other unseen
+documents. In our approach, the seen documents are changesets and the unseen
+documents are the source code entities of the snapshot.
+
+Hence, we train a topic model on the changeset corpus and use the model to
+index the snapshot corpus.  Note that we never construct an index of the
+changeset documents on which the model is trained.  In our approach, we only
+use the changesets to continuously update the topic model and only use the
+snapshot for indexing.
 
 To leverage the online functionality of the topic models, we can also intermix
-the model training and retrieval steps. First, we initialize a model in online
-mode. Then, as changes are made, the model is updated with the new changesets
-as they are committed. That is, with changesets, we incrementally update a
-model and can query it at any moment. This insight means that we can also
-evaluate our approach *temporally*. That is, we we can approximate how the FLT
-would perform throughout the evolution of a project.
+the model training, indexing, and retrieval steps.  First, we initialize a
+model in online mode.  Then, as changes are made, the model is updated with the
+new changesets as they are committed.  That is, with changesets, we
+incrementally update a model and can query it at any moment.
+This will allow for a *historical simulation* of how a changeset-based FLT
+would perform in a realistic scenario.
 
 #### Evaluation
 
@@ -96,10 +149,10 @@ compare topic models trained on changesets to those trained on snapshots.
 For this work, we pose the following research questions:
 
 RQ1
-:   How well do changeset-based topic models perform for feature location?
+:   Is a changeset-based FLT as accurate as a snapshot-based FLT?
 
 RQ2
-:   How well do *temporal simulations* of changeset-based topic models perform for feature location?
+:   Does the accuracy of a changeset-based FLT fluctuate as a project evolves?
 
 ##### Subject Systems
 
@@ -145,52 +198,56 @@ Total                1224       4088      4363
 
 Table: Feature location subject systems and goldset sizes \label{table:flt-datasets}
 
-
-ArgoUML is a UML CASE tool that supports standard UML diagrams^[<http://argouml.tigris.org/>].
+ArgoUML is a UML diagramming tool^[<http://argouml.tigris.org/>].
 BookKeeper is a distributed logging service^[<http://zookeeper.apache.org/bookkeeper/>].
 Derby is a relational database management system^[<http://db.apache.org/derby/>].
-Eclipse is an intergrated development environment to develop applications in various programming languages^[<https://www.eclipse.org/>].
-Hibernate is a java package used to work with relational databases^[<http://hibernate.org/>].
-jEdit is a Java text editor^[<http://www.jedit.org/>].
-JabRef is a tool for managing bibliographical reference data^[<http://jabref.sourceforge.net/>].
-Lucene is an information retrieval library written in Java^[<http://lucene.apache.org/core/>].
-Mahout is a tool for scaleable machine learning^[<https://mahout.apache.org/>].
+Eclipse is an IDE for development in various programming languages^[<https://www.eclipse.org/>].
+Hibernate is a object/relational mapping framework^[<http://hibernate.org/>].
+jEdit is a text editor^[<http://www.jedit.org/>].
+JabRef is a BibTeX bibliography management tool^[<http://jabref.sourceforge.net/>].
+Lucene is an information retrieval library^[<http://lucene.apache.org/core/>].
+Mahout is a tool for scalable machine learning^[<https://mahout.apache.org/>].
 muCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
-OpenJPA is object relational mapping tool^[<http://openjpa.apache.org/>].
-Pig is a platform for analyzing large datasets consisting of high-level language^[<http://pig.apache.org/>].
-Solr is an enterprised search platform^[<http://lucene.apache.org/solr/>].
+OpenJPA is object/relational mapping tool^[<http://openjpa.apache.org/>].
+Pig is a platform for analyzing large datasets^[<http://pig.apache.org/>].
+Solr is a search platform^[<http://lucene.apache.org/solr/>].
 Tika is a toolkit for extracting metadata and text from various types of files^[<http://tika.apache.org/>].
 ZooKeeper is a tool that works as a coordination service to help build distributed applications^[<http://zookeeper.apache.org/bookkeeper/>].
 
-##### Methodology
+##### Methodology {#flt-methodology}
 
-For snapshots, the process is straightforward. First, we build a model in batch
-mode from the snapshot corpus. That is, the model can see all documents in the
-corpus at once. Then, we infer a $\theta_{Snapshot}$ from the snapshot corpus
-and a $\theta_{Queries}$ from the query corpus. Finally, we classify the
-results from both $\theta$s.
+For snapshots, the process is straightforward and corresponds to
+Figure \ref{fig:snapshot-flt}.  First, we train a model on the snapshot corpus using
+batch training.  That is, the model can see all documents in the corpus at once.
+Then, we infer an index of topic distributions with the snapshot corpus.  For
+each query in the dataset, we infer the query's topic distribution and rank each
+entity in the index with pairwise comparisons.
 
-For changesets, the process is varies slightly from a snapshot approach. First,
-we build a model in batch mode from the changeset corpus. Then, we infer a
-$\theta_{Snapshot}$ from the snapshot corpus and a $\theta_{Queries}$ from the
-query corpus. Note that we *do not* infer a $\theta_{Changesets}$ from the
-changeset corpus from which the model was built! Finally, we classify the
-results from both $\theta$s.
+In terms of changesets, the process varies slightly from a snapshot approach,
+as shown in Figure \ref{fig:changeset-flt}.  First, we train a model of the
+changeset corpus using batch training.  Second, we infer an index of topic
+distributions with the snapshot corpus.  Note that we *do not* infer topic
+distributions with the changeset corpus on which the model was built.  Finally,
+for each query in the dataset, we infer the query's topic distribution and rank
+each entity in the snapshot index with pairwise comparisons.
 
-For the temporal simulation, we can take a slightly different approach. We
-first determine which changesets relate to an issue and partition mini-batches
-out of the changesets. Then, we initialize a model in online mode. For each
-mini-batch, or partition, we update the model with that mini-batch. Then, we
-infer a $\theta_{Snapshot}$ from the snapshot corpus and a retrieve the
-$\theta_{Queries}$ for the queries related to this changeset. Finally, we
-classify the results from both $\theta$s.
+For the historical simulation, we take a slightly different approach.  We first
+determine which commits relate to each query (or issue) and partition
+mini-batches out of the changesets.  We then proceed by initializing a model for
+online training.  Using each mini-batch, or partition, we update the model.
+Then, we infer an index of topic distributions with the snapshot corpus at the
+commit the partition ends on.  We also obtain a topic distribution for each
+query related to the commit.  For each query, we infer the query's topic
+distribution and rank each entity in the snapshot index with pairwise
+comparisons. Finally, we continue by updating the model with the next
+mini-batch.
 
 Since the @Dit-etal_2013 dataset was extracted from the commit that implemented
-the change, our partitioning should be inclusive of that commit. That is, we
-update the model with the linked commit and infer the $\theta_{Snapshot}$ from
-that commit. This allows our evaluation to capture any entities added to
-address the issue report, as well as changed entities, but does not capture any
-entities that were removed by the change.
+the change, our partitioning is inclusive of that commit.  That is, we update
+the model with the linked commit and infer the snapshot index from that commit.
+This allows our evaluations to capture any entities added to address the issue
+report, as well as changed entities, but does not capture any entities that
+were removed by the change.
 
 ##### Data Collection and Analysis
 
@@ -205,8 +262,12 @@ measure allows evaluating the FLT by using the mean reciprocal rank (MRR). We
 can also look at only the top-k recommendations in the list, giving us the
 measures of precision@k and recall@k.
 
-For any execution of the experiment, we calculate the MRR of each approach.
-We use the Wilcoxon signed-rank test with Holm correction to determine
-the statistical significance of the difference between any two rankings.
-
+To answer RQ1, we run the experiment on the snapshot and changeset corpora as
+outlined in Section \ref{flt-methodology}. We then calculate the MRR between
+the two sets of effectiveness measures. We use the Wilcoxon signed-rank test
+with Holm correction to determine the statistical significance of the
+difference between the two rankings. To answer RQ2, we run the historical
+simulation as outlined in Section \ref{flt-methodology} and compare it to the
+results of batch changesets from RQ1. Again, we calculate the MRR and use the
+Wilcoxon signed-rank test.
 
