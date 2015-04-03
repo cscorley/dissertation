@@ -8,6 +8,8 @@ state-of-the-practice in feature location is to use an IDE tool based on
 keyword or regex search, but @Ko-etal_2006 observed such tools leading
 developers to failed searches nearly 90% of the time.
 
+### Motivation
+
 The state-of-the-art in feature location [@Dit-etal_2011] is to use a
 feature location technique (FLT) based, at least in part, on text retrieval
 (TR). The standard methodology [@Marcus-etal_2004] is to extract a document
@@ -154,6 +156,41 @@ RQ1
 RQ2
 :   Does the accuracy of a changeset-based FLT fluctuate as a project evolves?
 
+##### Methodology {#flt-methodology}
+
+For snapshots, the process is straightforward and corresponds to
+Figure \ref{fig:snapshot-flt}.  First, we train a model on the snapshot corpus using
+batch training.  That is, the model can see all documents in the corpus at once.
+Then, we infer an index of topic distributions with the snapshot corpus.  For
+each query in the dataset, we infer the query's topic distribution and rank each
+entity in the index with pairwise comparisons.
+
+In terms of changesets, the process varies slightly from a snapshot approach,
+as shown in Figure \ref{fig:changeset-flt}.  First, we train a model of the
+changeset corpus using batch training.  Second, we infer an index of topic
+distributions with the snapshot corpus.  Note that we *do not* infer topic
+distributions with the changeset corpus on which the model was built.  Finally,
+for each query in the dataset, we infer the query's topic distribution and rank
+each entity in the snapshot index with pairwise comparisons.
+
+For the historical simulation, we take a slightly different approach.  We first
+determine which commits relate to each query (or issue) and partition
+mini-batches out of the changesets.  We then proceed by initializing a model for
+online training.  Using each mini-batch, or partition, we update the model.
+Then, we infer an index of topic distributions with the snapshot corpus at the
+commit the partition ends on.  We also obtain a topic distribution for each
+query related to the commit.  For each query, we infer the query's topic
+distribution and rank each entity in the snapshot index with pairwise
+comparisons. Finally, we continue by updating the model with the next
+mini-batch.
+
+Since the @Dit-etal_2013 dataset was extracted from the commit that implemented
+the change, our partitioning is inclusive of that commit.  That is, we update
+the model with the linked commit and infer the snapshot index from that commit.
+This allows our evaluations to capture any entities added to address the issue
+report, as well as changed entities, but does not capture any entities that
+were removed by the change.
+
 ##### Subject Systems
 
 There are two publicly-available and recently published datasets that could be
@@ -213,41 +250,6 @@ Pig is a platform for analyzing large datasets^[<http://pig.apache.org/>].
 Solr is a search platform^[<http://lucene.apache.org/solr/>].
 Tika is a toolkit for extracting metadata and text from various types of files^[<http://tika.apache.org/>].
 ZooKeeper is a tool that works as a coordination service to help build distributed applications^[<http://zookeeper.apache.org/bookkeeper/>].
-
-##### Methodology {#flt-methodology}
-
-For snapshots, the process is straightforward and corresponds to
-Figure \ref{fig:snapshot-flt}.  First, we train a model on the snapshot corpus using
-batch training.  That is, the model can see all documents in the corpus at once.
-Then, we infer an index of topic distributions with the snapshot corpus.  For
-each query in the dataset, we infer the query's topic distribution and rank each
-entity in the index with pairwise comparisons.
-
-In terms of changesets, the process varies slightly from a snapshot approach,
-as shown in Figure \ref{fig:changeset-flt}.  First, we train a model of the
-changeset corpus using batch training.  Second, we infer an index of topic
-distributions with the snapshot corpus.  Note that we *do not* infer topic
-distributions with the changeset corpus on which the model was built.  Finally,
-for each query in the dataset, we infer the query's topic distribution and rank
-each entity in the snapshot index with pairwise comparisons.
-
-For the historical simulation, we take a slightly different approach.  We first
-determine which commits relate to each query (or issue) and partition
-mini-batches out of the changesets.  We then proceed by initializing a model for
-online training.  Using each mini-batch, or partition, we update the model.
-Then, we infer an index of topic distributions with the snapshot corpus at the
-commit the partition ends on.  We also obtain a topic distribution for each
-query related to the commit.  For each query, we infer the query's topic
-distribution and rank each entity in the snapshot index with pairwise
-comparisons. Finally, we continue by updating the model with the next
-mini-batch.
-
-Since the @Dit-etal_2013 dataset was extracted from the commit that implemented
-the change, our partitioning is inclusive of that commit.  That is, we update
-the model with the linked commit and infer the snapshot index from that commit.
-This allows our evaluations to capture any entities added to address the issue
-report, as well as changed entities, but does not capture any entities that
-were removed by the change.
 
 ##### Data Collection and Analysis
 

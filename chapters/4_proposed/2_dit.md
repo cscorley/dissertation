@@ -64,7 +64,7 @@ appropriate developer to complete a task. For example, if file `foo.py` was
 identified as the most related entity, then we would want to know about the
 maintainer, or owner, of `foo.py`. There are multiple ways to determine the
 ownership of a source code entity [@Bird-etal_2011; @Kagdi-etal_2012;
-@Corley-etal_2012].
+@Corley-etal_2012; @Hossen-etal_2014].
 
 A simple, example ownership metric is the number of times a developer has
 committed changes to a file. That is, if over the software history Johanna
@@ -83,11 +83,10 @@ traditional DITs.
 
 ![Developer identification using changesets\label{fig:changeset-triage}](figures/changeset-triage.pdf)
 
-The changeset topic modeling approach requires two types of document
-extraction: one for the every changeset in the source code history and a
-developer profile of the words each individual developer changed in those
-changesets. The left side of Figure \ref{fig:changeset-triage} illustrates the
-dual-document extraction approach.
+The changeset approach requires two types of document extraction: one for the
+every changeset in the source code history and a developer profile of the words
+each individual developer used in those changesets. The left side of Figure
+\ref{fig:changeset-triage} illustrates the dual-document extraction approach.
 
 The document extraction process for the changesets remains the same as covered
 in Section \ref{flt-approach}. The document extraction process for the
@@ -97,27 +96,27 @@ repository. That is, a developer document will be constructed only by word they
 have changed. There may be weighting schemes to this, such as only considering
 words which they have added or removed, while ignoring context words.
 
-The right side of Figure \ref{fig:changeset-triage} illustrates the retrieval
-process. The key intuition to our approach is that a topic model such as LDA or
-LSI can infer any given document's topic proportions regardless of the
-documents used to train the model. Hence, we train a topic model on the
-changeset corpus, but search for related developers over the developer corpus.
-In the search engine, we can use a dynamic programming to keep
-$\theta_{Developers}$ up-to-date as new changesets are added to the model. That
-is, upon a update to the model, new inferences of only the developer which
-affected this changeset are made. Additionally, we can then query the model as
-needed and rank the results of that query against $\theta_{Developers}$. Note
-that we never infer a $\theta_{Changeset}$ for the changeset documents on which
-the model is built.
+The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
+process. The key intuition to our methodology is that a topic model such as LDA
+or LSI can infer *any* document's topic proportions regardless of the documents
+used to train the model.  In fact, this is also what determining the topic
+proportions of a user-created or generated query relies on. Likewise, so are
+other unseen documents. In our approach, the seen documents are changesets and
+the unseen documents are the developer profiles.
+
+Hence, we train a topic model on the changeset corpus and use the model to
+index the developer profiles.  Note that we never construct an index of the
+changeset documents on which the model is trained.  In our approach, we only
+use the changesets to continuously update the topic model and only use the
+developer profiles for indexing.
 
 To leverage the online functionality of the topic models, we can also intermix
-the model training and retrieval steps. First, we initialize a model in online
-mode. Then, as changes are made, the model is updated with the new changesets
-as they are committed. That is, with changesets, we incrementally update a
-model and can query it at any moment. This insight means that we can also
-evaluate our approach *temporally*. That is, we we can approximate how the
-automatic developer identification would perform throughout the evolution of a
-project.
+the model training, indexing, and retrieval steps.  First, we initialize a
+model in online mode.  Then, as changes are made, the model is updated with the
+new changesets as they are committed.  That is, with changesets, we
+incrementally update a model and can query it at any moment. This will allow
+for a *historical simulation* of how a changeset-based DIT would perform in a
+realistic scenario.
 
 #### Evaluation
 
@@ -126,12 +125,10 @@ compare topic models trained on changesets to those trained on snapshots.
 For this work, we pose the following research questions:
 
 RQ1
-:   How well do changeset-based topic models perform for developer
-identification?
+:   Is a changeset-based DIT as accurate as a snapshot-based DIT?
 
 RQ2
-:   How well do *temporal simulations* of changeset-based topic models perform
-for developer identification?
+:   Does the accuracy of a changeset-based DIT fluctuate as a project evolves?
 
 ##### Methodology
 
@@ -144,34 +141,27 @@ document. To accomplish this, we turn to the source code history. Following
 most. This implies that the snapshot approach is *dependent* on the performance
 of the snapshot-based FLT.
 
-For changesets, we can utilize the same approach as we did for the FLT
-evaluation. First, we build a model in batch mode from the changeset corpus.
-However, instead of building an index of the snapshot, we build an index of the
-developer profiles. That is, we infer a $\theta_{Developers}$ from the
-developer corpus and a $\theta_{Queries}$ from the query corpus. Note that we
-\emph{do not} infer a $\theta_{Changesets}$ from the changeset corpus from
-which the model was built! Finally, we classify the results from both
-$\theta$s. While the snapshot approach is dependent on the performance of an
-FLT, the changesets are not.
+For changesets, the approach will not necessarily be dependent on an FLT. We
+can utilize the same approach as we did for the FLT evaluation. First, we train
+a model of the changeset corpus using batch training.  Second, we infer an
+index of topic distributions with the developer profiles.  Note that we *do
+not* infer topic distributions with the changeset corpus on which the model was
+built.  Finally, for each query in the dataset, we infer the query's topic
+distribution and rank each entity in the developer profiles index with pairwise
+comparisons.
 
-For the temporal simulation, again as in the FLT, we can take a slightly
-different approach. We first determine which changesets relate to an issue and
-partition mini-batches out of the changesets. Then, we initialize a model in
-online mode. For each mini-batch, or partition, we update the model with that
-mini-batch. Then, we infer a $\theta_{Developers}$ from the developer corpus
-and a retrieve the $\theta_{Queries}$ for the queries related to this
-changeset. Finally, we classify the results from both $\theta$s.
-
+For the historical simulation, we take a slightly different approach.  We first
+determine which commits relate to each query (or issue) and partition
+mini-batches out of the changesets.  We then proceed by initializing a model
+for online training.  Using each mini-batch, or partition, we update the model.
+Then, we infer an index of topic distributions with the developer profiles at
+the commit the partition ends on.  We also obtain a topic distribution for each
+query related to the commit.  For each query, we infer the query's topic
+distribution and rank each entity in the developer index with pairwise
+comparisons. Finally, we continue by updating the model with the next
+mini-batch.
 
 ##### Subject Systems
-
-<!--
-@Kagdi-etal_2012
-<http://www.cs.wm.edu/semeru/data/jsme09-bugs-devs/>
-
-@Linares-Vasquez-etal_2012
-<http://www.cs.wm.edu/semeru/data/icsm2012-authorship/>
--->
 
 There are two publicly-available and recently published datasets that could be
 used in this study. Between these two datasets are over 415 defects and
@@ -211,14 +201,23 @@ muCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
 ##### Data Collection and Analysis
 
 Like evaluating a topic-modeling-based FLT, to evaluate the performance of a
-topic-modeling-based DIT we cannot use measures such as precision and recall
-directly. Again, we can use the effectiveness measure by @Poshyvanyk-etal_2007,
-thereby enabling us to use MRR. We can also look at only the top-k
+topic-modeling-based DIT we cannot use measures such as precision and recall.
+This is because the FLT creates the rankings pairwise, causing every entity
+being searched to appear in the rankings. Again, we can use the effectiveness
+measure by @Poshyvanyk-etal_2007, thereby enabling us to use MRR. The
+effectiveness measure is the rank of the first relevant document and represents
+the number of developers the triager would have to assign before the right
+developer is chosen. The effectiveness measure allows evaluating the FLT by
+using the mean reciprocal rank (MRR). We can also look at only the top-k
 recommendations in the list, giving us the measures of precision@k and
 recall@k.
 
-For any execution of the experiment, we calculate the MRR of each approach.
-We use the Wilcoxon signed-rank test with Holm correction to determine
-the statistical significance of the difference between any two rankings.
-
+To answer RQ1, we run the experiment on the snapshot and changeset corpora as
+outlined in Section \ref{flt-methodology}. We then calculate the MRR between
+the two sets of effectiveness measures. We use the Wilcoxon signed-rank test
+with Holm correction to determine the statistical significance of the
+difference between the two rankings. To answer RQ2, we run the historical
+simulation as outlined in Section \ref{flt-methodology} and compare it to the
+results of batch changesets from RQ1. Again, we calculate the MRR and use the
+Wilcoxon signed-rank test.
 
