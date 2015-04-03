@@ -47,17 +47,44 @@ been widely used by many others [@Poshyvanyk-etal_2006;
 @Poshyvanyk-Marcus_2007; @Liu-etal_2007; @Scanniello-Marcus_2011;
 @Eaddy-etal_2008; @Cubranic-etal_2005].
 
-@Lukins-etal_2008 introduce an FLT based on LDA and find that it outperforms an
-LSI-based FLT.
-@Lukins-etal_2010
+@Lukins-etal_2008 introduce an FLT based on latent Dirichlet allocation (LDA)
+[@Blei-etal_2003] and find that it outperforms the LSI-based FLT by
+@Poshyvanyk-etal_2007. They use the LDA inference technique to infer the topic
+distributions of queries, i.e., bug reports. Later, they show LDA to be
+appropriate for software systems of any size [@Lukins-etal_2010].
 
 @Biggers-etal_2014 investigate the various configuration parameters for an
-LDA-based FLT.
+LDA-based FLT. They show that excluding source code text such as comments and
+literals negatively impacts the accuracy of the FLT. Most importantly, they
+show that configuration parameters taken from the machine learning and natural
+language processing (NLP) communities are not good choices for software.
+@Dit-etal_2011a show that better term splitting techniques are needed for
+software TR.
 
-@Bassett-Kraft_2013 find that using structural term weighting increases the
-performance of an LDA-based FLT.
+@Bassett-Kraft_2013 present a various term weighting schemes based on the
+structural information available in source code. Namely, they find that
+increasing the weight of method names increases the accuracy of an LDA-based
+FLT. A typical weighting scheme from the NLP communities is term
+frequency-inverse document frequency (tf-idf) [@Salton-Buckley_1988].
+@Saha-etal_2013 show that using structural information provides improvement
+over tf-idf, as well. @Saha-etal_2014 extend their work to show that
+improvements using structural information apply to both Java and C.
 
+Combining textual and static techniques shows improvement over using one or the
+other alone. @Shao-etal_2012 combine LSI with call graph information and find
+that the call graph information increases the accuracy over plain LSI.
+Likewise, @Ali-etal_2012 use binary class relationships in combination with LSI
+and VSM to further improve their FLT.
 
+More recent work has been focused on integrating multiple sources of
+information, such as in @Revelle-etal_2010 and @Dit-etal_2012. @Dit-etal_2012
+combine textual, dynamic, and a new category, *mining*, to increase the
+effectiveness of FLTs. @Wang-etal_2013 utilize stack traces by using a Bayesian
+networks to adjust the rank of a file based on three features that determine
+the probability of the file being buggy. @Moreno-etal_2014 also use stack
+traces with a VSM-based FLT to improve their accuracy of their FLT.
+
+<!--
 - Textual
     - @Wilson_2010
     - @Poshyvanyk-Marcus_2007
@@ -74,15 +101,10 @@ performance of an LDA-based FLT.
     - @Poshyvanyk-etal_2007
 - Dynamic & Static & Textual
     - @Eaddy-etal_2008
+    - @Revelle-etal_2010
 - Other
     - @Ratanotayanon-etal_2010
 - TBD
-    - @Dit-etal_2011
-    - @Rajlich-Wilde_2002
-    - @Revelle-etal_2010
-    - @Scanniello-Marcus_2011
-    - @Ali-etal_2012
-    - @Dit-etal_2012
-    - @Saha-etal_2013
     - @Wang-etal_2013
     - @Zhou-etal_2012
+    -->
