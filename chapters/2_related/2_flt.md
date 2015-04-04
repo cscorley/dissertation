@@ -84,27 +84,3 @@ networks to adjust the rank of a file based on three features that determine
 the probability of the file being buggy. @Moreno-etal_2014 also use stack
 traces with a VSM-based FLT to improve their accuracy of their FLT.
 
-<!--
-- Textual
-    - @Wilson_2010
-    - @Poshyvanyk-Marcus_2007
-    - @Gay-etal_2009
-    - @Shepherd-etal_2006
-    - @Hill-etal_2009
-    - @Abebe-etal_2009
-- Static & Textual
-    - @Zhao-etal_2006
-    - @Hill-etal_2007
-    - @Shao-etal_2012
-- Dynamic & Textual
-    - @Liu-etal_2007
-    - @Poshyvanyk-etal_2007
-- Dynamic & Static & Textual
-    - @Eaddy-etal_2008
-    - @Revelle-etal_2010
-- Other
-    - @Ratanotayanon-etal_2010
-- TBD
-    - @Wang-etal_2013
-    - @Zhou-etal_2012
-    -->

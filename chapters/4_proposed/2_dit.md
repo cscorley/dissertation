@@ -4,6 +4,8 @@ Developer identification is a triaging activity in which a team member
 identifies a list of developers that are most apt to complete a change request
 and assigning one or more of those developers to the task
 [@McDonald-Ackerman_1998].
+@Begel-etal_2010 show that developers need help finding expertise within their
+organization *more than they need help finding source code elements*. 
 
 ### Motivation
 
@@ -90,11 +92,12 @@ each individual developer used in those changesets. The left side of Figure
 
 The document extraction process for the changesets remains the same as covered
 in Section \ref{flt-approach}. The document extraction process for the
-developer corpus is straightforward. Each developer will have their own
-document consisting of each changeset they have committed to the source code
-repository. That is, a developer document will be constructed only by word they
-have changed. There may be weighting schemes to this, such as only considering
-words which they have added or removed, while ignoring context words.
+developer corpus is straightforward. Following @Matter-etal_2009, each
+developer will have their own document consisting of each changeset they have
+committed to the source code repository. That is, a developer document will be
+constructed only by words they have changed. There may be weighting schemes to
+this [@Shokripour-etal_2013], such as only considering words which they have
+added or removed, while ignoring context words.
 
 The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
 process. The key intuition to our methodology is that a topic model such as LDA
