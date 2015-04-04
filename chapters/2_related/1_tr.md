@@ -63,49 +63,66 @@ comparisons.
 
 ### Similarity measures
 
-- Cosine similarity (CS)
-    \begin{equation}
-        {\rm CS}(P, Q) = {P \cdot Q \over \|P\| \|Q\|}
-    \label{eq:cosine}
-    \end{equation}
-- Hellinger
-    Hellinger distance ($H$) can be defined
-    as:
+A similarity measure in text retrieval is useful for comparing two documents.
+Typically, these documents are represented as a bag-of-words, or a term vector.
+Hence, any vector-based similarity may be used. Further, discrete probability
+distributions, such as a document-topic proportion, can be used. In the
+following definitions, $P$ and $Q$ are two discrete probability distributions
+or term vectors.
 
-    \begin{equation}
-       {\rm H}(P, Q) = \frac{1}{\sqrt{2}} \; \sqrt{\sum_{i=1}^{K} (\sqrt{P_i} - \sqrt{Q_i})^2}
-    \label{eq:hellinger}
-    \end{equation}
+#### Cosine similarity
 
-    where $P$ and $Q$ are two discrete probability distributions of length $K$.
-- Kullback-Leibler divergence (not a true measure)
-    \begin{equation}
-        {\rm KL}(P, Q) = \sum_{i=1}^{K} P_i \, \ln\frac{P_i}{Q_i}
-    \label{eq:kl}
-    \end{equation}
-    but ${\rm KL}(P, Q) \neq {\rm KL}(Q, P)$
+Cosine similarity (CS) is a commonly seen similarity measure [@Croft-etal_2010]
+and is very easy to implement:
 
-- Jensen-Shannon divergence (uses KL, but is true measure)
-    \begin{equation}
-        {\rm JS}(P, Q) = \frac{1}{2}{\rm KL}(P, M)+\frac{1}{2}{\rm KL}(Q, M)
-    \label{eq:js}
-    \end{equation}
+\begin{equation}
+    {\rm CS}(P, Q) = {P \cdot Q \over \|P\| \|Q\|}
+\label{eq:cosine}
+\end{equation}
 
-    where $M=\frac{1}{2}(P+Q)$
+where $P$ and $Q$ are term vectors.
 
-- Total variation distance
-    \begin{equation}
-        {\rm TV}(P, Q) = \frac{1}{2} \sum_{i=1}^{K} \left| P_i - Q_i \right|
-    \label{eq:tv}
-    \end{equation}
+
+#### Hellinger distance
+
+Hellinger distance ($H$) can be defined
+as:
+
+\begin{equation}
+    {\rm H}(P, Q) = \frac{1}{\sqrt{2}} \; \sqrt{\sum_{i=1}^{K} (\sqrt{P_i} - \sqrt{Q_i})^2}
+\label{eq:hellinger}
+\end{equation}
+
+####  Kullback-Leibler divergence
+
+Kullback-Leibler (KL) diverence can often be seen in topic modeling for
+constructing models, but is not a good measure for similarity as 
+${\rm KL}(P, Q) \neq {\rm KL}(Q, P)$.
+
+\begin{equation}
+    {\rm KL}(P, Q) = \sum_{i=1}^{K} P_i \, \ln\frac{P_i}{Q_i}
+\label{eq:kl}
+\end{equation}
+
+
+#### Jensen-Shannon divergence
+
+Jensen-Shannon (JS) divergence measure addresses the KL-divergence issue 
+by averaging the two KL measures together:
+
+\begin{equation}
+    {\rm JS}(P, Q) = \frac{1}{2}{\rm KL}(P, M)+\frac{1}{2}{\rm KL}(Q, M)
+\label{eq:js}
+\end{equation}
+
+where $M=\frac{1}{2}(P+Q)$. This makes JS-divergence an appropriate measure for
+document similarity.
 
 ### Evaluation measures
 
 <!--
 prec rec [66] R. Baeza-Yates, B. Ribeiro-Neto, et al., Modern Information Retrieval, vol. 463.
 ACM press New York, 1999.
-map [30] C. D. Manning, P. Raghavan, and H. Schu ̈tze, Introduction to Information Retrieval.
-New York, NY, USA: Cambridge University Press, 2008.
 mrr E.M.VoorheesandD.M.Tice,“BuildingaQuestionAnsweringTestcollection,”in Proceedings of the 23rd Annual International ACM SIGIR Conference on Research
 and development in Information Retrieval, SIGIR ’00, pp. 200–207, 2000.
 rank-based @Lukins-etal_2008
@@ -221,7 +238,8 @@ such that it is 1 if document at rank $i \in A$, and 0 otherwise.
 ##### Mean Average Precision (MAP)
 
 Mean average precision uses AP to compute the scores over all queries, and is
-useful for summarizing the effectiveness of multiple queries.
+useful for summarizing the effectiveness of multiple queries
+[@Manning-etal_2008].
 
 \begin{equation}
 \operatorname{MAP} =
