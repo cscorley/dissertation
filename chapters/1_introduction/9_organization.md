@@ -7,5 +7,5 @@ Chapter \ref{previous-work} discusses work already completed that influences
 the proposed work.
 Chapter \ref{proposed-work} outlines three areas of study which each target a
 research question identified in Section \ref{thesis-goals}.
-A project schedule for work is given in Appendix \ref{projected-schedule}.
-Target venues for publication is given in Appendix \ref{target-venues}.
+Appendices \ref{projected-schedule} and \ref{target-venues} contain projected
+work schedule and target publication venues.

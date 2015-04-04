@@ -1,11 +1,11 @@
 ## Terminology
 
-This section defines some of the terminology that will be seen throughout this
-work. We adopt and extend terminology from @Biggers-etal_2014. In particular,
-we define the following:
+This section defines some of the terminology seen throughout this work.
+We adopt and extend terminology from @Biggers-etal_2014. In particular, we
+define the following:
 
 feature location
-:   the act of identifying the source code entity or entities that implement a
+:   the act of identifying the source code entity or entities implementing a
 system feature
 
 developer identification
@@ -57,7 +57,7 @@ inferrence, $\theta_d$
 proportion vector)
 
 index, $\theta$
-:   a corpus that has been transformed for searching, e.g., in LDA by
+:   a structure optimized for searching, e.g., in LDA by
 inferring the thematic structure of each document (i.e., a $N \times K$
 document-topic matrix)
 
@@ -72,24 +72,24 @@ diff
 \ref{fig:diff})
 
 patch
-:   a set of instructions (i.e., diffs) that is used to transform one set of
-texts into another
+:   a set of instructions (i.e., diffs) used to transform one set of texts into
+another
 
 context lines
 :   lines of a diff that denote text useful for transforming the text, but do
 not represent the differences
 
 added lines
-:   lines of a diff that were *added* in order to transform the first text into
-the second
+:   lines of a diff that were *added* to transform the first text into the
+second
 
 removed lines
-:   lines of a diff that were *removed* in order to transform the first text into
-the second
+:   lines of a diff that were *removed* to transform the first text into the
+second
 
 changeset
 :   ideally represents a single feature modification, addition, or deletion,
-which may crosscut many source code entities
+which may crosscut two or more source code entities
 
 commit
 :   a representation of a changeset in a version control system
