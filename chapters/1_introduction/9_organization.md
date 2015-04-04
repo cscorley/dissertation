@@ -1,6 +1,6 @@
 ## Organization
 
-This work is organized as follows.
+The organization of this work is as follows.
 Chapter \ref{related-work} discusses related work in the area of text
 retrieval, configuration, and applications in software maintenance.
 Chapter \ref{previous-work} discusses work already completed that influences

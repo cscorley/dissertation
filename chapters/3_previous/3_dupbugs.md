@@ -30,11 +30,11 @@ information gain. The 15 features we investigated are as follows:
     8. summaries
     9. descriptions
     10. combined summaries and descriptions
-11. Difference in minutes between the times the bugs were submitted
+11. Difference in minutes between submission time of the bugs
 12. If the request priorities were the same
 13. If the requests were for the same program component (i.e., package)
 14. If the requests were of the same type (i.e., bug report or feature request)
-15. If the requests were marked as a duplicate
+15. If the requests were marked as duplicates
 
 
 To evaluate our new features, we used the dataset provided by

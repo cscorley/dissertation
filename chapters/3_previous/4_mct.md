@@ -19,19 +19,18 @@ Joda-Time, and PostgreSQL --- varied in language, size and application domain.
 
 ![Extraction and Modeling Process \label{fig:mud2014}](figures/mud2014.pdf)
 
-Our document extraction process is shown on the left side of Figure
-\ref{fig:mud2014} and our modeling generation is shown on the right side. We
-extract documents from both a snapshot of the repository at a tagged release
-and each commit reachable from that tag's commit. The same preprocessing steps
-are employed on all documents extracted. We then used LDA to model the
-documents into topics.
+Figure \ref{fig:mud2014} shows uur document extraction process on the left side
+and our modeling generation on the right side. We extract documents from both a
+snapshot of the repository at a tagged release and each commit reachable from
+that tag's commit. We use the same preprocessing steps on all documents
+extracted. We then used LDA to model the documents into topics.
 
 First, we investigated whether changeset corpora were any different than
-traditional snapshot corpora, and what differences there might be. For two of
-the systems, we found that the changeset vocabulary was a superset to the
-snapshot vocabulary. We measured the cosine distance of each distribution of
-words, and found for 3 of the systems low (between 0.003 to 0.07), while the
-last was much higher than the others (over 0.33).
+traditional snapshot corpora. For two of the systems, we found that the
+changeset vocabulary was a superset to the snapshot vocabulary. We measured the
+cosine distance of each distribution of words, and found for 3 of the systems
+low (between 0.003 to 0.07), while the last was much higher than the others
+(over 0.33).
 
 Next, we investigated whether a topic model trained on a changeset corpus was
 more or less distinct than a topic model trained on a snapshot corpus. For 2 of

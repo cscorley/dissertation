@@ -2,8 +2,8 @@
 
 In this section, we review and summarize the text retrieval process. The text
 retrieval process consists of two general steps: document extraction and
-retrieval. Then, we discuss various methods of measuring similarity. Finally,
-we discuss measures for evaluating a text retrieval technique.
+retrieval. Then, we discuss methods of measuring similarity. Finally, we
+discuss measures for evaluating a text retrieval technique.
 
 
 ![The general text retrieval process\label{fig:TR}](figures/text-retrieval.pdf)
@@ -45,15 +45,15 @@ token. The transformations commonly used are [@Manning-etal_2008]:
 
 The right side of Figure \ref{fig:TR} illustrates the retrieval process. The
 main component of the retrieval process is the search engine
-[@Manning-etal_2008], which must first be constructed. A search engine
-typically consists of an index and a classifier for ranking [@Croft-etal_2010].
-Search engines based on topic models also need a trained model. The primary
-function of the search engine is to rank documents in relation to the query.
+[@Manning-etal_2008]. A search engine typically consists of an index and a
+classifier for ranking [@Croft-etal_2010]. Search engines based on topic models
+also need a trained model. The primary function of the search engine is to rank
+documents in relation to the query.
 
-First, the corpus is transformed into an index. If the search engine
-relies on a topic model, then the model is used to infer an index
+First, the engine transforms the corpus into an index. If the search engine
+relies on a topic model, then the engine uses the model to infer an index
 document-topic distributions for each document. Otherwise, the document-terms
-may be used directly or have further transformations applied.
+may have further transformations applied or used directly as the index.
 
 Next, the engine takes a pairwise classification of the query to each document
 in the index and ranks the documents according to similarity. A similarity
@@ -119,15 +119,6 @@ where $M=\frac{1}{2}(P+Q)$. This makes JS-divergence an appropriate measure for
 document similarity.
 
 ### Evaluation measures
-
-<!--
-prec rec [66] R. Baeza-Yates, B. Ribeiro-Neto, et al., Modern Information Retrieval, vol. 463.
-ACM press New York, 1999.
-mrr E.M.VoorheesandD.M.Tice,“BuildingaQuestionAnsweringTestcollection,”in Proceedings of the 23rd Annual International ACM SIGIR Conference on Research
-and development in Information Retrieval, SIGIR ’00, pp. 200–207, 2000.
-rank-based @Lukins-etal_2008
-score J. A. Jones and M. J. Harrold, “Empirical Evaluation of the Tarantula Automatic Fault-Localization Technique,” in Automated Software Engineering, 2005.
--->
 
 In the following section, we describe evaluation measures.
 The measures can be divided into two groups: set-based measures and
