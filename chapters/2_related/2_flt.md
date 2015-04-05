@@ -42,9 +42,8 @@ promise in remedying this problem [@Marcus-etal_2004].
 modules within the system in comparison to the dependence graph approach. They
 found that concepts in the code were identifiable with user specified terms and
 identifiers as well as an easier build process. LSI-based FLTs have been widely
-used by many others [@Poshyvanyk-etal_2006; @Poshyvanyk-Marcus_2007;
-@Liu-etal_2007; @Scanniello-Marcus_2011; @Eaddy-etal_2008;
-@Cubranic-etal_2005].
+used by others [@Poshyvanyk-etal_2006; @Poshyvanyk-Marcus_2007; @Liu-etal_2007;
+@Scanniello-Marcus_2011; @Eaddy-etal_2008; @Cubranic-etal_2005].
 
 @Lukins-etal_2008 introduce an FLT based on latent Dirichlet allocation (LDA)
 [@Blei-etal_2003] and find that it outperforms the LSI-based FLT by
@@ -52,22 +51,21 @@ used by many others [@Poshyvanyk-etal_2006; @Poshyvanyk-Marcus_2007;
 distributions of queries, i.e., bug reports. Later, they show LDA to be
 appropriate for software systems of any size [@Lukins-etal_2010].
 
-@Biggers-etal_2014 investigate the various configuration parameters for an
-LDA-based FLT. They show that excluding source code text such as comments and
-literals negatively impacts the accuracy of the FLT. Most importantly, they
-show that configuration parameters taken from the machine learning and natural
-language processing (NLP) communities are not good choices for software.
-@Dit-etal_2011a show the need for better term splitting techniques for
-software TR.
+@Biggers-etal_2014 investigate the configuration parameters for an LDA-based
+FLT. They show that excluding source code text such as comments and literals
+negatively impacts the accuracy of the FLT. Most importantly, they show that
+configuration parameters taken from the machine learning and natural language
+processing (NLP) communities are not good choices for software. @Dit-etal_2011a
+show the need for better term splitting techniques for software TR.
 
-@Bassett-Kraft_2013 present a various term weighting schemes based on the
-structural information available in source code. Namely, they find that
-increasing the weight of method names increases the accuracy of an LDA-based
-FLT. A typical weighting scheme from the NLP communities is term
-frequency-inverse document frequency (tf-idf) [@Salton-Buckley_1988].
-@Saha-etal_2013 show that using structural information provides improvement
-over tf-idf, as well. @Saha-etal_2014 extend their work to show that
-improvements using structural information apply to both Java and C.
+@Bassett-Kraft_2013 present new term weighting schemes based on the structural
+information available in source code. Namely, they find that increasing the
+weight of method names increases the accuracy of an LDA-based FLT. A typical
+weighting scheme from the NLP communities is term frequency-inverse document
+frequency (tf-idf) [@Salton-Buckley_1988]. @Saha-etal_2013 show that using
+structural information provides improvement over tf-idf, as well.
+@Saha-etal_2014 extend their work to show that improvements using structural
+information apply to both Java and C.
 
 Combining textual and static techniques shows improvement over using one or the
 other alone. @Shao-etal_2012 combine LSI with call graph information and find

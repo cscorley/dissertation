@@ -1,28 +1,28 @@
 
 ## Combining and Configuring Changset-based Topic Models {#study-config}
 
-The two previously proposed approaches could potentially be used in unison with
+The two previously proposed approaches are potentially usable in unison with
 a single model, allowing for halving the computational cost required for the
 topic modeling.
 
 ### Motivation
 
-When using a topic modeler, many choices must be made in regard to
-configuration. @Biggers-etal_2014 were the first to explore the various
-parameters of a LDA-based FLT.  Unfortunately, these findings may not directly
-apply to a LDA-based DIT.  Further, there is no work on optimal configurations
-when a topic model is used for two tasks. There is also evidence in the
-literature that different configurations may be better suited for different
-tasks [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
+When using a topic modeler, we must make configuration choices.
+@Biggers-etal_2014 were the first to explore the parameters of a LDA-based FLT.
+Unfortunately, these findings may not directly apply to a LDA-based DIT.
+Further, there is no work on optimal configurations when using a topic model
+for two tasks. There is also evidence in the literature that different
+configurations may be better suited for different tasks
+[@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
 ### Proposal
 
-In this proposal, we introduce a *combined* approach that allows for a
-topic-modeling-based FLT and DIT to be coalesced into using the same topic
-model built incrementally from source code *changesets*. By training an online
+In this proposal, we introduce a *combined* approach that allows for coalescing
+a topic-modeling-based FLT and DIT coalesced into using the same topic model
+built incrementally from source code *changesets*. By training an online
 learning algorithm using changesets and combining the two approaches, we
-essentially cut the computational cost of the tasks in *half* with a single
-topic model can being used for both tasks.
+essentially cut the computational cost of the two tasks in *half* with a single
+topic model.
 
 #### Approach
 
@@ -42,7 +42,7 @@ for the developer corpus remains the same as covered in Section
 \ref{dit-approach}.
 
 The right side of Figure \ref{fig:changeset-combo} illustrates the retrieval
-process. For brevity, the queries and ranking are left out of the diagram.
+process. For brevity, the queries and ranking do not appear in the diagram.
 Again, the key intuition to our approach is that a topic model such as LDA or
 LSI can infer any given document's topic proportions regardless of the
 documents used to train the model. Hence, we train a topic model on the
@@ -55,18 +55,18 @@ their respective sections, Section \ref{flt-approach} and \ref{dit-approach}.
 #### Evaluation
 
 In this section we describe the design of a exploratory study in which we
-determine whether a single topic model trained on changesets is fit two serve
+determine whether a single topic model trained on changesets is fit to serve
 two purposes. For this work, we pose the following research questions:
 
 RQ1
-:   Can the same topic model be used effectively in more than one context?
+:   Can we use the same topic model in more than one context effectively?
 
 RQ2
 :   What are the effects of using different portions of a changeset for corpus
 construction, such as added, removed, context lines, and the commit message?
 
 RQ3
-:   How much repository history is needed before the approaches are effective?
+:   How much repository history do we need before the approaches are effective?
 
 
 ##### Methodology
@@ -74,13 +74,12 @@ RQ3
 In this work, we can utilize much of the already created framework from the
 previous two research areas covered in this proposal. After evaluating the
 usefulness of changesets, we will not need to instantiate snapshot models for
-this work. Instead, we will create the single changeset topic model to be used
-for both tasks. Where this work will differ from the previous two research
-areas is in how the topic model is constructed.
+this work. Instead, where this work will differ from the previous two research
+areas is in how we construct the topic model.
 
 For RQ1, we want to find if the two approaches can rely on the same model with
 minimal interference from one another's requirements. For example, the FLT task
-may perform better with less topics, while the DIT task may require many topics
+may perform better with less topics, while the DIT task may require more topics
 for optimal performance. Table \ref{table:combo-rq1} outlines the factors about
 the model construction we will consider.
 
@@ -104,7 +103,7 @@ include the natural language text of the commit message. Table
 \ref{table:combo-rq2} outlines the 15 combinations over the 4 types of
 changeset text.
 
-Text source     Include? 
+Text source     Include?
 --------------  ---------
 Added lines     {yes, no}
 Removed lines   {yes, no}
@@ -119,15 +118,14 @@ analysis than in the previous proposed works. This work will be much more
 exploratory than RQ1 and RQ2, as there is no indication thus far of what the
 data will contain. An example approach is to use time series analysis
 techniques to determine how the effectiveness measure changes over time and if
-there is a minimal number of changesets that need to be modeled before the
-approach is effective.
+there is a minimal number of changesets before the approach is effective.
 
 ##### Subject Systems
 
 For this work, we need a common dataset that covers both the FLT domain and DIT
-domain. Fortunately, there are several common systems between the four datasets
-in the previous works [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
-@Linares-Vasquez-etal_2012]. Common systems that can be seen in Tables
-\ref{table:flt-datasets} and \ref{table:dit-datasets} include ArgoUML v0.22,
+domain. Fortunately, there are common systems between the four datasets in the
+previous works [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
+@Linares-Vasquez-etal_2012]. Common systems, seen in Tables
+\ref{table:flt-datasets} and \ref{table:dit-datasets}, include ArgoUML v0.22,
 ArgoUML v0.26.2, jEdit v4.3, and muCommander v0.8.5.
 

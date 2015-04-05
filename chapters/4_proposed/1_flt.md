@@ -32,9 +32,9 @@ less-frequent retraining than other TM-based FLTs, but the remaining cost of
 periodic retraining inhibits their application to large software, and the
 reliance on customization hinders their extension to new TMs.
 
-We envision an FLT that is: 
+We envision an FLT that is:
 
-1. accurate like a TM-based FLT, 
+1. accurate like a TM-based FLT,
 2. inexpensive to update like a VSM-based FLT,
 2. and extensible to accommodate any off-the-shelf TR model that supports online addition of a new document.
 
@@ -79,7 +79,7 @@ to each token and produces one or more words from the token.
 
 The right side of Figure \ref{fig:snapshot-flt} illustrates the retrieval
 process. The main prerequisite of the retrieval process is to build the search
-engine. The search engine is constructed from a topic model trained from a
+engine. We construct the search engine from a topic model trained from a
 corpus and an index of that corpus inferred from that model. This means that an
 index is no more than each input document's thematic structure (i.e., the
 document's inferred topic distribution).
@@ -92,11 +92,11 @@ the documents based on the similarities of their thematic structures.
 
 ### Proposal
 
-In this proposal, we introduce a topic-modeling-based FLT in which the model is
-built incrementally from source code *changesets*. By training an online
-learning algorithm using changesets, the FLT maintains an up-to-date model
-without incurring the non-trivial computational cost associated with retraining
-traditional FLTs.
+In this proposal, we introduce a topic-modeling-based FLT in which we
+incrementally build the model from source code *changesets*. By training an
+online learning algorithm using changesets, the FLT maintains an up-to-date
+model without incurring the non-trivial computational cost associated with
+retraining traditional FLTs.
 
 #### Approach {#flt-approach}
 
@@ -105,8 +105,8 @@ traditional FLTs.
 The overall difference in our methodology and the standard methodology
 described in Section \ref{flt-background} is minimal. For example, compare
 Figures \ref{fig:snapshot-flt} and \ref{fig:changeset-flt}. In the changeset
-approach, we only need to replace the documents on which the topic model is
-trained while the remainder of the approach remains the same.
+approach, we only need to replace the training documents while the remainder of
+the approach remains the same.
 
 The changeset approach requires two types of document extraction:
 the snapshot of the state of source code at a commit of interest, such as
@@ -117,10 +117,9 @@ illustrates the dual-document extraction approach.
 The document extraction process for the snapshot remains the same as covered in
 Section \ref{flt-background} while the document extractor for the changesets
 parses each changeset for the removed, added, and context lines.  From there,
-each line is tokenized by the text extractor.  The same preprocessor
-transformations as before occur in both the snapshot and changesets.  The
-snapshot vocabulary is always a subset of the changeset
-vocabulary [@Corley-etal_2014].
+the text extractor tokenizes each line.  The same preprocessor transformations
+as before occur in both the snapshot and changesets.  The snapshot vocabulary
+is always a subset of the changeset vocabulary [@Corley-etal_2014].
 
 The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
 process. The key intuition to our methodology is that a topic model such as LDA
@@ -132,17 +131,16 @@ documents are the source code entities of the snapshot.
 
 Hence, we train a topic model on the changeset corpus and use the model to
 index the snapshot corpus.  Note that we never construct an index of the
-changeset documents on which the model is trained.  In our approach, we only
+changeset documents used to train the model.  In our approach, we only
 use the changesets to continuously update the topic model and only use the
 snapshot for indexing.
 
 To leverage the online functionality of the topic models, we can also intermix
 the model training, indexing, and retrieval steps.  First, we initialize a
-model in online mode.  Then, as changes are made, the model is updated with the
-new changesets as they are committed.  That is, with changesets, we
-incrementally update a model and can query it at any moment.
-This will allow for a *historical simulation* of how a changeset-based FLT
-would perform in a realistic scenario.
+model in online mode.  We update the model with new changesets whenever a
+developer makes a commit.  That is, with changesets, we incrementally update a
+model and can query it at any moment. This will allow for a *historical
+simulation* of how a changeset-based FLT would perform in a realistic scenario.
 
 #### Evaluation
 
@@ -169,9 +167,9 @@ In terms of changesets, the process varies slightly from a snapshot approach,
 as shown in Figure \ref{fig:changeset-flt}.  First, we train a model of the
 changeset corpus using batch training.  Second, we infer an index of topic
 distributions with the snapshot corpus.  Note that we *do not* infer topic
-distributions with the changeset corpus on which the model was built.  Finally,
-for each query in the dataset, we infer the query's topic distribution and rank
-each entity in the snapshot index with pairwise comparisons.
+distributions with the changeset corpus.  Finally, for each query in the
+dataset, we infer the query's topic distribution and rank each entity in the
+snapshot index with pairwise comparisons.
 
 For the historical simulation, we take a slightly different approach.  We first
 determine which commits relate to each query (or issue) and partition
@@ -184,20 +182,19 @@ distribution and rank each entity in the snapshot index with pairwise
 comparisons. Finally, we continue by updating the model with the next
 mini-batch.
 
-Since the @Dit-etal_2013 dataset was extracted from the commit that implemented
-the change, our partitioning is inclusive of that commit.  That is, we update
-the model with the linked commit and infer the snapshot index from that commit.
+Since @Dit-etal_2013 extracted the dataset from the commit that implemented the
+change, our partitioning is inclusive of that commit.  That is, we update the
+model with the linked commit and infer the snapshot index from that commit.
 This allows our evaluations to capture any entities added to address the issue
-report, as well as changed entities, but does not capture any entities that
-were removed by the change.
+report, as well as changed entities, but does not capture any entities removed
+by the change.
 
 ##### Subject Systems
 
-There are two publicly-available and recently published datasets that could be
-used in this study. Between these two datasets are over 1200 defects and
-features from 14 open source Java projects. Choosing a publicly-available
-dataset allows for this work to be set in context of work completed by other
-researchers.
+There are two publicly-available and recently published datasets usable for
+this study. Between these two datasets are over 1200 defects and features from
+14 open source Java projects. Choosing a publicly-available dataset allows us
+to set this work in context of work completed by other researchers.
 
 Table \ref{table:flt-datasets} summarizes the subject systems from the datasets.
 The first is a dataset of four software systems by @Dit-etal_2013 and contains
@@ -238,7 +235,6 @@ Table: Feature location subject systems and goldset sizes \label{table:flt-datas
 ArgoUML is a UML diagramming tool^[<http://argouml.tigris.org/>].
 BookKeeper is a distributed logging service^[<http://zookeeper.apache.org/bookkeeper/>].
 Derby is a relational database management system^[<http://db.apache.org/derby/>].
-Eclipse is an IDE for development in various programming languages^[<https://www.eclipse.org/>].
 Hibernate is a object/relational mapping framework^[<http://hibernate.org/>].
 jEdit is a text editor^[<http://www.jedit.org/>].
 JabRef is a BibTeX bibliography management tool^[<http://jabref.sourceforge.net/>].
@@ -248,21 +244,19 @@ muCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
 OpenJPA is object/relational mapping tool^[<http://openjpa.apache.org/>].
 Pig is a platform for analyzing large datasets^[<http://pig.apache.org/>].
 Solr is a search platform^[<http://lucene.apache.org/solr/>].
-Tika is a toolkit for extracting metadata and text from various types of files^[<http://tika.apache.org/>].
+Tika is a toolkit for extracting metadata and text from files^[<http://tika.apache.org/>].
 ZooKeeper is a tool that works as a coordination service to help build distributed applications^[<http://zookeeper.apache.org/bookkeeper/>].
 
 ##### Data Collection and Analysis
 
 To evaluate the performance of a topic-modeling-based FLT we cannot use
 measures such as precision and recall. This is because the FLT creates the
-rankings pairwise, causing every entity being searched to appear in the
-rankings. @Poshyvanyk-etal_2007 define an effectiveness measure that can be
-used for topic-modeling-based FLTs. The effectiveness measure is the rank of
-the first relevant document and represents the number of source code entities a
-developer would have to view before reaching a relevant one. The effectiveness
-measure allows evaluating the FLT by using the mean reciprocal rank (MRR). We
-can also look at only the top-k recommendations in the list, giving us the
-measures of precision@k and recall@k.
+rankings pairwise, causing every entity to appear in the rankings.
+@Poshyvanyk-etal_2007 define an effectiveness measure for topic-modeling-based
+FLTs. The effectiveness measure is the rank of the first relevant document and
+represents the number of source code entities a developer would have to view
+before reaching a relevant one. The effectiveness measure allows evaluating the
+FLT by using the mean reciprocal rank (MRR).
 
 To answer RQ1, we run the experiment on the snapshot and changeset corpora as
 outlined in Section \ref{flt-methodology}. We then calculate the MRR between
