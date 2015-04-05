@@ -52,24 +52,26 @@ Target conference publication venues include:
 
 - Working Conference on Mining Software Repositories
   (MSR)^[<http://mrsconf.org/>],
+- IEEE International Conference on Software Maintenance
+  (ICSME)^[<http://www.icsme.org/>],
+- IEEE/ACM International Conference on Automated Software Engineering
+  (ASE)^[<http://ase2015.unl.edu>],
 - IEEE International Conference on Program Comprehension
   (ICPC)^[<http://www.program-comprehension.org/>],
 - IEEE International Conference on Software Analysis, Evolution, and Reengineering
   (SANER)^[<http://saner.polymtl.ca/>],
-- IEEE International Conference on Software Maintenance
-  (ICSME)^[<http://www.icsme.org/>],
 - and ACM/IEEE International Conference on Software Engineering
-  (ICSE)^[<http://icse-conferences.org/>].,
+  (ICSE)^[<http://icse-conferences.org/>].
 
 Target journal publication venues include:
 
-- Information and Software Technology
-  (IST)^[<http://www.journals.elsevier.com/information-and-software-technology/>],
 - Journal of Software: Evolution and Process
   (JSEP)^[<http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1532-0618/>],
 - ACM Transactions on Software Engineering and Methodology
   (TOSEM)^[<http://tosem.acm.org>],
 - Empirical Software Engineering
   (ESEM)^[<http://www.springer.com/computer/swe/journal/10664>],
+- Information and Software Technology
+  (IST)^[<http://www.journals.elsevier.com/information-and-software-technology/>],
 - and IEEE Transactions on Software Engineering
   (TSE)^[<http://www.computer.org/portal/web/tse>].
