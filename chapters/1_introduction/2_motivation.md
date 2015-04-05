@@ -42,6 +42,6 @@ for work.
 
 **Thesis Statement**
 
-:   Training online topic models on software repository history provides
-accuracy as high as traditional topic models for different software maintenance
-problems but without the retraining cost.
+:   Training online topic models on software repositories removes retraining
+costs while maintaining accuracy of a traditional snapshot-based topic model
+for different software maintenance problems.

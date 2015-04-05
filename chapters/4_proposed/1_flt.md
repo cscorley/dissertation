@@ -5,8 +5,8 @@ with changing a software system. Whether a change task involves adding,
 modifying, or removing a feature, a developer cannot complete the task without
 first locating the source code that implements the feature. The
 state-of-the-practice in feature location is to use an IDE tool based on
-keyword or regex search, but @Ko-etal_2006 observed such tools leading
-developers to failed searches nearly 90% of the time.
+keyword or regular expression search, but @Ko-etal_2006 observed such tools
+leading developers to failed searches nearly 90% of the time.
 
 ### Motivation
 
