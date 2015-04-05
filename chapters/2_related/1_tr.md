@@ -56,19 +56,18 @@ document-topic distributions for each document. Otherwise, the document-terms
 may have further transformations applied or used directly as the index.
 
 Next, the engine takes a pairwise classification of the query to each document
-in the index and ranks the documents according to similarity. A similarity
-measure for probability distributions, such as the ones enumerated in the
-following Section \ref{similarity-measures}, can be used for these pairwise
-comparisons.
+in the index and ranks the documents according to similarity. We use a
+similarity measure for probability distributions for the pairwise comparisons,
+such as the ones enumerated in the following Section \ref{similarity-measures}.
 
 ### Similarity measures
 
 A similarity measure in text retrieval is useful for comparing two documents.
-Typically, these documents are represented as a bag-of-words, or a term vector.
-Hence, any vector-based similarity may be used. Further, discrete probability
-distributions, such as a document-topic proportion, can be used. In the
-following definitions, $P$ and $Q$ are two discrete probability distributions
-or term vectors.
+Typically, documents are represented as a bag-of-words, or a term vector.
+Hence, we can use any vector-based similarity measure. Further, we can use
+discrete probability distributions, such as a document-topic proportion, as a
+vector. In the following definitions, $P$ and $Q$ are two discrete probability
+distributions of the same length $K$.
 
 #### Cosine similarity
 
@@ -85,8 +84,7 @@ where $P$ and $Q$ are term vectors.
 
 #### Hellinger distance
 
-Hellinger distance ($H$) can be defined
-as:
+We define Hellinger distance ($H$) as:
 
 \begin{equation}
     {\rm H}(P, Q) = \frac{1}{\sqrt{2}} \; \sqrt{\sum_{i=1}^{K} (\sqrt{P_i} - \sqrt{Q_i})^2}
@@ -95,9 +93,8 @@ as:
 
 ####  Kullback-Leibler divergence
 
-Kullback-Leibler (KL) diverence can often be seen in topic modeling for
-constructing models, but is not a good measure for similarity as
-${\rm KL}(P, Q) \neq {\rm KL}(Q, P)$.
+Kullback-Leibler (KL) diverence is used for constructing topic models, but is
+not a good measure for similarity as ${\rm KL}(P, Q) \neq {\rm KL}(Q, P)$.
 
 \begin{equation}
     {\rm KL}(P, Q) = \sum_{i=1}^{K} P_i \, \ln\frac{P_i}{Q_i}
@@ -120,19 +117,20 @@ document similarity.
 
 ### Evaluation measures
 
-In the following section, we describe evaluation measures.
-The measures can be divided into two groups: set-based measures and
-ranked-based measures.
+In the following section, we describe evaluation measures. We divide the
+measures into two groups: set-based measures and ranked-based measures.
 
 For the following discussion, we define the following sets: $A =
-\{\mbox{relevant documents}\}$, the documents which are related for some query
-$q \in Q$; and $B = \{\mbox{retrieved documents}\}$, the documents which were
-retrieved for some query $q \in Q$.
+\{\mbox{relevant documents}\}$, the documents related to some query
+$q \in Q$; and $B = \{\mbox{retrieved documents}\}$, the documents retrieved
+for some query $q \in Q$.
 
 #### Set-based measures
 
-*Recall* is the fraction of relevant documents $B$ that are retrieved and can be
-defined as:
+##### Recall
+
+*Recall* is the fraction of relevant retrieved documents. We define recall
+as:
 
 \begin{equation}
 \operatorname{recall} =
@@ -142,8 +140,11 @@ defined as:
 \label{eq:recall}
 \end{equation}
 
-Precision is the fraction of retrieved documents $B$ that are relevant and can be
-defined as:
+
+##### Precision
+
+*Precision* is the fraction of retrieved documents that are relevant. We define
+precision as:
 
 \begin{equation}
 \operatorname{precision} =
@@ -152,6 +153,8 @@ defined as:
     P(A|B)
 \label{eq:precision}
 \end{equation}
+
+##### F-measure
 
 In some situations, we may want to make trade-offs between precision and
 recall. For this, we can use the *F-measure*. The F-measure is a weighted
@@ -174,9 +177,9 @@ harmonic mean of precision and recall:
 \label{eq:f-measureweighted}
 \end{equation}
 
-where $\alpha \in [0,1]$ and thus $\beta^2 \in [0, \infty]$. Usually, a
-*balanced F-measure* is used and equally weights precision and recall by
-$\alpha=0.5$. When using a balanced F-measure, the formula simplifies to:
+where $\alpha \in [0,1]$ and thus $\beta^2 \in [0, \infty]$. A *balanced
+F-measure* equally weights precision and recall by $\alpha=0.5$. When using a
+balanced F-measure, the formula simplifies to:
 
 \begin{equation}
 \operatorname{F} =
@@ -211,8 +214,8 @@ documents, as in *precision@k*.
 
 ##### Average Precision (AP)
 
-Average precision is useful for scoring single queries. It awards for finding
-as many relevant documents as possible at the highest ranks.
+Average precision is useful for scoring single queries. It awards for highly
+ranking relevant documents.
 
 \begin{equation}
 \operatorname{AP} =
@@ -312,7 +315,7 @@ effectiveness measure used.
 
 The Wilcoxon sign-ranked test is nonparametric and does not make the same
 assumptions that the t-test does, making it a more desirable choice of a test
-when the effectiveness measure is ordinal. The test can be written as:
+when the effectiveness measure is ordinal. We define the test as:
 
 \begin{equation}
     w = \sum_{i=1}^{N} sign(x_i - y_i) \times R_i
@@ -328,42 +331,42 @@ rank of that value.
 
 In this section, we review commonly used text retrieval models. First, we
 review the boolean and vector space models. Then, we delve into the topic
-models on which this work is based.
+models that make up the basis of this work.
 
 ### Boolean Model
 
 The Boolean model is the simplest of the models used for constructing a search
 engine. This approach builds an index of the corpus by treating each document
-as a set of unique terms. Essentially, all terms are weighted equally: either
-the term is in the document or it isn't. Queries can be constructed with
-single keywords joined by boolean expressions such as `AND`, `OR`, and `NOT`.
+as a set of unique terms. Essentially, a boolean model weights all terms
+equally: either the term is in the document or it isn't. A user constructs
+queries with single keywords joined by boolean expressions such as `AND`, `OR`,
+and `NOT`.
 
 ### Vector Space Model
 
 The Vector Space Model (VSM) is an algebraic model introduced by
-@Salton-etal_1975. VSM uses the $M \times N$ term-document matrix $C$ directly as
-an index, where $M$ is the number of unique terms in the corpus and $N$ is the
-number of documents in the corpus. Each document in C is represented as a
-vector of term weights: words which appear in a document will be assigned a
-weight by some weighting scheme, and words that do not appear have weights of
-zero. That is, $C_{ij}$ is the weight of the $i$th term in the $j$th document
-in the corpus $C$.
+@Salton-etal_1975. VSM uses the $M \times N$ term-document matrix $C$ directly
+as an index, where $M$ is the number of unique terms in the corpus and $N$ is
+the number of documents in the corpus. VSM represents each document in C as a
+vector of term weights, assigning words that appear in a document a weight by
+some weighting scheme and words that do not appear a weight of zero. That is,
+$C_{ij}$ is the weight of the $i$th term in the $j$th document in the corpus
+$C$.
 
-To search in the VSM, a query document $q$ (i.e., any document of interest) is
-transformed into a vector of term weights. Then, pairwise comparison of this
-document to each document in the index is performed. Any vector-based
-measurement metric, such as cosine similarity or Hellinger distance, can be
-used during the pairwise comparisons to measure the query document similarity.
-Documents in the index are then ranked according to how similar they are to the
-query document.
+To search in the VSM, we transform a query document $q$ (i.e., any document of
+interest) into a vector of term weights. Then, we perform pairwise comparisons
+of this document to each document in the index. We can use any vector-based
+measurement metric, such as cosine similarity or Hellinger distance, during the
+pairwise comparisons to measure the query document similarity. Documents in the
+index are then ranked according to how similar they are to the query document.
 
 ### Topic Models
 
 A topic model is a statistical model for discovering the abstract *topics* that
 occur in a corpus. For example, documents on Babe Ruth and baseball should end
 up in the same topic, while Dennis Rodman and basketball should end up in
-another. Additionally, documents may also express multiple topics. That is, a
-document on Dennis Rodman could be related to multiple topics: basketball,
+another. Additionally, documents may also express multiple topics. That is,
+a document on Dennis Rodman could relate to multiple topics: basketball,
 tattoos, and vibrant hair coloring. In this section, we will describe popular
 topic modeling algorithms and give a brief overview of the related works.
 
@@ -384,27 +387,27 @@ SVD computes $C$ into three matrices by its rank $r$ ($\leq min(M, N)$):
 That is, $C = TSD^T$.
 
 However, SVD allows for a reduction strategy to use smaller matrices that
-approximate $C$ to reduce noise [@Salton-McGill_1983]. That is, the features in
-$S$ can be reduced by only keeping the first $K$ largest values, where $K < r$,
+approximate $C$ to reduce noise [@Salton-McGill_1983]. That is, SVD reduces the
+features in $S$ by only keeping the first $K$ largest values, where $K < r$,
 and removing the remaining values. Corresponding columns in $T$ and rows in $D$
-of values removed from $S$ are also removed. The result of this operation is a
-topic space approximation $C_K$, or $C \approx C_K = T_KS_KD_K^T$. Now, the dot
-product between two columns in $C_K$ reflects the extent to which two documents
-(i.e., the columns) contain similar topics.
+of values removed from $S$ are also removed. The result of this operation is
+a topic space approximation $C_K$, or $C \approx C_K = T_KS_KD_K^T$. Now, the
+dot product between two columns in $C_K$ reflects the extent to which two
+documents (i.e., the columns) contain similar topics.
 
-To search in LSI, a query document $q$ is transformed into the LSI topic space.
-First, $q$ is vectorized into a vector of term weights, as in VSM. Next,
-because $C = TSD^T$, and hence $D = C^TS^{-1}$, $q$ is multiplied by $TS^{-1}$
-to transform $q$ into a topic-document vector. Afterwards, the of
-this vector can be performed against all documents of $C_K$ as before.
+To search in LSI, we transform a query document $q$ into the LSI topic space.
+First, we vectorize $q$ into a vector of term weights, as in VSM. Next, because
+$C = TSD^T$, and hence $D = C^TS^{-1}$, we multiply $q$ by $TS^{-1}$ to
+transform $q$ into a topic-document vector. Afterwards, we use this vector to
+make pairwise comparisons against all documents of $C_K$ as before.
 
-Extensions to SVD which enable the algorithm to be *online* have been
-identified [@Zha-Simon_1999; @Levey-Lindenbaum_2000; @Gorrell-Webb_2005;
-@Brand_2006], thereby allowing for an online LSI. Online LSI allows the model
-to be updated incrementally without needing to know about the documents prior
-to model construction. @Rehurek_2011 further extends the work of @Brand_2006 to
-an LSI implementation that is both online and distributed. @Halko-etal_2011
-outline an algorithm which is distributed, but not online.
+Extensions to SVD enable the algorithm to be *online* [@Zha-Simon_1999;
+@Levey-Lindenbaum_2000; @Gorrell-Webb_2005; @Brand_2006], thereby allowing for
+an online LSI. Online LSI allows for incremental updates to the model without
+needing to know about the documents prior to model construction. @Rehurek_2011
+further extends the work of @Brand_2006 to an LSI implementation that is both
+online and distributed. @Halko-etal_2011 outline a distributed algorithm , but
+not online.
 
 #### Probabilistic Latent Semantic Indexing
 
@@ -421,14 +424,14 @@ The general algorithm is as follows.
 #### Latent Dirichlet Allocation
 
 Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative
-model, where documents are assumed to have been generated according to a
-document-topic distribution and topic-word distribution. Of course, the goal of
-LDA is not to generate new documents from these distributions, although you
-certainly could, but instead infer the distributions of observed and unobserved
-documents. That is, LDA models each document as a probability distribution
-indicating the likelihood that it expresses each topic and models each topic
-that it infers as a probability distribution indicating the likelihood of a
-word from the corpus being assigned to the topic.
+model, assuming documents are generated according to a latent document-topic
+distribution and topic-word distribution. Of course, the goal of LDA is not to
+generate new documents from these distributions, although you certainly could,
+but instead infer the distributions of observed and unobserved documents. That
+is, LDA models each document as a probability distribution indicating the
+likelihood that it expresses each topic and models each topic that it infers as
+a probability distribution indicating the likelihood of a word from the corpus
+coming from the topic.
 
 LDA assumes the following generative process:
 
@@ -447,14 +450,15 @@ and
 $\phi$ is a $M \times K$ term-topic distribution matrix,
 with $\phi_z$ as the term-topic distribution for topic z.
 
-The hyperparameters $\alpha$ and $\beta$ are used to influence the "smoothness"
-of the model. Topic distribution per document is influenced by $\alpha$, and
-term distribution per topic is influenced by $\beta$. For example, as $\beta$
-is lowered, each topic will become more specific (i.e., a topic is likely to be
-made up of words not in any other topics), while increasing $\beta$ causes each
-topic to become more general (i.e., it causes words to begin to appear across
-multiple topics). Likewise, lowering $\alpha$ causes each document to express
-less topics while raising $\alpha$ causes documents to relate to more topics.
+The hyperparameters $\alpha$ and $\beta$ influence the "smoothness" of the
+model. Hyperparameter $\alpha$ influences the topic distribution per document,
+and hyperparameter $\beta$ influences the word distribution per topic. For
+example, lowering $\beta$ results in each topic will become more specific
+(i.e., a topic is likely to consist of words not in any other topics), while
+increasing $\beta$ causes each topic to become more general (i.e., it causes
+words to begin to appear across multiple topics). Likewise, lowering $\alpha$
+causes each document to express less topics while raising $\alpha$ causes
+documents to relate to more topics.
 
 
 @Girolami-Kaban_2003 show that pLSI and LDA are equivalent under a uniform
@@ -465,8 +469,7 @@ does not need to know about the corpus vocabulary prior to training.
 ## Text Retrieval for Software {#related-software-TR}
 
 There are some additional considerations for applying text retrieval to
-software. In this section, we discuss where the text retrieval process might
-change.
+software. In this section, we discuss where the text retrieval process changes.
 
 In addition to the transformations outlined in Section
 \ref{document-extraction}, extended transformations [@Marcus-etal_2004;

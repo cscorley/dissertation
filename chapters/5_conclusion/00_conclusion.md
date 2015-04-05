@@ -9,7 +9,7 @@ model for both tasks, potentially removing the retraining cost associated with
 topic modeling and the need for a dedicated model for each task.
 
 Appendix \ref{projected-schedule} and \ref{target-venues} contain a general
-schedule and submission outline. For the first research problem, using a
+schedule and submission outline. For the first research problem, using
 changeset-based FLTs, the work is nearing completion. I have submitted the
 first paper on this work to the 2015 International Conference on Software
 Maintenance and Evolution (ICSME), the most related venue for the work.
