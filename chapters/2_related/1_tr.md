@@ -73,7 +73,7 @@ or term vectors.
 #### Cosine similarity
 
 Cosine similarity (CS) is a commonly seen similarity measure [@Croft-etal_2010]
-and is very easy to implement:
+and is easy to implement:
 
 \begin{equation}
     {\rm CS}(P, Q) = {P \cdot Q \over \|P\| \|Q\|}
@@ -96,7 +96,7 @@ as:
 ####  Kullback-Leibler divergence
 
 Kullback-Leibler (KL) diverence can often be seen in topic modeling for
-constructing models, but is not a good measure for similarity as 
+constructing models, but is not a good measure for similarity as
 ${\rm KL}(P, Q) \neq {\rm KL}(Q, P)$.
 
 \begin{equation}
@@ -107,7 +107,7 @@ ${\rm KL}(P, Q) \neq {\rm KL}(Q, P)$.
 
 #### Jensen-Shannon divergence
 
-Jensen-Shannon (JS) divergence measure addresses the KL-divergence issue 
+Jensen-Shannon (JS) divergence measure addresses the KL-divergence issue
 by averaging the two KL measures together:
 
 \begin{equation}
@@ -189,7 +189,7 @@ $\alpha=0.5$. When using a balanced F-measure, the formula simplifies to:
 Precision at k is easy to compute and easy to understand. It is the calculated
 precision for the first $k$ retrieved documents. It awards for more relevant
 documents appearing in the first $k$ retrieved documents. However, it has the
-disadvantage of not distinguishing between the actual rankings of the relevant
+disadvantage of not distinguishing between the rankings of the relevant
 document, and is merely a count-based score.
 
 \begin{equation}
@@ -204,9 +204,9 @@ as *precision@k*.
 
 #### Ranked-based measures
 
-Since many text retrieval techniques return a ranking of all documents
-searched, it is not beneficial to use set-based measures without only looking
-at the top-$k$ documents, as in *precision@k*.
+Since text retrieval techniques return a ranking of all documents searched, it
+is not beneficial to use set-based measures without only looking at the top-$k$
+documents, as in *precision@k*.
 
 
 ##### Average Precision (AP)
@@ -245,10 +245,10 @@ where $AP(q)$ is the average precision for query $q$.
 
 ##### Mean Reciprocal Rank (MRR)
 
-Reciprocal rank is often useful when there are few, perhaps only one,
-relevant document to the query. *Mean reciprocal rank* is an average
-of reciprocal ranks over many different queries, hence it is useful for
-evaluating the effectiveness of a search engine [@Croft-etal_2010].
+Reciprocal rank is often useful when there is one relevant document to the
+query. *Mean reciprocal rank* is an average of reciprocal ranks over different
+queries, hence it is useful for evaluating the effectiveness of a search engine
+[@Croft-etal_2010].
 
 \begin{equation}
 \operatorname{MRR} =
@@ -364,7 +364,7 @@ occur in a corpus. For example, documents on Babe Ruth and baseball should end
 up in the same topic, while Dennis Rodman and basketball should end up in
 another. Additionally, documents may also express multiple topics. That is, a
 document on Dennis Rodman could be related to multiple topics: basketball,
-tattoos, and vibrant hair coloring. In this section, we will describe several
+tattoos, and vibrant hair coloring. In this section, we will describe popular
 topic modeling algorithms and give a brief overview of the related works.
 
 #### Latent Semantic Indexing
@@ -398,7 +398,7 @@ because $C = TSD^T$, and hence $D = C^TS^{-1}$, $q$ is multiplied by $TS^{-1}$
 to transform $q$ into a topic-document vector. Afterwards, the of
 this vector can be performed against all documents of $C_K$ as before.
 
-Several extensions to SVD which enable the algorithm to be *online* have been
+Extensions to SVD which enable the algorithm to be *online* have been
 identified [@Zha-Simon_1999; @Levey-Lindenbaum_2000; @Gorrell-Webb_2005;
 @Brand_2006], thereby allowing for an online LSI. Online LSI allows the model
 to be updated incrementally without needing to know about the documents prior
