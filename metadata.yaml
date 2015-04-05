@@ -72,8 +72,9 @@ abstract: |
     investigate whether topic-modeling-based maintenance tasks can be coalesced
     into using a *single* changeset-based topic model, rather than needing to
     train a model for each task at hand.  In sum, this work aims to show that
-    *training online topic models on software repositories is feasible and
-    usable in multiple contexts*.
+    *training online topic models on software repository history provides
+    accuracy as high as traditional topic models for different software
+    maintenance problems but without the retraining cost.*
 
-#
+# don't delete :)
 ...

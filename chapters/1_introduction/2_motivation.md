@@ -41,5 +41,7 @@ for work.
 
 
 **Thesis Statement**
-:    Training online topic models on software repositories is feasible
-and usable in different contexts.
+
+:   Training online topic models on software repository history provides
+accuracy as high as traditional topic models for different software maintenance
+problems but without the retraining cost.

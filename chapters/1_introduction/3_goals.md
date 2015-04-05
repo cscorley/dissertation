@@ -13,16 +13,17 @@ Towards achieving these goals, I've identified three core research problems,
 defined below.
 
 Research Problem 1 (RP1)
-:   How does training a topic model on changesets affect the performance of a
-topic-modeling-based feature location techinque?
+:   Effectively using software repository history for an online
+topic-modeling-based feature location technique to remove retraining costs
 
 Research Problem 2 (RP2)
-:   How does training a topic model on changesets affect the performance of a
-topic-modeling-based developer identification techinque?
+:   Effectively using software repository history for an online
+topic-modeling-based developer identification technique to remove retraining
+costs
 
 Research Problem 3 (RP3)
-:   Can a single topic model trained on changesets be effectively used in both
-feature location and developer identification techniques?
+:   Effectively using a *single* changeset-based topic model for automating
+different software maintenance tasks
 
 Essentially, we want to know whether using changesets in a topic-modeling-based
 tool is beneficial and whether we can automate different tasks using the same
