@@ -6,10 +6,10 @@ of changesets. We wanted to determine whether topic modeling changesets can
 perform as well as, or better than, topic modeling a snapshot. Towards this
 goal, we posed two research questions:
 
-RQ1
+RQ 3.4.1
 :   Do changeset- and snapshot-based corpora express the same terms?
 
-RQ2
+RQ 3.4.2
 :   Are topic models trained on changesets more distinct than topic models
 trained on a snapshot?
 

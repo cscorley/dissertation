@@ -125,10 +125,10 @@ In this section we describe the design of a case study in which we
 compare topic models trained on changesets to those trained on snapshots.
 For this work, we pose the following research questions:
 
-RQ1
+RQ 4.3.1
 :   Is a changeset-based DIT as accurate as a snapshot-based DIT?
 
-RQ2
+RQ 4.3.2
 :   Does the accuracy of a changeset-based DIT fluctuate as a project evolves?
 
 ##### Methodology

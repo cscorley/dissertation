@@ -148,10 +148,10 @@ In this section we describe the design of a case study in which we
 compare topic models trained on changesets to those trained on snapshots.
 For this work, we pose the following research questions:
 
-RQ1
+RQ 4.2.1
 :   Is a changeset-based FLT as accurate as a snapshot-based FLT?
 
-RQ2
+RQ 4.2.2
 :   Does the accuracy of a changeset-based FLT fluctuate as a project evolves?
 
 ##### Methodology {#flt-methodology}

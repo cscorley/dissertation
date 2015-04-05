@@ -58,14 +58,14 @@ In this section we describe the design of a exploratory study in which we
 determine whether a single topic model trained on changesets is fit to serve
 two purposes. For this work, we pose the following research questions:
 
-RQ1
+RQ 4.4.1
 :   Can we use the same topic model in more than one context effectively?
 
-RQ2
+RQ 4.4.2
 :   What are the effects of using different portions of a changeset for corpus
 construction, such as added, removed, context lines, and the commit message?
 
-RQ3
+RQ 4.4.3
 :   How much repository history do we need before the approaches are effective?
 
 

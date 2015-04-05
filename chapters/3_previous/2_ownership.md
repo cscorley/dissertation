@@ -8,11 +8,11 @@ ownership of snapshot topics. We wanted to know whether contributors own topics
 rather than just source code entities (i.e., classes). Towards this goal, we
 posed two research questions:
 
-RQ1
+RQ 3.2.1
 :    Do classes that belong to the same topic have similar ownership
 characteristics?
 
-RQ2
+RQ 3.2.2
 :   Do similar topics have similar ownership characteristics?
 
 To answer these questions, we conducted an exploratory study on 10 subject
