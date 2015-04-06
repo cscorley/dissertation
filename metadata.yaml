@@ -4,7 +4,7 @@ fontfamily: libertine
 fontsize: 12pt
 biblio-style: chicago
 biblio-files: papers.bib
-draft: Yes
+draft: No
 
 lof: Yes
 lot: Yes
