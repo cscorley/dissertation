@@ -10,7 +10,7 @@ leading developers to failed searches nearly 90% of the time.
 
 ### Motivation
 
-The state-of-the-art in feature location [@Dit-etal_2011] is to use a
+The state-of-the-art in feature location [@Dit-etal_2013a] is to use a
 feature location technique (FLT) based, at least in part, on text retrieval
 (TR). The standard methodology [@Marcus-etal_2004] is to extract a document
 for each class or method in a source code snapshot, to train a TR model on

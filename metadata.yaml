@@ -3,7 +3,7 @@ documentclass: Manuscript
 fontfamily: libertine
 fontsize: 12pt
 biblio-style: chicago
-biblio-files: papers.bib
+bibliography: papers
 draft: No
 
 lof: Yes

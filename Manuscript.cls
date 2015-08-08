@@ -151,8 +151,6 @@
    \clubpenalty=10000
 }
 
-\bibliographystyle{chicago}
-
 
 %-- Preliminary pages
 
