@@ -4,7 +4,7 @@ fontfamily: libertine
 fontsize: 12pt
 biblio-style: chicago
 bibliography: papers
-draft: No
+draft: Yes
 
 lof: Yes
 lot: Yes
@@ -13,7 +13,7 @@ appendices: Yes
 
 # front matter
 location: Tuscaloosa, Alabama
-thesistype: A dissertation (proposal)
+thesistype: A dissertation
 submissioninfos:
     - Submitted in partial fulfillment of the requirements
     - for the degree of Doctor of Philosophy

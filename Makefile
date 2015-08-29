@@ -1,4 +1,4 @@
-PAPER 		= proposal
+PAPER 		= dissertation
 
 LATEX 		= pdflatex
 BIBTEX		= bibtex
@@ -21,7 +21,7 @@ GENERATED = $(shell find ./extra -name '*.md' | sort | sed -e 's/^\.\/extra\///g
 
 DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(MD_FILES) $(FIG_FILES)
 
-URL="https://bitbucket.org/cscorley/proposal/commits"
+URL="https://github.com/cscorley/dissertation/commits"
 
 all: $(PAPER).pdf
 
@@ -37,7 +37,7 @@ $(GENERATED) :: $(EXTRA_FILES)
 $(PAPER).pdf: natbib
 
 deploy: $(PAPER).pdf
-	scp proposal.pdf christop.club:/srv/http/x/proposal_draft.pdf
+	scp dissertation.pdf christop.club:/srv/http/x/dissertation_draft.pdf
 
 pandoc: $(DEP_FILES) $(GENERATED)
 	pandoc \
@@ -64,11 +64,11 @@ debug: $(DEP_FILES) $(GENERATED)
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
 
 natbib: debug
-	pdflatex proposal
-	pdflatex proposal
-	bibtex proposal
-	pdflatex proposal
-	pdflatex proposal
+	pdflatex dissertation
+	pdflatex dissertation
+	bibtex dissertation
+	pdflatex dissertation
+	pdflatex dissertation
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \
