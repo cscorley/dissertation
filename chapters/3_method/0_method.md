@@ -1,4 +1,4 @@
-# Proposed work
+# Methodology
 
 In this chapter, I outline the proposed work and methodologies used for each.
 First, I will give a brief reasoning to why I believe changesets will work.
@@ -51,4 +51,69 @@ and no longer relevant. There would be no need for this because online LDA
 already contains features for increasing the influence newer documents have on
 the model, thereby decaying the affect of the older documents on the model.
 
+## Datasets and Benchmarks
 
+For the first two Research Problems, there do exist various datasets and
+benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
+@Linares-Vasquez-etal_2012]. However, *Research Problem 3* introduces a
+complication to using these benchmarks. The overlap of these goldsets is
+minimal, making it difficult to determine whether a technique is performing
+well or poorly because of the approach or if it happens to just be a
+challenging query for that technique. \todo{gross sentence} Hence, we have
+created our own benchmark fit for evaluating both an FLT and DIT.
+
+The 7 subjects of our study vary in size and application domain.
+BookKeeper is a distributed logging service\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
+Derby is a relational database management system\footnote{\url{http://db.apache.org/derby/}}.
+Mahout is a tool for scalable machine learning\footnote{\url{https://mahout.apache.org/}}.
+OpenJPA is object/relational mapping tool\footnote{\url{http://openjpa.apache.org/}}.
+Pig is a platform for analyzing large datasets\footnote{\url{http://pig.apache.org/}}.
+Tika is a toolkit for extracting metadata and text from various types of files\footnote{\url{http://tika.apache.org/}}.
+ZooKeeper is a tool that works as a coordination service to help build distributed applications\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
+Table \ref{table:subjects} summarizes the sizes of each system's corpora and
+dataset.
+
+\begin{table}
+\centering
+\caption{Subject system corpora and dataset sizes}
+\label{table:subjects}
+\begin{tabular}{lrrrr}
+\toprule
+{} &  Developers &  Files &  Changesets &  Issues \\
+\midrule
+BookKeeper v4.3.0 &           5 &    843 &         574 &     164 \\
+Derby v10.11.1.1  &          36 &   4344 &        7877 &     308 \\
+Mahout v0.10.0    &          38 &   1556 &        3261 &     133 \\
+OpenJPA v2.3.0    &          26 &   4968 &        4616 &     137 \\
+Pig v0.14.0       &          28 &   2098 &        2584 &     222 \\
+Tika v1.8         &          26 &    954 &        2469 &      40 \\
+ZooKeeper v3.5.0  &          16 &    927 &        1245 &     359 \\
+\midrule
+Total             &         175 &  15690 &       22626 &    1363 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\todo{subjects table needs classes/methods breakdown? does not seem relevant
+since we don't actually use it}
+
+We chose these systems for our preliminary work because developers use
+descriptive commit messages that allow for easy traceability linking to issue
+reports. Further, all projects use JIRA as an issue tracker, which has been
+found to encourage more accurate linking [@Bissyande-etal_2013].
+
+To build our dataset we mine the Git repository for information about each
+commit: the committer, message, and files changed. We use the files changed
+information during the location-based approach. Using the message, we extract
+the traceability links to issues in JIRA with the regular expression: `%s-\d+`,
+where `%s` is the project's name (e.g., BookKeeper). This matches for
+JIRA-based issue identifiers, such as `BOOKKEEPER-439` or `TIKA-42`.
+
+From the issue reports, we extract the version the issue marked as fixed in. We
+ignore issues that are not marked with a fixed version. We also extract the
+title and description of the issue.
+
+We construct two goldsets for each commit linked to an issue report. The first
+goldset is for evaluating FLTs, and contains the files, classes, and methods
+changed by the linked commit. The second goldset is for evaluating DITs, and
+contains the developer(s) that committed those changes.

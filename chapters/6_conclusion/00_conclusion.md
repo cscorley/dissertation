@@ -1,4 +1,4 @@
-# Conclusion
+# Conclusion and Future Work {#conclusion}
 
 In this proposal I present work that fundamentally changes the approach
 researchers and practitioners take when using topic modeling for automating

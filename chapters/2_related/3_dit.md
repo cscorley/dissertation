@@ -1,5 +1,4 @@
-
-## Developer identification {#related-triage}
+## Developer Identification {#related-triage}
 
 In this section we survey the literature on developer identification.
 As noted by @Shokripour-etal_2013, there are two broad categories of work in

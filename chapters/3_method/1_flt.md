@@ -1,4 +1,4 @@
-## Feature location {#study-flt}
+## Feature Location {#method-flt}
 
 Feature location is a frequent and fundamental activity for a developer tasked
 with changing a software system. Whether a change task involves adding,
@@ -90,7 +90,7 @@ engine must first infer the thematic structure of the query.  This allows for a
 pairwise classification of the query to each document in the index and ranks
 the documents based on the similarities of their thematic structures.
 
-### Proposal
+### Study Design
 
 In this proposal, we introduce a topic-modeling-based FLT in which we
 incrementally build the model from source code *changesets*. By training an

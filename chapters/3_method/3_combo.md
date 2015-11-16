@@ -1,5 +1,4 @@
-
-## Combining and Configuring Changset-based Topic Models {#study-config}
+## Combining and Configuring Changset-based Topic Models {#method-config}
 
 The two previously proposed approaches are potentially usable in unison with
 a single model, allowing for halving the computational cost required for the
@@ -15,7 +14,7 @@ for two tasks. There is also evidence in the literature that different
 configurations may be better suited for different tasks
 [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
-### Proposal
+### Study Design
 
 In this proposal, we introduce a *combined* approach that allows for coalescing
 a topic-modeling-based FLT and DIT coalesced into using the same topic model

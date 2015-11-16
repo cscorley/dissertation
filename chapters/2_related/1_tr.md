@@ -67,7 +67,7 @@ Typically, documents are represented as a bag-of-words, or a term vector.
 Hence, we can use any vector-based similarity measure. Further, we can use
 discrete probability distributions, such as a document-topic proportion, as a
 vector. In the following definitions, $P$ and $Q$ are two discrete probability
-distributions of the same length $K$.
+distributions of the same length $K$ unless noted otherwise.
 
 #### Cosine similarity
 
@@ -79,7 +79,8 @@ and is easy to implement:
 \label{eq:cosine}
 \end{equation}
 
-where $P$ and $Q$ are term vectors.
+where $P$ and $Q$ are term vectors. Since cosine similarity does not operate on
+probability distributions, it is not a fit measurement for some models.
 
 
 #### Hellinger distance
@@ -112,8 +113,8 @@ by averaging the two KL measures together:
 \label{eq:js}
 \end{equation}
 
-where $M=\frac{1}{2}(P+Q)$. This makes JS-divergence an appropriate measure for
-document similarity.
+where $M=\frac{1}{2}(P+Q)$. This makes JS-divergence an appropriate more
+measure for probability distributions over KL-divergence.
 
 ### Evaluation measures
 
@@ -126,6 +127,9 @@ $q \in Q$; and $B = \{\mbox{retrieved documents}\}$, the documents retrieved
 for some query $q \in Q$.
 
 #### Set-based measures
+
+Set-based measures are useful when the text retrieval technique returns only a
+sub-set of the documents being searched over, i.e., the top 100 documents.
 
 ##### Recall
 
@@ -189,7 +193,7 @@ balanced F-measure, the formula simplifies to:
 
 ##### Precision at k
 
-Precision at k is easy to compute and easy to understand. It is the calculated
+Precision at k is easy to compute and understand. It is the calculated
 precision for the first $k$ retrieved documents. It awards for more relevant
 documents appearing in the first $k$ retrieved documents. However, it has the
 disadvantage of not distinguishing between the rankings of the relevant
@@ -207,9 +211,9 @@ as *precision@k*.
 
 #### Ranked-based measures
 
-Since text retrieval techniques return a ranking of all documents searched, it
-is not beneficial to use set-based measures without only looking at the top-$k$
-documents, as in *precision@k*.
+Since text retrieval techniques can also return a ranking of all documents
+searched, it is not beneficial to use set-based measures without only looking
+at the top-$k$ documents, as in *precision@k*.
 
 
 ##### Average Precision (AP)
@@ -284,12 +288,11 @@ Note that DCG does not penalize the relevance of the first retrieved document.
 
 ### Statistical significance tests
 
-The most simplistic experiment for text retrieval involves comparing two
-approaches: a baseline approach and some new approach. A typical design would
-use a set of common queries for each approach, obtaining matched pairs of
-*effectiveness measures*. A popular effectiveness measure used in software is
-by @Poshyvanyk-etal_2007, and uses the rank of the first relevant document
-found.
+The simplest experiment for text retrieval involves comparing two approaches: a
+baseline approach and some new approach. This design could use a set of common
+queries for each approach, obtaining matched pairs of *effectiveness measures*.
+A popular effectiveness measure used in software is by @Poshyvanyk-etal_2007,
+and uses the rank of the first relevant document found.
 
 We can form a null and alternative hypotheses for a one-tailed test
 using the evaluation measures discussed above to determine which of the
@@ -356,9 +359,9 @@ $C$.
 To search in the VSM, we transform a query document $q$ (i.e., any document of
 interest) into a vector of term weights. Then, we perform pairwise comparisons
 of this document to each document in the index. We can use any vector-based
-measurement metric, such as cosine similarity or Hellinger distance, during the
-pairwise comparisons to measure the query document similarity. Documents in the
-index are then ranked according to how similar they are to the query document.
+measurement metric, such as cosine similarity, during the pairwise comparisons
+to measure the query document similarity. Documents in the index are then
+ranked according to how similar they are to the query document.
 
 ### Topic Models
 
@@ -409,18 +412,6 @@ further extends the work of @Brand_2006 to an LSI implementation that is both
 online and distributed. @Halko-etal_2011 outline a distributed algorithm , but
 not online.
 
-#### Probabilistic Latent Semantic Indexing
-
-Probabilistic Latent Semantic Indexing (pLSI) [@Hofmann_1999] is a generative
-model that extends LSI to define a latent variable that is the topics in
-documents.
-The general algorithm is as follows.
-
-1) Select a document $d$ with probability $P(d)$.
-2) Select a topic $z$ with probability $P(z|d)$.
-3) Generate a word $w$ with probability $P(w|z)$.
-
-
 #### Latent Dirichlet Allocation
 
 Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative
@@ -460,11 +451,17 @@ words to begin to appear across multiple topics). Likewise, lowering $\alpha$
 causes each document to express less topics while raising $\alpha$ causes
 documents to relate to more topics.
 
+To search in LDA, we transform a query document $q$ into a topic probability
+distribution, similiar to LSI. First, we vectorize $q$ into a vector of term
+weights, as in VSM. Next, we *infer* from the model the topic probability
+distribution for the query. Afterwards, we use this distribution to make
+pairwise comparisons against all documents of $\theta$.
 
-@Girolami-Kaban_2003 show that pLSI and LDA are equivalent under a uniform
-Dirichlet prior. @Hoffman-etal_2010 introduce a version of LDA which is online.
+@Hoffman-etal_2010 introduce a version of LDA which is online.
 @Zhai-Boyd-Graber_2013 introduce an extension of LDA in which the model also
 does not need to know about the corpus vocabulary prior to training.
+The Hierarchical Dirichlet Process (HDP) [@Teh-etal_2006] is a similar model,
+in that it does not not need to have a pre-determined number of topics set.
 
 ## Text Retrieval for Software {#related-software-TR}
 

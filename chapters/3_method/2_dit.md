@@ -1,4 +1,4 @@
-## Developer identification {#study-triage}
+## Developer Identification {#method-triage}
 
 Developer identification is a triaging activity in which a team member
 identifies a list of developers that are most apt to complete a change request
@@ -76,7 +76,7 @@ modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
 then we consider Johanna as the owner of `foo.py`. Here, we assign all tasks
 related to `foo.py` to Johanna.
 
-### Proposal
+### Study Design
 
 In this proposal, we introduce a topic-modeling-based DIT in which we
 incrementally build the model from source code *changesets*. By training an
