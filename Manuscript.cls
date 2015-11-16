@@ -12,7 +12,7 @@
 \def\fileversion{v1.1}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{AlabamaManuscript}[%
+\ProvidesClass{Manuscript}[%
    \filedate\space\fileversion
    Manuscript Class for a UA ETD
    ]
