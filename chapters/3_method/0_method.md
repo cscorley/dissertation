@@ -3,8 +3,8 @@
 In this chapter, I outline the proposed work and methodologies used for each.
 First, I will give a brief reasoning to why I believe changesets will work.
 Second, I will cover work on the application of topic models for feature
-location. I will follow up with work on the application of topic models for
-developer identification. Finally, I will discuss an approach which can use a
+location.  I will follow up with work on the application of topic models for
+developer identification.  Finally, I will discuss an approach which can use a
 singular topic model for both of these tasks.
 
 
@@ -21,9 +21,9 @@ While a snapshot corpus has documents that represent a program, a changeset
 corpus has documents that represent programming.  If we consider every
 changeset affecting a particular source code entity, then we gain a
 sliding-window view of that source code entity over time and the contexts those
-changes took place within. Figure \ref{fig:sliding} shows an example,
-where green areas denote text added and red areas denote text removed in that
-changeset. Here, the summation of all changes affecting a class over its
+changes took place within.  Figure \ref{fig:sliding} shows an example, where
+green areas denote text added and red areas denote text removed in that
+changeset.  Here, the summation of all changes affecting a class over its
 lifetime would approximate the same words in its current version.
 
 ![Changesets over time approximate a
@@ -31,11 +31,11 @@ Snapshot\label{fig:sliding}](figures/sliding_window_example.pdf)
 
 Changeset topic modeling is akin to summarizing code snippets with machine
 learning [@Ying-Robillard_2013], where in our case a changeset gives a
-snippet-like view of the code required to complete a task. For example, in
+snippet-like view of the code required to complete a task.  For example, in
 Figure \ref{fig:diff}, we can see the entire method affected by the changeset.
 
 Additionally, @Vasa-etal_2007 observe that code rarely changes as software
-evolves. The implication is that the topic modeler will see changesets
+evolves.  The implication is that the topic modeler will see changesets
 containing the same source code entity only a few times, perhaps only once.
 Since topic modeling a snapshot only sees an entity once, topic modeling a
 changeset can miss no information.
@@ -43,11 +43,11 @@ changeset can miss no information.
 Using changesets also implies that the topic model may gain some noisy
 information from these additional documents, especially removals.  However,
 @Vasa-etal_2007 also observe that code is less likely to be removed than it is
-to be changed. This implies that the noisy information would likely remain in
+to be changed.  This implies that the noisy information would likely remain in
 both snapshot-based models and changeset-based models.
 
 Indeed, it appears desirable to remove changesets from the model that are old
-and no longer relevant. There would be no need for this because online LDA
+and no longer relevant.  There would be no need for this because online LDA
 already contains features for increasing the influence newer documents have on
 the model, thereby decaying the affect of the older documents on the model.
 
@@ -55,11 +55,11 @@ the model, thereby decaying the affect of the older documents on the model.
 
 For the first two Research Problems, there do exist various datasets and
 benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
-@Linares-Vasquez-etal_2012]. However, *Research Problem 3* introduces a
-complication to using these benchmarks. The overlap of these goldsets is
+@Linares-Vasquez-etal_2012].  However, *Research Problem 3* introduces a
+complication to using these benchmarks.  The overlap of these goldsets is
 minimal, making it difficult to determine whether a technique is performing
 well or poorly because of the approach or if it happens to just be a
-challenging query for that technique. \todo{gross sentence} Hence, we have
+challenging query for that technique.  \todo{gross sentence} Hence, we have
 created our own benchmark fit for evaluating both an FLT and DIT.
 
 The 7 subjects of our study vary in size and application domain.
@@ -99,21 +99,21 @@ since we don't actually use it}
 
 We chose these systems for our preliminary work because developers use
 descriptive commit messages that allow for easy traceability linking to issue
-reports. Further, all projects use JIRA as an issue tracker, which has been
+reports.  Further, all projects use JIRA as an issue tracker, which has been
 found to encourage more accurate linking [@Bissyande-etal_2013].
 
 To build our dataset we mine the Git repository for information about each
-commit: the committer, message, and files changed. We use the files changed
-information during the location-based approach. Using the message, we extract
+commit: the committer, message, and files changed.  We use the files changed
+information during the location-based approach.  Using the message, we extract
 the traceability links to issues in JIRA with the regular expression: `%s-\d+`,
-where `%s` is the project's name (e.g., BookKeeper). This matches for
+where `%s` is the project's name (e.g., BookKeeper).  This matches for
 JIRA-based issue identifiers, such as `BOOKKEEPER-439` or `TIKA-42`.
 
-From the issue reports, we extract the version the issue marked as fixed in. We
-ignore issues that are not marked with a fixed version. We also extract the
+From the issue reports, we extract the version the issue marked as fixed in.
+We ignore issues that are not marked with a fixed version.  We also extract the
 title and description of the issue.
 
-We construct two goldsets for each commit linked to an issue report. The first
+We construct two goldsets for each commit linked to an issue report.  The first
 goldset is for evaluating FLTs, and contains the files, classes, and methods
-changed by the linked commit. The second goldset is for evaluating DITs, and
+changed by the linked commit.  The second goldset is for evaluating DITs, and
 contains the developer(s) that committed those changes.
