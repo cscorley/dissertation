@@ -148,10 +148,10 @@ In this section we describe the design of a case study in which we compare
 topic models trained on changesets to those trained on snapshots.  For this
 work, we pose the following research questions:
 
-RQ 4.2.1
+RQ 3.3.1
 :   Is a changeset-based FLT as accurate as a snapshot-based FLT?
 
-RQ 4.2.2
+RQ 3.3.2
 :   Does the accuracy of a changeset-based FLT fluctuate as a project evolves?
 
 ##### Methodology {#flt-methodology}
@@ -189,69 +189,10 @@ This allows our evaluations to capture any entities added to address the issue
 report, as well as changed entities, but does not capture any entities removed
 by the change.
 
-##### Subject Systems
-
-There are two publicly-available and recently published datasets usable for
-this study.  Between these two datasets are over 1200 defects and features from
-14 open source Java projects.  Choosing a publicly-available dataset allows us
-to set this work in context of work completed by other researchers.
-
-Table \ref{table:flt-datasets} summarizes the subject systems from the
-datasets.  The first is a dataset of four software systems by @Dit-etal_2013
-and contains method-level goldsets.  This dataset was automatically extracted
-from changesets that relate to the queries (issue reports).  The second is a
-dataset of 14 software systems by @Moreno-etal_2014 and contains class-level
-goldsets.  This dataset was automatically extracted from patches attached to
-issue reports.  The four software systems in the first dataset also appear in
-the second, supplying us with both class- and method-level goldsets for the
-queries.
-
-
-Subject System       Features   Classes   Methods
---------------      ---------  --------  --------
-ArgoUML v0.22        91         287       701
-ArgoUML v0.24        52         154       357
-ArgoUML v0.26.2      209        706       1560
-BookKeeper v4.1.0    40         152
-Derby v10.7.1.1      32         55
-Derby v10.9.1.0      95         410
-Hibernate v3.5.0b2   20         53
-Jabref v2.6          39         131       280
-jEdit v4.3           150        361       748
-Lucene v4.0          35         103
-Mahout v0.8          30         159
-muCommander v0.8.5   92         303       717
-OpenJPA v2.0.1       35         82
-OpenJPA v2.2.0       18         53
-Pig v0.8.0           85         442
-Pig v0.11.1          48         129
-Solr v4.4.0          55         189
-Tika v1.3            18         34
-ZooKeeper v3.4.5     80         285
-Total                1224       4088      4363
---------------      ---------  --------  --------
-
-Table: Feature location subject systems and goldset sizes \label{table:flt-datasets}
-
-ArgoUML is a UML diagramming tool^[<http://argouml.tigris.org/>].
-BookKeeper is a distributed logging service^[<http://zookeeper.apache.org/bookkeeper/>].
-Derby is a relational database management system^[<http://db.apache.org/derby/>].
-Hibernate is a object/relational mapping framework^[<http://hibernate.org/>].
-jEdit is a text editor^[<http://www.jedit.org/>].
-JabRef is a BibTeX bibliography management tool^[<http://jabref.sourceforge.net/>].
-Lucene is an information retrieval library^[<http://lucene.apache.org/core/>].
-Mahout is a tool for scalable machine learning^[<https://mahout.apache.org/>].
-muCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
-OpenJPA is object/relational mapping tool^[<http://openjpa.apache.org/>].
-Pig is a platform for analyzing large datasets^[<http://pig.apache.org/>].
-Solr is a search platform^[<http://lucene.apache.org/solr/>].
-Tika is a toolkit for extracting metadata and text from files^[<http://tika.apache.org/>].
-ZooKeeper is a tool that works as a coordination service to help build distributed applications^[<http://zookeeper.apache.org/bookkeeper/>].
-
 ##### Data Collection and Analysis
 
 To evaluate the performance of a topic-modeling-based FLT we cannot use
-measures such as precision and recall.  This is because the FLT creates the
+measures such as precision and recall.  This is because the FLT creates
 rankings pairwise, causing every entity to appear in the rankings.
 @Poshyvanyk-etal_2007 define an effectiveness measure for topic-modeling-based
 FLTs.  The effectiveness measure is the rank of the first relevant document and
@@ -259,12 +200,12 @@ represents the number of source code entities a developer would have to view
 before reaching a relevant one.  The effectiveness measure allows evaluating
 the FLT by using the mean reciprocal rank (MRR).
 
-To answer RQ1, we run the experiment on the snapshot and changeset corpora as
-outlined in Section \ref{flt-methodology}.  We then calculate the MRR between
-the two sets of effectiveness measures.  We use the Wilcoxon signed-rank test
-with Holm correction to determine the statistical significance of the
-difference between the two rankings.  To answer RQ2, we run the historical
-simulation as outlined in Section \ref{flt-methodology} and compare it to the
-results of batch changesets from RQ1.  Again, we calculate the MRR and use the
-Wilcoxon signed-rank test.
+To answer *RQ 3.3.1*, we run the experiment on the snapshot and changeset
+corpora as outlined in Section \ref{flt-methodology}.  We then calculate the
+MRR between the two sets of effectiveness measures.  We use the Wilcoxon
+signed-rank test with Holm correction to determine the statistical significance
+of the difference between the two rankings.  To answer *RQ 3.3.2*, we run the
+historical simulation as outlined in Section \ref{flt-methodology} and compare
+it to the results of batch changesets from *RQ 3.3.1*.  Again, we calculate the
+MRR and use the Wilcoxon signed-rank test.
 

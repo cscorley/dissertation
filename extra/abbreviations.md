@@ -1,7 +1,7 @@
 $\alpha$
 :   in LDA, a smoothing parameter for document-topic distributions
 
-$\beta$
+$\eta$
 :   in LDA, a smoothing parameter for topic-term distributions
 
 $\theta$

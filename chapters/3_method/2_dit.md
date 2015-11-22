@@ -126,10 +126,10 @@ In this section we describe the design of a case study in which we
 compare topic models trained on changesets to those trained on snapshots.
 For this work, we pose the following research questions:
 
-RQ 4.3.1
+RQ 3.4.1
 :   Is a changeset-based DIT as accurate as a snapshot-based DIT?
 
-RQ 4.3.2
+RQ 3.4.2
 :   Does the accuracy of a changeset-based DIT fluctuate as a project evolves?
 
 ##### Methodology
@@ -163,62 +163,23 @@ distribution and rank each entity in the developer index with pairwise
 comparisons.  Finally, we continue by updating the model with the next
 mini-batch.
 
-##### Subject Systems
-
-There are two publicly-available and recently published datasets usable for
-this study.  Between these two datasets are over 415 defects and features from
-5 open source Java projects.  Choosing a publicly-available dataset allows us
-to set this work in context of work completed by other researchers.
-
-Table \ref{table:dit-datasets} summarizes the subject systems from the
-datasets.  The first is a dataset of 5 software systems by @Kagdi-etal_2012.
-The second is a dataset of 3 software systems by @Linares-Vasquez-etal_2012.
-Both datasets were automatically extracted from changesets that relate to the
-queries (issue reports).
-
-
-Subject System           Change Requests
---------------          ---------------- 
-ArgoUML v0.22           91
-ArgoUML v0.26.2         23
-Eclipse v2.0            14
-Eclipse v3.0            14
-Eclipse v3.3.2          14
-jEdit v4.3              143
-KOffice v2.0-Beta 2     24
-muCommander v0.8.5      92
-Total                   415
---------------          ---------------- 
-
-Table: Developer identification subject systems and goldset sizes
-\label{table:dit-datasets}
-
-
-ArgoUML is a UML diagramming tool^[<http://argouml.tigris.org/>].
-Eclipse is a general purpose IDE^[<https://www.eclipse.org/>].
-jEdit is a text editor^[<http://www.jedit.org/>].
-KOffice is a office productivity suite^[<http://www.kde.org/applications/office>].
-muCommander is a cross-platform file manager^[<http://www.mucommander.com/>].
-
 ##### Data Collection and Analysis
 
-To evaluate the performance of a topic-modeling-based FLT we cannot use
-measures such as precision and recall.  This is because the FLT creates the
-rankings pairwise, causing every entity to appear in the rankings.  Again,
+To evaluate the performance of a topic-modeling-based DIT we cannot use
+measures such as precision and recall.  This is because the DIT creates
+rankings pairwise, causing every developer to appear in the rankings.  Again,
 @Poshyvanyk-etal_2007 define an effectiveness measure for topic-modeling-based
 FLTs, which is usable for a DIT.  The effectiveness measure is the rank of the
 first relevant document and represents the number of developers the triager
 would have to assign before choosing the right developer.  The effectiveness
-measure allows evaluating the FLT by using the mean reciprocal rank (MRR).  We
-can also look at only the top-k recommendations in the list, giving us the
-measures of precision@k and recall@k.
+measure allows evaluating the FLT by using the mean reciprocal rank (MRR).
 
-To answer RQ1, we run the experiment on the snapshot and changeset corpora as
-outlined in Section \ref{flt-methodology}.  We then calculate the MRR between
-the two sets of effectiveness measures.  We use the Wilcoxon signed-rank test
-with Holm correction to determine the statistical significance of the
-difference between the two rankings.  To answer RQ2, we run the historical
-simulation as outlined in Section \ref{flt-methodology} and compare it to the
-results of batch changesets from RQ1.  Again, we calculate the MRR and use the
-Wilcoxon signed-rank test.
+To answer *RQ 3.4.1*, we run the experiment on the snapshot and changeset
+corpora as outlined in Section \ref{flt-methodology}.  We then calculate the
+MRR between the two sets of effectiveness measures.  We use the Wilcoxon
+signed-rank test with Holm correction to determine the statistical significance
+of the difference between the two rankings.  To answer *RQ 3.4.2*, we run the
+historical simulation as outlined in Section \ref{flt-methodology} and compare
+it to the results of batch changesets from *RQ 3.4.1*.  Again, we calculate the
+MRR and use the Wilcoxon signed-rank test.
 

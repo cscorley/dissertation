@@ -1,32 +1,48 @@
 ## Threats to Validity {#threats}
 
-\todo{Fix this to be in a threats format}
+\todo{more of this}
 
-There are limitations and assumptions in this research that need addressing
-upfront.
+Our studies have limitations that impact the validity of our findings, as well
+as our ability to generalize them. We describe some of these limitations and
+their impacts.
 
-First, the assumption that a software project using a changeset-based topic
-model has a large history.  Topic models need a large amount of data for
-training, and hence the more history supplied to the model the more accurate it
-becomes.  There may be solutions to this problem, such as using the software
-snapshot after a release in combination with the changesets.
 
-The second assumption follows the first, in that the software repository
-history is not changed or re-written after initial training of the topic model.
-New version control software, such as Git and Mecurial, allow for history to be
-re-written arbitrarily.  For instance, a repository may contain work on a
-subproject which is then extracted into its own fully-fledged project at a
-later point.  This has happened to Apache Lucene and Solr projects.
+### Construct Validity
 
-The third assumption is that an optimal configuration exists.  Since the models
-are seeing a single document at a time, there may be performance issues with
-this approach.  Previous research use topic models trained in *batch*, i.e.
-knowing about all documents ahead of time, and have parameters that need
-configuration for optimal performance.  Likewise, *online* topic models include
-new parameters that also need configuration.
+Threats to construct validity concern measurements accurately reflecting the
+features of interest.  A possible threat to construct validity is our
+benchmarks.  Errors in the datasets could result in inaccurate effectiveness
+measures.  Our dataset creation technique closely follows that of other
+researchers [@Dit-etal_2013; @Revelle-etal_2010; @Moreno-etal_2014].
+Additionally, datasets extracted source code entities automatically from
+changesets, previous work shows this approach is on par with manual extraction
+[@Corley-etal_2011].
 
-The final assumption is that the topics do not experience topic drifting or
-large changes in vocabulary.  Solutions towards topic drift
-[@Blei-Lafferty_2006] and expanding vocabularies [@Zhai-Boyd-Graber_2013]
-suggested by the topic modeling communities may address this issue.
+### Internal Validity
+
+Threats to internal validity include possible defects in our tool chain and
+possible errors in our execution of the study procedure, the presence of which
+might affect the accuracy of our results and the conclusions we draw from them.
+We controlled for these threats by testing our tool chain and by assessing the
+quality of our data.  Because we applied the same tool chain to all subject
+systems, any errors are systematic and are unlikely to affect our results
+substantially.
+
+Another threat to internal validity pertains to the value of parameters such as
+$K$ that we selected for all models trained.  We decided that the activity- and
+location-based approaches should have the same parameters to help facilitate
+evaluation and comparison.  We argue that our study is not about selecting the
+best parameters, but to show that our activity-based approach is reasonable.
+
+### External Validity
+
+Threats to external validity concern the extent to which we can generalize our
+results.  The subjects of our study comprise fourteen open source projects in
+Java, so we cannot generalize our results to systems implemented in other
+languages.  However, the systems are of different sizes, are from different
+domains, and have characteristics in common with those of systems developed in
+industry.
+
+### Conclusion Validity
+
 

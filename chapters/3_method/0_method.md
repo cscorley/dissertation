@@ -1,11 +1,13 @@
 # Methodology
 
-In this chapter, I outline the proposed work and methodologies used for each.
-First, I will give a brief reasoning to why I believe changesets will work.
-Second, I will cover work on the application of topic models for feature
-location.  I will follow up with work on the application of topic models for
-developer identification.  Finally, I will discuss an approach which can use a
-singular topic model for both of these tasks.
+In this chapter, we outline the proposed work and methodologies used for each.
+First, I will give a brief reasoning to why changesets are a good choice for a
+training corpus.  Second, we discuss the datasets and benchmarks used
+throughout this work.  Next, we describe the approach for an application of
+topic models for feature location.  We will then discuss work on the
+application of topic models for developer identification.  Finally, I will
+discuss an approach which can use a singular topic model for both of these
+tasks.
 
 
 ## Why changesets?
@@ -57,12 +59,12 @@ For the first two Research Problems, there do exist various datasets and
 benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
 @Linares-Vasquez-etal_2012].  However, *Research Problem 3* introduces a
 complication to using these benchmarks.  The overlap of these goldsets is
-minimal, making it difficult to determine whether a technique is performing
-well or poorly because of the approach or if it happens to just be a
-challenging query for that technique.  \todo{gross sentence} Hence, we have
-created our own benchmark fit for evaluating both an FLT and DIT.
+small, making it difficult to determine whether a technique is performing well
+or not because of the approach or if it happens to just be a challenging query
+for that technique.  \todo{gross sentence} Hence, we have created our own
+benchmark fit for evaluating both an FLT and DIT.
 
-The 7 subjects of our study vary in size and application domain.
+The 7 subjects of our studies vary in size and application domain.
 BookKeeper is a distributed logging service\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
 Derby is a relational database management system\footnote{\url{http://db.apache.org/derby/}}.
 Mahout is a tool for scalable machine learning\footnote{\url{https://mahout.apache.org/}}.
@@ -79,7 +81,7 @@ dataset.
 \label{table:subjects}
 \begin{tabular}{lrrrr}
 \toprule
-{} &  Developers &  Files &  Changesets &  Issues \\
+{}                &  Developers &  Files &  Changesets &  Issues \\
 \midrule
 BookKeeper v4.3.0 &           5 &    843 &         574 &     164 \\
 Derby v10.11.1.1  &          36 &   4344 &        7877 &     308 \\
