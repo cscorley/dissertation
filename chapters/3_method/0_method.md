@@ -1,13 +1,12 @@
 # Methodology
 
-In this chapter, we outline the proposed work and methodologies used for each.
+In this chapter, we outline the three studies and methodologies used for each.
 First, I will give a brief reasoning to why changesets are a good choice for a
 training corpus.  Second, we discuss the datasets and benchmarks used
 throughout this work.  Next, we describe the approach for an application of
 topic models for feature location.  We will then discuss work on the
 application of topic models for developer identification.  Finally, I will
-discuss an approach which can use a singular topic model for both of these
-tasks.
+discuss an approach for using a singular topic model for both of these tasks.
 
 
 ## Why changesets?
@@ -75,26 +74,7 @@ ZooKeeper is a tool that works as a coordination service to help build distribut
 Table \ref{table:subjects} summarizes the sizes of each system's corpora and
 dataset.
 
-\begin{table}
-\centering
-\caption{Subject system corpora and dataset sizes}
-\label{table:subjects}
-\begin{tabular}{lrrrr}
-\toprule
-{}                &  Developers &  Files &  Changesets &  Issues \\
-\midrule
-BookKeeper v4.3.0 &           5 &    843 &         574 &     164 \\
-Derby v10.11.1.1  &          36 &   4344 &        7877 &     308 \\
-Mahout v0.10.0    &          38 &   1556 &        3261 &     133 \\
-OpenJPA v2.3.0    &          26 &   4968 &        4616 &     137 \\
-Pig v0.14.0       &          28 &   2098 &        2584 &     222 \\
-Tika v1.8         &          26 &    954 &        2469 &      40 \\
-ZooKeeper v3.5.0  &          16 &    927 &        1245 &     359 \\
-\midrule
-Total             &         175 &  15690 &       22626 &    1363 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\input{tables/subjects}
 
 \todo{subjects table needs classes/methods breakdown? does not seem relevant
 since we don't actually use it}

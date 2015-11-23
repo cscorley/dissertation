@@ -1,0 +1,31 @@
+
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{MRR values of Tika v1.8 corpus construction sweep}
+\label{table:tika_corpus_sweep}
+\vspace{0.2em}
+\begin{tabular}{llll|rr}
+\toprule
+Additions & Removals & Context & Message & FLT &       DIT \\
+\midrule
+     True &     True &    True &    True &           0.2602 &       0.3948 \\
+     True &     True &    True &   False &           0.3035 & {\bf 0.4440} \\
+     True &     True &   False &    True &           0.2072 &       0.4239 \\
+     True &     True &   False &   False &           0.2079 &       0.3569 \\
+     True &    False &    True &    True &           0.2117 &       0.3560 \\
+     True &    False &    True &   False &           0.2183 &       0.3385 \\
+     True &    False &   False &    True &     {\bf 0.3687} &       0.3317 \\
+     True &    False &   False &   False &           0.2483 &       0.3265 \\
+    False &     True &    True &    True &           0.1382 &       0.3957 \\
+    False &     True &    True &   False &           0.2043 &       0.3414 \\
+    False &     True &   False &    True &           0.1449 &       0.3520 \\
+    False &     True &   False &   False &           0.0986 &       0.2933 \\
+    False &    False &    True &    True &           0.1656 &       0.2591 \\
+    False &    False &    True &   False &           0.1101 &       0.3287 \\
+    False &    False &   False &    True &           0.2327 &       0.3415 \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}

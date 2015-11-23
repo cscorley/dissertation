@@ -1,0 +1,31 @@
+
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{MRR values of Openjpa v2.3.0 corpus construction sweep}
+\label{table:openjpa_corpus_sweep}
+\vspace{0.2em}
+\begin{tabular}{llll|rr}
+\toprule
+Additions & Removals & Context & Message & FLT &       DIT \\
+\midrule
+     True &     True &    True &    True &           0.1666 &       0.3947 \\
+     True &     True &    True &   False &           0.1865 &       0.3740 \\
+     True &     True &   False &    True &           0.1721 & {\bf 0.4049} \\
+     True &     True &   False &   False &           0.2104 &       0.3421 \\
+     True &    False &    True &    True &     {\bf 0.2479} &       0.3748 \\
+     True &    False &    True &   False &           0.1893 &       0.3227 \\
+     True &    False &   False &    True &           0.1771 &       0.3692 \\
+     True &    False &   False &   False &           0.1876 &       0.3795 \\
+    False &     True &    True &    True &           0.1171 &       0.3520 \\
+    False &     True &    True &   False &           0.1256 &       0.2996 \\
+    False &     True &   False &    True &           0.0952 &       0.2842 \\
+    False &     True &   False &   False &           0.1006 &       0.3198 \\
+    False &    False &    True &    True &           0.1421 &       0.2770 \\
+    False &    False &    True &   False &           0.0985 &       0.2659 \\
+    False &    False &   False &    True &           0.1676 &       0.2519 \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}

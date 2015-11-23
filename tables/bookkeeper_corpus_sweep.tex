@@ -1,0 +1,31 @@
+
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{MRR values of BookKeeper v4.3.0 corpus construction sweep}
+\label{table:bookkeeper_corpus_sweep}
+\vspace{0.2em}
+\begin{tabular}{llll|rr}
+\toprule
+Additions & Removals & Context & Message & FLT &       DIT \\
+\midrule
+     True &     True &    True &    True &           0.4884 &       0.6875 \\
+     True &     True &    True &   False &           0.4809 &       0.6288 \\
+     True &     True &   False &    True &           0.5275 &       0.4739 \\
+     True &     True &   False &   False &           0.4569 &       0.6557 \\
+     True &    False &    True &    True &           0.5128 &       0.6397 \\
+     True &    False &    True &   False &           0.4878 & {\bf 0.6953} \\
+     True &    False &   False &    True &           0.5399 &       0.4835 \\
+     True &    False &   False &   False &           0.4527 &       0.4730 \\
+    False &     True &    True &    True &           0.4746 &       0.5849 \\
+    False &     True &    True &   False &           0.3435 &       0.5525 \\
+    False &     True &   False &    True &           0.4228 &       0.5105 \\
+    False &     True &   False &   False &           0.3158 &       0.5959 \\
+    False &    False &    True &    True &     {\bf 0.5700} &       0.6460 \\
+    False &    False &    True &   False &           0.4394 &       0.6470 \\
+    False &    False &   False &    True &           0.3709 &       0.4875 \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}

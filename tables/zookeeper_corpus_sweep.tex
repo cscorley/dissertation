@@ -1,0 +1,31 @@
+
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{MRR values of ZooKeeper v3.5.0 corpus construction sweep}
+\label{table:zookeeper_corpus_sweep}
+\vspace{0.2em}
+\begin{tabular}{llll|rr}
+\toprule
+Additions & Removals & Context & Message & FLT &       DIT \\
+\midrule
+     True &     True &    True &    True &           0.3982 &       0.3617 \\
+     True &     True &    True &   False &           0.3416 &       0.3478 \\
+     True &     True &   False &    True &     {\bf 0.4329} &       0.3807 \\
+     True &     True &   False &   False &           0.3284 &       0.3609 \\
+     True &    False &    True &    True &           0.4313 &       0.3758 \\
+     True &    False &    True &   False &           0.3504 &       0.3504 \\
+     True &    False &   False &    True &           0.4186 &       0.3627 \\
+     True &    False &   False &   False &           0.3513 &       0.3536 \\
+    False &     True &    True &    True &           0.3759 &       0.3267 \\
+    False &     True &    True &   False &           0.2946 &       0.3213 \\
+    False &     True &   False &    True &           0.3702 &       0.2909 \\
+    False &     True &   False &   False &           0.2486 &       0.3099 \\
+    False &    False &    True &    True &           0.4141 & {\bf 0.4476} \\
+    False &    False &    True &   False &           0.3245 &       0.4178 \\
+    False &    False &   False &    True &           0.4061 &       0.3283 \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}
