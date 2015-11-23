@@ -276,7 +276,7 @@
       CONTENTS
    \end{center}
    \vspace{-\baselineskip}
-   \begin{spacing}{1.0}
+   \begin{spacing}{0.5}
       \@starttoc{toc}
    \end{spacing}
    \cleardoublepage
@@ -339,7 +339,7 @@
       LIST OF TABLES
    \end{center}
    \vspace{-\baselineskip}
-   \begin{spacing}{1.0}
+   \begin{spacing}{0.5}
       \@starttoc{lot}
    \end{spacing}
    \cleardoublepage
@@ -355,7 +355,7 @@
       LIST OF FIGURES
    \end{center}
    \vspace{-\baselineskip}
-   \begin{spacing}{1.0}
+   \begin{spacing}{0.5}
       \@starttoc{lof}
    \end{spacing}
    \cleardoublepage
