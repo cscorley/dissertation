@@ -54,20 +54,21 @@ the model, thereby decaying the affect of the older documents on the model.
 
 ## Datasets and Benchmarks
 
-For the first two Research Problems, there do exist various datasets and
+For the first two Research Problems, there does exist various datasets and
 benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
 @Linares-Vasquez-etal_2012].  However, *Research Problem 3* introduces a
-complication to using these benchmarks.  The overlap of these goldsets is
-small, making it difficult to determine whether a technique is performing well
-or not because of the approach or if it happens to just be a challenging query
-for that technique.  \todo{gross sentence} Hence, we have created our own
-benchmark fit for evaluating both an FLT and DIT.
+complication to using these benchmarks in that it requires high overlap of the
+benchmarks.  The overlap of these benchmarks is small and in some cases
+non-existent, making it difficult to determine whether a technique is
+performing well or not because of the approach or if it happens to just be a
+challenging query for that technique.  \todo{gross sentence} Hence, we have
+created our own benchmark fit for evaluating both an FLT and DIT.
 
-The 7 subjects of our studies vary in size and application domain.
+The 6 subjects of our studies vary in size and application domain.
 BookKeeper is a distributed logging service\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
-Derby is a relational database management system\footnote{\url{http://db.apache.org/derby/}}.
+<!-- Derby is a relational database management system\footnote{\url{http://db.apache.org/derby/}}.  -->
 Mahout is a tool for scalable machine learning\footnote{\url{https://mahout.apache.org/}}.
-OpenJPA is object/relational mapping tool\footnote{\url{http://openjpa.apache.org/}}.
+OpenJPA is object-relational mapping tool\footnote{\url{http://openjpa.apache.org/}}.
 Pig is a platform for analyzing large datasets\footnote{\url{http://pig.apache.org/}}.
 Tika is a toolkit for extracting metadata and text from various types of files\footnote{\url{http://tika.apache.org/}}.
 ZooKeeper is a tool that works as a coordination service to help build distributed applications\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
@@ -76,13 +77,12 @@ dataset.
 
 \input{tables/subjects}
 
-\todo{subjects table needs classes/methods breakdown? does not seem relevant
-since we don't actually use it}
-
-We chose these systems for our preliminary work because developers use
-descriptive commit messages that allow for easy traceability linking to issue
-reports.  Further, all projects use JIRA as an issue tracker, which has been
-found to encourage more accurate linking [@Bissyande-etal_2013].
+We chose these systems for our work because developers use descriptive commit
+messages that allow for easy traceability linking to issue reports.  Further,
+all projects use JIRA as an issue tracker, which has been found to encourage
+more accurate traceability link recovery [@Bissyande-etal_2013]. Finally, each
+system varies in domain and in size, in terms of developers, changesets, and
+number of source code files.
 
 To build our dataset we mine the Git repository for information about each
 commit: the committer, message, and files changed.  We use the files changed
