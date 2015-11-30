@@ -1,6 +1,6 @@
 PAPER 		= dissertation
 
-LATEX 		= pdflatex
+LATEX 		= pdflatex -halt-on-error
 BIBTEX		= bibtex
 
 GRAPHICS	= graphics
@@ -64,11 +64,11 @@ debug: $(DEP_FILES) $(GENERATED)
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
 
 natbib: debug
-	pdflatex dissertation
-	pdflatex dissertation
-	bibtex dissertation
-	pdflatex dissertation
-	pdflatex dissertation
+	$(LATEX) dissertation
+	$(LATEX) dissertation
+	$(BIBTEX) dissertation
+	$(LATEX) dissertation
+	$(LATEX) dissertation
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \

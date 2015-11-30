@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Feature Location: MRR and $p$-values}
+\begin{tabular}{l|ccr|l}
+\toprule
+Subject & & MRR & & Wilcoxon  \\
+System  &  Batch & Historical Simulation & Spread & $p$-value  \\
+\midrule
+Bookkeeper v4.3.0 & {\bf 0.4990 } & 0.3013 & -0.1978 & $p < $ 0.01 \\
+Mahout v0.10.0 & 0.1248 & {\bf 0.1875 } & +0.0627 & $p = $ 0.7004 \\
+Openjpa v2.3.0 & {\bf 0.1801 } & 0.1509 & -0.0292 & $p < $ 0.01 \\
+Pig v0.14.0 & {\bf 0.1542 } & 0.1171 & -0.0371 & $p < $ 0.01 \\
+Tika v1.8 & {\bf 0.2416 } & 0.1843 & -0.0573 & $p = $ 0.0116 \\
+Zookeeper v3.5.0 & {\bf 0.3354 } & 0.2320 & -0.1034 & $p < $ 0.01 \\
+\midrule
+All & {\bf 0.2725 } & 0.2006 & -0.0718 & $p < $ 0.01 \\
+\bottomrule
+\end{tabular}
+\label{table:feature_location_rq2}
+\end{table}
