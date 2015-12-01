@@ -35,3 +35,7 @@ situations; we will now discuss each of these situations in detail.
 
 #### Batch snapshot are better than batch changeset *and* batch changesets are better than changesets in the simulated environment
 
+
+### A study on classes and methods
+
+An initial study was completed in @Corley-etal_2015.
