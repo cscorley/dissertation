@@ -326,9 +326,14 @@ when the effectiveness measure is ordinal.  We define the test as:
 
 where $N$ is the number of differences $\neq 0$, $x$ and $y$ are pairs of
 effectiveness measures, $sign(v)$ returns the sign of value $v$, $R_i$ is the
-rank of that value.
+rank of that value. $R_i$ is not the raw "rank" from the data; rather, it is
+the rank of the pair in a sorted list of their differences.
 
+##### Effect size
 
+An effect size can be derived from the Wilcoxon signed-rank test statistic,
+$w$ [@Kerby_2014]. Given $w$, a rank correlation $r$ can be defined as $r =
+w/S$, where $S$ is the sum of all ranks.
 
 ## Text Retrieval Models
 

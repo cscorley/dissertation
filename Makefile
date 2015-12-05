@@ -64,6 +64,7 @@ debug: $(DEP_FILES) $(GENERATED)
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
 
 natbib: debug
+	cp ~/papers/papers.bib .
 	$(LATEX) dissertation
 	$(LATEX) dissertation
 	$(BIBTEX) dissertation
