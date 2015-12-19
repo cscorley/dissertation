@@ -62,9 +62,6 @@ RQ 3.5.2
 :   What are the effects of using different portions of a changeset for corpus
 construction, such as added, removed, context lines, and the commit message?
 
-RQ 3.5.3
-:   How much repository history do we need before the approaches are effective?
-
 
 ##### Methodology
 
@@ -92,5 +89,3 @@ lines only) while excluding other portions (i.e., removed lines).  It may also
 be beneficial to include the natural language text of the commit message.
 Table \ref{table:combo-rq2} outlines the 15 combinations over the 4 types of
 changeset text.
-
-\todo{what about RQ 3.5.3}

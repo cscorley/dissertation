@@ -1,5 +1,7 @@
 ## Combining and Configuring Changset-based Topic Models {#results-config}
 
+\todo{re-run results. new snapshot corpora on changeset models}
+
 In this section, we will describe the results of the study outlined in Section
 \ref{method-combo}.
 
@@ -12,7 +14,7 @@ results for BookKeeper, Mahout, OpenJPA, Pig, Tika, and ZooKeeper,
 respectively. In the tables, we bold entries where the MRR is highest for each
 of the two tasks. Our goal is not to find which configuration works best for
 each system and task, but rather to determine whether one configuration is
-*capable* of producing acceptable results for both tasks. 
+*capable* of producing acceptable results for both tasks.
 
 Overall, all systems performed best for the DIT when $K = 500$, while lower $K$
 work slightly better for the FLT with exception to BookKeeper.  Automatic
@@ -67,37 +69,39 @@ OpenJPA, Pig, Tika, and ZooKeeper, respectively. In the tables, we bold entries
 where the MRR is highest for each of the two tasks. Our goal is not to find
 which configuration works best for each system and task, but rather to
 determine whether one configuration is *capable* of producing acceptable
-results for both tasks. 
+results for both tasks.
 
-Again, the results vary across systems and tasks.
+The results for the corpus construction sweep vary across systems and tasks.
+Importantly, there does not seem to be any particular configuration that is
+shared between systems or tasks.
 
 
 <!--
         ARCM
 
     BookKeeper
-        FFTT    0.57 0.64
-        TFTF    0.48 0.69
+        FFTT    0.57 0.64 *
+        TFTF    0.48 0.69 *
 
     Mahout
-        TFFT    0.24 0.32
+        TFFT    0.24 0.32 *
         TTTF    0.17 0.33
 
     OpenJPA
-        TFTT    0.24 0.37
+        TFTT    0.24 0.37 *
         TTFT    0.17 0.40
 
     Pig
-        TFTT    0.20 0.23
+        TFTT    0.20 0.23 *
         FFTF    0.11 0.29
 
     Tika
         TFFT    0.36 0.33
-        TTTF    0.30 0.44
+        TTTF    0.30 0.44 *
 
     Zookeeper
         TTFT    0.43 0.38
-        FFTT    0.41 0.44
+        FFTT    0.41 0.44 *
     -->
 
 
