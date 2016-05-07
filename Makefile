@@ -36,9 +36,6 @@ $(GENERATED) :: $(EXTRA_FILES)
 
 $(PAPER).pdf: natbib
 
-deploy: $(PAPER).pdf
-	scp dissertation.pdf christop.club:/srv/http/x/dissertation_draft.pdf
-
 pandoc: $(DEP_FILES) $(GENERATED)
 	pandoc \
 		--filter pandoc-citeproc \
