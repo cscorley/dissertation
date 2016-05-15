@@ -39,3 +39,32 @@ each system is relatively close, suggesting that historical simulation is on
 par with batch changesets.  Overall, a full historical simulation performs
 better than changesets trained in batch.
 
+
+
+![Developer Identification results for
+BookKeeper v4.3.0
+\label{fig:dit:bookkeeper}](figures/dit/bookkeeper.pdf)
+
+![Developer Identification results for
+Mahout v0.10.0
+\label{fig:dit:mahout}](figures/dit/mahout.pdf)
+
+![Developer Identification results for
+OpenJPA v2.3.0
+\label{fig:dit:openjpa}](figures/dit/openjpa.pdf)
+
+![Developer Identification results for
+Pig v0.14.0
+\label{fig:dit:pig}](figures/dit/pig.pdf)
+
+![Developer Identification results for
+Tika v1.8
+\label{fig:dit:Tika}](figures/dit/tika.pdf)
+
+![Developer Identification results for
+ZooKeeper v3.5.0
+\label{fig:dit:zookeeper}](figures/dit/zookeeper.pdf)
+
+![Developer Identification results for
+all subject systems
+\label{fig:dit:all}](figures/dit/all.pdf)
