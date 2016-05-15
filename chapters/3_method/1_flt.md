@@ -35,7 +35,7 @@ We envision an FLT that is:
 
 1) accurate like a TM-based FLT,
 2) inexpensive to update like a VSM-based FLT,
-2) and extensible to accommodate any off-the-shelf TR model that supports
+3) and extensible to accommodate any off-the-shelf TR model that supports
    online addition of a new document.
 
 Unfortunately, our vision is incompatible with the standard methodology for
