@@ -36,30 +36,19 @@ batch changesets, were statistically significant, with the fifth system, Tika,
 close.  Overall, batch changesets performs better than a full historical
 simulation.
 
-![Feature Location results for
-BookKeeper v4.3.0
-\label{fig:flt:bookkeeper}](figures/flt/bookkeeper.pdf)
 
-![Feature Location results for
-Mahout v0.10.0
-\label{fig:flt:mahout}](figures/flt/mahout.pdf)
+\input{figures/flt/rq1_bookkeeper}
+\input{figures/flt/rq1_mahout}
+\input{figures/flt/rq1_openjpa}
+\input{figures/flt/rq1_pig}
+\input{figures/flt/rq1_tika}
+\input{figures/flt/rq1_zookeeper}
 
-![Feature Location results for
-OpenJPA v2.3.0
-\label{fig:flt:openjpa}](figures/flt/openjpa.pdf)
 
-![Feature Location results for
-Pig v0.14.0
-\label{fig:flt:pig}](figures/flt/pig.pdf)
+\input{figures/flt/rq2_bookkeeper}
+\input{figures/flt/rq2_mahout}
+\input{figures/flt/rq2_openjpa}
+\input{figures/flt/rq2_pig}
+\input{figures/flt/rq2_tika}
+\input{figures/flt/rq2_zookeeper}
 
-![Feature Location results for
-Tika v1.8
-\label{fig:flt:Tika}](figures/flt/tika.pdf)
-
-![Feature Location results for
-ZooKeeper v3.5.0
-\label{fig:flt:zookeeper}](figures/flt/zookeeper.pdf)
-
-![Feature Location results for
-all subject systems
-\label{fig:flt:all}](figures/flt/all.pdf)
