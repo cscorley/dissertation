@@ -18,6 +18,7 @@
 \usepackage{textcase}
 \usepackage{textcomp,upquote}
 \usepackage{xcolor}
+\usepackage{bm}
 
 \counterwithout{footnote}{chapter}
 
