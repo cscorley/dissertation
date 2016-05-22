@@ -32,6 +32,7 @@ use Locale::Maketext::Simple (
 # Optional parameters {{{
 my $print_author = 0;
 my $commit_count = 1;
+my $commit_limit = 9999999999;
 my $width        = 0;
 my $lang         = undef;
 my $version      = 0;
@@ -41,6 +42,7 @@ my ( $git_user, $git_repo, $git_commit_address );
 GetOptions(
     'author'        => \$print_author,
     'startcommit=s' => \$commit_count,
+    'commitlimit=s' => \$commit_limit,
     'width=s'       => \$width,
     'git-c-add=s'   => \$git_commit_address,
     'user=s'        => \$git_user,
@@ -117,7 +119,7 @@ if ($print_author) {
 else {
     push( @git_command, qq(--pretty=format:%H %ad & $git_command_commit_msg) );
 }
-@lines = reverse capturex(@git_command);
+@lines =  capturex(@git_command);
 # }}}
 
 # Get tags {{{
@@ -164,16 +166,17 @@ sub latex_escape {
 # }}}
 
 # Loop over all commits {{{
-my $which_line = 0;
+my $which_line = 1;
 my @changes;
+my $tags;
+my $date_author = '';
+my $c_msg;
 for (@lines) {
     next if /\A\Z/xms;
     chomp;
     if ($which_line) {
         s/\A([0-9a-f]{40})\s//xms or die "Did not match the commit hash\n";
-        my $tags = exists $commit_tags{$1} ? $commit_tags{$1} : q();
-        my $date_author = '';
-        my $c_msg;
+        $tags = exists $commit_tags{$1} ? $commit_tags{$1} : q();
         if ($print_author) {
             /(?:& )(.*?)NoTinAuthorFiled(& .*? &) (.*)/;
             $date_author = latex_escape($1) . $2;
@@ -191,16 +194,20 @@ for (@lines) {
         else {
             $c_msg = latex_escape($c_msg);
         }
-        say "\\hline $commit_count & $tags & $date_author $c_msg & " . join( ' & ', @changes ) . ' \\\\';
-        $commit_count++;
     } ## end if ($which_line)
     else {
         @changes = ( 0, 0, 0 );
         /(\d+) files? changed/ and $changes[0] = $1;
         /(\d+) insertions?/    and $changes[1] = $1;
         /(\d+) deletions?/     and $changes[2] = $1;
+        say "\\hline $commit_count & $tags & $date_author $c_msg & " . join( ' & ', @changes ) . ' \\\\';
+        $commit_count++;
     }
     $which_line ^= 1; ## toggle bit
+
+    if ($commit_count > $commit_limit){
+        last;
+    }
 } ## end for (@lines)
 say '\end{longtable}';
 say '}';
@@ -222,6 +229,7 @@ Options:
 
   --author          set this if you want the author included
   --startcommit     set the start value of count commit
+  --commitlimit     set the value of total allowable commits
   --width           set the width in cm of the commit message field in the LaTeX table
   --git-c-add       set an base URL to link to a commit
   --user            set a github user to derive the base URL

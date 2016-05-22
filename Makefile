@@ -27,7 +27,7 @@ all: $(PAPER).pdf
 
 $(GENERATED) :: $(EXTRA_FILES)
 	mkdir -p tmp
-	./latex-git-log --width=8 --git-c-add=$(URL) > tmp/git-log.tex
+	./latex-git-log --width=8 --git-c-add=$(URL) --commitlimit=89 > tmp/git-log.tex
 	pandoc \
 		--chapters \
 		--from=markdown \
