@@ -5,6 +5,9 @@ subject system and then for the overall results. The threats to the validity
 of this work follows.
 
 
+\todo{explain difference between batch algo and online}
+\todo{explain why you must repeat corpora to use online for batch}
+\todo{explain why you must repeat corpora to get a converged model online}
 On using LDA...
 
 However, LDA is known to get "stuck" in local minima [@Binkley-etal_2014] due

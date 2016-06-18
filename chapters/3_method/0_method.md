@@ -99,3 +99,7 @@ We construct two goldsets for each commit linked to an issue report.  The first
 goldset is for evaluating FLTs, and contains the files, classes, and methods
 changed by the linked commit.  The second goldset is for evaluating DITs, and
 contains the developer(s) that committed those changes.
+
+## On LDA
+
+\todo{Explain randomness and setting seed}
