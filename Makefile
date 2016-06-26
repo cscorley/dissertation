@@ -24,6 +24,7 @@ DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(
 URL="https://github.com/cscorley/dissertation/commits"
 
 all: $(PAPER).pdf
+	cp $(PAPER).pdf /mnt/1000/$(PAPER).pdf
 
 $(GENERATED) :: $(EXTRA_FILES)
 	mkdir -p tmp
