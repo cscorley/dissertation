@@ -1,4 +1,4 @@
-## Combining and Configuring Changset-based Topic Models {#method-config}
+## Combining and Configuring Changset-based Topic Models {#method-combo}
 
 The two previously proposed approaches are potentially usable in unison with
 a single model, allowing for halving the computational cost required for the

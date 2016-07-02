@@ -227,7 +227,7 @@ ranking relevant documents.
         \sum_{i}^{|B|}
         (\operatorname{precision(i)} \times \operatorname{rel}(i))
     } {|A|}
-\label{eq:map}
+\label{eq:ap}
 \end{equation}
 
 where $rel(i)$ is the binary relevance function of the document at rank $i$,

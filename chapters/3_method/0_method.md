@@ -71,7 +71,7 @@ Mahout is a tool for scalable machine learning\footnote{\url{https://mahout.apac
 OpenJPA is object-relational mapping tool\footnote{\url{http://openjpa.apache.org/}}.
 Pig is a platform for analyzing large datasets\footnote{\url{http://pig.apache.org/}}.
 Tika is a toolkit for extracting metadata and text from various types of files\footnote{\url{http://tika.apache.org/}}.
-ZooKeeper is a tool that works as a coordination service to help build distributed applications\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
+ZooKeeper is a tool that works as a coordination service to help build distributed applications\footnote{\url{http://zookeeper.apache.org}}.
 Table \ref{table:subjects} summarizes the sizes of each system's corpora and
 dataset.
 

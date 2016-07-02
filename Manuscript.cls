@@ -254,11 +254,11 @@
 
 \newenvironment{abbreviations}{%
    \phantomsection
-   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
+   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS AND SYMBOLS}
    \vspace*{0.5in}
    \vspace*{\baselineskip}
    \begin{center}
-      LIST OF ABBREVIATIONS
+      LIST OF ABBREVIATIONS AND SYMBOLS
    \end{center}
    \vspace{\baselineskip} % used to be -\baselineskip
    \begin{spacing}{1.0}

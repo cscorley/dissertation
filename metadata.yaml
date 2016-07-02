@@ -36,44 +36,45 @@ dedication: No
 
 acknowledgments: No
 
+# This must be limited to 350 words!
 abstract: |
 
-    Topic modeling is a statistical technique for discovering thematic structure
-    within a corpus. Topic models have been applied to several areas of software
-    engineering, such as bug localization, feature location, triaging change
-    requests, and traceability link recovery. Many of these approaches train
-    topic models on a snapshot (or release) of source code, and query them with
-    human-created queries or software artifacts, such as bug descriptions.
+    Topic modeling is a machine learning technique for discovering thematic
+    structure within a corpus.  Topic models have been applied to several areas
+    of software engineering, including bug localization, feature location,
+    triaging change requests, and traceability link recovery.  Many of these
+    approaches train topic models on a source code snapshot -- a revision or
+    state of code at a particular point of time, such as a versioned release.
     However, source code evolution leads to model obsolescence and thus to the
     need to retrain the model from the latest snapshot, incurring a non-trivial
     computational cost of model re-learning.
 
-    This work investigates ways in which we can remedy the obsolescence problem.
-    Conventional wisdom in the software maintenance community holds that the
-    information source used for training a topic model is the same information
-    source that is of interest for searching. The primary insight to this work
-    is that topic models can *infer* the topics of any information of interest,
-    regardless of the information used to train the model. Pairing online topic
+    # probably need to split this paragraph, it contains two distinct ideas
+    This work proposes and investigates an approach that can remedy the
+    obsolescence problem.  Conventional wisdom in the software maintenance
+    community holds that the topic model training information must be the same
+    information that is of interest for retrieval.  The primary insight of this
+    work is that topic models can infer the topics of any information,
+    regardless of the information used to train the model.  Pairing online topic
     modeling with mining software repositories, we can remove the need to
-    retrain a model and achieve model persistance.  For this, we suggest
+    retrain a model and achieve model persistence.  For this, we suggest
     training of topic models on the software repository history in the form of
-    the *changeset* -- a textual representation of the changes that occured
-    between two software entities.
+    the *changeset* -- a textual representation of the changes that occur
+    between two source code snapshots.
 
     To show the feasibility of this approach, we will investigate two popular
     applications of text retrieval in software maintenance, feature location and
-    developer identification. Feature location is a program comprehension
-    activity for finding the source code entity that relates to a feature of
-    interest. Developer identification is similar to feature location, but
-    instead of locating source code entities the task is to identify the
+    developer identification.  Feature location is a search activity for
+    locating the source code entity that relates to a feature of interest.
+    Developer identification is similar, but focuses on identifying the
     developer most apt for working on a feature of interest.  Further, to
     demonstrate the usability of changeset-based topic models, we will
     investigate whether we can coalesce topic-modeling-based maintenance tasks
-    into using a *single* changeset-based topic model, rather than needing to
-    train a model for each task at hand.  In sum, this work aims to show that
-    *training online topic models on software repositories removes retraining
-    costs while maintaining accuracy of a traditional snapshot-based topic model
-    for different software maintenance problems.*
+    into using a *single* model, rather than needing to train a model for each
+    task at hand.  In sum, this work aims to show that *training online topic
+    models on software repositories removes retraining costs while maintaining
+    accuracy of a traditional snapshot-based topic model for different software
+    maintenance problems.*
 
 # don't delete :)
 ...
