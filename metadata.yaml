@@ -49,7 +49,6 @@ abstract: |
     need to retrain the model from the latest snapshot, incurring a non-trivial
     computational cost of model re-learning.
 
-    # probably need to split this paragraph, it contains two distinct ideas
     This work proposes and investigates an approach that can remedy the
     obsolescence problem.  Conventional wisdom in the software maintenance
     community holds that the topic model training information must be the same
@@ -60,7 +59,7 @@ abstract: |
     retrain a model and achieve model persistence.  For this, we suggest
     training of topic models on the software repository history in the form of
     the *changeset* -- a textual representation of the changes that occur
-    between two source code snapshots.
+    between two source code snapshots.  # probably need to split this paragraph, it contains two distinct ideas
 
     To show the feasibility of this approach, we will investigate two popular
     applications of text retrieval in software maintenance, feature location and
