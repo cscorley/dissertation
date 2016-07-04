@@ -55,13 +55,11 @@ In this section we describe the design of a exploratory study in which we
 determine whether a single topic model trained on changesets is fit to serve
 two purposes.  For this work, we pose the following research questions:
 
-RQ 3.5.1
-:   Can we use the same topic model in more than one context effectively?
+\conep
+:   \coneq
 
-RQ 3.5.2
-:   What are the effects of using different portions of a changeset for corpus
-construction, such as added, removed, context lines, and the commit message?
-
+\ctwop
+:   \ctwoq
 
 ##### Methodology
 
@@ -71,7 +69,7 @@ usefulness of changesets, we will not need to instantiate snapshot models for
 this work.  Instead, where this work will differ from the previous two research
 areas is in how we construct the topic model.
 
-For *RQ 3.5.1*, we want to find if the two approaches can rely on the same
+For \cone, we want to find if the two approaches can rely on the same
 model with minimal interference from one another's requirements.  For example,
 the FLT task may perform better with less topics, while the DIT task may
 require more topics for optimal performance.  Table \ref{table:combo-rq1}
@@ -81,8 +79,8 @@ include automatic learning of these two hyper-parameters [@Hoffman-etal_2010].
 
 \input{tables/case_study_factors}
 
-While *RQ 3.5.1* focuses on model construction, *RQ 3.5.2* focuses on
-training-corpus construction.  For *RQ 3.5.2*, there are several combinations
+While \cone{} focuses on model construction, \ctwo{} focuses on
+training-corpus construction.  For \ctwo, there are several combinations
 to consider.  While thus far we have always included the entire changeset when
 training, it may be beneficial to consider only including portions (i.e., added
 lines only) while excluding other portions (i.e., removed lines).  It may also

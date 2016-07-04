@@ -8,7 +8,7 @@ state-of-the-practice in feature location is to use an IDE tool based on
 keyword or regular expression search, but @Ko-etal_2006 observed such tools
 leading developers to failed searches nearly 90% of the time.
 
-### Motivation
+### Motivation {#flt-motivation}
 
 The state-of-the-art in feature location [@Dit-etal_2013a] is to use a feature
 location technique (FLT) based, at least in part, on text retrieval (TR).  The
@@ -90,7 +90,7 @@ engine must first infer the thematic structure of the query.  This allows for a
 pairwise classification of the query to each document in the index and ranks
 the documents based on the similarities of their thematic structures.
 
-### Study Design
+### Study Design {#flt-design}
 
 In this proposal, we introduce a topic-modeling-based FLT in which we
 incrementally build the model from source code *changesets*.  By training an
@@ -148,11 +148,11 @@ In this section we describe the design of a case study in which we compare
 topic models trained on changesets to those trained on snapshots.  For this
 work, we pose the following research questions:
 
-RQ 3.3.1
-:   Is a changeset-based FLT as accurate as a snapshot-based FLT?
+\fonep
+:   \foneq
 
-RQ 3.3.2
-:   Does the accuracy of a changeset-based FLT fluctuate as a project evolves?
+\ftwop
+:   \ftwoq
 
 ##### Methodology {#flt-methodology}
 
@@ -182,14 +182,14 @@ distribution and rank each entity in the snapshot index with pairwise
 comparisons.  Finally, we continue by updating the model with the next
 mini-batch.
 
-Since @Dit-etal_2013 extracted the dataset from the commit that implemented the
-change, our partitioning is inclusive of that commit.  That is, we update the
-model with the linked commit and infer the snapshot index from that commit.
-This allows our evaluations to capture any entities added to address the issue
-report, as well as changed entities, but does not capture any entities removed
-by the change.
+Since our dataset is extracted from the commit that implemented the change, our
+partitioning is inclusive of that commit.  That is, we update the model with
+the linked commit and infer the snapshot index from that commit.  This allows
+our evaluations to capture any entities added to address the issue report, as
+well as changed entities, but does not capture any entities removed by the
+change.
 
-##### Data Collection and Analysis
+##### Data Collection and Analysis {#flt-data-collection}
 
 To evaluate the performance of a topic-modeling-based FLT we cannot use
 measures such as precision and recall.  This is because the FLT creates
@@ -200,12 +200,12 @@ represents the number of source code entities a developer would have to view
 before reaching a relevant one.  The effectiveness measure allows evaluating
 the FLT by using the mean reciprocal rank (MRR).
 
-To answer *RQ 3.3.1*, we run the experiment on the snapshot and changeset
+To answer \fone, we run the experiment on the snapshot and changeset
 corpora as outlined in Section \ref{flt-methodology}.  We then calculate the
 MRR between the two sets of effectiveness measures.  We use the Wilcoxon
 signed-rank test with Holm correction to determine the statistical significance
-of the difference between the two rankings.  To answer *RQ 3.3.2*, we run the
+of the difference between the two rankings.  To answer \ftwo, we run the
 historical simulation as outlined in Section \ref{flt-methodology} and compare
-it to the results of batch changesets from *RQ 3.3.1*.  Again, we calculate the
+it to the results of batch changesets from \fone.  Again, we calculate the
 MRR and use the Wilcoxon signed-rank test.
 

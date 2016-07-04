@@ -3,7 +3,7 @@
 In this section, we will describe the results of the study outlined in Section
 \ref{method-combo}.
 
-RQ 3.5.1 ask whether a single topic model can be used for more than a single
+\cone{} ask whether a single topic model can be used for more than a single
 task, specifically for feature location and developer identification.  Tables
 \ref{table:bookkeeper_model_sweep}, \ref{table:mahout_model_sweep},
 \ref{table:openjpa_model_sweep}, \ref{table:pig_model_sweep},
@@ -44,7 +44,7 @@ yield moderately high performance for both tasks.
 \input{figures/combo/dit_rq1_zookeeper}
 
 
-RQ 3.5.2 asks what portions of a changeset are most critical for performance of
+\ctwo{} asks what portions of a changeset are most critical for performance of
 different tasks, specifically for feature location and developer
 identification.  Tables \ref{table:bookkeeper_corpus_sweep},
 \ref{table:mahout_corpus_sweep}, \ref{table:openjpa_corpus_sweep},

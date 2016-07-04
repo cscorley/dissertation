@@ -14,3 +14,8 @@ Mahout shows a different set of optimal parameters, as seen in Table
 \eta=auto$. However, unlike BookKeeper, performance for the FLT drops by half
 ($MRR=0.1705$) for the optimal DIT configuration. Likewise, the DIT performance
 also drops for the optimal FLT configuration.
+
+### \coneq
+
+
+### \ctwoq

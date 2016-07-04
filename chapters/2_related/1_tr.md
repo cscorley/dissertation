@@ -489,6 +489,3 @@ In addition to the transformations outlined in Section
     :   adjust the representation of a term in a document by some scheme, such
     as by the entity type [@Bassett-Kraft_2013].
 
-
-
-

@@ -126,11 +126,11 @@ In this section we describe the design of a case study in which we
 compare topic models trained on changesets to those trained on snapshots.
 For this work, we pose the following research questions:
 
-RQ 3.4.1
-:   Is a changeset-based DIT as accurate as a snapshot-based DIT?
+\donep
+:   \doneq
 
-RQ 3.4.2
-:   Does the accuracy of a changeset-based DIT fluctuate as a project evolves?
+\dtwop
+:   \doneq
 
 ##### Methodology
 
@@ -174,12 +174,12 @@ first relevant document and represents the number of developers the triager
 would have to assign before choosing the right developer.  The effectiveness
 measure allows evaluating the FLT by using the mean reciprocal rank (MRR).
 
-To answer *RQ 3.4.1*, we run the experiment on the snapshot and changeset
+To answer \done, we run the experiment on the snapshot and changeset
 corpora as outlined in Section \ref{flt-methodology}.  We then calculate the
 MRR between the two sets of effectiveness measures.  We use the Wilcoxon
 signed-rank test with Holm correction to determine the statistical significance
-of the difference between the two rankings.  To answer *RQ 3.4.2*, we run the
+of the difference between the two rankings.  To answer \dtwo, we run the
 historical simulation as outlined in Section \ref{flt-methodology} and compare
-it to the results of batch changesets from *RQ 3.4.1*.  Again, we calculate the
+it to the results of batch changesets from \done.  Again, we calculate the
 MRR and use the Wilcoxon signed-rank test.
 

@@ -9,10 +9,10 @@ changeset-based FLT is similar to that of a snapshot-based FLT but without the
 retraining cost.
 
 
-### RQ1
+### \foneq
 
 
-### RQ2
+### \ftwoq
 
 
 ### Situations

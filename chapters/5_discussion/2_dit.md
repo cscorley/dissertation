@@ -9,10 +9,10 @@ changeset-based DIT is similar to that of a snapshot-based DIT but without the
 retraining cost.
 
 
-### RQ1
+### \doneq
 
 
-### RQ2
+### \dtwoq
 
 
 ### Situations

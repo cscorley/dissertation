@@ -62,11 +62,11 @@ debug: $(DEP_FILES) $(GENERATED)
 
 natbib: debug
 	cp ~/papers/papers.bib .
-	$(LATEX) dissertation
-	$(LATEX) dissertation
-	$(BIBTEX) dissertation
-	$(LATEX) dissertation
-	$(LATEX) dissertation
+	$(LATEX) $(PAPER)
+	$(LATEX) $(PAPER)
+	$(BIBTEX) $(PAPER)
+	$(LATEX) $(PAPER)
+	$(LATEX) $(PAPER)
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \

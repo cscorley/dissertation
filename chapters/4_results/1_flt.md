@@ -5,7 +5,7 @@ In this section, we will describe the results of the study outlined in Section
 
 \input{tables/feature_location_rq1}
 
-RQ 3.3.1 asks how well a topic model trained on changesets performs against one
+\fone{} asks how well a topic model trained on changesets performs against one
 trained on source code entities.  Table \ref{table:feature_location_rq1}
 summarizes the results of each subject system when evaluated at the file-level.
 In the table, we bold which of the two MRRs is greater.  Since our goal is to
@@ -21,7 +21,7 @@ snapshots perform better than changesets.
 
 \input{tables/feature_location_rq2}
 
-RQ 3.3.2 asks how well a simulation of using a topic model would perform as it
+\ftwo{} asks how well a simulation of using a topic model would perform as it
 were to be used in real-time.  This is a much closer evaluation of an FLT to it
 being used in an actual development environment.  Table
 \ref{table:feature_location_rq2} summarizes the results of each subject system
