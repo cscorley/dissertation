@@ -68,6 +68,30 @@ natbib: debug
 	$(LATEX) $(PAPER)
 	$(LATEX) $(PAPER)
 
+nodraftpandoc: $(DEP_FILES) $(GENERATED)
+	pandoc \
+		--natbib \
+		--smart \
+		--toc \
+		--chapters \
+		--listings \
+		--template=./Manuscript.latex \
+		-H extra/header.tex \
+		-M draft:No \
+		--from=markdown \
+		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
+
+nodraft: nodraftpandoc
+	cp ~/papers/papers.bib .
+	$(LATEX) $(PAPER)
+	$(LATEX) $(PAPER)
+	$(BIBTEX) $(PAPER)
+	$(LATEX) $(PAPER)
+	$(LATEX) $(PAPER)
+
+count: nodraft
+	texcount -sum $(PAPER).tex | grep "Sum count"
+
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
 	pandoc \
 		--standalone \

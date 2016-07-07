@@ -1,6 +1,7 @@
 ---
 documentclass: Manuscript
 fontfamily: libertine
+#fontfamily: times
 fontsize: 12pt
 biblio-style: chicago
 bibliography: papers
