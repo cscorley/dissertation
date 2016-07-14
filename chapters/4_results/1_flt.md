@@ -43,6 +43,7 @@ simulation.
 \input{figures/flt/rq1_pig}
 \input{figures/flt/rq1_tika}
 \input{figures/flt/rq1_zookeeper}
+\input{figures/flt/rq1_overview}
 
 
 \input{figures/flt/rq2_bookkeeper}
@@ -51,4 +52,4 @@ simulation.
 \input{figures/flt/rq2_pig}
 \input{figures/flt/rq2_tika}
 \input{figures/flt/rq2_zookeeper}
-
+\input{figures/flt/rq2_overview}

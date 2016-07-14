@@ -56,13 +56,13 @@ the model, thereby decaying the affect of the older documents on the model.
 
 For the first two Research Problems, there does exist various datasets and
 benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
-@Linares-Vasquez-etal_2012].  However, *Research Problem 3* introduces a
-complication to using these benchmarks in that it requires high overlap of the
-benchmarks.  The overlap of these benchmarks is small and in some cases
-non-existent, making it difficult to determine whether a technique is
-performing well or not because of the approach or if it happens to just be a
-challenging query for that technique.  \todo{gross sentence} Hence, we have
-created our own benchmark fit for evaluating both an FLT and DIT.
+@Linares-Vasquez-etal_2012].  However, *Research Problem 3* (RP3) introduces a
+complication to using these benchmarks. RP3 requires high overlap of the
+benchmarks.  The overlap of these benchmarks is small or non-existent, making
+it difficult to determine whether a technique is performing well or not because
+of the approach or if it happens to just be a challenging query for that
+technique.  \todo{gross sentence} Hence, we have created our own benchmark fit
+for evaluating both an FLT and DIT.
 
 The 6 subjects of our studies vary in size and application domain.
 BookKeeper is a distributed logging service\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
