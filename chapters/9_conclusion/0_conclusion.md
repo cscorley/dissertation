@@ -1,9 +1,12 @@
-# Discussion {#discussion}
+# Conclusion {#conclusion}
 
-This chapter discusses the results shown in Chapter \ref{results} for each
-subject system and then for the overall results. The threats to the validity
-of this work follows.
+welp, here's what went well/wrong, and what to try next.
 
+
+
+## Discussion {#discussion}
+
+\todo{these comments need to be re-written...}
 
 \todo{explain difference between batch algo and online}
 \todo{explain why you must repeat corpora to use online for batch}
@@ -23,3 +26,17 @@ more fair comparison.
 by experts vs non-experts.  The found statistically significant differences in
 all four of their tests while evaluating the VSM-based FLT [@Zhou-etal_2012],
 but only one for their DIT, a technique inspired by @Anvik-etal_2006.
+
+## Future Work
+
+TODO:
+
+- Need to look at closer at online parameters
+- Replicate to a "temporal" snapshot evaluation -- will take time
+- Replicate to other online models -- LSI, D2V when possible
+- Language models (trained on N Java projects) vs single-project models
+- This work allows for models to take in streams of data, e.g., from Github, to
+create models that can be used in general cases.
+
+## Last Words
+

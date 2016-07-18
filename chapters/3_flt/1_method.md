@@ -1,4 +1,4 @@
-## Feature Location {#method-flt}
+# Feature Location {#method-flt}
 
 Feature location is a frequent and fundamental activity for a developer tasked
 with changing a software system.  Whether a change task involves adding,
@@ -8,7 +8,7 @@ state-of-the-practice in feature location is to use an IDE tool based on
 keyword or regular expression search, but @Ko-etal_2006 observed such tools
 leading developers to failed searches nearly 90% of the time.
 
-### Motivation {#flt-motivation}
+## Motivation {#flt-motivation}
 
 The state-of-the-art in feature location [@Dit-etal_2013a] is to use a feature
 location technique (FLT) based, at least in part, on text retrieval (TR).  The
@@ -64,7 +64,7 @@ topics.  By contrast, the training and indexing steps of the standard
 methodology have the conceptual effect of relating classes to class topics (or
 methods to method topics).
 
-### Background {#flt-background}
+## Background {#flt-background}
 
 ![Typical feature location process\label{fig:snapshot-flt}](figures/snapshot-flt.pdf)
 
@@ -90,7 +90,7 @@ engine must first infer the thematic structure of the query.  This allows for a
 pairwise classification of the query to each document in the index and ranks
 the documents based on the similarities of their thematic structures.
 
-### Study Design {#flt-design}
+## Study Design {#flt-design}
 
 In this proposal, we introduce a topic-modeling-based FLT in which we
 incrementally build the model from source code *changesets*.  By training an
@@ -98,7 +98,7 @@ online learning algorithm using changesets, the FLT maintains an up-to-date
 model without incurring the non-trivial computational cost associated with
 retraining traditional FLTs.
 
-#### Approach {#flt-approach}
+### Approach {#flt-approach}
 
 ![Feature location using changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
 
@@ -142,7 +142,7 @@ developer makes a commit.  That is, with changesets, we incrementally update a
 model and can query it at any moment.  This will allow for a *historical
 simulation* of how a changeset-based FLT would perform in a realistic scenario.
 
-#### Evaluation
+### Evaluation
 
 In this section we describe the design of a case study in which we compare
 topic models trained on changesets to those trained on snapshots.  For this
@@ -154,7 +154,7 @@ work, we pose the following research questions:
 \ftwop
 :   \ftwoq
 
-##### Methodology {#flt-methodology}
+#### Methodology {#flt-methodology}
 
 For snapshots, the process is straightforward and corresponds to Figure
 \ref{fig:snapshot-flt}.  First, we train a model on the snapshot corpus using
@@ -189,7 +189,7 @@ our evaluations to capture any entities added to address the issue report, as
 well as changed entities, but does not capture any entities removed by the
 change.
 
-##### Data Collection and Analysis {#flt-data-collection}
+#### Data Collection and Analysis {#flt-data-collection}
 
 To evaluate the performance of a topic-modeling-based FLT we cannot use
 measures such as precision and recall.  This is because the FLT creates

@@ -1,10 +1,10 @@
-## Combining and Configuring Changset-based Topic Models {#method-combo}
+# Combining and Configuring Changset-based Topic Models {#method-combo}
 
 The two previously proposed approaches are potentially usable in unison with
 a single model, allowing for halving the computational cost required for the
 topic modeling.
 
-### Motivation
+## Motivation
 
 When using a topic modeler, we must make configuration choices.
 @Biggers-etal_2014 were the first to explore the parameters of a LDA-based FLT.
@@ -14,7 +14,7 @@ for two tasks.  There is also evidence in the literature that different
 configurations may be better suited for different tasks
 [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
-### Study Design
+## Study Design
 
 In this proposal, we introduce a *combined* approach that allows for coalescing
 a topic-modeling-based FLT and DIT coalesced into using the same topic model
@@ -23,7 +23,7 @@ learning algorithm using changesets and combining the two approaches, we
 essentially cut the computational cost of the two tasks in *half* with a single
 topic model.
 
-#### Approach
+### Approach
 
 ![Combining changeset-based feature location and developer identifiation
 \label{fig:changeset-combo}](figures/changeset-combo.pdf)
@@ -49,7 +49,7 @@ developer corpus.  Querying and ranking results for each search engine remains
 the same as described in their respective sections, Section \ref{flt-approach}
 and \ref{dit-approach}.
 
-#### Evaluation
+### Evaluation
 
 In this section we describe the design of a exploratory study in which we
 determine whether a single topic model trained on changesets is fit to serve
@@ -61,7 +61,7 @@ two purposes.  For this work, we pose the following research questions:
 \ctwop
 :   \ctwoq
 
-##### Methodology
+#### Methodology
 
 In this work, we can utilize much of the already created framework from the
 previous two research areas covered in this proposal.  After evaluating the

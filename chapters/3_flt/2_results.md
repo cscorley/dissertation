@@ -1,4 +1,4 @@
-## Feature Location {#results-flt}
+## Results {#results-flt}
 
 In this section, we will describe the results of the study outlined in Section
 \ref{method-flt}.

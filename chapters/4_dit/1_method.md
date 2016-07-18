@@ -1,4 +1,4 @@
-## Developer Identification {#method-triage}
+# Developer Identification {#method-triage}
 
 Developer identification is a triaging activity in which a team member
 identifies a list of developers that are most apt to complete a change request
@@ -8,7 +8,7 @@ finding expertise within their organization *more than they need help finding
 source code elements*.
 
 
-### Motivation
+## Motivation
 
 Software features are functionalities defined by requirements and are
 accessible to developers and users.  Software change is continual, because
@@ -56,7 +56,7 @@ fully-automated system, the system identifies and assigns a developer to the
 change request.  @Anvik-etal_2006 notes that a fully-automated approach may not
 be feasible given the amount of contextual knowledge required for triage.
 
-### Background {#dit-background}
+## Background {#dit-background}
 
 Location-based techniques are a common developer identification technique and
 build upon feature location techniques.  We refer the reader to Section
@@ -77,7 +77,7 @@ modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
 then we consider Johanna as the owner of `foo.py`.  Here, we assign all tasks
 related to `foo.py` to Johanna.
 
-### Study Design
+## Study Design
 
 In this proposal, we introduce a topic-modeling-based DIT in which we
 incrementally build the model from source code *changesets*.  By training an
@@ -85,7 +85,7 @@ online learning algorithm using changesets, the DIT maintains an up-to-date
 model without incurring the non-trivial computational cost associated with
 retraining traditional DITs.
 
-#### Approach {#dit-approach}
+### Approach {#dit-approach}
 
 ![Developer identification using changesets\label{fig:changeset-triage}](figures/changeset-triage.pdf)
 
@@ -120,7 +120,7 @@ We can follow the same process used in Section \ref{flt-approach} for a
 historical simulation of how a changeset-based DIT would perform in a realistic
 scenario.
 
-#### Evaluation
+### Evaluation
 
 In this section we describe the design of a case study in which we
 compare topic models trained on changesets to those trained on snapshots.
@@ -132,7 +132,7 @@ For this work, we pose the following research questions:
 \dtwop
 :   \doneq
 
-##### Methodology
+#### Methodology
 
 For snapshots, the process is straightforward, but requires two separate steps.
 First, we need to build a topic model for searching over the source code
@@ -163,7 +163,7 @@ distribution and rank each entity in the developer index with pairwise
 comparisons.  Finally, we continue by updating the model with the next
 mini-batch.
 
-##### Data Collection and Analysis
+#### Data Collection and Analysis
 
 To evaluate the performance of a topic-modeling-based DIT we cannot use
 measures such as precision and recall.  This is because the DIT creates

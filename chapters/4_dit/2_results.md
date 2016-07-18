@@ -1,4 +1,4 @@
-## Developer Identification {#results-dit}
+## Results {#results-dit}
 
 In this section, we will describe the results of the study outlined in Section
 \ref{method-flt}.

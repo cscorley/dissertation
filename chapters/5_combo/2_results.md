@@ -1,4 +1,4 @@
-## Combining and Configuring Changset-based Topic Models {#results-config}
+## Results {#results-config}
 
 In this section, we will describe the results of the study outlined in Section
 \ref{method-combo}.
