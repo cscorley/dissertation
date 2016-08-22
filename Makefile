@@ -2,6 +2,7 @@ PAPER 		= dissertation
 
 LATEX 		= pdflatex -halt-on-error
 BIBTEX		= bibtex
+PANDOC		= pandoc +RTS -V0 -RTS
 
 GRAPHICS	= graphics
 
@@ -27,8 +28,8 @@ all: $(PAPER).pdf
 
 $(GENERATED) :: $(EXTRA_FILES)
 	mkdir -p tmp
-	./latex-git-log --width=8 --git-c-add=$(URL) --commitlimit=89 > tmp/git-log.tex
-	pandoc \
+#	./latex-git-log --width=8 --git-c-add=$(URL) --commitlimit=89 > tmp/git-log.tex
+	$(PANDOC) \
 		--chapters \
 		--from=markdown \
 		--to=latex \
@@ -37,7 +38,7 @@ $(GENERATED) :: $(EXTRA_FILES)
 $(PAPER).pdf: natbib
 
 pandoc: $(DEP_FILES) $(GENERATED)
-	pandoc \
+	$(PANDOC) \
 		--filter pandoc-citeproc \
 		--smart \
 		--toc \
@@ -49,7 +50,7 @@ pandoc: $(DEP_FILES) $(GENERATED)
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).pdf
 
 debug: $(DEP_FILES) $(GENERATED)
-	pandoc \
+	$(PANDOC) \
 		--natbib \
 		--smart \
 		--toc \
@@ -69,7 +70,7 @@ natbib: debug
 	$(LATEX) $(PAPER)
 
 nodraftpandoc: $(DEP_FILES) $(GENERATED)
-	pandoc \
+	$(PANDOC) \
 		--natbib \
 		--smart \
 		--toc \
@@ -93,7 +94,7 @@ count: nodraft
 	texcount -sum $(PAPER).tex | grep "Sum count"
 
 $(PAPER).html: $(DEP_FILES) $(GENERATED)
-	pandoc \
+	$(PANDOC) \
 		--standalone \
 		--filter pandoc-citeproc \
 		--smart \
