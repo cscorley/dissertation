@@ -1,11 +1,10 @@
 ---
 documentclass: Manuscript
-fontfamily: libertine
-#fontfamily: times
+#fontfamily: libertine
+fontfamily: times
 fontsize: 12pt
 biblio-style: chicago
 bibliography: papers
-draft: Yes
 
 lof: Yes
 lot: Yes
@@ -30,7 +29,7 @@ committee:
     - Jeffrey G. Gray
     - Nicholas A. Kraft
     - Randy K. Smith
-    - ???
+    - Travis Atkison
 
 # change the dedication and acknowledgements to text
 dedication: No

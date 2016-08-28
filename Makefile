@@ -1,4 +1,5 @@
 PAPER 		= dissertation
+DRAFT 		= draft
 
 LATEX 		= pdflatex -halt-on-error
 BIBTEX		= bibtex
@@ -24,18 +25,20 @@ DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(
 
 URL="https://github.com/cscorley/dissertation/commits"
 
-all: $(PAPER).pdf
+all: $(PAPER).pdf $(DRAFT).pdf
 
 $(GENERATED) :: $(EXTRA_FILES)
-	mkdir -p tmp
-#	./latex-git-log --width=8 --git-c-add=$(URL) --commitlimit=89 > tmp/git-log.tex
+	mkdir -p tmp && touch tmp/git-log.tex
+	./latex-git-log --width=8 --git-c-add=$(URL) --commitlimit=89 > tmp/git-log.tex || true
 	$(PANDOC) \
 		--chapters \
 		--from=markdown \
 		--to=latex \
 		extra/$@.md -o tmp/$@.tex
 
-$(PAPER).pdf: natbib
+$(PAPER).pdf: nodraft
+
+$(DRAFT).pdf: natbib
 
 pandoc: $(DEP_FILES) $(GENERATED)
 	$(PANDOC) \
@@ -58,16 +61,10 @@ debug: $(DEP_FILES) $(GENERATED)
 		--listings \
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
+		-M draft:Yes \
+		-M fontfamily:libertine \
 		--from=markdown \
-		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
-
-natbib: debug
-	cp ~/papers/papers.bib .
-	$(LATEX) $(PAPER)
-	$(LATEX) $(PAPER)
-	$(BIBTEX) $(PAPER)
-	$(LATEX) $(PAPER)
-	$(LATEX) $(PAPER)
+		metadata.yaml $(CHAP_FILES) -o $(DRAFT).tex
 
 nodraftpandoc: $(DEP_FILES) $(GENERATED)
 	$(PANDOC) \
@@ -79,8 +76,17 @@ nodraftpandoc: $(DEP_FILES) $(GENERATED)
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
 		-M draft:No \
+		-M fontfamily:times \
 		--from=markdown \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
+
+natbib: debug
+	cp ~/papers/papers.bib .
+	$(LATEX) $(DRAFT)
+	$(LATEX) $(DRAFT)
+	$(BIBTEX) $(DRAFT)
+	$(LATEX) $(DRAFT)
+	$(LATEX) $(DRAFT)
 
 nodraft: nodraftpandoc
 	cp ~/papers/papers.bib .
@@ -127,6 +133,9 @@ clean: tidy
 	$(RM) $(PAPER).pdf
 	$(RM) $(PAPER).tex
 	$(RM) $(PAPER).html
+	$(RM) $(DRAFT).pdf
+	$(RM) $(DRAFT).tex
+	$(RM) $(DRAFT).html
 	$(RM) -r tmp
 
 %.pdf: %.eps
