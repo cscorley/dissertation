@@ -1,5 +1,7 @@
 dissertation.tex
 draft.tex
+dissertation.pdf
+draft.pdf
 tmp/
 auto/
 *.acn
@@ -35,7 +37,6 @@ auto/
 *.vrb
 *.xdy
 *.tdo
-*.pdf
 *.html
 .DS_Store
 *.bak
