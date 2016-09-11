@@ -92,7 +92,7 @@ the documents based on the similarities of their thematic structures.
 
 ## Study Design {#flt-design}
 
-In this proposal, we introduce a topic-modeling-based FLT in which we
+In this work, we introduce a topic-modeling-based FLT in which we
 incrementally build the model from source code *changesets*.  By training an
 online learning algorithm using changesets, the FLT maintains an up-to-date
 model without incurring the non-trivial computational cost associated with

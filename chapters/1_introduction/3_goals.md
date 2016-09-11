@@ -1,6 +1,6 @@
 ## Research Goals and Problems {#thesis-goals}
 
-The primary research goal of this proposal is to evaluate the performance and
+The primary research goal of this work is to evaluate the performance and
 reliability of topic models built on the source code histories. This will
 require configuring and executing studies in different contexts of software
 maintenance work, such as feature location and developer identification.

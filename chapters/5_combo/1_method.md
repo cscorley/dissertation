@@ -16,7 +16,7 @@ configurations may be better suited for different tasks
 
 ## Study Design
 
-In this proposal, we introduce a *combined* approach that allows for coalescing
+In this work, we introduce a *combined* approach that allows for coalescing
 a topic-modeling-based FLT and DIT coalesced into using the same topic model
 built incrementally from source code *changesets*.  By training an online
 learning algorithm using changesets and combining the two approaches, we
@@ -64,7 +64,7 @@ two purposes.  For this work, we pose the following research questions:
 #### Methodology
 
 In this work, we can utilize much of the already created framework from the
-previous two research areas covered in this proposal.  After evaluating the
+previous two research areas covered in this work.  After evaluating the
 usefulness of changesets, we will not need to instantiate snapshot models for
 this work.  Instead, where this work will differ from the previous two research
 areas is in how we construct the topic model.
