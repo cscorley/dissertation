@@ -1,7 +1,7 @@
-## Results {#results-flt}
+## Results {#sec:flt-results}
 
 In this section, we will describe the results of the study outlined in Section
-\ref{method-flt}.
+\ref{sec:flt-method}.
 
 \input{tables/feature_location_rq1}
 

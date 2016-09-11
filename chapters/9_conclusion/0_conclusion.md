@@ -1,10 +1,10 @@
-# Conclusion {#conclusion}
+# Conclusion {#chap:conclusion}
 
 welp, here's what went well/wrong, and what to try next.
 
 
 
-## Discussion {#discussion}
+## Discussion {#sec:conclusion-discussion}
 
 \todo{these comments need to be re-written...}
 
@@ -27,7 +27,7 @@ by experts vs non-experts.  The found statistically significant differences in
 all four of their tests while evaluating the VSM-based FLT [@Zhou-etal_2012],
 but only one for their DIT, a technique inspired by @Anvik-etal_2006.
 
-## Future Work
+## Future Work {#sec:conclusion-future}
 
 TODO:
 
@@ -38,5 +38,5 @@ TODO:
 - This work allows for models to take in streams of data, e.g., from Github, to
 create models that can be used in general cases.
 
-## Last Words
+## Last Words {#sec:conclusion-final}
 

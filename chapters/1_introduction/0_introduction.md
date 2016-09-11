@@ -1,4 +1,4 @@
-# Introduction
+# Introduction {#chap:intro}
 
 Software developers are often confronted with maintenance tasks that involve
 navigation of repositories that preserve large amounts of project history.

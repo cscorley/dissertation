@@ -1,4 +1,4 @@
-## Discussion {#discussion-config}
+## Discussion {#sec:combo-discussion}
 
 In Table \ref{table:bookkeeper_model_sweep}, we see that BookKeeper performs
 best for each task with 500 topics (i.e., $K = 500$) and an automatically

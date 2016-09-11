@@ -1,4 +1,4 @@
-## Motivation
+## Motivation {#sec:intro-motivation}
 
 When modeling a source code repository, the corpus typically represents a
 snapshot of the code.  That is, a topic model is often trained on a corpus that

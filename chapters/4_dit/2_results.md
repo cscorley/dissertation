@@ -1,4 +1,4 @@
-## Results {#results-dit}
+## Results {#sec:dit-results}
 
 In this section, we will describe the results of the study outlined in Section
 \ref{method-flt}.

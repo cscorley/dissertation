@@ -1,4 +1,4 @@
-# Developer Identification {#method-triage}
+# Developer Identification {#chap:dit}
 
 Developer identification is a triaging activity in which a team member
 identifies a list of developers that are most apt to complete a change request
@@ -8,7 +8,7 @@ finding expertise within their organization *more than they need help finding
 source code elements*.
 
 
-## Motivation
+## Motivation {#sec:dit-motivation}
 
 Software features are functionalities defined by requirements and are
 accessible to developers and users.  Software change is continual, because
@@ -56,11 +56,11 @@ fully-automated system, the system identifies and assigns a developer to the
 change request.  @Anvik-etal_2006 notes that a fully-automated approach may not
 be feasible given the amount of contextual knowledge required for triage.
 
-## Background {#dit-background}
+## Background {#sec:dit-background}
 
 Location-based techniques are a common developer identification technique and
 build upon feature location techniques.  We refer the reader to Section
-\ref{flt-background} for a background on how a typical feature location
+\ref{sec:flt-background} for a background on how a typical feature location
 techniques works.
 
 We use an FLT to identify a ranked list of source code entities related to a
@@ -77,7 +77,7 @@ modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
 then we consider Johanna as the owner of `foo.py`.  Here, we assign all tasks
 related to `foo.py` to Johanna.
 
-## Study Design
+## Study Design {#sec:dit-design}
 
 In this work, we introduce a topic-modeling-based DIT in which we
 incrementally build the model from source code *changesets*.  By training an
@@ -85,7 +85,7 @@ online learning algorithm using changesets, the DIT maintains an up-to-date
 model without incurring the non-trivial computational cost associated with
 retraining traditional DITs.
 
-### Approach {#dit-approach}
+### Approach {#sec:dit-approach}
 
 ![Developer identification using changesets\label{fig:changeset-triage}](figures/changeset-triage.pdf)
 
@@ -95,7 +95,7 @@ each individual developer used in those changesets.  The left side of Figure
 \ref{fig:changeset-triage} illustrates the dual-document extraction approach.
 
 The document extraction process for the changesets remains the same as covered
-in Section \ref{flt-approach}.  The document extraction process for the
+in Section \ref{sec:flt-approach}.  The document extraction process for the
 developer corpus is straightforward.  Following @Matter-etal_2009, each
 developer will have their own document consisting of each changeset they have
 committed to the source code repository.  That is, a developer document
@@ -104,7 +104,7 @@ this [@Shokripour-etal_2013], such as only considering words which they have
 added or removed, while ignoring context words.
 
 The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
-process.  Like in Section \ref{flt-approach}, the key intuition to our
+process.  Like in Section \ref{sec:flt-approach}, the key intuition to our
 methodology is that a topic model such as LDA or LSI can infer *any* document's
 topic proportions regardless of the documents used to train the model.  In our
 approach, the seen documents are changesets and the unseen documents are the
@@ -116,7 +116,7 @@ changeset documents used for training.  In our approach, we only use the
 changesets to continuously update the topic model and only use the developer
 profiles for indexing.
 
-We can follow the same process used in Section \ref{flt-approach} for a
+We can follow the same process used in Section \ref{sec:flt-approach} for a
 historical simulation of how a changeset-based DIT would perform in a realistic
 scenario.
 
@@ -132,7 +132,7 @@ For this work, we pose the following research questions:
 \dtwop
 :   \doneq
 
-#### Methodology
+#### Methodology {#sec:dit-methodology}
 
 For snapshots, the process is straightforward, but requires two separate steps.
 First, we need to build a topic model for searching over the source code
@@ -174,12 +174,12 @@ first relevant document and represents the number of developers the triager
 would have to assign before choosing the right developer.  The effectiveness
 measure allows evaluating the FLT by using the mean reciprocal rank (MRR).
 
-To answer \done, we run the experiment on the snapshot and changeset
-corpora as outlined in Section \ref{flt-methodology}.  We then calculate the
-MRR between the two sets of effectiveness measures.  We use the Wilcoxon
+To answer \done, we run the experiment on the snapshot and changeset corpora as
+outlined in Section \ref{sec:dit-methodology}.  We then calculate the MRR
+between the two sets of effectiveness measures.  We use the Wilcoxon
 signed-rank test with Holm correction to determine the statistical significance
 of the difference between the two rankings.  To answer \dtwo, we run the
-historical simulation as outlined in Section \ref{flt-methodology} and compare
-it to the results of batch changesets from \done.  Again, we calculate the
-MRR and use the Wilcoxon signed-rank test.
+historical simulation as outlined in Section \ref{sec:dit-methodology} and
+compare it to the results of batch changesets from \done.  Again, we calculate
+the MRR and use the Wilcoxon signed-rank test.
 

@@ -1,4 +1,4 @@
-## Terminology
+## Terminology {#sec:intro-terminology}
 
 This section defines some of the terminology seen throughout this work.
 We adopt and extend terminology from @Biggers-etal_2014. In particular, we
@@ -130,6 +130,5 @@ and green lines (beginning with a single~\texttt{+}) denote line additions.
 \label{fig:diff}
 \vspace{-10pt}
 \end{figure*}
-
 
 

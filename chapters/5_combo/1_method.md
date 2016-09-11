@@ -1,10 +1,10 @@
-# Combining and Configuring Changset-based Topic Models {#method-combo}
+# Combining and Configuring Changset-based Topic Models {#chap:combo}
 
 The two previously proposed approaches are potentially usable in unison with
 a single model, allowing for halving the computational cost required for the
 topic modeling.
 
-## Motivation
+## Motivation {#sec:combo-motivation}
 
 When using a topic modeler, we must make configuration choices.
 @Biggers-etal_2014 were the first to explore the parameters of a LDA-based FLT.
@@ -14,7 +14,7 @@ for two tasks.  There is also evidence in the literature that different
 configurations may be better suited for different tasks
 [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
-## Study Design
+## Study Design {#sec:combo-design}
 
 In this work, we introduce a *combined* approach that allows for coalescing
 a topic-modeling-based FLT and DIT coalesced into using the same topic model
@@ -36,9 +36,9 @@ each individual developer changed in those changesets.  The left side of Figure
 \ref{fig:changeset-combo} illustrates the tri-document extraction approach.
 
 The document extraction process for snapshot and changesets corpora remain the
-same as covered in Section \ref{flt-approach}.  The document extraction process
+same as covered in Section \ref{sec:flt-approach}.  The document extraction process
 for the developer corpus remains the same as covered in Section
-\ref{dit-approach}.
+\ref{sec:dit-approach}.
 
 The right side of Figure \ref{fig:changeset-combo} illustrates the retrieval
 process.  For brevity, the queries and ranking do not appear in the diagram.
@@ -46,8 +46,8 @@ We train a topic model on the changeset corpus and construct search engines for
 each task separately.  In the source code search engine we build an index from
 the snapshot corpus.  In the developer search engine we build an index from the
 developer corpus.  Querying and ranking results for each search engine remains
-the same as described in their respective sections, Section \ref{flt-approach}
-and \ref{dit-approach}.
+the same as described in their respective sections, Section \ref{sec:flt-approach}
+and \ref{sec:dit-approach}.
 
 ### Evaluation
 

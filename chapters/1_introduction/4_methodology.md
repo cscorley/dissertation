@@ -1,4 +1,4 @@
-## Methodology
+## Methodology {#sec:intro-methodology}
 
 In this chapter, we outline the three studies and methodologies used for each.
 First, I will give a brief reasoning to why changesets are a good choice for a

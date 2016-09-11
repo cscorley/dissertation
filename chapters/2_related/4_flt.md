@@ -1,4 +1,4 @@
-## Feature Location {#related-flt}
+## Feature Location {#sec:related-flt}
 
 Feature location is the act of identifying the source code entity or entities
 that implement a feature [@Rajlich-Wilde_2002].  Bug localization is the

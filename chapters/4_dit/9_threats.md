@@ -1,4 +1,4 @@
-## Threats to Validity {#threats}
+## Threats to Validity {#sec:dit-threats}
 
 \todo{more of this}
 

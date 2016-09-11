@@ -1,4 +1,4 @@
-## Research Goals and Problems {#thesis-goals}
+## Research Goals and Problems {#sec:intro-goals}
 
 The primary research goal of this work is to evaluate the performance and
 reliability of topic models built on the source code histories. This will
