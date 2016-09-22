@@ -11,9 +11,27 @@ but without the retraining cost.
 
 ### \foneq
 
+\todo{discuss figures here}
+
+\input{figures/flt/rq1_bookkeeper}
+\input{figures/flt/rq1_mahout}
+\input{figures/flt/rq1_openjpa}
+\input{figures/flt/rq1_pig}
+\input{figures/flt/rq1_tika}
+\input{figures/flt/rq1_zookeeper}
+\input{figures/flt/rq1_overview}
 
 ### \ftwoq
 
+\todo{discuss figures here}
+
+\input{figures/flt/rq2_bookkeeper}
+\input{figures/flt/rq2_mahout}
+\input{figures/flt/rq2_openjpa}
+\input{figures/flt/rq2_pig}
+\input{figures/flt/rq2_tika}
+\input{figures/flt/rq2_zookeeper}
+\input{figures/flt/rq2_overview}
 
 ### Situations
 
@@ -39,3 +57,4 @@ situations; we will now discuss each of these situations in detail.
 ### A study on classes and methods
 
 An initial study was completed in @Corley-etal_2015.
+\todo{more, obvs}
