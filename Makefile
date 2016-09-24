@@ -148,5 +148,5 @@ else
 	PDF_VIEW = open -a /Applications/Preview.app
 endif
 
-view: $(PAPER).pdf
-	$(PDF_VIEW) $(PAPER).pdf &
+view: $(DRAFT).pdf
+	$(PDF_VIEW) $(DRAFT).pdf &
