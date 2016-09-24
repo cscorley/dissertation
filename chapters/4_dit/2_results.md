@@ -39,20 +39,3 @@ each system is relatively close, suggesting that historical simulation is on
 par with batch changesets.  Overall, a full historical simulation performs
 better than changesets trained in batch.
 
-
-
-\input{figures/dit/rq1_bookkeeper}
-\input{figures/dit/rq1_mahout}
-\input{figures/dit/rq1_openjpa}
-\input{figures/dit/rq1_pig}
-\input{figures/dit/rq1_tika}
-\input{figures/dit/rq1_zookeeper}
-\input{figures/dit/rq1_overview}
-
-\input{figures/dit/rq2_bookkeeper}
-\input{figures/dit/rq2_mahout}
-\input{figures/dit/rq2_openjpa}
-\input{figures/dit/rq2_pig}
-\input{figures/dit/rq2_tika}
-\input{figures/dit/rq2_zookeeper}
-\input{figures/dit/rq2_overview}
