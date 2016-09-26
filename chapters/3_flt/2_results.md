@@ -1,7 +1,7 @@
 ## Results {#sec:flt-results}
 
 In this section, we will describe the results of the study outlined in Section
-\ref{sec:flt-method}.
+\ref{sec:flt-design}.
 
 \input{tables/feature_location_rq1}
 
@@ -17,12 +17,11 @@ also desirable as it showcases that the changeset approach is on par with
 snapshots.
 
 We note an improvement in MRR for 4 of the 6 systems when using changesets.
-Only 1 of the 6 systems with MRR in favor of snapshots, \mahout, was
-statistically significant at $p < 0.01$.  For \mahout, however, the difference
-in MRR is negligible (2.54%).  Hence, snapshots topics do not seem to
-outperform changeset models for any of the 6 systems.  Comparing all systems at
-once, changesets show slight MRR improvement over snapshots with statistical
-significance.
+Comparing all systems at once, changesets show slight MRR improvement over
+snapshots with statistical significance.  \mahout is the only system with an
+MRR in favor of snapshots and statistically significant at $p < 0.01$.  For
+\mahout, however, the difference in MRR is negligible (2.54%). This suggests
+that changeset-based TMs are on par with snapshot-based TMs.
 
 \todo{Break down each system's result individually even though people can read
 the table?}
@@ -41,6 +40,7 @@ statistical significance when the MRR is in favor of batch.
 There is an improvement in favor of historical simulation in MRR for only 1 of
 the 6 systems, which is not statistically significant at $p<0.01$, although it
 is close.  Four of the 5 results in favor of batch changesets were
-statistically significant, with the fifth system, \tika, also close.  Overall,
-batch changesets performs better than a full historical simulation.
-
+statistically significant, with the last system, \tika, also close.  Overall,
+batch changesets performs better than a full historical simulation.  This
+suggests that under historical simulation, our approach performs worse than a
+model trained in batch.

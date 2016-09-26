@@ -44,10 +44,15 @@ and effectiveness measures between the batch snapshot and batch changesets in
 detail.  We will first discuss all systems, and then each subject system in
 turn.
 
-For the 775 queries across all systems, 155 queries returns the same
-effectiveness measure in both approaches, or about 20.0% of the time.  Of these
-155 queries, 139 (17.93%) have an effectiveness measure of 1 (the best possible
-measure) for both approaches.
+
+For the 1055 queries across all systems, only 755 were successful.  That is,
+300 queries did not retrieve any files identified as changed by fixing the
+related issues.  These are likely caused by files that were removed over time
+and did not make it into release and highlights the volatility of software
+developement.  155 queries returns the same effectiveness measure in both
+approaches, or about 20.0% of the time.  Of these 155 queries, 139 (17.93%)
+have an effectiveness measure of 1 (the best possible measure) for both
+approaches.
 
 After excluding the 155 queries in which ranks which are the same, 87 (11.2%)
 of the remaining 620 queries have effectiveness measures is within 1 rank of
@@ -82,7 +87,8 @@ total:	143
 
 Figure \ref{fig:flt:rq1:bookkeeper} shows the effectiveness measures for
 \bookkeeper.  Again, the figure suggests that changesets perform better than
-snapshots, even though the MRR difference is only $0.0056$.
+snapshots, even though the difference of MRR is only $0.0056$ (Table
+\ref{table:feature_location_rq1}.)  For 
 
 <!-- Mahout v0.10.0
 max bound:	1556

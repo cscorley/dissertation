@@ -117,3 +117,11 @@ of the difference between the two rankings.  To answer \ftwo, we run the
 historical simulation as outlined in Section \ref{sec:flt-methodology} and
 compare it to the results of batch changesets from \fone using the same
 measures.
+
+We must note that when performing evaluations on FLTs, it is possible to
+encounter a query that will fail to retrieve any related documents.  This is
+related to both our approach and goldset extraction process.  Since our
+approach indexes only on the snapshot corpus for a particular commit of
+interest, it is possible that a file changed to fix a particular issue in the
+goldset no longer exists or was never committed to source control by
+maintainers.  We exclude these queries from all analysis.
