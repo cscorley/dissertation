@@ -1,19 +1,19 @@
 \begin{table}[t]
 \centering
 \caption{Deverloper Identification: MRR, Wilcoxon $p$-values, and effect size}
-\begin{tabular}{l|ccr|ll}
+\begin{tabular}{l|r|ccr|ll}
 \toprule
-Subject & & MRR & & Wilcoxon & Effect \\
-System  &  Snapshot & Changesets & Spread & $p$-value & size \\
+Subject & Successful &    & MRR &        & Wilcoxon  & Effect \\
+System  & Queries    & Snapshot & Changesets  & Spread & $p$-value & size \\
 \midrule
-Bookkeeper v4.3.0 & $\bm{0.6600}$ & $0.6513$ & $-0.0086$ & $p = 0.0134$ & $0.2425$ \\
-Mahout v0.10.0 & $0.2374$ & $\bm{0.3340}$ & $+0.0966$ & $p = 0.0606$ & $0.1998$ \\
-Openjpa v2.3.0 & $0.2728$ & $\bm{0.3648}$ & $+0.0920$ & $p < 0.01$ & $0.3642$ \\
-Pig v0.14.0 & $\bm{0.2870}$ & $0.1759$ & $-0.1110$ & $p < 0.01$ & $0.6475$ \\
-Tika v1.8 & $\bm{0.3915}$ & $0.3609$ & $-0.0306$ & $p = 0.3119$ & $0.1889$ \\
-Zookeeper v3.5.0 & $\bm{0.4542}$ & $0.3985$ & $-0.0557$ & $p = 0.6817$ & $0.0273$ \\
+Bookkeeper v4.3.0 & 164 & $\bm{0.6600}$ & $0.6513$ & $-0.0086$ & $p = 0.0134$ & $0.2425$ \\
+Mahout v0.10.0 & 133 & $0.2374$ & $\bm{0.3340}$ & $+0.0966$ & $p = 0.0606$ & $0.1998$ \\
+Openjpa v2.3.0 & 137 & $0.2728$ & $\bm{0.3648}$ & $+0.0920$ & $p < 0.01$ & $0.3642$ \\
+Pig v0.14.0 & 222 & $\bm{0.2870}$ & $0.1759$ & $-0.1110$ & $p < 0.01$ & $0.6475$ \\
+Tika v1.8 & 40 & $\bm{0.3915}$ & $0.3609$ & $-0.0306$ & $p = 0.3119$ & $0.1889$ \\
+Zookeeper v3.5.0 & 359 & $\bm{0.4542}$ & $0.3985$ & $-0.0557$ & $p = 0.6817$ & $0.0273$ \\
 \midrule
-All & $\bm{0.3977}$ & $0.3770$ & $-0.0207$ & $p < 0.01$ & $0.1218$ \\
+All & 1055 & $\bm{0.3977}$ & $0.3770$ & $-0.0207$ & $p < 0.01$ & $0.1218$ \\
 \bottomrule
 \end{tabular}
 \label{table:triage_rq1}
