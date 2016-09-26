@@ -11,7 +11,27 @@ but without the retraining cost.
 
 ### \foneq
 
-\todo{discuss figures here}
+<!--All
+max bound:	4968
+fancy:	False
+same:	155	0.2
+same (ones):	139	0.17935483871
+diff of 1:	87	0.112258064516
+diff of 2:	52	0.0670967741935
+diff of 3:	30	0.0387096774194
+within <=1:	87	0.112258064516
+within <=5:	213	0.274838709677
+within <=10:	254	0.327741935484
+within <=50:	398	0.513548387097
+other (>50.000000):	222	0.286451612903
+within <= 50 (1.000000%):	398	0.513548387097
+within <= 248 (5.000000%):	516	0.665806451613
+within <= 497 (10.000000%):	559	0.721290322581
+within <= 2484 (50.000000%):	617	0.796129032258
+other > 2484 (50.000000%):	3	0.00387096774194
+worst (Changesets - Snapshot) 888.0 -4478.0
+total:	775
+-->
 
 \input{figures/flt/rq1_overview}
 
@@ -21,30 +41,20 @@ changeset-based models have similar results overall with changesets performing
 slightly better, but does not help to understand how each feature query
 performs for each model.  With respect to RQ1, we will investigate the queries
 and effectiveness measures between the batch snapshot and batch changesets in
-detail.
+detail.  We will first discuss all systems, and then each subject system in
+turn.
 
-#### All systems
+For the 775 queries across all systems, 155 queries returns the same
+effectiveness measure in both approaches, or about 20.0% of the time.  Of these
+155 queries, 139 (17.93%) have an effectiveness measure of 1 (the best possible
+measure) for both approaches.
 
-<!-- Example paragraph from CFL paper
-
-For the 632 successful queries of classes, each query returns the same
-effectiveness measure 28 out of 632 times, or about 4.4\% of the time.  Of these
-28, 17 of them all return an effectiveness measure of 1 (the best possible
-measure).  For 159 queries (25.2\%), the effectiveness measure is within 10
-ranks of each other.  For 291 queries (46.0\%), the effectiveness measure is
-within 50 ranks of each other.  The remaining 341 queries (53.9\%) perform
-noticeably different ($> 50$ ranks apart).
--->
-
-\input{figures/flt/rq1_bookkeeper}
-\input{figures/flt/rq1_mahout}
-\input{figures/flt/rq1_openjpa}
-\input{figures/flt/rq1_pig}
-\input{figures/flt/rq1_tika}
-\input{figures/flt/rq1_zookeeper}
-
-<!-- Changesets Snapshot Files
--->
+After excluding the 155 queries in which ranks which are the same, 87 (11.2%)
+of the remaining 620 queries have effectiveness measures is within 1 rank of
+each other.  Likewise, 254 (32.78%) queries have a difference in effectiveness
+measure less than or equal to 10.  Finally, 398 (51.4%) have the effectiveness
+measure is within 50 ranks of each other.  The remaining 222 queries (28.6%)
+perform noticeably different ($> 50$ ranks apart).
 
 <!-- BookKeeper v4.3.0
 max bound:	843
@@ -64,8 +74,15 @@ within <= 42 (5.000000%):	73	0.51048951049
 within <= 84 (10.000000%):	84	0.587412587413
 within <= 422 (50.000000%):	95	0.664335664336
 other > 422 (50.000000%):	10	0.0699300699301
+worst (Changesets - Snapshot) 639.0 -680.0
 total:	143
 -->
+
+\input{figures/flt/rq1_bookkeeper}
+
+Figure \ref{fig:flt:rq1:bookkeeper} shows the effectiveness measures for
+\bookkeeper.  Again, the figure suggests that changesets perform better than
+snapshots, even though the MRR difference is only $0.0056$.
 
 <!-- Mahout v0.10.0
 max bound:	1556
@@ -85,8 +102,11 @@ within <= 78 (5.000000%):	24	0.48
 within <= 156 (10.000000%):	28	0.56
 within <= 778 (50.000000%):	40	0.8
 other > 778 (50.000000%):	4	0.08
+worst (Changesets - Snapshot) 865.0 -1133.0
 total:	50
 -->
+
+\input{figures/flt/rq1_mahout}
 
 <!-- OpenJPA v2.3.0
 max bound:	4968
@@ -106,8 +126,11 @@ within <= 248 (5.000000%):	76	0.580152671756
 within <= 497 (10.000000%):	89	0.679389312977
 within <= 2484 (50.000000%):	112	0.854961832061
 other > 2484 (50.000000%):	3	0.0229007633588
+worst (Changesets - Snapshot) 888.0 -4478.0
 total:	131
 -->
+
+\input{figures/flt/rq1_openjpa}
 
 <!-- Pig v0.14.0
 max bound:	2098
@@ -127,8 +150,11 @@ within <= 105 (5.000000%):	106	0.609195402299
 within <= 210 (10.000000%):	119	0.683908045977
 within <= 1049 (50.000000%):	137	0.787356321839
 other > 1049 (50.000000%):	7	0.0402298850575
+worst (Changesets - Snapshot) 762.0 -1556.0
 total:	174
 -->
+
+\input{figures/flt/rq1_pig}
 
 <!-- Tika v1.8
 max bound:	954
@@ -148,8 +174,11 @@ within <= 48 (5.000000%):	23	0.638888888889
 within <= 95 (10.000000%):	26	0.722222222222
 within <= 477 (50.000000%):	29	0.805555555556
 other > 477 (50.000000%):	2	0.0555555555556
+worst (Changesets - Snapshot) 163.0 -539.0
 total:	36
 -->
+
+\input{figures/flt/rq1_tika}
 
 <!-- ZooKeeper v3.5.0
 max bound:	927
@@ -169,29 +198,11 @@ within <= 46 (5.000000%):	121	0.502074688797
 within <= 93 (10.000000%):	144	0.597510373444
 within <= 464 (50.000000%):	175	0.726141078838
 other > 464 (50.000000%):	6	0.0248962655602
+worst (Changesets - Snapshot) 405 -517
 total:	241
 -->
 
-<!--All
-max bound:	4968
-fancy:	False
-same:	155	0.2
-same (ones):	139	0.17935483871
-diff of 1:	87	0.112258064516
-diff of 2:	52	0.0670967741935
-diff of 3:	30	0.0387096774194
-within <=1:	87	0.112258064516
-within <=5:	213	0.274838709677
-within <=10:	254	0.327741935484
-within <=50:	398	0.513548387097
-other (>50.000000):	222	0.286451612903
-within <= 50 (1.000000%):	398	0.513548387097
-within <= 248 (5.000000%):	516	0.665806451613
-within <= 497 (10.000000%):	559	0.721290322581
-within <= 2484 (50.000000%):	617	0.796129032258
-other > 2484 (50.000000%):	3	0.00387096774194
-total:	775
--->
+\input{figures/flt/rq1_zookeeper}
 
 
 ### \ftwoq

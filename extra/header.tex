@@ -1,7 +1,6 @@
 \usepackage{chapterbib}
 \usepackage{morefloats}
 
-
 \setlength\epigraphwidth{\textwidth}
 \setlength\epigraphrule{0pt}
 
@@ -9,7 +8,7 @@
 \definecolor{lightgreen}{RGB}{0,150,0}
 \definecolor{lightblue}{RGB}{50,50,175}
 
-\lstdefinelanguage{diff}{
+\lstdefinelanguage{diff}{%
   morecomment=[f][\color{lightblue}]{diff },
   morecomment=[f][\color{lightblue}]{index },
   morecomment=[f][\color{lightblue}]{@@},     % group identifier
@@ -22,37 +21,37 @@
 
 \newcommand{\attn}[1]{{\color{red}#1}}
 \newcommand{\desc}[1]{{\emph{\color{blue}#1}}}
-\newcommand{\todo}[1]{\colorbox{yellow}{\bf TODO: #1}}
+\newcommand{\todo}[1]{\colorbox{yellow}{\bf TODO\: #1}}
 \newcommand{\needcite}{\attn{\tiny{[cite]}}}
 
-\newcommand{\rqem}{\em}
+%\newcommand{\rqem}[1]{\emph{#1}}
+\let\rqem\emph%
 
 \newcommand{\fonep}{RQ 3.4.1}
 \newcommand{\foneq}{Is a changeset-based FLT as accurate as a snapshot-based FLT?}
-\newcommand{\fone}{{\rqem\fonep}}
+\newcommand{\fone}{\rqem{\fonep}}
 
 \newcommand{\ftwop}{RQ 3.4.2}
 \newcommand{\ftwoq}{Does the accuracy of a changeset-based FLT fluctuate as a project evolves?}
-\newcommand{\ftwo}{{\rqem\ftwop}}
+\newcommand{\ftwo}{\rqem{\ftwop}}
 
 \newcommand{\donep}{RQ 3.5.1}
 \newcommand{\doneq}{Is a changeset-based DIT as accurate as a snapshot-based DIT?}
-\newcommand{\done}{{\rqem\donep}}
+\newcommand{\done}{\rqem{\donep}}
 
 \newcommand{\dtwop}{RQ 3.5.2}
 \newcommand{\dtwoq}{Does the accuracy of a changeset-based DIT fluctuate as a project evolves?}
-\newcommand{\dtwo}{{\rqem\dtwop}}
+\newcommand{\dtwo}{\rqem{\dtwop}}
 
 \newcommand{\conep}{RQ 3.6.1}
 \newcommand{\coneq}{Can we use the same topic model in more than one context effectively?}
-\newcommand{\cone}{{\rqem\conep}}
+\newcommand{\cone}{\rqem{\conep}}
 
 \newcommand{\ctwop}{RQ 3.6.2}
 \newcommand{\ctwoq}{What are the effects of using different portions of
 a changeset for corpus construction, such as added, removed, context lines, and
 the commit message?}
-\newcommand{\ctwo}{{\rqem\ctwop}}
-
+\newcommand{\ctwo}{\rqem{\ctwop}}
 
 \newcommand{\system}[1]{#1} % no formatting for now
 \newcommand{\bookkeeper}{\system{BookKeeper v4.3.0}}
@@ -62,10 +61,7 @@ the commit message?}
 \newcommand{\tika}{\system{Tika v1.8}}
 \newcommand{\zookeeper}{\system{ZooKeeper v3.5.0}}
 
-\BeforeBeginEnvironment{lstlisting}{\begin{singlespace}}
-\AfterEndEnvironment{lstlisting}{\end{singlespace}\noindent\ignorespaces}
-
-\lstset{ %
+\lstset{%
   basicstyle=\ttfamily\footnotesize,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
@@ -82,3 +78,6 @@ the commit message?}
 }
 
 \urlstyle{rm}
+
+\BeforeBeginEnvironment{lstlisting}{\begin{singlespace}}
+\AfterEndEnvironment{lstlisting}{\end{singlespace}\noindent\ignorespaces}
