@@ -37,6 +37,7 @@ TODO:
 - Language models (trained on N Java projects) vs single-project models
 - This work allows for models to take in streams of data, e.g., from Github, to
 create models that can be used in general cases.
+- Dependencies: update a model with text from dependencies as they are updated
 
 ## Last Words {#sec:conclusion-final}
 
