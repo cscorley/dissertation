@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/combo/dit_rq2_openjpa}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/combo/dit_rq2_openjpa}
+        \caption{Including outliers}\label{fig:combo:dit:rq2:openjpa_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/combo/dit_rq2_openjpa_no_outlier}
+        \caption{Excluding outliers}\label{fig:combo:dit:rq2:openjpa_no_outlier}
+    \end{subfigure}
 \caption{Developer Identification effectiveness measures of optimal and alternative corpus configurations for OpenJPA v2.3.0}
 \label{fig:combo:dit:rq2:openjpa}
 \end{figure}

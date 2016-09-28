@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/combo/dit_rq1_mahout}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/combo/dit_rq1_mahout}
+        \caption{Including outliers}\label{fig:combo:dit:rq1:mahout_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/combo/dit_rq1_mahout_no_outlier}
+        \caption{Excluding outliers}\label{fig:combo:dit:rq1:mahout_no_outlier}
+    \end{subfigure}
 \caption{Developer Identification effectiveness measures of optimal and alternative model configurations for Mahout v0.10.0}
 \label{fig:combo:dit:rq1:mahout}
 \end{figure}

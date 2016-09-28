@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/combo/flt_rq1_zookeeper}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/combo/flt_rq1_zookeeper}
+        \caption{Including outliers}\label{fig:combo:flt:rq1:zookeeper_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/combo/flt_rq1_zookeeper_no_outlier}
+        \caption{Excluding outliers}\label{fig:combo:flt:rq1:zookeeper_no_outlier}
+    \end{subfigure}
 \caption{Feature Location effectiveness measures of optimal and alternative model configurations for ZooKeeper v3.5.0}
 \label{fig:combo:flt:rq1:zookeeper}
 \end{figure}

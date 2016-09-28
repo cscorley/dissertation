@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/combo/flt_rq2_bookkeeper}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/combo/flt_rq2_bookkeeper}
+        \caption{Including outliers}\label{fig:combo:flt:rq2:bookkeeper_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/combo/flt_rq2_bookkeeper_no_outlier}
+        \caption{Excluding outliers}\label{fig:combo:flt:rq2:bookkeeper_no_outlier}
+    \end{subfigure}
 \caption{Feature Location effectiveness measures of optimal and alternative corpus configurations for BookKeeper v4.3.0}
 \label{fig:combo:flt:rq2:bookkeeper}
 \end{figure}
