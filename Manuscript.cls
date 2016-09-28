@@ -66,7 +66,8 @@
 
 %---- other
 \RequirePackage[bottom,hang,stable]{footmisc}
-\RequirePackage[caption=false]{subfig}
+%\RequirePackage[caption=false]{subfig}
+\RequirePackage{subcaption}
 \RequirePackage[pdftex,dvipsnames]{color}
 \RequirePackage[pdftex]{geometry}
 \RequirePackage[pdftex]{graphicx}

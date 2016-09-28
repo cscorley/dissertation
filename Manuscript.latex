@@ -14,7 +14,7 @@
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{rotating}
-\usepackage{subfig}
+\usepackage{subcaption}
 \usepackage{textcase}
 \usepackage{textcomp,upquote}
 \usepackage{xcolor}
