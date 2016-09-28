@@ -1,11 +1,8 @@
 ## Threats to Validity {#sec:flt-threats}
 
-\todo{more of this}
-
 Our studies have limitations that impact the validity of our findings, as well
 as our ability to generalize them. We describe some of these limitations and
 their impacts.
-
 
 ### Construct Validity
 
@@ -34,6 +31,13 @@ changeset-based approaches should have the same parameters to help facilitate
 evaluation and comparison.  We argue that our study is not about selecting the
 best parameters, but to show that our snapshot-based approach is reasonable.
 
+Further, since LDA implementations such as Gensim rely heavily on randomly
+initialized matrices, we have determined a certain threat with respect to this
+model initialization.  We control for this by ensuring each model created uses
+the same initial state.  This is achieved by running each experiment in
+isolation and using a uniform random seed value of $1$ on the system's
+pseudo-random number generator.
+
 ### External Validity
 
 Threats to external validity concern the extent to which we can generalize our
@@ -45,4 +49,7 @@ industry.
 
 ### Conclusion Validity
 
+Threats to conclusion validity concern our choice of measurements and how those
+choices impact our evaluation and conclusion.
 
+\todo{write something better than "this is what everyone does"}

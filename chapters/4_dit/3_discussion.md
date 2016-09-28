@@ -347,9 +347,9 @@ mixed between the research questions, hence we end up with four possible
 situations; we will now discuss each of these situations in detail.
 
 
-#### Batch changesets are better than batch shapshot *and* batch changesets are better than changesets in the simulated environment
+#### Batch changesets are better than batch snapshot *and* batch changesets are better than changesets in the simulated environment
 
-#### Batch changesets are better than batch shapshot *and* changesets in the simulated environment are better than batch changesets
+#### Batch changesets are better than batch snapshot *and* changesets in the simulated environment are better than batch changesets
 
 #### Batch snapshot are better than batch changeset *and* changesets in the simulated environment are better than batch changesets
 
