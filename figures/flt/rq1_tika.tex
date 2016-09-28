@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/flt/rq1_tika}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/rq1_tika}
+        \caption{Including outliers}\label{fig:flt:rq1:tika_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/rq1_tika_no_outlier}
+        \caption{Excluding outliers}\label{fig:flt:rq1:tika_no_outlier}
+    \end{subfigure}
 \caption{\fone: Feature Location effectiveness measures for Tika v1.8}
 \label{fig:flt:rq1:tika}
 \end{figure}

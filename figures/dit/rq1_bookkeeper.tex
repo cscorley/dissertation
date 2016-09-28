@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/dit/rq1_bookkeeper}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/dit/rq1_bookkeeper}
+        \caption{Including outliers}\label{fig:dit:rq1:bookkeeper_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/dit/rq1_bookkeeper_no_outlier}
+        \caption{Excluding outliers}\label{fig:dit:rq1:bookkeeper_no_outlier}
+    \end{subfigure}
 \caption{\done: Developer Identification effectiveness measures for BookKeeper v4.3.0}
 \label{fig:dit:rq1:bookkeeper}
 \end{figure}

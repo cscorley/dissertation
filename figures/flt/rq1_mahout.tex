@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/flt/rq1_mahout}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/rq1_mahout}
+        \caption{Including outliers}\label{fig:flt:rq1:mahout_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/rq1_mahout_no_outlier}
+        \caption{Excluding outliers}\label{fig:flt:rq1:mahout_no_outlier}
+    \end{subfigure}
 \caption{\fone: Feature Location effectiveness measures for Mahout v0.10.0}
 \label{fig:flt:rq1:mahout}
 \end{figure}

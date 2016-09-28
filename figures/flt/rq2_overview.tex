@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/flt/rq2_overview}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/rq2_overview}
+        \caption{Including outliers}\label{fig:flt:rq2:overview_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/rq2_overview_no_outlier}
+        \caption{Excluding outliers}\label{fig:flt:rq2:overview_no_outlier}
+    \end{subfigure}
 \caption{\ftwo: Feature Location effectiveness measures for all subject systems}
 \label{fig:flt:rq2:overview}
 \end{figure}

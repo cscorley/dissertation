@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/flt/all_zookeeper}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/all_zookeeper}
+        \caption{Including outliers}\label{fig:flt:all:zookeeper_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/all_zookeeper_no_outlier}
+        \caption{Excluding outliers}\label{fig:flt:all:zookeeper_no_outlier}
+    \end{subfigure}
 \caption{Overview: Feature Location effectiveness measures for ZooKeeper v3.5.0}
 \label{fig:flt:all:zookeeper}
 \end{figure}

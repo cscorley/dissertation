@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/flt/all_pig}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/all_pig}
+        \caption{Including outliers}\label{fig:flt:all:pig_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/all_pig_no_outlier}
+        \caption{Excluding outliers}\label{fig:flt:all:pig_no_outlier}
+    \end{subfigure}
 \caption{Overview: Feature Location effectiveness measures for Pig v0.14.0}
 \label{fig:flt:all:pig}
 \end{figure}

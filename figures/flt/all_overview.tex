@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/flt/all_overview}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/all_overview}
+        \caption{Including outliers}\label{fig:flt:all:overview_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/all_overview_no_outlier}
+        \caption{Excluding outliers}\label{fig:flt:all:overview_no_outlier}
+    \end{subfigure}
 \caption{Overview: Feature Location effectiveness measures for all subject systems}
 \label{fig:flt:all:overview}
 \end{figure}

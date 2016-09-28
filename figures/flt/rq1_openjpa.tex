@@ -1,7 +1,16 @@
 
 \begin{figure}
-\centering
-\includegraphics[height=0.4\textheight]{figures/flt/rq1_openjpa}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/rq1_openjpa}
+        \caption{Including outliers}\label{fig:flt:rq1:openjpa_outlier}
+    \end{subfigure}%
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[height=0.4\textheight]{figures/flt/rq1_openjpa_no_outlier}
+        \caption{Excluding outliers}\label{fig:flt:rq1:openjpa_no_outlier}
+    \end{subfigure}
 \caption{\fone: Feature Location effectiveness measures for OpenJPA v2.3.0}
 \label{fig:flt:rq1:openjpa}
 \end{figure}
