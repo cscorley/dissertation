@@ -130,7 +130,7 @@ For this work, we pose the following research questions:
 :   \doneq
 
 \dtwop
-:   \doneq
+:   \dtwoq
 
 #### Methodology {#sec:dit-methodology}
 
