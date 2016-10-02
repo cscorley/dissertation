@@ -10,7 +10,7 @@ retraining traditional DITs.
 
 ![Developer identification using changesets\label{fig:changeset-triage}](figures/changeset-triage.pdf)
 
-The changeset approach requires two types of document extraction: one for the
+Our changeset approach requires two types of document extraction: one for the
 every changeset in the source code history and a developer profile of the words
 each individual developer used in those changesets.  The left side of Figure
 \ref{fig:changeset-triage} illustrates the dual-document extraction approach.
@@ -18,11 +18,11 @@ each individual developer used in those changesets.  The left side of Figure
 The document extraction process for the changesets remains the same as covered
 in Section \ref{sec:flt-approach}.  The document extraction process for the
 developer corpus is straightforward.  Following @Matter-etal_2009, each
-developer will have their own document consisting of each changeset they have
-committed to the source code repository.  That is, a developer document
-consists of only words they have changed.  There may be weighting schemes to
-this [@Shokripour-etal_2013], such as only considering words which they have
-added or removed, while ignoring context words.
+developer will have their own document, or profile, consisting of each
+changeset they have committed to the source code repository.  That is, a
+developer document consists of only words they have changed.  There may be
+weighting schemes to this [@Shokripour-etal_2013], such as only considering
+words which they have added or removed, while ignoring context words.
 
 The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
 process.  Like in Section \ref{sec:flt-approach}, the key intuition to our
@@ -37,7 +37,7 @@ changeset documents used for training.  In our approach, we only use the
 changesets to continuously update the topic model and only use the developer
 profiles for indexing.
 
-We can follow the same process used in Section \ref{sec:flt-approach} for a
+We follow the same process used in Section \ref{sec:flt-approach} for a
 historical simulation of how a changeset-based DIT would perform in a realistic
 scenario.
 
@@ -84,7 +84,7 @@ distribution and rank each entity in the developer index with pairwise
 comparisons.  Finally, we continue by updating the model with the next
 mini-batch.
 
-#### Data Collection and Analysis
+#### Data Collection and Analysis {#sec:dit-data-collection}
 
 To evaluate the performance of a topic-modeling-based DIT we cannot use
 measures such as precision and recall.  This is because the DIT creates
@@ -103,4 +103,3 @@ of the difference between the two rankings.  To answer \dtwo, we run the
 historical simulation as outlined in Section \ref{sec:dit-methodology} and
 compare it to the results of batch changesets from \done.  Again, we calculate
 the MRR and use the Wilcoxon signed-rank test.
-
