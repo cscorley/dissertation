@@ -25,6 +25,14 @@ DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(
 
 URL="https://github.com/cscorley/dissertation/commits"
 
+$(DRAFT).pdf: natbib
+
+$(PAPER).pdf: nodraft
+
+$(PAPER): $(PAPER).pdf
+
+$(DRAFT): $(DRAFT).pdf
+
 all: $(PAPER).pdf $(DRAFT).pdf
 
 $(GENERATED) :: $(EXTRA_FILES)
@@ -35,10 +43,6 @@ $(GENERATED) :: $(EXTRA_FILES)
 		--from=markdown \
 		--to=latex \
 		extra/$@.md -o tmp/$@.tex
-
-$(PAPER).pdf: nodraft
-
-$(DRAFT).pdf: natbib
 
 pandoc: $(DEP_FILES) $(GENERATED)
 	$(PANDOC) \

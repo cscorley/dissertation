@@ -41,11 +41,10 @@ pseudo-random number generator.
 ### External Validity
 
 Threats to external validity concern the extent to which we can generalize our
-results.  The subjects of our study comprise fourteen open source projects in
-Java, so we cannot generalize our results to systems implemented in other
-languages.  However, the systems are of different sizes, are from different
-domains, and have characteristics in common with those of systems developed in
-industry.
+results.  The subjects of our study comprise six open source projects in Java,
+so we cannot generalize our results to systems implemented in other languages.
+However, the systems are of different sizes, are from different domains, and
+have characteristics in common with those of systems developed in industry.
 
 ### Conclusion Validity
 
