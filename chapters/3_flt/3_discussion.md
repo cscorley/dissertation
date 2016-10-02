@@ -492,4 +492,3 @@ to arrive at the same conclusion as \fone, but unable to for \ftwo.  That is,
 while we found that our changeset-based approach was as accurate as snapshots
 (\fonep), we were unable to find that the accuracy of the changeset-based model
 under historical simulation is consistent with the batch counterpart (\ftwop).
-

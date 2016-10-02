@@ -5,7 +5,13 @@ identifies a list of developers that are most apt to complete a change request
 and assigning one or more of those developers to the task
 [@McDonald-Ackerman_1998].  @Begel-etal_2010 show that developers need help
 finding expertise within their organization *more than they need help finding
-source code elements*.
+source code elements*.  In this chapter, we outline an approach using online
+topic models for developer identification.  First, we describe our motivation
+and background in Sections \ref{sec:dit-motivation} and
+\ref{sec:dit-background}, respectively.  We then describe our study design in
+Section \ref{sec:dit-design}.  Finally, we describe the results of the study
+(Section \ref{sec:dit-results}) and discuss them in detail (Section
+\ref{sec:dit-discussion}).
 
 
 ## Motivation {#sec:dit-motivation}
@@ -50,7 +56,7 @@ triaging helps to decrease change request time-to-triage and to correct, or
 prevent, human error.
 
 @McDonald-Ackerman_1998 show that there are two expertise finding problems:
-identification and selection.  In a semiautomated system, the system
+identification and selection.  In a semi-automated system, the system
 automatically identifies and suggests an expert for assignment.  In a
 fully-automated system, the system identifies and assigns a developer to the
 change request.  @Anvik-etal_2006 notes that a fully-automated approach may not
@@ -74,6 +80,5 @@ to determine the ownership of a source code entity [@Bird-etal_2011;
 A simple, example ownership metric is the number of times a developer has
 committed changes to a file.  That is, if over the software history Johanna
 modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
-then we consider Johanna as the owner of `foo.py`.  Here, we assign all tasks
-related to `foo.py` to Johanna.
-
+then we consider Johanna as the owner of `foo.py`.  Here, we would assign all
+tasks related to `foo.py` to Johanna.

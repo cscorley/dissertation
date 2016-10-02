@@ -42,5 +42,5 @@ the 6 systems, which is not statistically significant at $p<0.01$, although it
 is close.  Four of the 5 results in favor of batch changesets were
 statistically significant, with the last system, \tika, also close.  Overall,
 batch changesets performs better than a full historical simulation.  This
-suggests that under historical simulation, our approach performs worse than a
-model trained in batch.
+suggests that under historical simulation, the accuracy of the FLT will
+fluctuate as a project evolves.
