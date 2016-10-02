@@ -481,5 +481,15 @@ snapshot TM-based FLTs.
 
 ### A study on classes and methods
 
-An initial study was completed in @Corley-etal_2015.
-\todo{more, obvs}
+An initial study was completed in @Corley-etal_2015.  This study is largely the
+same as already presented, with the exceptions that we used different subject
+systems from other researchers @Moreno-etal_2014 and investigated the approach
+using classes and methods.
+
+The results of our study differ slightly, but it is difficult to compare the
+two, given the aforementioned exceptions.  In @Corley-etal_2015, we were able
+to arrive at the same conclusion as \fone, but unable to for \ftwo.  That is,
+while we found that our changeset-based approach was as accurate as snapshots
+(\fonep), we were unable to find that the accuracy of the changeset-based model
+under historical simulation is consistent with the batch counterpart (\ftwop).
+

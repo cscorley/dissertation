@@ -3,14 +3,20 @@
 Feature location is a frequent and fundamental activity for a developer tasked
 with changing a software system.  Whether a change task involves adding,
 modifying, or removing a feature, a developer cannot complete the task without
-first locating the source code that implements the feature.  The
-state-of-the-practice in feature location is to use an IDE tool based on
-keyword or regular expression search, but @Ko-etal_2006 observed such tools
-leading developers to failed searches nearly 90% of the time.
+first locating the source code that implements the feature.  In this chapter,
+we outline an approach for locating features with online topic models.  First,
+we describe our motivation and background in Sections \ref{sec:flt-motivation}
+and \ref{sec:flt-background}, respectively.  We then describe our study design
+in Section \ref{sec:flt-design}.  Finally, we describe the results of the study
+(Section \ref{sec:flt-results}) and discuss them in detail (Section
+\ref{sec:flt-discussion}).
 
 ## Motivation {#sec:flt-motivation}
 
-The state-of-the-art in feature location [@Dit-etal_2013a] is to use a feature
+The state-of-the-practice in feature location is to use an IDE tool based on
+keyword or regular expression search, but @Ko-etal_2006 observed such tools
+leading developers to failed searches nearly 90% of the time.  The
+state-of-the-art in feature location [@Dit-etal_2013a] is to use a feature
 location technique (FLT) based, at least in part, on text retrieval (TR).  The
 standard methodology [@Marcus-etal_2004] is to extract a document for each
 class or method in a source code snapshot, to train a TR model on those
