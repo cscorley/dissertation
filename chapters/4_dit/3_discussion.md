@@ -11,9 +11,6 @@ retraining cost.
 
 ### \doneq
 
-
-\todo{discuss figures here}
-
 <!--All
 max bound:	38
 same:	154	0.145971563981
@@ -36,6 +33,27 @@ total:	1055
 -->
 
 \input{figures/dit/rq1_overview}
+
+Figure \ref{fig:dit:rq1:overview} shows the effectiveness measures across all
+systems. The figure suggests that snapshot-based models and changeset-based
+models have similar results overall with changesets performing slightly better,
+but does not help to understand how each feature query performs for each model.
+With respect to \done, we will investigate the queries and effectiveness
+measures between the batch snapshot and batch changesets in detail.
+
+\todo{We will first discuss all systems, and then each subject system in turn.}
+
+For the 1055 queries across all systems, 154 queries return the same
+effectiveness measure in both approaches, or about 14.6% of the time.  Of these
+154 queries, 58 (5.5%) share an effectiveness measure of 1 (the best possible
+measure) for both approaches.
+
+After excluding the 154 queries in which ranks which are the same, 245 (23.2%)
+of the remaining 901 queries have effectiveness measures is within 1 rank of
+each other.  Likewise, 145 (13.8%) queries have a difference in effectiveness
+measure of 2.  Finally, 166 (15.7%) have the effectiveness measure difference
+of 3.  The remaining 345 queries (38.3%) perform noticeably different ($> 3$
+ranks apart).
 
 <!-- BookKeeper v4.3.0
 max bound:	5
@@ -179,8 +197,6 @@ total:	359
 
 ### \dtwoq
 
-\todo{discuss figures here}
-
 <!--All
 max bound:	38
 same:	126	0.120805369128
@@ -203,6 +219,31 @@ total:	1043
 -->
 
 \input{figures/dit/rq2_overview}
+
+Figure \ref{fig:dit:rq2:overview} shows the effectiveness measures across all
+systems. The figure suggests that snapshot-based models and changeset-based
+models have similar results overall with changesets performing slightly better,
+but does not help to understand how each feature query performs for each model.
+With respect to \dtwo, we will investigate the queries and effectiveness
+measures between the batch snapshot and batch changesets in detail.
+
+\todo{We will first discuss all systems, and then each subject system in turn.}
+
+For the 1055 queries across all systems, only 1043 were successful.  These 12
+that were unsuccessful were likely due to excluding the commit that fixed the
+issue related to the query.  These commits were the first change in the
+repository by that maintainer, resulting in them missing from the ranking until
+that point \todo{PLEASE FULLY CONFIRM THIS}.  126 queries return the same
+effectiveness measure in both approaches, or about 12.1% of the time.  Of these
+126 queries, 45 (4.3%) share an effectiveness measure of 1 (the best possible
+measure) for both approaches.
+
+After excluding the 126 queries in which ranks which are the same, 213 (20.4%)
+of the remaining 917 queries have effectiveness measures is within 1 rank of
+each other.  Likewise, 169 (16.2%) queries have a difference in effectiveness
+measure of 2.  Finally, 130 (12.5%) have the effectiveness measure difference
+of 3.  The remaining 512 queries (55.8%) perform noticeably different ($> 3$
+ranks apart).
 
 <!-- BookKeeper v4.3.0
 max bound:	5
@@ -353,6 +394,29 @@ online TM-based DIT trained on the same changesets over time.  Our results are
 mixed between the research questions, hence we end up with four possible
 situations; we will now discuss each of these situations in detail.
 
+<!--
+    SS < CS && CS > HS
+       2          5
+            2
+        mahout
+        openjpa
+
+    SS < CS && CS < HS
+       2          1
+            0
+
+    SS > CS && CS > HS
+       4          5
+            3
+        bookkeeper
+        tika
+        zookeeper
+
+    SS > CS && CS < HS
+       4          1
+            1
+        pig
+-->
 
 #### Batch changesets are better than batch snapshot *and* batch changesets are better than changesets in the simulated environment
 

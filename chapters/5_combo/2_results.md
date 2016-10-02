@@ -1,7 +1,7 @@
 ## Results {#sec:combo-results}
 
 In this section, we will describe the results of the study outlined in Section
-\ref{sec:combo:design}.
+\ref{sec:combo-design}.
 
 \cone{} ask whether a single topic model can be used for more than a single
 task, specifically for feature location and developer identification.  Tables
