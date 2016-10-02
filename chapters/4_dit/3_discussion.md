@@ -420,9 +420,39 @@ situations; we will now discuss each of these situations in detail.
 
 #### Batch changesets are better than batch snapshot *and* batch changesets are better than changesets in the simulated environment
 
+This situation occurs in 2 out of 6 systems: \mahout and \openjpa.  We
+hypothesize that this is because in the batch evaluation, the model is trained
+on all data before being queried, while in the historical simulation the model
+is trained on partial data before being queried.  This allows for the batch
+model to be more accurate because it is trained on more data and reveals
+feature location research evaluations may not be accurately portraying how an
+DIT would perform in a real scenario.
+
 #### Batch changesets are better than batch snapshot *and* changesets in the simulated environment are better than batch changesets
+
+We note that this situation never occurs. This also supports the hypothesis
+that historical simulation more accurately portrays the system over time as it
+more accurately captures the correct state of the system (i.e., the developers
+maintaining the system) at the point in time when querying is done.  Since
+querying on the batch models is after the model is completely trained, there
+may be developers that are no longer, or have yet to start, maintaining the
+system anymore.  Again, the historical simulation may better capture this
+scenario.
 
 #### Batch snapshot are better than batch changeset *and* changesets in the simulated environment are better than batch changesets
 
+This situation occurs in 2 out of 6 systems: \bookkeeper, \tika, and
+\zookeeper.  Similarly, this could be because of how the models are trained.
+Although batch changesets perform worse in both cases, historical simulation
+using changesets outweighs batch snapshot modelling.  This does not necessarily
+mean that changesets are bad, but may more accurately model the system over
+time.
+
 #### Batch snapshot are better than batch changeset *and* batch changesets are better than changesets in the simulated environment
+
+This situation occurs in a single system: \pig.  We note that this system does
+not achieve statistical significance for either case.  This also supports the
+hypothesis that historical simulation more accurately portrays the system over
+time.  However, we cannot conclude this without also historically simulating
+snapshot TM-based DITs.
 
