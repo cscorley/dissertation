@@ -1,19 +1,3 @@
-# Combining and Configuring Changset-based Topic Models {#chap:combo}
-
-The two previously proposed approaches are potentially usable in unison with
-a single model, allowing for halving the computational cost required for the
-topic modeling.
-
-## Motivation {#sec:combo-motivation}
-
-When using a topic modeler, we must make configuration choices.
-@Biggers-etal_2014 were the first to explore the parameters of a LDA-based FLT.
-Unfortunately, these findings may not directly apply to a LDA-based DIT.
-Further, there is no work on optimal configurations when using a topic model
-for two tasks.  There is also evidence in the literature that different
-configurations may be better suited for different tasks
-[@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
-
 ## Study Design {#sec:combo-design}
 
 In this work, we introduce a *combined* approach that allows for coalescing

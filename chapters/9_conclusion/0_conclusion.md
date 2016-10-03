@@ -38,6 +38,8 @@ TODO:
 - This work allows for models to take in streams of data, e.g., from Github, to
 create models that can be used in general cases.
 - Dependencies: update a model with text from dependencies as they are updated
+- Window: how much "lag" is acceptable in a historical simulation, e.g., can we
+  use a standard sized mini-batch and still remain robust?
 
 ## Last Words {#sec:conclusion-final}
 
