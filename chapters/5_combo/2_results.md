@@ -29,21 +29,6 @@ yield moderately high performance for both tasks.
 \input{tables/tika_model_sweep}
 \input{tables/zookeeper_model_sweep}
 
-
-\input{figures/combo/flt_rq1_bookkeeper}
-\input{figures/combo/dit_rq1_bookkeeper}
-\input{figures/combo/flt_rq1_mahout}
-\input{figures/combo/dit_rq1_mahout}
-\input{figures/combo/flt_rq1_openjpa}
-\input{figures/combo/dit_rq1_openjpa}
-\input{figures/combo/flt_rq1_pig}
-\input{figures/combo/dit_rq1_pig}
-\input{figures/combo/flt_rq1_tika}
-\input{figures/combo/dit_rq1_tika}
-\input{figures/combo/flt_rq1_zookeeper}
-\input{figures/combo/dit_rq1_zookeeper}
-
-
 \ctwo{} asks what portions of a changeset are most critical for performance of
 different tasks, specifically for feature location and developer
 identification.  Tables \ref{table:bookkeeper_corpus_sweep},
@@ -69,17 +54,3 @@ shared between systems or tasks.
 \input{tables/tika_corpus_sweep}
 \input{tables/zookeeper_corpus_sweep}
 
-
-
-\input{figures/combo/flt_rq2_bookkeeper}
-\input{figures/combo/dit_rq2_bookkeeper}
-\input{figures/combo/flt_rq2_mahout}
-\input{figures/combo/dit_rq2_mahout}
-\input{figures/combo/flt_rq2_openjpa}
-\input{figures/combo/dit_rq2_openjpa}
-\input{figures/combo/flt_rq2_pig}
-\input{figures/combo/dit_rq2_pig}
-\input{figures/combo/flt_rq2_tika}
-\input{figures/combo/dit_rq2_tika}
-\input{figures/combo/flt_rq2_zookeeper}
-\input{figures/combo/dit_rq2_zookeeper}
