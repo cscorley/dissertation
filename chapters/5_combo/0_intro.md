@@ -23,7 +23,7 @@ literature that different configurations may be better suited for different
 tasks [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
 Likewise, we must also make choice with respect to corpus construction
-[@Biggers-etal_2014].  As found by @Bassett-Kraft_2015, LDA can achieve higher
+[@Biggers-etal_2014].  As found by @Bassett-Kraft_2013, LDA can achieve higher
 performance by adjusting certain elements of a corpus.  While we do not have
 enough source code in changesets to be parsed, we do have structure in the
 changeset itself in the form of the diff.  That is, we have lines removed and

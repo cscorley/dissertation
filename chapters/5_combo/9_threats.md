@@ -1,4 +1,4 @@
-## Threats to Validity {#sec:combo-threats}
+### Threats to Validity {#sec:combo-threats}
 
 \todo{more of this}
 
@@ -6,7 +6,7 @@ Our studies have limitations that impact the validity of our findings, as well
 as our ability to generalize them. We describe some of these limitations and
 their impacts.
 
-### Construct Validity
+#### Construct Validity
 
 Threats to construct validity concern measurements accurately reflecting the
 features of interest.  A possible threat to construct validity is our
@@ -17,7 +17,7 @@ Additionally, datasets extracted source code entities automatically from
 changesets, previous work shows this approach is on par with manual extraction
 [@Corley-etal_2011].
 
-### Internal Validity
+#### Internal Validity
 
 Threats to internal validity include possible defects in our tool chain and
 possible errors in our execution of the study procedure, the presence of which
@@ -27,7 +27,7 @@ quality of our data.  Because we applied the same tool chain to all subject
 systems, any errors are systematic and are unlikely to affect our results
 substantially.
 
-### External Validity
+#### External Validity
 
 Threats to external validity concern the extent to which we can generalize our
 results.  The subjects of our study comprise fourteen open source projects in
@@ -36,6 +36,6 @@ languages.  However, the systems are of different sizes, are from different
 domains, and have characteristics in common with those of systems developed in
 industry.
 
-### Conclusion Validity
+#### Conclusion Validity
 
 
