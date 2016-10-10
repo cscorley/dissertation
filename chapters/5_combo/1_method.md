@@ -21,13 +21,13 @@ each individual developer changed in those changesets.  The left side of Figure
 
 The document extraction process for snapshot and changesets corpora remain the
 same as covered in Section \ref{sec:flt-approach}.  The document extraction
-process for the developer corpus remains the same as covered in Section
-\ref{sec:dit-approach}.
+process for the corpus of developer profiles remains the same as covered in
+Section \ref{sec:dit-approach}.
 
 The right side of Figure \ref{fig:changeset-combo} illustrates the retrieval
 process.  For brevity, the queries and ranking do not appear in the diagram as
 they remain the same as described for each search engine in their respective
-sections, Section \ref{sec:flt-approach} and \ref{sec:dit-approach}.  We train
+sections, Sections \ref{sec:flt-approach} and \ref{sec:dit-approach}.  We train
 a topic model on the changeset corpus and construct search engines for each
 task separately.  In the source code search engine we build an index from the
 snapshot corpus.  In the developer search engine we build an index from the
@@ -59,7 +59,9 @@ more topics for optimal performance.  Table \ref{table:combo-rq1} outlines the
 factors about the model construction we will consider, giving us 48 possible
 combinations.  The factors $\alpha$ and $\eta$ vary between several common
 values, but also include automatic learning of these two hyper-parameters
-[@Hoffman-etal_2010].
+[@Hoffman-etal_2010].  As in Chapters \ref{chap:flt} and \ref{chap:dit}, the
+changeset corpus construction for \cone does not change and includes the entire
+`diff`, but does not include the message.
 
 \input{tables/case_study_factors}
 
@@ -85,25 +87,22 @@ of the first relevant document, whether that document represents a source code
 entity or developer profile, and represents the number of documents entities a
 developer or triager would have to view before reaching a relevant one.  Most
 importantly, this effectiveness measure allows evaluating our approach by using
-the mean reciprocal rank (MRR) and the Wilcoxon signed-rank test.
+various rank-based metrics and statistical methods.
 
-To answer \cone, we run the experiment of each task across all possible
-configurations using the changeset corpus.  We then calculate the MRR of each
-configuration's effectiveness measures.  Using MRR, we create two pairs of
-effectiveness measures using the optimal configuration of each task.  The FLT
-result pair consists of the optimal FLT configuration and the alternative FLT
-configuration, or the configuration that is optimal for DIT.  The DIT pair is
-analogous.  We then use the Wilcoxon signed-rank test with Holm correction to
-determine the statistical significance of the difference between two
-configurations of interest in each task's pairing.
+\todo{Should I break down \cone into two subquestions: model and corpus?}
 
-To answer \ctwo, we 
-\todo{ugh i hate this}
+To answer \cone, we run the experiment of each task across all possible model
+configurations while using the same changeset corpus.  We then calculate the
+MRR of each configuration's effectiveness measures.  Using MRR, we create two
+pairs of effectiveness measures using the optimal configuration of each task.
+The FLT result pair consists of the optimal FLT configuration and the
+alternative FLT configuration, or the configuration that is optimal for DIT.
+The DIT pair is analogous.  We then use the Wilcoxon signed-rank test with Holm
+correction to determine the statistical significance of the difference between
+two configurations of interest in each task's pairing.
 
-We must note that when performing evaluations on FLTs, it is possible to
-encounter a query that will fail to retrieve any related documents.  This is
-related to both our approach and goldset extraction process.  Since our
-approach indexes only on the snapshot corpus for a particular commit of
-interest, it is possible that a file changed to fix a particular issue in the
-goldset no longer exists or was never committed to source control by
-maintainers.  We exclude these queries from all analysis.
+To answer \ctwo, we run the experiment of each task, this time varying the
+configurations used for corpus construction while using the same model
+configuration across all instances.  We then calculate the MRR of each
+configuration's effectiveness measures.
+
