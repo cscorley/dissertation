@@ -91,18 +91,30 @@ various rank-based metrics and statistical methods.
 
 \todo{Should I break down \cone into two subquestions: model and corpus?}
 
-To answer \cone, we run the experiment of each task across all possible model
-configurations while using the same changeset corpus.  We then calculate the
-MRR of each configuration's effectiveness measures.  Using MRR, we create two
-pairs of effectiveness measures using the optimal configuration of each task.
-The FLT result pair consists of the optimal FLT configuration and the
-alternative FLT configuration, or the configuration that is optimal for DIT.
-The DIT pair is analogous.  We then use the Wilcoxon signed-rank test with Holm
-correction to determine the statistical significance of the difference between
-two configurations of interest in each task's pairing.
+For both research questions, we run the experiment of each task across all
+possible configurations from two sets of configurations, shown in Tables
+\ref{table:combo-rq1} and \ref{table:combo-rq2}.  The first set of
+configurations varies the model parameters, while the second set of
+configurations varies the corpus construction inclusion parameters.  Each set
+is associated with a "default" configuration for the other, e.g., all
+variations of model configurations use the same corpus configuration and vice
+versa.  The default configurations are the same used throughout this thesis.
+\todo{Need to explicitly say which configurations are used for all chapters!}
 
-To answer \ctwo, we run the experiment of each task, this time varying the
-configurations used for corpus construction while using the same model
-configuration across all instances.  We then calculate the MRR of each
-configuration's effectiveness measures.
+To answer \cone, we collect the effectiveness measures of each configuration
+variation and use them calculate the MRR.  For each task, we create a pair of
+effectiveness measures using the optimal configuration, where the optimal
+configuration is the one with the highest MRR for that task.  For example, the
+FLT result pair consists of the FLT configuration with the highest MRR as its
+optimal configuration and the results of the same configuration for the DIT
+task.  The DIT pairing is analogous.  We then use the Wilcoxon signed-rank test
+with Holm correction to determine the statistical significance of the
+difference between the optimal and alternative results for any given
+configuration and task.
 
+To answer \ctwo, we focus on configurations that vary the inclusion of text
+sources used for corpus construction.  We use the same data that was collected,
+but our statistical analysis will differ from \cone.  First, for each task, we
+conduct a Friedman Chi-Square ($\chi^2$) test on the effectiveness measures of
+the 15 corpus configurations.
+\todo{what post test}
