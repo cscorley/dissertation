@@ -114,7 +114,9 @@ configuration and task.
 
 To answer \ctwo, we focus on configurations that vary the inclusion of text
 sources used for corpus construction.  We use the same data that was collected,
-but our statistical analysis will differ from \cone.  First, for each task, we
-conduct a Friedman Chi-Square ($\chi^2$) test on the effectiveness measures of
-the 15 corpus configurations.
-\todo{what post test}
+but our statistical analysis will differ from \cone.  For each task, since we
+have paired data across all 15 configurations, i.e., each configuration has
+effectiveness measures for the same issues, we conduct a Friedman Chi-Square
+($\chi^2$) test.  We then perform Wilcoxon signed-rank tests to determine which
+inclusions have an affect, i.e., we compare effectiveness measures of all ranks
+when the text source is included and when it is not.
