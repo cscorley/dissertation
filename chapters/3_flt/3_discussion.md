@@ -82,6 +82,8 @@ other > 422 (50.000000%):	10	0.0699300699301
 worst (Changesets - Snapshot) 639.0 -680.0
 total:	143
 
+-->
+
 \input{figures/flt/rq1_bookkeeper}
 
 Figure \ref{fig:flt:rq1:bookkeeper} shows the effectiveness measures for
@@ -89,7 +91,6 @@ Figure \ref{fig:flt:rq1:bookkeeper} shows the effectiveness measures for
 snapshots, even though the difference of MRR is only $0.0056$ (Table
 \ref{table:feature_location_rq1}.)
 
--->
 
 <!-- Mahout v0.10.0
 max bound:	1556
@@ -112,9 +113,10 @@ other > 778 (50.000000%):	4	0.08
 worst (Changesets - Snapshot) 865.0 -1133.0
 total:	50
 
-\input{figures/flt/rq1_mahout}
 
 -->
+
+\input{figures/flt/rq1_mahout}
 
 <!-- OpenJPA v2.3.0
 max bound:	4968
@@ -137,9 +139,10 @@ other > 2484 (50.000000%):	3	0.0229007633588
 worst (Changesets - Snapshot) 888.0 -4478.0
 total:	131
 
-\input{figures/flt/rq1_openjpa}
 
 -->
+
+\input{figures/flt/rq1_openjpa}
 
 <!-- Pig v0.14.0
 max bound:	2098
@@ -162,9 +165,9 @@ other > 1049 (50.000000%):	7	0.0402298850575
 worst (Changesets - Snapshot) 762.0 -1556.0
 total:	174
 
-\input{figures/flt/rq1_pig}
-
 -->
+
+\input{figures/flt/rq1_pig}
 
 <!-- Tika v1.8
 max bound:	954
@@ -187,9 +190,10 @@ other > 477 (50.000000%):	2	0.0555555555556
 worst (Changesets - Snapshot) 163.0 -539.0
 total:	36
 
-\input{figures/flt/rq1_tika}
 
 -->
+
+\input{figures/flt/rq1_tika}
 
 <!-- ZooKeeper v3.5.0
 max bound:	927
@@ -212,9 +216,10 @@ other > 464 (50.000000%):	6	0.0248962655602
 worst (Changesets - Snapshot) 405 -517
 total:	241
 
-\input{figures/flt/rq1_zookeeper}
 
 -->
+
+\input{figures/flt/rq1_zookeeper}
 
 ### \ftwoq
 
@@ -284,8 +289,9 @@ other > 422 (50.000000%):	2	0.013986013986
 worst (Changesets - Historical) 620.0 -392.0
 total:	143
 
-\input{figures/flt/rq2_bookkeeper}
 -->
+
+\input{figures/flt/rq2_bookkeeper}
 
 <!-- Mahout v0.10.0
 max bound:	1556
@@ -307,9 +313,9 @@ other > 778 (50.000000%):	1	0.02
 worst (Changesets - Historical) 823.0 -636.0
 total:	50
 
-\input{figures/flt/rq2_mahout}
-
 -->
+
+\input{figures/flt/rq2_mahout}
 
 <!-- OpenJPA v2.3.0
 max bound:	4968
@@ -331,8 +337,9 @@ other > 2484 (50.000000%):	0	0.0
 worst (Changesets - Historical) 594.0 -2153.0
 total:	131
 
-\input{figures/flt/rq2_openjpa}
 -->
+
+\input{figures/flt/rq2_openjpa}
 
 <!-- Pig v0.14.0
 max bound:	2098
@@ -354,8 +361,9 @@ other > 1049 (50.000000%):	1	0.00574712643678
 worst (Changesets - Historical) 1062.0 -784.0
 total:	174
 
-\input{figures/flt/rq2_pig}
 -->
+
+\input{figures/flt/rq2_pig}
 
 <!-- Tika v1.8
 max bound:	954
@@ -377,8 +385,9 @@ other > 477 (50.000000%):	0	0.0
 worst (Changesets - Historical) 101.0 -128.0
 total:	36
 
-\input{figures/flt/rq2_tika}
 -->
+
+\input{figures/flt/rq2_tika}
 
 <!-- ZooKeeper v3.5.0
 max bound:	927
@@ -400,8 +409,9 @@ other > 464 (50.000000%):	0	0.0
 worst (Changesets - Historical) 415 -183
 total:	241
 
-\input{figures/flt/rq2_zookeeper}
 -->
+
+\input{figures/flt/rq2_zookeeper}
 
 
 ### Situations

@@ -75,9 +75,10 @@ other > 3 (50.000000%):	12	0.0731707317073
 worst (Changesets - Snapshot) 4.0 -4.0
 total:	164
 
-\input{figures/dit/rq1_bookkeeper}
 
 -->
+
+\input{figures/dit/rq1_bookkeeper}
 
 <!-- Mahout v0.10.0
 max bound:	38
@@ -99,9 +100,9 @@ other > 19 (50.000000%):	8	0.0601503759398
 worst (Changesets - Snapshot) 33.0 -19.0
 total:	133
 
-\input{figures/dit/rq1_mahout}
 
 -->
+\input{figures/dit/rq1_mahout}
 
 <!-- OpenJPA v2.3.0
 max bound:	26
@@ -123,8 +124,9 @@ other > 13 (50.000000%):	7	0.0510948905109
 worst (Changesets - Snapshot) 13.0 -21.0
 total:	137
 
-\input{figures/dit/rq1_openjpa}
 -->
+
+\input{figures/dit/rq1_openjpa}
 
 <!-- Pig v0.14.0
 max bound:	28
@@ -146,8 +148,9 @@ other > 14 (50.000000%):	8	0.036036036036
 worst (Changesets - Snapshot) 17.0 -22.0
 total:	222
 
-\input{figures/dit/rq1_pig}
 -->
+
+\input{figures/dit/rq1_pig}
 
 <!-- Tika v1.8
 max bound:	26
@@ -169,8 +172,9 @@ other > 13 (50.000000%):	2	0.05
 worst (Changesets - Snapshot) 18.0 -6.0
 total:	40
 
-\input{figures/dit/rq1_tika}
 -->
+
+\input{figures/dit/rq1_tika}
 
 <!-- ZooKeeper v3.5.0
 max bound:	16
@@ -192,8 +196,8 @@ other > 8 (50.000000%):	4	0.0111420612813
 worst (Changesets - Snapshot) 10.0 -10.0
 total:	359
 
-\input{figures/dit/rq1_zookeeper}
 -->
+\input{figures/dit/rq1_zookeeper}
 
 ### \dtwoq
 
@@ -265,8 +269,9 @@ other > 3 (50.000000%):	5	0.0306748466258
 worst (Changesets - Historical) 4.0 -3.0
 total:	163
 
-\input{figures/dit/rq2_bookkeeper}
 -->
+
+\input{figures/dit/rq2_bookkeeper}
 
 <!-- Mahout v0.10.0
 max bound:	38
@@ -288,8 +293,9 @@ other > 19 (50.000000%):	14	0.107692307692
 worst (Changesets - Historical) 37.0 -25.0
 total:	130
 
-\input{figures/dit/rq2_mahout}
 -->
+
+\input{figures/dit/rq2_mahout}
 
 <!-- OpenJPA v2.3.0
 max bound:	26
@@ -311,8 +317,9 @@ other > 13 (50.000000%):	5	0.0367647058824
 worst (Changesets - Historical) 23.0 -20.0
 total:	136
 
-\input{figures/dit/rq2_openjpa}
 -->
+
+\input{figures/dit/rq2_openjpa}
 
 <!-- Pig v0.14.0
 max bound:	28
@@ -334,8 +341,9 @@ other > 14 (50.000000%):	2	0.00904977375566
 worst (Changesets - Historical) 18.0 -10.0
 total:	221
 
-\input{figures/dit/rq2_pig}
 -->
+
+\input{figures/dit/rq2_pig}
 
 <!-- Tika v1.8
 max bound:	26
@@ -357,8 +365,9 @@ other > 13 (50.000000%):	2	0.0512820512821
 worst (Changesets - Historical) 19.0 -7.0
 total:	39
 
-\input{figures/dit/rq2_tika}
 -->
+
+\input{figures/dit/rq2_tika}
 
 <!-- ZooKeeper v3.5.0
 max bound:	16
@@ -380,8 +389,9 @@ other > 8 (50.000000%):	9	0.0254237288136
 worst (Changesets - Historical) 9.0 -10.0
 total:	354
 
-\input{figures/dit/rq2_zookeeper}
 -->
+
+\input{figures/dit/rq2_zookeeper}
 
 ### Situations
 
