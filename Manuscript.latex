@@ -17,7 +17,7 @@
 \usepackage{subcaption}
 \usepackage{textcase}
 \usepackage{textcomp,upquote}
-\usepackage{xcolor}
+\usepackage[table,x11names]{xcolor}
 \usepackage{bm}
 
 \counterwithout{footnote}{chapter}
