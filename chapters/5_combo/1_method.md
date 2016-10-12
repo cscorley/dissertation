@@ -119,4 +119,4 @@ have paired data across all 15 configurations, i.e., each configuration has
 effectiveness measures for the same issues, we conduct a Friedman Chi-Square
 ($\chi^2$) test.  We then perform Wilcoxon signed-rank tests to determine which
 inclusions have an affect, i.e., we compare effectiveness measures of all ranks
-when the text source is included and when it is not.
+when the text source is included against excluded.

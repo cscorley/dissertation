@@ -3,11 +3,17 @@
 
 ### \coneq
 
-In Table \ref{table:bookkeeper_model_sweep}, we see that \bookkeeper performs
-best for each task with 500 topics (i.e., $K = 500$) and an automatically
-learned $\alpha$. The FLT performs better with $\eta = 1/K$, while the DIT
-performs better at $\eta = 2/K$. However, each configuration's other task does
-not suffer from large performance drops. For example, the optimal FLT
+Overall, all systems performed best for the DIT when $K = 500$, while lower $K$
+work slightly better for the FLT with exception to \todo{blah}.  Automatic
+learning of hyperparameters $\alpha$ and $\eta$ also yield higher performance
+throughout.
+
+\bookkeeper was found to have the same optimal parameters for both tasks.  In
+Table \ref{table:bookkeeper_model_sweep}, we see that \bookkeeper performs best
+for each task with 500 topics (i.e., $K = 500$) and an automatically learned
+$\alpha$. The FLT performs better with $\eta = 1/K$, while the DIT performs
+better at $\eta = 2/K$. However, each configuration's other task does not
+suffer from large performance drops. For example, the optimal FLT
 configuration, $K=500, \alpha=auto, \eta=1/K$, does not lose much performance
 for the DIT.
 

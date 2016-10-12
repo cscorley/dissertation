@@ -14,14 +14,10 @@ respectively. In the tables, we bold entries where the MRR is highest for each
 of the two tasks. Our goal is not to find which configuration works best for
 each system and task, but rather to determine whether one configuration is
 *capable* of producing acceptable results for both tasks.
+\todo{highlight the results from default configs of other chapters}
 
-Overall, all systems performed best for the DIT when $K = 500$, while lower $K$
-work slightly better for the FLT with exception to BookKeeper.  Automatic
-learning of hyperparameters $\alpha$ and $\eta$ also yield higher performance
-throughout.  Although no configuration was found in any system that yielded
-optimal parameters for both tasks, there are several configurations that do
-yield moderately high performance for both tasks.
 
+Overall,
 
 \input{tables/all_model_sweep}
 \input{tables/bookkeeper_model_sweep}
