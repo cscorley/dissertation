@@ -10,6 +10,7 @@ lof: Yes
 lot: Yes
 loa: Yes
 appendices: Yes
+links-as-notes: Yes
 
 # front matter
 location: Tuscaloosa, Alabama

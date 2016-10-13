@@ -97,6 +97,62 @@ our evaluations to capture any entities added to address the issue report, as
 well as changed entities, but does not capture any entities removed by the
 change.
 
+#### Setting {#sec:flt-setting}
+
+Our document extraction process is shown on the left side of Figure
+\ref{fig:changeset-flt}.  We implemented our document extractor in Python v2.7
+using the [Dulwich library](http://www.samba.org/~jelmer/dulwich/) for
+interacting with the source code repository.  We extract documents from both a
+snapshot of the repository at a tagged snapshot and each commit reachable from
+that tag's commit.  The same preprocessing steps are employed on all extracted
+documents.
+
+To extract text from the changesets, we look at the \texttt{git diff} between
+two commits.  In our changeset text extractor, we extract all text related to
+the change, e.g., context, removed, and added lines; metadata lines are ignored.
+Note that we do not consider where the text originates from, only that it is
+text changed by the commit.
+
+After extracting tokens, we split the tokens based on camel case, underscores,
+and non-letters.  We only keep the split tokens; original tokens are discarded.
+We normalize to lower case before filtering non-letters, English stop
+words [@Fox_1992], Java keywords, and words shorter than three characters
+long.  We do not stem words.
+
+We implemented our modeling using the Python library Gensim
+[@Rehurek-Sojk_2010], version 0.12.1. We use the same configurations on each
+subject system.  We do not try to adjust parameters between the different
+systems to attempt to find a better, or best, solution; rather, we leave them
+the same to reduce confounding variables.  We do realize that this may lead to
+topic models that may not be best-suited for feature location on a particular
+subject system.  However, this constraint gives us confidence that the
+measurements collected are fair and that the results are not influenced by
+selective parameter tweaking.  Again, our goal is to show the performance of
+the changeset-based FLT against snapshot-based FLT under the same conditions.
+
+Gensim's LDA implementation is based on an online LDA by @Hoffman-etal_2010 and
+uses variational inference instead of a collapsed Gibbs sampler.  Unlike Gibbs
+sampling, in order to ensure that the model converges for each document, we set
+the model to take $1000$ iterations over a document during the inference step,
+and as many passes over the corpus as needed until there is little improvement
+in the evidence lower bound. That is, we allow the model to behave as a batch,
+or offline, model.  We set the following LDA parameters for all systems: $500$
+topics, a symmetric $\alpha=1/K$, and a symmetric $\eta=1/K$.  These are
+default values for $\alpha$ and $\eta$ in Gensim, and have been found to work
+well for the FLT task [@Biggers-etal_2014].
+
+For the historical simulation, since we must use online training, we found it
+beneficial to consider two new parameters for online LDA: $\kappa$ and
+$\tau_0$.  As noted in @Hoffman-etal_2010, it is beneficial to adjust $\kappa$
+and $\tau_0$ to higher values for smaller mini-batches, e.g. a single
+changeset.  These two parameters control how much influence a new mini-batch
+has on the model when training.  We follow the recommendations in
+@Hoffman-etal_2010, choosing $\tau_0=1024$ and $\kappa=0.9$ for all systems,
+because the historical simulation often has mini-batch sizes in single digits.
+Additionally, since we are operating in fully online mode, we cannot take
+multiple passes over the entire corpus as that would defeat the purpose of a
+historical simulation.
+
 #### Data Collection and Analysis {#sec:flt-data-collection}
 
 To evaluate the performance of a topic-modeling-based FLT we cannot use

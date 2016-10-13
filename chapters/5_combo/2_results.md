@@ -11,10 +11,10 @@ Tables \ref{table:bookkeeper_model_sweep}, \ref{table:mahout_model_sweep},
 \ref{table:tika_model_sweep}, and \ref{table:zookeeper_model_sweep} show the
 results for \bookkeeper, \mahout, \openjpa, \pig, \tika, and \zookeeper,
 respectively. In the tables, we bold entries where the MRR is highest for each
-of the two tasks. Our goal is not to find which configuration works best for
-each system and task, but rather to determine whether one configuration is
-*capable* of producing acceptable results for both tasks.
-\todo{highlight the results from default configs of other chapters}
+of the two tasks and also highlight the row of the configuration used
+throughout this dissertation. Our goal is not to find which configuration works
+best for each system and task, but rather to determine whether one
+configuration is *capable* of producing acceptable results for both tasks.
 
 
 Overall,
@@ -35,8 +35,9 @@ over all subject systems. Tables \ref{table:bookkeeper_corpus_sweep},
 \ref{table:pig_corpus_sweep}, \ref{table:tika_corpus_sweep}, and
 \ref{table:zookeeper_corpus_sweep} show the results for \bookkeeper, \mahout,
 \openjpa, \pig, \tika, and \zookeeper, respectively. In the tables, we bold
-entries where the MRR is highest for each of the two tasks. Our goal is not to
-find which configuration works best for each system and task, but rather to
+entries where the MRR is highest for each of the two tasks and also highlight
+the row of the configuration used throughout this dissertation. Our goal is not
+to find which configuration works best for each system and task, but rather to
 determine whether one configuration is *capable* of producing acceptable
 results for both tasks.
 
