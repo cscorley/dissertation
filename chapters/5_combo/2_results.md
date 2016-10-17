@@ -50,8 +50,14 @@ whether a particular text source affects the tasks.
 
 As seen in the results for \cone, the results for the corpus construction sweep
 vary across systems and tasks.  Importantly, there does not seem to be any
-particular configuration that is shared between systems or tasks.
+particular configuration that is shared between systems or tasks.  For all
+subject systems, both tasks perform best when including changeset context and
+message text sources. FLT sees a slight increase in MRR ($0.0417$) when the
+additions text source is included, while DIT slightly decreases in MRR
+($0.038$).
 
+The Friedman test reveals significance for both FLT ($p < 0.01$) and DIT ($p <
+0.01$), indicated a difference between configurations for each task.
 
 
 \input{tables/all_corpus_sweep}
