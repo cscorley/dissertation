@@ -24,8 +24,10 @@ for the DIT.
 ($MRR=0.1705$) for the optimal DIT configuration. Likewise, the DIT performance
 also drops for the optimal FLT configuration.
 
+<!-- These are a pain in the side to generate right now. Ignoring.
 \input{figures/combo/flt_rq1_all}
 \input{figures/combo/dit_rq1_all}
+-->
 
 <!--
 As \bookkeeper has optimal configurations for both FLT and DIT, there is no
@@ -52,8 +54,10 @@ choice to make.
 
 ### \ctwoq
 
+<!-- These are a pain in the side to generate right now. Ignoring.
 \input{figures/combo/flt_rq2_all}
 \input{figures/combo/dit_rq2_all}
+-->
 
 \input{figures/combo/flt_rq2_bookkeeper}
 \input{figures/combo/dit_rq2_bookkeeper}

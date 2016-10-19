@@ -9,7 +9,7 @@ task, specifically for feature location and developer identification. Tables
 results over all subject systems for model construction and corpus
 construction, respectively.  In the tables, we bold entries where the MRR is
 highest for each of the two tasks and also highlight the row of the
-configuration used throughout this dissertation. Our goal is not to find which
+configuration used throughout this dissertation.  Our goal is not to find which
 configuration works best for each system and task, but rather to determine
 whether one configuration is *capable* of producing acceptable results for both
 tasks.
