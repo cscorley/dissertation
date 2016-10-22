@@ -180,4 +180,7 @@ related to both our approach and goldset extraction process.  Since our
 approach indexes only on the snapshot corpus for a particular commit of
 interest, it is possible that a file changed to fix a particular issue in the
 goldset no longer exists or was never committed to source control by
-maintainers.  We exclude these queries from all analysis.
+maintainers.  We exclude these queries from all analysis.  One alternative to
+exclusion would be to penalize the score by assigning maximum rank to the
+failed query.  We choose exclusion over penalization as there is no evidence
+supporting penalization to the best of our knowledge.

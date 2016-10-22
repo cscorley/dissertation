@@ -36,10 +36,13 @@ TODO:
 - Replicate to other online models -- LSI, D2V when possible
 - Language models (trained on N Java projects) vs single-project models
 - This work allows for models to take in streams of data, e.g., from Github, to
-create models that can be used in general cases.
+  create models that can be used in general cases.
 - Dependencies: update a model with text from dependencies as they are updated
 - Window: how much "lag" is acceptable in a historical simulation, e.g., can we
   use a standard sized mini-batch and still remain robust?
+- Need to investigate why failures happen (my feeling is that they fail because
+  the goldsets are bad -- e.g., the files changed by an issue were not in the
+  corpus at query time)
 
 ## Last Words {#sec:conclusion-final}
 
