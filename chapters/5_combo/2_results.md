@@ -17,9 +17,14 @@ tasks.
 For model construction, the both tasks perform best when $K=500$ and
 $\eta=auto$, but differ when it comes to $\alpha$. FLT prefers the lower alpha,
 $2/K$, while DIT is best with the highest alpha, $5/K$.  A Wilcoxon rank-sum
-test reveals that the optimal FLT is \attn{xxxx} compared to the alternate.
-Likewise, a Wilcoxon rank-sum test reveals that the optimal DIT is \attn{xxxx}
-compared to the alternate.  This suggests that \attn{xxxx}
+test reveals that the optimal FLT is statistically significant ($p<0.01$)
+compared to the alternate with an effect size low at $r=0.2181$.  Likewise, a
+Wilcoxon rank-sum test reveals that the optimal DIT is not statistically
+significant ($p=0.2262$) compared to the alternate.  This suggests that the DIT
+is less sensitive to parameter changes, allowing the user to select the model
+configuration that works best for FLT.
+<!-- probably due to the less actual ranks possible -->
+
 
 \todo{repeat this test against each system, construct wilcoxon table?}
 
@@ -27,9 +32,12 @@ For corpus construction, the both tasks perform best when including the context
 and message, but differ when it comes to including additions. FLT prefers
 additions to be included, while DIT does not.  Neither task performs best when
 removals are included.  A Wilcoxon rank-sum test reveals that the optimal FLT
-is \attn{xxxx} compared to the alternate.  Likewise, a Wilcoxon rank-sum test
-reveals that the optimal DIT is \attn{xxxx} compared to the alternate.  This
-suggests that \attn{xxxx}
+is statistically significant ($p<0.01$) compared to the alternate with an
+effect size of $r=0.1273$.  Likewise, a Wilcoxon rank-sum test also reveals
+that the optimal DIT is statistically significant ($p<0.01$) compared to the
+alternate with an effect size of $r=0.2580$.  This suggests that correct corpus
+construction plays a somewhat important role in both tasks, but the effect of
+choosing an alternate over the optimal is low.
 
 \todo{repeat this test against each system, construct wilcoxon table?}
 
@@ -52,7 +60,7 @@ As seen in the results for \cone, the results for the corpus construction sweep
 vary across systems and tasks.  Importantly, there does not seem to be any
 particular configuration that is shared between systems or tasks.  For all
 subject systems, both tasks perform best when including changeset context and
-message text sources. FLT sees a slight increase in MRR ($0.0417$) when the
+message text sources. FLT sees a slight increase in MRR ($0.0546$) when the
 additions text source is included, while DIT slightly decreases in MRR
 ($0.038$).
 
