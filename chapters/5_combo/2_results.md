@@ -48,6 +48,7 @@ choosing an alternate over the optimal is low.
 \input{tables/pig_model_sweep}
 \input{tables/tika_model_sweep}
 \input{tables/zookeeper_model_sweep}
+\input{tables/combo_friedman_results} 
 
 \ctwo{} asks what portions of a changeset are most critical for performance of
 different tasks, specifically for feature location and developer

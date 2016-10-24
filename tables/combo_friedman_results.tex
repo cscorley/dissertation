@@ -1,0 +1,45 @@
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\parbox{.45\linewidth}{
+\centering
+\caption{Friedman test results for FLT}
+\label{table:combo-friedman-flt}
+\begin{tabular}{lrr}
+\toprule
+                      Subject &  $\chi^2(15)$ &  p-value \\
+\midrule
+            BookKeeper v4.3.0 &    120.178710 & $p<0.01$ \\
+               Mahout v0.10.0 &     13.595833 & $0.4802$ \\
+               OpenJPA v2.3.0 &     39.360167 & $p<0.01$ \\
+                  Pig v0.14.0 &     53.369310 & $p<0.01$ \\
+                    Tika v1.8 &     39.141344 & $p<0.01$ \\
+             ZooKeeper v3.5.0 &     71.613098 & $p<0.01$ \\
+ \midrule
+All subject systems &    204.925199 & $p<0.01$ \\
+\bottomrule
+\end{tabular}
+}
+\hfill
+\parbox{.45\linewidth}{
+\centering
+\caption{Friedman test results for DIT}
+\label{table:combo-friedman-dit}
+\begin{tabular}{lrr}
+\toprule
+                      Subject &  $\chi^2(15)$ &  p-value \\
+\midrule
+            BookKeeper v4.3.0 &    269.159657 & $p<0.01$ \\
+               Mahout v0.10.0 &     50.551436 & $p<0.01$ \\
+               OpenJPA v2.3.0 &    124.629893 & $p<0.01$ \\
+                  Pig v0.14.0 &    887.094000 & $p<0.01$ \\
+                    Tika v1.8 &     23.153468 & $0.0578$ \\
+             ZooKeeper v3.5.0 &    454.495649 & $p<0.01$ \\
+ \midrule
+All subject systems &   1026.420224 & $p<0.01$ \\
+\bottomrule
+\end{tabular}
+}
+\end{spacing}
+\end{table}
+
