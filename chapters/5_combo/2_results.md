@@ -3,9 +3,9 @@
 In this section, we will describe the results of the study outlined in Section
 \ref{sec:combo-design}.
 
-\cone{} ask whether a single topic model can be used for more than a single
+\cone{} asks whether a single topic model can be used for more than a single
 task, specifically for feature location and developer identification. Tables
-\ref{table:all_model_sweep} and \ref{table: all_corpus_sweep} show the summary
+\ref{table:all_model_sweep} and \ref{table:all_corpus_sweep} show the summary
 results over all subject systems for model construction and corpus
 construction, respectively.  In the tables, we bold entries where the MRR is
 highest for each of the two tasks and also highlight the row of the
@@ -72,14 +72,18 @@ all subject systems shows significance for both FLT ($p < 0.01$) and DIT ($p <
 0.01$), indicating a difference between configurations for each task.
 Likewise, the Friedman test for each individual system shows significance for
 both FLT ($p < 0.01$) and DIT ($p < 0.01$), with two exceptions.  The two
-non-significant exceptions were \mahout DIT task with $p=0.4802$ and \tika DIT
+non-significant exceptions were \mahout FLT task with $p=0.4802$ and \tika DIT
 task with $p=0.0578$.
 
 A post-hoc test was conducted using Wilcoxon rank-sum test with Holm correction
-for each possible configuration pairing (105 tests).  For FLT of all subject
-systems, 49 pairs were statistically significant at $p<0.01$.  For DIT of all
-subject systems, 86 pairs were statistically significant at $p<0.01$.
+for each possible configuration pairing (105 tests).  For combined
+effectiveness measures of all subject systems, 49 pairs were statistically
+significant at $p<0.01$ for the FLT task.  Similarly, for the DIT task,
+combined results of all subject systems contains 86 pairs that are
+statistically significant at $p<0.01$.
 
+\todo{output these wilcoxon values to the friedman results tables? they're just
+counts.}
 
 <!--
 

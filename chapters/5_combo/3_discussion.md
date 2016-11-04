@@ -3,26 +3,21 @@
 
 ### \coneq
 
-Overall, all systems performed best for the DIT when $K = 500$, while lower $K$
-work slightly better for the FLT with exception to \todo{blah}.  Automatic
-learning of hyperparameters $\alpha$ and $\eta$ also yield higher performance
-throughout.
 
-\bookkeeper was found to have the same optimal parameters for both tasks.  In
-Table \ref{table:bookkeeper_model_sweep}, we see that \bookkeeper performs best
-for each task with 500 topics (i.e., $K = 500$) and an automatically learned
-$\alpha$. The FLT performs better with $\eta = 1/K$, while the DIT performs
-better at $\eta = 2/K$. However, each configuration's other task does not
-suffer from large performance drops. For example, the optimal FLT
-configuration, $K=500, \alpha=auto, \eta=1/K$, does not lose much performance
-for the DIT.
+Model:
 
-\mahout shows a different set of optimal parameters, as seen in Table
-\ref{table:mahout_model_sweep}. Here, the DIT performs best with $K=500,
-\alpha=auto, \eta=auto$, while the FLT performs best with $K=500, \alpha=5/K,
-\eta=auto$. However, unlike \bookkeeper, performance for the FLT drops by half
-($MRR=0.1705$) for the optimal DIT configuration. Likewise, the DIT performance
-also drops for the optimal FLT configuration.
+1. Maximize the number of topics your system can handle
+2. 1/K or auto-learned parameters will do just fine unless you have good reason
+   to do all of this micro-optimizations
+
+Corpus:
+
+1. There is a need to choose inputs during corpus construction.
+2. Removals seem to usually degrade results, although not dramatically
+3. Additions generally improve the results, likely because it was the code
+   written that resolved the issue.  Message is the same.
+4. Context inclusion seems less impactful, but is generally positive.
+
 
 \input{figures/combo/flt_rq1_all}
 \input{figures/combo/dit_rq1_all}
@@ -50,8 +45,6 @@ choice to make.
 \input{figures/combo/flt_rq1_zookeeper}
 \input{figures/combo/dit_rq1_zookeeper}
 
-### \ctwoq
-
 \input{figures/combo/flt_rq2_all}
 \input{figures/combo/dit_rq2_all}
 
@@ -72,3 +65,7 @@ choice to make.
 
 \input{figures/combo/flt_rq2_zookeeper}
 \input{figures/combo/dit_rq2_zookeeper}
+
+### \ctwoq
+
+\todo{generate boxplots that show all configurations for corpora side-by-side?}
