@@ -3,11 +3,12 @@
 Software developers are often confronted with maintenance tasks that involve
 navigation of repositories that preserve large amounts of project history.
 Navigating these software repositories can be a time-consuming task, because
-their organization can be difficult to understand.  Fortunately, topic models
-such as latent Dirichlet allocation (LDA) [@Blei-etal_2003] can help developers
-to navigate and understand software repositories by discovering topics (word
-distributions) that reveal the thematic structure of the data
-[@Linstead-etal_2007; @Thomas-etal_2011; @Hindle-etal_2014].
+their organization can be difficult to understand, especially when the
+organization is evolving over time.  Fortunately, topic models such as latent
+Dirichlet allocation (LDA) [@Blei-etal_2003] can help developers to navigate
+and understand software repositories by discovering topics (word distributions)
+that reveal the thematic structure of the data [@Linstead-etal_2007;
+@Thomas-etal_2011; @Hindle-etal_2014].
 
 Program comprehension is a prerequisite to incremental change.  A software
 developer tasked with changing a large software system spends effort on program

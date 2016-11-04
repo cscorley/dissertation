@@ -1,12 +1,15 @@
 ## Methodology {#sec:intro-methodology}
 
-In this chapter, we outline the three studies and methodologies used for each.
+In this section, we outline the three studies and methodologies used for each.
 First, I will give a brief reasoning to why changesets are a good choice for a
 training corpus.  Second, we discuss the datasets and benchmarks used
-throughout this work.  Next, we describe the approach for an application of
+throughout this work.
+
+<!--Next, we describe the approach for an application of
 topic models for feature location.  We will then discuss work on the
 application of topic models for developer identification.  Finally, I will
 discuss an approach for using a singular topic model for both of these tasks.
+-->
 
 
 ### Why changesets?
