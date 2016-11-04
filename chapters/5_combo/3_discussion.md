@@ -1,9 +1,6 @@
 ## Discussion {#sec:combo-discussion}
 
 
-### \coneq
-
-
 Model:
 
 1. Maximize the number of topics your system can handle
@@ -17,6 +14,17 @@ Corpus:
 3. Additions generally improve the results, likely because it was the code
    written that resolved the issue.  Message is the same.
 4. Context inclusion seems less impactful, but is generally positive.
+
+
+### \coneq
+
+It seems OK to reuse the same model, but you can always improve results by
+optimizing your configuration per task.
+
+### \ctwoq
+
+There are affects of choosing differing text sources.  It is usually best to
+exclude removals.
 
 
 \input{figures/combo/flt_rq1_all}
@@ -65,7 +73,5 @@ choice to make.
 
 \input{figures/combo/flt_rq2_zookeeper}
 \input{figures/combo/dit_rq2_zookeeper}
-
-### \ctwoq
 
 \todo{generate boxplots that show all configurations for corpora side-by-side?}
