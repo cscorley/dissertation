@@ -191,12 +191,6 @@ $if(title)$
 \maketitle
 $endif$
 
-$if(draft)$
-\newpage
-\chapter*{Draft Versioning}
-\input{tmp/git-log.tex}
-$endif$
-
 
 $if(abstract)$
 \begin{abstract}

@@ -36,8 +36,7 @@ $(DRAFT): $(DRAFT).pdf
 all: $(PAPER).pdf $(DRAFT).pdf
 
 $(GENERATED) :: $(EXTRA_FILES)
-	mkdir -p tmp && touch tmp/git-log.tex
-	./latex-git-log --width=8 --git-c-add=$(URL) --commitlimit=89 > tmp/git-log.tex || true
+	mkdir -p tmp
 	$(PANDOC) \
 		--chapters \
 		--from=markdown \
