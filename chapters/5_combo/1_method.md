@@ -181,4 +181,4 @@ To determine whether including a particular text sources have an affect, we
 turn to Mann-Whitney U tests.  We compare effectiveness measures of all ranks
 when the text source is included against excluded.  We use Mann-Whitney here
 because there is an unequal amount of results between a text source inclusion
-and exclusion due to the invalid configuration of all exclusions.
+and exclusion due to the invalid configuration of all text sources excluded.
