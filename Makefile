@@ -35,6 +35,10 @@ $(DRAFT): $(DRAFT).pdf
 
 all: $(PAPER).pdf $(DRAFT).pdf
 
+deploy: $(PAPER).pdf $(DRAFT).pdf
+	./scripts/upload.sh $(PAPER).pdf 
+	./scripts/upload.sh $(DRAFT).pdf 
+
 $(GENERATED) :: $(EXTRA_FILES)
 	mkdir -p tmp
 	$(PANDOC) \
