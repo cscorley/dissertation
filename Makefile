@@ -115,7 +115,7 @@ $(PAPER).html: $(DEP_FILES) $(GENERATED)
 
 edit:
 	cp ~/papers/papers.bib .
-	vim $(CHAP_FILES)
+	vim -c Goyo $(CHAP_FILES)
 
 tidy:
 	$(RM) *.aux
