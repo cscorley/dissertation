@@ -2,10 +2,6 @@
 
 welp, here's what went well/wrong, and what to try next.
 
-
-
-## Discussion {#sec:conclusion-discussion}
-
 \todo{these comments need to be re-written...}
 
 \todo{explain difference between batch algo and online}

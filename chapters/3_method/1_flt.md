@@ -1,4 +1,4 @@
-## Study Design {#sec:flt-design}
+### Study Design {#sec:flt-design}
 
 In this work, we introduce a topic-modeling-based FLT in which we
 incrementally build the model from source code *changesets*.  By training an
@@ -6,7 +6,7 @@ online learning algorithm using changesets, our FLT maintains an up-to-date
 model without incurring the non-trivial computational cost associated with
 retraining traditional FLTs.
 
-### Approach {#sec:flt-approach}
+#### Approach {#sec:flt-approach}
 
 ![Feature location using changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
 
@@ -50,7 +50,7 @@ developer makes a new commit.  That is, with changesets, we incrementally
 update a model and can query it at any moment.  This allows for a *historical
 simulation* of how a changeset-based FLT would perform in a realistic scenario.
 
-### Evaluation
+#### Evaluation
 
 In this section we describe the design of a case study in which we compare
 topic models trained on changesets to those trained on snapshots.  For this
@@ -62,7 +62,7 @@ work, we pose the following research questions:
 \ftwop
 :   \ftwoq
 
-#### Methodology {#sec:flt-methodology}
+##### Methodology {#sec:flt-methodology}
 
 For snapshots, the process is straightforward and corresponds to Figure
 \ref{fig:snapshot-flt}.  We first train a model on the snapshot corpus using
@@ -97,7 +97,7 @@ our evaluations to capture any entities added to address the issue report, as
 well as changed entities, but does not capture any entities removed by the
 change.
 
-#### Setting {#sec:flt-setting}
+##### Setting {#sec:flt-setting}
 
 Our document extraction process is shown on the left side of Figure
 \ref{fig:changeset-flt}.  We implemented our document extractor in Python v2.7
@@ -153,7 +153,7 @@ Additionally, since we are operating in fully online mode, we cannot take
 multiple passes over the entire corpus as that would defeat the purpose of a
 historical simulation.
 
-#### Data Collection and Analysis {#sec:flt-data-collection}
+##### Data Collection and Analysis {#sec:flt-data-collection}
 
 To evaluate the performance of a topic-modeling-based FLT we cannot use
 measures such as precision and recall.  This is because the FLT creates

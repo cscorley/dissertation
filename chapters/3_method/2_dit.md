@@ -1,4 +1,4 @@
-## Study Design {#sec:dit-design}
+### Study Design {#sec:dit-design}
 
 In this work, we introduce a topic-modeling-based DIT in which we
 incrementally build the model from source code *changesets*.  By training an
@@ -6,7 +6,7 @@ online learning algorithm using changesets, the DIT maintains an up-to-date
 model without incurring the non-trivial computational cost associated with
 retraining traditional DITs.
 
-### Approach {#sec:dit-approach}
+#### Approach {#sec:dit-approach}
 
 ![Developer identification using changesets\label{fig:changeset-triage}](figures/changeset-triage.pdf)
 
@@ -41,7 +41,7 @@ We follow the same process used in Section \ref{sec:flt-approach} for a
 historical simulation of how a changeset-based DIT would perform in a realistic
 scenario.
 
-### Evaluation
+#### Evaluation
 
 In this section we describe the design of a case study in which we
 compare topic models trained on changesets to those trained on snapshots.
@@ -53,7 +53,7 @@ For this work, we pose the following research questions:
 \dtwop
 :   \dtwoq
 
-#### Methodology {#sec:dit-methodology}
+##### Methodology {#sec:dit-methodology}
 
 For snapshots, the process is straightforward, but requires two separate steps.
 First, we need to build a topic model for searching over the source code
@@ -85,7 +85,7 @@ comparisons.  Finally, we continue by updating the model with the next
 mini-batch.
 
 
-#### Setting {#sec:dit-setting}
+##### Setting {#sec:dit-setting}
 
 <!-- This is almost an exact copy of what's in FLT -->
 Our document extraction process is shown on the left side of Figure
@@ -136,7 +136,7 @@ $\tau_0$.  As noted in @Hoffman-etal_2010, it is beneficial to adjust $\kappa$
 and $\tau_0$ to higher values for smaller mini-batches, e.g. a single
 changeset.  These two parameters control how much influence a new mini-batch
 
-#### Data Collection and Analysis {#sec:dit-data-collection}
+##### Data Collection and Analysis {#sec:dit-data-collection}
 
 To evaluate the performance of a topic-modeling-based DIT we cannot use
 measures such as precision and recall.  This is because the DIT creates

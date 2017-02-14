@@ -1,4 +1,4 @@
-## Discussion {#sec:combo-discussion}
+## Combining and Configuring Changeset-based Topic Models {#sec:combo-discussion}
 
 
 Model:

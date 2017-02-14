@@ -1,4 +1,4 @@
-## Discussion {#sec:dit-discussion}
+## Developer Identification {#sec:dit-discussion}
 
 The results outlined in the Results Section \ref{sec:dit-results} warrants some
 qualitative discussion.  In particular, our analysis shows significant affects

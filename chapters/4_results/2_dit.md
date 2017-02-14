@@ -1,4 +1,4 @@
-## Results {#sec:dit-results}
+## Developer Identification {#sec:dit-results}
 
 In this section, we will describe the results of the study outlined in Section
 \ref{sec:dit-design}.

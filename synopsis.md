@@ -71,19 +71,28 @@ implementation.
     - Feature Location
     - Developer Identification
     - Configuration??
-3. Feature Location
-4. Developer Identification
-5. Combining & Configuration
-6. Random seed evaluation
+3. Methodology 
+    1. Why changesets?
+    2. Datasets & Benchmarks
+    3. Metrics
+    4. Study design
+        - General settings
+        - Hypotheses
+        - Data collection & analysis
+        1. Feature Location
+        2. Developer Identification
+        3. Combining & Configuration
+4. Results
+    3. Feature Location
+    4. Developer Identification
+    5. Combining & Configuration
+5. Discussion
+    3. Feature Location
+    4. Developer Identification
+    5. Combining & Configuration
+    9. Threats
 9. Conclusion
     - Future work
     - Last words
 
-
-Each study chapter should stand on its own, with the exception of the
-background chapter.  The sections are standard as:
-    - Introduction
-    - Methodology
-    - Results
-    - Discussion
-    - Threats
+A1. Random seed evaluation??

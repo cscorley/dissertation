@@ -1,6 +1,6 @@
-# Combining and Configuring Changeset-based Topic Models {#chap:combo}
+## Combining and Configuring Changeset-based Topic Models {#sec:combo}
 
-In this chapter, we explore an approach that uses a single changeset model for
+In this section, we explore an approach that uses a single changeset model for
 both FLT and DIT tasks.  First, we describe our motivation in Section
 \ref{sec:combo-motivation}. We then describe our study design in Section
 \ref{sec:combo-design}.  Finally, we describe the results of the study (Section
@@ -8,7 +8,7 @@ both FLT and DIT tasks.  First, we describe our motivation in Section
 \ref{sec:combo-discussion}).
 
 
-## Motivation {#sec:combo-motivation}
+### Motivation {#sec:combo-motivation}
 
 Topic model reuse for two tasks would halve the computational cost required for
 model training.  This presumes, however, that the configuration choices made

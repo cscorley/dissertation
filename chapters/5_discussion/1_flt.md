@@ -1,4 +1,4 @@
-## Discussion {#sec:flt-discussion}
+## Feature Location {#sec:flt-discussion}
 
 The results outlined in the previous section (\ref{sec:flt-results}) warrants
 some qualitative discussion.  In particular, our analysis shows significant

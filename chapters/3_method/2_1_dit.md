@@ -1,11 +1,11 @@
-# Developer Identification {#chap:dit}
+## Developer Identification {#sec:dit}
 
 Developer identification is a triaging activity in which a team member
 identifies a list of developers that are most apt to complete a change request
 and assigning one or more of those developers to the task
 [@McDonald-Ackerman_1998].  @Begel-etal_2010 show that developers need help
 finding expertise within their organization *more than they need help finding
-source code elements*.  In this chapter, we outline an approach using online
+source code elements*.  In this second, we outline an approach using online
 topic models for developer identification.  First, we describe our motivation
 and background in Sections \ref{sec:dit-motivation} and
 \ref{sec:dit-background}, respectively.  We then describe our study design in
@@ -14,7 +14,7 @@ Section \ref{sec:dit-design}.  Finally, we describe the results of the study
 \ref{sec:dit-discussion}).
 
 
-## Motivation {#sec:dit-motivation}
+### Motivation {#sec:dit-motivation}
 
 Software features are functionalities defined by requirements and are
 accessible to developers and users.  Software change is continual, because
@@ -62,7 +62,7 @@ fully-automated system, the system identifies and assigns a developer to the
 change request.  @Anvik-etal_2006 notes that a fully-automated approach may not
 be feasible given the amount of contextual knowledge required for triage.
 
-## Background {#sec:dit-background}
+### Background {#sec:dit-background}
 
 Location-based techniques are a common developer identification technique and
 build upon feature location techniques.  We refer the reader to Section

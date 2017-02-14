@@ -1,4 +1,4 @@
-## Study Design {#sec:combo-design}
+### Study Design {#sec:combo-design}
 
 In this work, we introduce a *combined* approach that allows for coalescing a
 topic-modeling-based FLT and DIT coalesced into using the same topic model
@@ -7,7 +7,7 @@ learning algorithm using changesets and combining the two approaches, we
 essentially cut the computational cost of the two tasks in *half* with a single
 topic model.
 
-### Approach
+#### Approach
 
 ![Combining changeset-based feature location and developer identifiation
 \label{fig:changeset-combo}](figures/changeset-combo.pdf)
@@ -33,7 +33,7 @@ task separately.  In the source code search engine we build an index from the
 snapshot corpus.  In the developer search engine we build an index from the
 developer corpus.
 
-### Evaluation
+#### Evaluation
 
 In this section we describe the design of a exploratory study in which we
 determine whether a single topic model trained on changesets is fit to serve
@@ -45,7 +45,7 @@ two purposes.  For this work, we pose the following research questions:
 \ctwop
 :   \ctwoq
 
-#### Methodology {#sec:combo-methodology}
+##### Methodology {#sec:combo-methodology}
 
 In this work, we reuse the already-created framework from the previous two
 research areas covered in this work.  We will not need to instantiate snapshot
@@ -59,7 +59,7 @@ more topics for optimal performance.  Table \ref{table:combo-rq1} outlines the
 factors about the model construction we will consider, giving us 48 possible
 combinations.  The factors $\alpha$ and $\eta$ vary between several common
 values, but also include automatic learning of these two hyper-parameters
-[@Hoffman-etal_2010].  As in Chapters \ref{chap:flt} and \ref{chap:dit}, the
+[@Hoffman-etal_2010].  As in sections \ref{sec:flt} and \ref{sec:dit}, the
 changeset corpus construction for \cone does not change and includes the entire
 `diff`, but does not include the message.
 
@@ -76,7 +76,7 @@ changeset text.  One combination is invalid because it constructs an empty
 corpus and thus impossible to train a topic model, leaving 15 total
 combinations.
 
-#### Setting {#sec:combo-setting}
+##### Setting {#sec:combo-setting}
 
 <!-- This is literally copied straight from FLT -->
 Our document extraction process is shown on the left side of Figure
@@ -133,7 +133,7 @@ Additionally, since we are operating in fully online mode, we cannot take
 multiple passes over the entire corpus as that would defeat the purpose of a
 historical simulation.
 
-#### Data Collection and Analysis {#sec:combo-data-collection}
+##### Data Collection and Analysis {#sec:combo-data-collection}
 
 To evaluate the performance of a topic-modeling-based FLT and DIT we cannot use
 measures such as precision and recall.  This is because each approach creates

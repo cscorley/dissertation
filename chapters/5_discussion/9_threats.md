@@ -1,4 +1,4 @@
-### Threats to Validity {#sec:dit-threats}
+## Threats to Validity {#sec:threats}
 
 Our studies have limitations that impact the validity of our findings, as well
 as our ability to generalize them. We describe some of these limitations and
@@ -26,10 +26,10 @@ systems, any errors are systematic and are unlikely to affect our results
 substantially.
 
 Another threat to internal validity pertains to the value of parameters such as
-$K$ that we selected for all models trained.  We decided that the activity- and
-location-based approaches should have the same parameters to help facilitate
+$K$ that we selected for all models trained.  We decided that the snapshot- and
+changeset-based approaches should have the same parameters to help facilitate
 evaluation and comparison.  We argue that our study is not about selecting the
-best parameters, but to show that our activity-based approach is reasonable.
+best parameters, but to show that our snapshot-based approach is reasonable.
 
 Further, since LDA implementations such as Gensim rely heavily on randomly
 initialized matrices, we have determined a certain threat with respect to this
@@ -45,6 +45,7 @@ results.  The subjects of our study comprise six open source projects in Java,
 so we cannot generalize our results to systems implemented in other languages.
 However, the systems are of different sizes, are from different domains, and
 have characteristics in common with those of systems developed in industry.
+
 
 #### Conclusion Validity
 

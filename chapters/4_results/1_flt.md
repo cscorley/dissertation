@@ -1,4 +1,4 @@
-## Results {#sec:flt-results}
+## Feature Location {#sec:flt-results}
 
 In this section, we will describe the results of the study outlined in Section
 \ref{sec:flt-design}.
