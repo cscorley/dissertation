@@ -48,7 +48,7 @@ pandoc: $(DEP_FILES) $(GENERATED)
 		--filter pandoc-citeproc \
 		--smart \
 		--toc \
-		--chapters \
+		--top-level-division=chapter \
 		--listings \
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
@@ -60,7 +60,7 @@ debug: $(DEP_FILES) $(GENERATED)
 		--natbib \
 		--smart \
 		--toc \
-		--chapters \
+		--top-level-division=chapter \
 		--listings \
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
@@ -74,7 +74,7 @@ nodraftpandoc: $(DEP_FILES) $(GENERATED)
 		--natbib \
 		--smart \
 		--toc \
-		--chapters \
+		--top-level-division=chapter \
 		--listings \
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
@@ -108,7 +108,7 @@ $(PAPER).html: $(DEP_FILES) $(GENERATED)
 		--filter pandoc-citeproc \
 		--smart \
 		--toc \
-		--chapters \
+		--top-level-division=chapter \
 		--listings \
 		--from=markdown \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).html
