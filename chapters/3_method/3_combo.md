@@ -1,4 +1,5 @@
-## Combining and Configuring Changeset-based Topic Models {#sec:combo}
+## Combining and Configuring Changeset-based Topic Models
+{#sec:combo-methodology}
 
 In this section, we explore an approach that uses a single changeset model for
 both FLT and DIT tasks.  First, we describe our motivation in Section
@@ -31,6 +32,7 @@ and so on -- we do have structure in the changeset itself in the form of the
 `diff` (see Figure \ref{fig:diff}).  That is, we have lines removed and added
 that represent the change, and also lines for context for where the change is
 to be applied.
+
 ### Study Design {#sec:combo-design}
 
 In this work, we introduce a *combined* approach that allows for coalescing a

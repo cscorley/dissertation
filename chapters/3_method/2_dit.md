@@ -1,4 +1,4 @@
-## Developer Identification {#sec:dit}
+## Developer Identification {#sec:dit-methodology}
 
 Developer identification is a triaging activity in which a team member
 identifies a list of developers that are most apt to complete a change request
@@ -62,7 +62,15 @@ fully-automated system, the system identifies and assigns a developer to the
 change request.  @Anvik-etal_2006 notes that a fully-automated approach may not
 be feasible given the amount of contextual knowledge required for triage.
 
-### Background {#sec:dit-background}
+### Study Design {#sec:dit-design}
+
+In this work, we introduce a topic-modeling-based DIT in which we
+incrementally build the model from source code *changesets*.  By training an
+online learning algorithm using changesets, the DIT maintains an up-to-date
+model without incurring the non-trivial computational cost associated with
+retraining traditional DITs.
+
+#### Background {#sec:dit-background}
 
 Location-based techniques are a common developer identification technique and
 build upon feature location techniques.  We refer the reader to Section
@@ -82,13 +90,7 @@ committed changes to a file.  That is, if over the software history Johanna
 modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
 then we consider Johanna as the owner of `foo.py`.  Here, we would assign all
 tasks related to `foo.py` to Johanna.
-### Study Design {#sec:dit-design}
 
-In this work, we introduce a topic-modeling-based DIT in which we
-incrementally build the model from source code *changesets*.  By training an
-online learning algorithm using changesets, the DIT maintains an up-to-date
-model without incurring the non-trivial computational cost associated with
-retraining traditional DITs.
 
 #### Approach {#sec:dit-approach}
 

@@ -1,7 +1,9 @@
-## Feature Location (RP1) {#sec:flt}
+## Feature Location {#sec:flt-methodology}
 
 
 <!--
+    maybe this instead?
+
 ### Background
 ### Hypotheses
 ### Study Design
@@ -21,7 +23,7 @@ in Section \ref{sec:flt-design}.  Finally, we describe the results of the study
 (Section \ref{sec:flt-results}) and discuss them in detail (Section
 \ref{sec:flt-discussion}).
 
-#### Motivation {#sec:flt-motivation}
+### Motivation {#sec:flt-motivation}
 
 \todo{should this be where we introduce the RPs?}
 
@@ -82,7 +84,15 @@ changeset topics.  By contrast, the training and indexing steps of the standard
 methodology have the conceptual effect of relating files to file topics.
 
 
-### Background {#sec:flt-background}
+### Study Design {#sec:flt-design}
+
+In this work, we introduce a topic-modeling-based FLT in which we
+incrementally build the model from source code *changesets*.  By training an
+online learning algorithm using changesets, our FLT maintains an up-to-date
+model without incurring the non-trivial computational cost associated with
+retraining traditional FLTs.
+
+#### Background {#sec:flt-background}
 
 ![Typical feature location process\label{fig:snapshot-flt}](figures/snapshot-flt.pdf)
 
@@ -109,13 +119,6 @@ classification of the query to each document in the index and ranks the
 documents based on the similarities of their thematic structures.
 
 
-### Study Design {#sec:flt-design}
-
-In this work, we introduce a topic-modeling-based FLT in which we
-incrementally build the model from source code *changesets*.  By training an
-online learning algorithm using changesets, our FLT maintains an up-to-date
-model without incurring the non-trivial computational cost associated with
-retraining traditional FLTs.
 
 #### Approach {#sec:flt-approach}
 
