@@ -16,7 +16,6 @@ techniques train models using only the source code in the form of a snapshot of
 the source code.  We explore how to train models on the changesets, and then
 using that model for inference of a source code snapshot.
 
-
 ### Effectively using software repository history for an online topic-modeling-based developer identification technique to remove retraining costs
 
 Like feature location, many developer identification techniques train models

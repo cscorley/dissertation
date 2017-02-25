@@ -1,18 +1,17 @@
 # Methodology {#chap:methodology}
 
-In this section, we outline the three studies and methodologies used for each.
-First, I will give a brief reasoning to why changesets are a good choice for a
-training corpus.  Second, we discuss the datasets and benchmarks used
-throughout this work.
+\todo{this needs to be re-written to match reality}
 
-<!--Next, we describe the approach for an application of
-topic models for feature location.  We will then discuss work on the
-application of topic models for developer identification.  Finally, I will
-discuss an approach for using a singular topic model for both of these tasks.
--->
+In this chapter, we outline the three studies and methodologies used for each.
+First, we give our reasoning to why changesets are a good choice for a training
+corpus.  Second, we discuss the datasets and benchmarks used throughout this
+work.  Next, we describe our approach for an application of topic models for
+feature location and how it contrasts to the state-of-the-practice.  We then
+discuss work on the application of topic models for developer identification.
+Finally, we discuss an approach for using a singular topic model for both of
+these tasks.
 
-
-### Why changesets?
+## Why changesets?
 
 We choose to train the model on changesets, rather than another source of
 information, because they also represent what we are primarily interested in:
@@ -55,7 +54,7 @@ and no longer relevant.  There would be no need for this because online LDA
 already contains features for increasing the influence newer documents have on
 the model, thereby decaying the affect of the older documents on the model.
 
-### Datasets and Benchmarks
+## Datasets and Benchmarks
 
 For the first two Research Problems, there does exist various datasets and
 benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
@@ -103,6 +102,10 @@ goldset is for evaluating FLTs, and contains the files, classes, and methods
 changed by the linked commit.  The second goldset is for evaluating DITs, and
 contains the developer(s) that committed those changes.
 
+## Metric
+
+## Setting
+
 ### On LDA
 
-\todo{Explain randomness and setting seed}
+\todo{Explain randomness and setting seed?}
