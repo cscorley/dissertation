@@ -38,7 +38,7 @@ all: $(PAPER).pdf $(DRAFT).pdf
 $(GENERATED) :: $(EXTRA_FILES)
 	mkdir -p tmp
 	$(PANDOC) \
-		--chapters \
+		--top-level-division=chapter \
 		--from=markdown \
 		--to=latex \
 		extra/$@.md -o tmp/$@.tex

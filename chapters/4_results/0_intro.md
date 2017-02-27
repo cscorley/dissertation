@@ -1,3 +1,3 @@
 # Results {#chap:results}
 
-/todo{greetings}
+\todo{greetings}

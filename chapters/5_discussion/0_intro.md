@@ -1,3 +1,3 @@
 # Discussion {#chap:discussion}
 
-/todo{greetings}
+\todo{greetings}
