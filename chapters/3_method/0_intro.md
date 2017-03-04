@@ -2,23 +2,97 @@
 
 \todo{this needs to be re-written to match reality}
 
-In this chapter, we outline the three studies and methodologies used for each.
-First, we give our reasoning to why changesets are a good choice for a training
-corpus.  Second, we discuss the datasets and benchmarks used throughout this
-work.  Next, we describe our approach for an application of topic models for
-feature location and how it contrasts to the state-of-the-practice.  We then
-discuss work on the application of topic models for developer identification.
-Finally, we discuss an approach for using a singular topic model for both of
-these tasks.
+In this chapter, we describe our approach and the three studies to address each
+research problem.  We will first describe the basic approach of a
+snapshot-based topic model search engine, and then give our reasoning for why
+changesets may be good choice for a training corpus.  Then, we discuss the
+datasets and benchmarks used throughout this work.  Next, we describe our
+approach for an application of topic models for feature location and how it
+contrasts to the state-of-the-practice.  We then discuss work on the
+application of topic models for developer identification.  Finally, we discuss
+an approach for using a singular topic model for both of these tasks.
 
-## Why changesets?
+## Background {#sec:method-background}
+
+![Traditional approach to constructing a search engine with
+snapshots\label{fig:snapshot-flt}](figures/snapshot-flt.pdf)
+
+The left side of Figure \ref{fig:snapshot-flt} illustrates the document
+extraction process.  A document extractor takes a source code snapshot as input
+and produces a corpus as output.  Each document in the corpus contains the
+words associated with a source code entity, in this case a source code file.
+The text extractor is the first part of the document extractor and produces a
+token stream for each document.  The preprocessor is the second part of the
+document extractor and applies a series of transformations to each token and
+produces one or more words from the token.
+
+The right side of Figure \ref{fig:snapshot-flt} illustrates the retrieval
+process.  The main prerequisite of the retrieval process is to build the search
+engine.  We construct the search engine from a topic model trained from a
+corpus and an index of a corpus inferred from that model.  This means that
+an index is no more than each input document's thematic structure (i.e., the
+document's inferred topic distribution).
+
+The primary function of the search engine is to rank documents in relation to
+the query [@Croft-etal_2010].  When using a TM-based approach, the engine must
+first infer the thematic structure of the query.  This allows for a pairwise
+classification of the query to each document in the index and ranks the
+documents based on the similarities of their thematic structures.
+
+## General approach {#sec:general-approach}
+
+![Constructing a search engine from changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
+
+The overall difference in our methodology and the standard methodology
+described in Section \ref{sec:method-background} is minimal.  For example,
+compare Figures \ref{fig:snapshot-flt} and \ref{fig:changeset-flt}.  In the
+changeset approach, we only need to replace the training documents while the
+remainder of the approach remains the same.
+
+The changeset-based approach requires two types of document extraction: the
+snapshot of the state of source code at a point of interest, such as a commit
+of a tagged release, and every changeset in the source code history leading up
+to the same point of interest.  The left side of Figure \ref{fig:changeset-flt}
+illustrates the dual-document extraction approach.
+
+The document extraction process for the snapshot remains the same as covered in
+Section \ref{sec:method-background} while the document extractor for the
+changesets parses each changeset for the removed, added, and context lines.
+From there, the text extractor tokenizes each line.  The same preprocessor
+transformations as before occur in both the snapshot and changesets.  The
+snapshot vocabulary is always a subset of the changeset vocabulary
+[@Corley-etal_2014].
+
+The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
+process.  The key intuition to our methodology is that a topic model such as
+LDA or LSI can infer *any* document's topic proportions regardless of the
+documents used to train the model.  This is also what determining the topic
+proportions of a user-created query has relied on in traditional TM-based FLTs.
+Likewise, so are other unseen documents.  In our approach, the seen documents
+are changesets and the unseen documents are the source code entities of the
+snapshot.
+
+Hence, we train a topic model on the changeset corpus and use the model to
+index the snapshot corpus.  Note that we never construct an index of the
+changeset documents used to train the model.  We only use the changesets to
+continuously update the topic model and only use the snapshot for indexing.
+
+To leverage the online functionality of the topic models, we can also intermix
+the model training, indexing, and retrieval steps.  First, we initialize a
+model in online mode.  We update the model with new changesets whenever a
+developer makes a new commit.  That is, with changesets, we incrementally
+update a model and can query it at any moment.  This allows for a *historical
+simulation* of how a changeset-based approach would perform in a realistic
+scenario.
+
+### Why changesets?
 
 We choose to train the model on changesets, rather than another source of
 information, because they also represent what we are primarily interested in:
 program features.  A single changeset gives us a view of an addition, removal,
-or modification of a single feature.  A developer can to some degree comprehend
-what a changeset accomplishes by examining it, much like examining a source
-file.
+or modification of a single feature.  A developer may, to some degree,
+comprehend what a changeset accomplishes by examining it, much like examining a
+source file \needcite.
 
 While a snapshot corpus has documents that represent a program, a changeset
 corpus has documents that represent programming.  If we consider every
@@ -39,74 +113,25 @@ Figure \ref{fig:diff}, we can see the entire method affected by the changeset.
 
 Additionally, @Vasa-etal_2007 observe that code rarely changes as software
 evolves.  The implication is that the topic modeler will see changesets
-containing the same source code entity only a few times, perhaps only once.
+containing the same source code entity only a few times -- perhaps only once.
 Since topic modeling a snapshot only sees an entity once, topic modeling a
 changeset can miss no information.
 
 Using changesets also implies that the topic model may gain some noisy
-information from these additional documents, especially removals.  However,
-@Vasa-etal_2007 also observe that code is less likely to be removed than it is
-to be changed.  This implies that the noisy information would likely remain in
-both snapshot-based models and changeset-based models.
+information from these additional documents, especially when considering
+removals.  However, @Vasa-etal_2007 also observe that code is less likely to be
+removed than it is to be changed.  This implies that the noisy information
+would likely remain in both snapshot-based models and changeset-based models.
 
-Indeed, it appears desirable to remove changesets from the model that are old
-and no longer relevant.  There would be no need for this because online LDA
+Indeed, it would appear desirable to remove changesets from the model that are
+old and no longer relevant.  There is no need for this because online LDA
 already contains features for increasing the influence newer documents have on
 the model, thereby decaying the affect of the older documents on the model.
-
-## Datasets and Benchmarks
-
-For the first two Research Problems, there does exist various datasets and
-benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
-@Linares-Vasquez-etal_2012].  However, *Research Problem 3* (RP3) introduces a
-complication to using these benchmarks. RP3 requires high overlap of the
-benchmarks.  The overlap of these benchmarks is small or non-existent, making
-it difficult to determine whether a technique is performing well or not because
-of the approach or if it happens to just be a challenging query for that
-technique.  \todo{gross sentence} Hence, we have created our own benchmark fit
-for evaluating both an FLT and DIT.
-
-The 6 subjects of our studies vary in size and application domain.
-BookKeeper is a distributed logging service\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
-<!-- Derby is a relational database management system\footnote{\url{http://db.apache.org/derby/}}.  -->
-Mahout is a tool for scalable machine learning\footnote{\url{https://mahout.apache.org/}}.
-OpenJPA is object-relational mapping tool\footnote{\url{http://openjpa.apache.org/}}.
-Pig is a platform for analyzing large datasets\footnote{\url{http://pig.apache.org/}}.
-Tika is a toolkit for extracting metadata and text from various types of files\footnote{\url{http://tika.apache.org/}}.
-ZooKeeper is a tool that works as a coordination service to help build distributed applications\footnote{\url{http://zookeeper.apache.org}}.
-Table \ref{table:subjects} summarizes the sizes of each system's corpora and
-dataset.
-
-\input{tables/subjects}
-
-We chose these systems for our work because developers use descriptive commit
-messages that allow for easy traceability linking to issue reports.  Further,
-all projects use JIRA as an issue tracker, which has been found to encourage
-more accurate traceability link recovery [@Bissyande-etal_2013]. Finally, each
-system varies in domain and in size, in terms of developers, changesets, and
-number of source code files.
-
-To build our dataset we mine the Git repository for information about each
-commit: the committer, message, and files changed.  We use the files changed
-information during the location-based approach.  Using the message, we extract
-the traceability links to issues in JIRA with the regular expression: `%s-\d+`,
-where `%s` is the project's name (e.g., BookKeeper).  This matches for
-JIRA-based issue identifiers, such as `BOOKKEEPER-439` or `TIKA-42`.
-
-From the issue reports, we extract the version the issue marked as fixed in.
-We ignore issues that are not marked with a fixed version.  We also extract the
-title and description of the issue.
-
-We construct two goldsets for each commit linked to an issue report.  The first
-goldset is for evaluating FLTs, and contains the files, classes, and methods
-changed by the linked commit.  The second goldset is for evaluating DITs, and
-contains the developer(s) that committed those changes.
-
-## Metric
 
 ## Setting {#sec:setting}
 
 \todo{need to edit this so it is general across all RPs}
+
 \todo{add note about where this may differ?}
 
 Our document extraction process is shown on the left side of Figure
@@ -166,3 +191,54 @@ historical simulation.
 ### On LDA
 
 \todo{Explain randomness and setting seed?}
+
+## Datasets and Benchmarks
+
+For the first two Research Problems, there does exist various datasets and
+benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
+@Linares-Vasquez-etal_2012].  However, *Research Problem 3* (RP3) introduces a
+complication to using these benchmarks.  RP3 requires high overlap of the
+benchmarks.  The overlap of these benchmarks is small or non-existent, making
+it difficult to determine whether a technique is performing well because of the
+approach or if it happens to just be a challenging query for that technique.
+We have created our own benchmark fit for evaluating both an FLT and DIT.
+
+The 6 subjects of our studies vary in size and application domain.
+BookKeeper is a distributed logging service\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
+<!-- Derby is a relational database management system\footnote{\url{http://db.apache.org/derby/}}.  -->
+Mahout is a tool for scalable machine learning\footnote{\url{https://mahout.apache.org/}}.
+OpenJPA is object-relational mapping tool\footnote{\url{http://openjpa.apache.org/}}.
+Pig is a platform for analyzing large datasets\footnote{\url{http://pig.apache.org/}}.
+Tika is a toolkit for extracting metadata and text from various types of files\footnote{\url{http://tika.apache.org/}}.
+ZooKeeper is a tool that works as a coordination service to help build distributed applications\footnote{\url{http://zookeeper.apache.org}}.
+Table \ref{table:subjects} summarizes the sizes of each system's corpora and
+dataset.
+
+\input{tables/subjects}
+
+We chose these systems for our work because developers use descriptive commit
+messages that allow for easy traceability linking to issue reports.  Further,
+all projects use JIRA as an issue tracker, which has been found to encourage
+more accurate traceability link recovery [@Bissyande-etal_2013].  Finally, each
+system varies in domain and in size, in terms of developers, changesets, and
+number of source code files.
+
+To build our dataset we mine the Git repository for information about each
+commit: the committer, message, and files changed.  We use the files changed
+information during the location-based approach.  Using the message, we extract
+the traceability links to issues in JIRA with the regular expression: `%s-\d+`,
+where `%s` is the project's name (e.g., BookKeeper).  This matches for
+JIRA-based issue identifiers, such as `BOOKKEEPER-439` or `TIKA-42`.
+
+From the issue reports, we extract the version the issue marked as fixed in.
+We ignore issues that are not marked with a fixed version.  We also extract the
+title and description of the issue.
+
+We construct two goldsets for each commit linked to an issue report.  The first
+goldset is for evaluating FLTs, and contains the files, classes, and methods
+changed in the linked commit.  The second goldset is for evaluating DITs, and
+contains the developer(s) that committed those changes.  We do not consider
+whether the change was submitted by another developer and committed by a core
+contributor.  In this case, we assume that the core contributor understands and
+agrees with the change.
+

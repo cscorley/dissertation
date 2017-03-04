@@ -46,7 +46,6 @@ so we cannot generalize our results to systems implemented in other languages.
 However, the systems are of different sizes, are from different domains, and
 have characteristics in common with those of systems developed in industry.
 
-
 #### Conclusion Validity
 
 Threats to conclusion validity concern our choice of measurements and how those

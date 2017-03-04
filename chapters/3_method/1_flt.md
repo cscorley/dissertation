@@ -92,78 +92,6 @@ online learning algorithm using changesets, our FLT maintains an up-to-date
 model without incurring the non-trivial computational cost associated with
 retraining traditional FLTs.
 
-#### Background {#sec:flt-background}
-
-![Typical feature location process\label{fig:snapshot-flt}](figures/snapshot-flt.pdf)
-
-The left side of Figure \ref{fig:snapshot-flt} illustrates the document
-extraction process.  A document extractor takes a source code snapshot as input
-and produces a corpus as output.  Each document in the corpus contains the
-words associated with a source code entity, in this case a source code file.
-The text extractor is the first part of the document extractor and produces a
-token stream for each document.  The preprocessor is the second part of the
-document extractor and applies a series of transformations to each token and
-produces one or more words from the token.
-
-The right side of Figure \ref{fig:snapshot-flt} illustrates the retrieval
-process.  The main prerequisite of the retrieval process is to build the search
-engine.  We construct the search engine from a topic model trained from a
-corpus and an index of a corpus inferred from that model.  This means that
-an index is no more than each input document's thematic structure (i.e., the
-document's inferred topic distribution).
-
-The primary function of the search engine is to rank documents in relation to
-the query [@Croft-etal_2010].  When using a TM-based approach, the engine must
-first infer the thematic structure of the query.  This allows for a pairwise
-classification of the query to each document in the index and ranks the
-documents based on the similarities of their thematic structures.
-
-
-
-#### Approach {#sec:flt-approach}
-
-![Feature location using changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
-
-The overall difference in our methodology and the standard methodology
-described in Section \ref{sec:flt-background} is minimal.  For example, compare
-Figures \ref{fig:snapshot-flt} and \ref{fig:changeset-flt}.  In the changeset
-approach, we only need to replace the training documents while the remainder of
-the approach remains the same.
-
-The changeset approach requires two types of document extraction: the snapshot
-of the state of source code at a point of interest, such as a commit of a
-tagged release, and every changeset in the source code history leading up to
-the same point of interest.  The left side of Figure \ref{fig:changeset-flt}
-illustrates the dual-document extraction approach.
-
-The document extraction process for the snapshot remains the same as covered in
-Section \ref{sec:flt-background} while the document extractor for the changesets
-parses each changeset for the removed, added, and context lines.  From there,
-the text extractor tokenizes each line.  The same preprocessor transformations
-as before occur in both the snapshot and changesets.  The snapshot vocabulary
-is always a subset of the changeset vocabulary [@Corley-etal_2014].
-
-The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
-process.  The key intuition to our methodology is that a topic model such as
-LDA or LSI can infer *any* document's topic proportions regardless of the
-documents used to train the model.  This is also what determining the topic
-proportions of a user-created query has relied on in most TM-based FLTs.
-Likewise, so are other unseen documents.  In our approach, the seen documents
-are changesets and the unseen documents are the source code entities of the
-snapshot.
-
-Hence, we train a topic model on the changeset corpus and use the model to
-index the snapshot corpus.  Note that we never construct an index of the
-changeset documents used to train the model.  We only use the changesets to
-continuously update the topic model and only use the snapshot for indexing.
-
-To leverage the online functionality of the topic models, we can also intermix
-the model training, indexing, and retrieval steps.  First, we initialize a
-model in online mode.  We update the model with new changesets whenever a
-developer makes a new commit.  That is, with changesets, we incrementally
-update a model and can query it at any moment.  This allows for a *historical
-simulation* of how a changeset-based FLT would perform in a realistic scenario.
-
 #### Evaluation
 
 In this section we describe the design of a case study in which we compare
@@ -176,7 +104,7 @@ work, we pose the following research questions:
 \ftwop
 :   \ftwoq
 
-##### Methodology {#sec:flt-methodology}
+##### Approach {#sec:flt-approach}
 
 For snapshots, the process is straightforward and corresponds to Figure
 \ref{fig:snapshot-flt}.  We first train a model on the snapshot corpus using
