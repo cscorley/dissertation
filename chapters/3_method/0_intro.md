@@ -14,8 +14,7 @@ an approach for using a singular topic model for both of these tasks.
 
 ## Background {#sec:method-background}
 
-![Traditional approach to constructing a search engine with
-snapshots\label{fig:snapshot-flt}](figures/snapshot-flt.pdf)
+![Constructing a search engine with snapshots\label{fig:snapshot-flt}](figures/snapshot-flt.pdf)
 
 The left side of Figure \ref{fig:snapshot-flt} illustrates the document
 extraction process.  A document extractor takes a source code snapshot as input
@@ -43,7 +42,7 @@ documents based on the similarities of their thematic structures.
 
 ![Constructing a search engine from changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
 
-The overall difference in our methodology and the standard methodology
+The overall difference in our approach and the standard approach
 described in Section \ref{sec:method-background} is minimal.  For example,
 compare Figures \ref{fig:snapshot-flt} and \ref{fig:changeset-flt}.  In the
 changeset approach, we only need to replace the training documents while the
@@ -59,17 +58,17 @@ The document extraction process for the snapshot remains the same as covered in
 Section \ref{sec:method-background} while the document extractor for the
 changesets parses each changeset for the removed, added, and context lines.
 From there, the text extractor tokenizes each line.  The same preprocessor
-transformations as before occur in both the snapshot and changesets.  The
-snapshot vocabulary is always a subset of the changeset vocabulary
+transformations occur in both the snapshot and changesets.  This ensures that
+the snapshot vocabulary is always a subset of the changeset vocabulary
 [@Corley-etal_2014].
 
 The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
-process.  The key intuition to our methodology is that a topic model such as
-LDA or LSI can infer *any* document's topic proportions regardless of the
-documents used to train the model.  This is also what determining the topic
-proportions of a user-created query has relied on in traditional TM-based FLTs.
-Likewise, so are other unseen documents.  In our approach, the seen documents
-are changesets and the unseen documents are the source code entities of the
+process.  The key intuition to our approach is that a topic model such as LDA
+or LSI can infer *any* document's topic proportions regardless of the documents
+used to train the model.  This is also what determining the topic proportions
+of a user-created query has relied on in traditional TM-based FLTs.  Likewise,
+so are other unseen documents.  In our approach, the seen documents are
+changesets and the unseen documents are the source code entities of the
 snapshot.
 
 Hence, we train a topic model on the changeset corpus and use the model to
@@ -128,11 +127,9 @@ old and no longer relevant.  There is no need for this because online LDA
 already contains features for increasing the influence newer documents have on
 the model, thereby decaying the affect of the older documents on the model.
 
+## Research questions {#sec:questions}
+
 ## Setting {#sec:setting}
-
-\todo{need to edit this so it is general across all RPs}
-
-\todo{add note about where this may differ?}
 
 Our document extraction process is shown on the left side of Figure
 \ref{fig:changeset-flt}.  We implemented our document extractor in Python v2.7
@@ -140,13 +137,13 @@ using the [Dulwich library](http://www.samba.org/~jelmer/dulwich/) for
 interacting with the source code repository.  We extract documents from both a
 snapshot of the repository at a tagged snapshot and each commit reachable from
 that tag's commit.  The same preprocessing steps are employed on all extracted
-documents.
+documents, regardless of corpus source.
 
-To extract text from the changesets, we look at the \texttt{git diff} between
-two commits.  In our changeset text extractor, we extract all text related to
-the change, e.g., context, removed, and added lines; metadata lines are ignored.
-Note that we do not consider where the text originates from, only that it is
-text changed by the commit.
+To extract text from the changesets, we use the `git diff` between two commits.
+In our changeset text extractor, we extract all text related to the change,
+e.g., context, removed, and added lines; metadata, such as commit messages, are
+ignored unless stated otherwise.  Note that we do not consider where the text
+originates from, only that it is text changed by the commit.
 
 After extracting tokens, we split the tokens based on camel case, underscores,
 and non-letters.  We only keep the split tokens; original tokens are discarded.
@@ -159,25 +156,28 @@ We implemented our modeling using the Python library Gensim
 subject system.  We do not try to adjust parameters between the different
 systems to attempt to find a better, or best, solution; rather, we leave them
 the same to reduce confounding variables.  We do realize that this may lead to
-topic models that may not be best-suited for feature location on a particular
-subject system.  However, this constraint gives us confidence that the
-measurements collected are fair and that the results are not influenced by
-selective parameter tweaking.  Again, our goal is to show the performance of
-the changeset-based FLT against snapshot-based FLT under the same conditions.
+topic models that may not be best-suited for each task on a particular subject
+system.  This constraint gives us confidence that the measurements
+collected are fair and that the results are not influenced by selective
+parameter tweaking.  Again, our goal is to show the performance of the
+changeset-based topic model against snapshot-based topic model under the same
+conditions.  We do, however, adjust parameters during configuration sweeps for
+RP3 and those are noted where appropriate.
 
 Gensim's LDA implementation is based on an online LDA by @Hoffman-etal_2010 and
 uses variational inference instead of a collapsed Gibbs sampler.  Unlike Gibbs
 sampling, in order to ensure that the model converges for each document, we set
 the model to take $1000$ iterations over a document during the inference step,
 and as many passes over the corpus as needed until there is little improvement
-in the evidence lower bound. That is, we allow the model to behave as a batch,
-or offline, model.  We set the following LDA parameters for all systems: $500$
-topics, a symmetric $\alpha=1/K$, and a symmetric $\eta=1/K$.  These are
-default values for $\alpha$ and $\eta$ in Gensim, and have been found to work
-well for the FLT task [@Biggers-etal_2014].
+in the evidence lower bound.  That is, we allow the model to behave as a batch,
+or offline, model where possible.  We set the following LDA parameters for all
+systems: $500$ topics, a symmetric $\alpha=1/K$, and a symmetric $\eta=1/K$.
+These are default values for $\alpha$ and $\eta$ in Gensim, and have been found
+to work well for the FLT task [@Biggers-etal_2015].  Again, we adjust all three
+of these parameters for RP3.
 
-For the historical simulation, since we must use online training, we found it
-beneficial to consider two new parameters for online LDA: $\kappa$ and
+For historical simulation (RP1 and RP2), since we must use online training, we
+found it beneficial to consider two new parameters for online LDA: $\kappa$ and
 $\tau_0$.  As noted in @Hoffman-etal_2010, it is beneficial to adjust $\kappa$
 and $\tau_0$ to higher values for smaller mini-batches, e.g. a single
 changeset.  These two parameters control how much influence a new mini-batch
