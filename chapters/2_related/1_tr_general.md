@@ -8,7 +8,13 @@ discuss measures for evaluating a text retrieval technique.
 
 ![The general text retrieval process\label{fig:TR}](figures/text-retrieval.pdf)
 
-### Document extraction
+## Background {#sec:method-background}
+
+In this section, we review the standard methodology for document as a document
+extraction and retrieval process used by snapshot-based tasks, such as feature
+location and developer identification.
+
+### Document Extraction
 
 The left side of Figure \ref{fig:TR} illustrates the document extraction
 process.  A document extractor takes raw data (e.g., text files) and produces a
@@ -41,7 +47,8 @@ token.  The transformations commonly used are [@Manning-etal_2008]:
     :   remove terms that occur in, for example, over 80% or under 2% of the
     documents [@Madsen-etal_2004].
 
-#### Text Retrieval for Software {#sec:related-software}
+
+#### Document Extraction of Software {#sec:related-software}
 
 There are some additional considerations for applying text retrieval to
 software.  In addition to the transformations already outlined, extended
