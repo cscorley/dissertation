@@ -3,7 +3,11 @@
 Feature location is the act of identifying the source code entity or entities
 that implement a feature [@Rajlich-Wilde_2002].  Bug localization is the
 process of identifying source code entities that implement a bug, or an
-*unwanted* feature [@Lukins-etal_2010].
+*unwanted* feature [@Lukins-etal_2010].  Feature location is a frequent and
+fundamental activity for a developer tasked with changing a software system.
+Whether a change task involves adding, modifying, or removing a feature, a
+developer cannot complete the task without first locating the source code that
+implements the feature. 
 
 The most closely related work is @Rao-etal_2013.  @Rao-etal_2013 also target
 the problem of building topic models, introducing an incremental framework for

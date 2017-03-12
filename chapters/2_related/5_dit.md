@@ -1,15 +1,44 @@
 ## Developer Identification {#sec:related-dit}
 
-In this section we survey the literature on developer identification.  As noted
-by @Shokripour-etal_2013, there are two broad categories of work in this area:
-activity-based approaches and location-based approaches.  An activity-based
-approach uses information gained from a developers *activity*, e.g., which
-change requests they have worked on in the past.  Location-based approaches
-resemble a feature location technique in that they rely on source code entity
-information to derive a developer, e.g., which developer has worked on the
-related classes in the past?
+In this section we survey the literature on developer identification.
+Developer identification is a triaging activity in which a team member
+identifies a list of developers that are most apt to complete a change request
+and assigning one or more of those developers to the task
+[@McDonald-Ackerman_1998].  @Begel-etal_2010 show that developers need help
+finding expertise within their organization *more than they need help finding
+source code elements*. 
 
-#### Activity-based Approaches
+As noted by @Shokripour-etal_2013, there are two broad categories of work in
+this area: activity-based approaches and location-based approaches.  An
+activity-based approach uses information gained from a developers *activity*,
+e.g., which change requests they have worked on in the past.  Location-based
+approaches resemble a feature location technique in that they rely on source
+code entity information to derive a developer, e.g., which developer has worked
+on the related classes in the past?
+
+### a random example {#sec:dit-background}
+
+Location-based techniques are a common developer identification technique and
+build upon feature location techniques.  We refer the reader to Section
+\ref{sec:flt-background} for a background on how a typical feature location
+techniques works.
+
+We can use an FLT to identify a ranked list of source code entities related to
+a particular task.  Using ownership knowledge about the identified entities, we
+can choose an appropriate developer to complete the task.  For example, if the
+FLT identifies the file `foo.py` as the most related entity, then we would want
+to know about the maintainer, or owner, of `foo.py`.  There are multiple ways
+to determine the ownership of a source code entity [@Bird-etal_2011;
+@Kagdi-etal_2012; @Corley-etal_2012; @Hossen-etal_2014].
+
+A simple, example ownership metric is the number of times a developer has
+committed changes to a file.  That is, if over the software history Johanna
+modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
+then we consider Johanna as the owner of `foo.py`.  Here, we would assign all
+tasks related to `foo.py` to Johanna.
+
+
+### Activity-based Approaches
 
 @Mockus-Herbsleb_2002 present Expertise Browser to locate expertise.  The
 browser uses units of experience called Experience Atoms (EA) extracted from
@@ -71,7 +100,8 @@ increases the time until completion by about 100 days.  @Bhattacharya-etal_2012
 further employ this idea using different learning algorithms incrementally
 improves triaging bugs the first time.
 
-#### Location-based approaches
+### Location-based approaches
+
 
 @McDonald-Ackerman_2000 present a heuristic-based recommender system named
 Expertise Recommender.  The recommender uses heuristics derived in a previous
@@ -135,3 +165,4 @@ triager identify the developer most appropriate for a task.
 explore relevant bugs.  @Tamrawi-etal_2011 present an incremental DIT approach
 based on fuzzy sets.  Like @Bassett-Kraft_2013, @Shokripour-etal_2013 show that
 using a term weighting scheme increases the accuracy of an DIT.
+
