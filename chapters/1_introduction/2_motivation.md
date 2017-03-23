@@ -39,7 +39,6 @@ periodically updated with new changesets as they enter a source code
 repository.  With this approach, the topic model is up-to-date with the current
 source code, even as developers are using the model for work.
 
-
 **Thesis Statement**
 
 :   Training online topic models on software repositories removes retraining
@@ -48,8 +47,7 @@ for different software maintenance problems.
 
 \todo{edit these into the main text, or keep separate?}
 
-### FLT Motivation {#sec:flt-motivation}
-
+### Feature Location {#sec:flt-motivation}
 
 The state-of-the-practice in feature location is to use an IDE tool based on
 keyword or regular expression search, but @Ko-etal_2006 observed such tools
@@ -107,7 +105,7 @@ methodology, which have the conceptual effect of relating source files to
 changeset topics.  By contrast, the training and indexing steps of the standard
 methodology have the conceptual effect of relating files to file topics.
 
-### DIT motivation {#sec:dit-motivation}
+### Developer Identification {#sec:dit-motivation}
 
 Software features are functionalities defined by requirements and are
 accessible to developers and users.  Software change is continual, because
@@ -156,7 +154,8 @@ change request.  @Anvik-etal_2006 notes that a fully-automated approach may not
 be feasible given the amount of contextual knowledge required for triage.
 
 
-### Combo motivation {#sec:combo-motivation}
+### Combining and Configuring Changeset-based Topic Models {#sec:combo-motivation}
+
 
 Topic model reuse for two tasks would halve the computational cost required for
 model training.  This presumes, however, that the configuration choices made

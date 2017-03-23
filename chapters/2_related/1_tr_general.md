@@ -6,15 +6,9 @@ retrieval.  Then, we discuss methods of measuring similarity.  Finally, we
 discuss measures for evaluating a text retrieval technique.
 
 
-![The general text retrieval process\label{fig:TR}](figures/text-retrieval.pdf)
-
-## Background {#sec:method-background}
-
-In this section, we review the standard methodology for document as a document
-extraction and retrieval process used by snapshot-based tasks, such as feature
-location and developer identification.
-
 ### Document Extraction
+
+![The general text retrieval process\label{fig:TR}](figures/text-retrieval.pdf)
 
 The left side of Figure \ref{fig:TR} illustrates the document extraction
 process.  A document extractor takes raw data (e.g., text files) and produces a

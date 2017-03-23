@@ -16,7 +16,7 @@ approaches resemble a feature location technique in that they rely on source
 code entity information to derive a developer, e.g., which developer has worked
 on the related classes in the past?
 
-### a random example {#sec:dit-background}
+##### a random example {#sec:dit-background}
 
 Location-based techniques are a common developer identification technique and
 build upon feature location techniques.  We refer the reader to Section
@@ -38,7 +38,7 @@ then we consider Johanna as the owner of `foo.py`.  Here, we would assign all
 tasks related to `foo.py` to Johanna.
 
 
-### Activity-based Approaches
+### Activity-based approaches
 
 @Mockus-Herbsleb_2002 present Expertise Browser to locate expertise.  The
 browser uses units of experience called Experience Atoms (EA) extracted from

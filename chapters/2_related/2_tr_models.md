@@ -1,10 +1,10 @@
-## Text Retrieval Models {#sec:related-models}
+### Text Retrieval Models {#sec:related-models}
 
 In this section, we review commonly used text retrieval models.  First, we
 review the boolean and vector space models.  Then, we delve into the topic
 models that make up the basis of this work.
 
-### Boolean Model
+#### Boolean Model
 
 The Boolean model is the simplest of the models used for constructing a search
 engine.  This approach builds an index of the corpus by treating each document
@@ -13,7 +13,7 @@ equally: either the term is in the document or it isn't.  A user constructs
 queries with single keywords joined by boolean expressions such as `AND`, `OR`,
 and `NOT`.
 
-### Vector Space Model
+#### Vector Space Model
 
 The Vector Space Model (VSM) is an algebraic model introduced by
 @Salton-etal_1975.  VSM uses the $M \times N$ term-document matrix $C$ directly
@@ -31,7 +31,7 @@ measurement metric, such as cosine similarity, during the pairwise comparisons
 to measure the query document similarity.  Documents in the index are then
 ranked according to how similar they are to the query document.
 
-### Topic Models
+#### Topic Models
 
 A topic model is a statistical model for discovering the abstract *topics* that
 occur in a corpus.  For example, documents on Babe Ruth and baseball should end
@@ -41,7 +41,7 @@ document on Dennis Rodman could relate to multiple topics: basketball, tattoos,
 and vibrant hair coloring.  In this section, we will describe popular topic
 modeling algorithms and give a brief overview of the related works.
 
-#### Latent Semantic Indexing
+##### Latent Semantic Indexing
 
 Latent semantic indexing (LSI) [@Deerwester-etal_1990] is an indexing and
 retrieval methodology that extends the VSM.  LSI relies on a mathematical
@@ -80,7 +80,7 @@ further extends the work of @Brand_2006 to an LSI implementation that is both
 online and distributed.  @Halko-etal_2011 outline a distributed algorithm , but
 not online.
 
-#### Latent Dirichlet Allocation
+##### Latent Dirichlet Allocation
 
 Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative
 model, assuming documents are generated according to a latent document-topic
