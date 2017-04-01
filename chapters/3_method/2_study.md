@@ -11,10 +11,12 @@ describe the case study using the Goal-Question-Metric approach
 
 ### Definition and Context {#sec:questions}
 
-\todo{more}
+\attn{Nick, what format should these be in? 3.2.1.n where n = 1..6?}
 
-For this work, we pose the following research questions:
+\attn{Currently they are labeled after each RP.}
 
+For this work, we pose the following research questions.  First, with respect
+to \frp, applying our approach to feature location, we ask:
 
 \fonep
 :   \foneq
@@ -22,17 +24,23 @@ For this work, we pose the following research questions:
 \ftwop
 :   \ftwoq
 
+Then, for \drp, applying our approach to developer identification, we ask:
+
 \donep
 :   \doneq
 
 \dtwop
 :   \dtwoq
 
+Finally, we determine for \crp whether we can gain model re-use for both tasks
+by asking the following:
+
 \conep
 :   \coneq
 
 \ctwop
 :   \ctwoq
+
 
 ### Datasets and Benchmarks
 

@@ -45,7 +45,7 @@ source code, even as developers are using the model for work.
 costs while maintaining accuracy of a traditional snapshot-based topic model
 for different software maintenance problems.
 
-\todo{edit these into the main text, or keep separate?}
+\attn{Nick, should I edit the following into the main text, or keep separate?}
 
 ### Feature Location {#sec:flt-motivation}
 

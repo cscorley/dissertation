@@ -4,12 +4,13 @@ In this section we describe our approach to a modeling changeset topics and how
 we apply them for feature location and developer identification.
 
 ![Constructing a search engine with snapshots\label{fig:snapshot-flt}](figures/snapshot-flt.pdf)
+
 ![Constructing a search engine from changesets\label{fig:changeset-flt}](figures/changeset-flt.pdf)
 
 ### Approach overview
 
 The overall difference in our approach and the standard approach
-described in Section \ref{sec:method-background} is minimal.  For example,
+described in Section \ref{sec:related-general} is minimal.  For example,
 compare Figures \ref{fig:snapshot-flt} and \ref{fig:changeset-flt}.  In the
 changeset approach, we only need to replace the training documents while the
 remainder of the approach remains the same.
@@ -20,7 +21,7 @@ code history leading up to the same point of interest.  The left side of Figure
 \ref{fig:changeset-flt} illustrates the dual-document extraction approach.
 
 The document extraction process for the snapshot remains the same as covered in
-Section \ref{sec:method-background}, but may be modified to fit the task
+Section \ref{sec:related-general}, but may be modified to fit the task
 required.  The document extractor for the changesets parses each changeset for
 the removed, added, and context lines.  From there, the text extractor
 tokenizes each line.  The same preprocessor transformations occur in both the
@@ -71,16 +72,19 @@ have their own document, or profile, consisting of each changeset they have
 committed to the source code repository.  That is, the snapshot in this case is
 a corpus of developer documents that consists of only words a particular
 developer has changed.  As with our FLT, this ensures that each developer
-profile indexed is a subset of the modeled corpus. There may be weighting
-schemes to this [@Shokripour-etal_2013], such as only considering words which
-they have added or removed, while ignoring context words.
+profile indexed is a subset of the modeled corpus.
 
-#### Combo Changeset Topics {#sec:combo-approach}
+<!-- TODO better off in config section?
+ There may be weighting
+schemes to this [@Shokripour-etal_2013], such as only considering words which
+they have added or removed, while ignoring context words, but we do not
+investigate that at this time.
+-->
+
+#### Combining and Configuring Changeset-based Topic Models {#sec:combo-approach}
 
 ![Combining changeset-based feature location and developer identifiation
 \label{fig:changeset-combo}](figures/changeset-combo.pdf)
-
-\todo{re-write}
 
 The changeset topic modeling approach requires three types of document
 extraction: one for the snapshot of the state of source code at a commit of
@@ -103,6 +107,9 @@ task separately.  In the source code search engine we build an index from the
 snapshot corpus.  In the developer search engine we build an index from the
 developer corpus.
 
+\attn{Nick, should I add any more notes about configuration here?}
+
+\attn{That is currently covered later in the description of the study.}
 
 ### Why changesets?
 
