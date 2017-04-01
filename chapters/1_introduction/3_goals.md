@@ -1,9 +1,10 @@
 ## Research Goals and Problems {#sec:intro-goals}
 
 The primary research goal of this work is to evaluate the performance and
-reliability of topic models built on the source code histories. This will
-require configuring and executing studies in different contexts of software
-maintenance work, such as feature location and developer identification.
+reliability of topic models built on the source code histories, i.e.,
+changeset-based topic modeling. This will require configuring and executing
+studies in different contexts of software maintenance work, such as feature
+location and developer identification.
 
 Towards achieving this goal, I've identified three core research problems,
 defined below.

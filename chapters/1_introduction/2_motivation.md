@@ -3,15 +3,15 @@
 When modeling a source code repository, the corpus typically represents a
 snapshot of the code.  That is, a topic model is often trained on a corpus that
 contains documents that represent source code entities (e.g., files, classes,
-or methods) from a particular version of the software.  Keeping such a model
-up-to-date is expensive, because the frequency and scope of source code changes
-necessitate retraining the model on the updated corpus [@Rao_2013].  It may be
-possible to automate certain maintenance tasks without a model of the complete
-source code.  For example, when assigning a developer to a change task, to
-associate developers with topics that characterize their previous changes we
-can use a topic model.  In this scenario, a model of the text changed by each
-developer may be more useful than a model of the entities changed by each
-developer.
+or methods) from a particular version of the software at a particular moment in
+time.  Keeping such a model up-to-date is expensive, because the frequency and
+scope of source code changes necessitate retraining the model on the updated
+corpus [@Rao_2013].  It may be possible to automate certain maintenance tasks
+without a model of the complete source code.  For example, when assigning a
+developer to a change task, we can use a topic model to relate developers with
+topics that characterize their previous changes.  In this scenario, a model of
+the text changed by each developer may be more useful than a model of the
+entities changed by each developer.
 
 While using file-based models is a natural fit for program comprehension tasks
 such as feature location and bug localization, they still are unable to stay
@@ -107,6 +107,11 @@ methodology have the conceptual effect of relating files to file topics.
 
 ### Developer Identification {#sec:dit-motivation}
 
+\todo{this section definitely needs to be re-written.}
+
+\todo{the flt section is a good example and this should rely on what it has
+already stated}
+
 Software features are functionalities defined by requirements and are
 accessible to developers and users.  Software change is continual, because
 revised requirements lead to new features, increasing expectations lead to
@@ -156,7 +161,6 @@ be feasible given the amount of contextual knowledge required for triage.
 
 ### Combining and Configuring Changeset-based Topic Models {#sec:combo-motivation}
 
-
 Topic model reuse for two tasks would halve the computational cost required for
 model training.  This presumes, however, that the configuration choices made
 for corpus construction and the model itself are acceptable for each task.
@@ -172,9 +176,10 @@ tasks [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
 Likewise, we must also make choice with respect to corpus construction, as LDA
 can achieve higher performance by adjusting certain elements of a corpus
-[@Biggers-etal_2014].  While we do not have enough source code in changesets to
-be extract fully parsed elements -- such as comments, identifiers, literals,
-and so on -- we do have structure in the changeset itself in the form of the
-`diff` (see Figure \ref{fig:diff}).  That is, we have lines removed and added
-that represent the change, and also lines for context for where the change is
-to be applied.
+[@Biggers-etal_2014] or by increasing and decreasing the importance of certain
+elements of the corpus [@Bassett-Kraft_2013].  While we do not have enough
+source code in changesets to be extract fully parsed elements -- such as
+comments, identifiers, literals, and so on -- we do have structure in the
+changeset itself in the form of the `diff` (see Figure \ref{fig:diff}).  That
+is, we have lines removed and added that represent the change, and also lines
+for context for where the change is to be applied.

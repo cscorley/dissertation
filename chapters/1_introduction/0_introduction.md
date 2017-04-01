@@ -1,7 +1,5 @@
 # Introduction {#chap:intro}
 
-\todo{this could be re-written to include more of the motivation for flt?}
-
 Software developers are often confronted with maintenance tasks that involve
 navigation of repositories that preserve large amounts of project history.
 Navigating these software repositories can be a time-consuming task, because
@@ -17,7 +15,7 @@ developer tasked with changing a large software system spends effort on program
 comprehension activities to gain the knowledge needed to make the change
 [@Corbi_1989].  For example, the developer spends effort to understand the
 system architecture or to locate the parts of the source code implementing the
-feature(s).  For developers who are unfamiliar with the system gaining such
+feature(s).  For developers who are unfamiliar with the system, gaining such
 knowledge can be a time-consuming task.  Topic models of source code can help
 such developers to understand the system by revealing a latent structure that
 is not obvious from the package hierarchy or system documentation
