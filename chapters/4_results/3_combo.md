@@ -1,9 +1,9 @@
-## Combining and Configuring Changeset-based Topic Models {#sec:combo-results}
+## RP3: Combining and Configuring Changeset-based Topic Models {#sec:combo-results}
 
 In this section, we will describe the results of the study outlined in Section
-\ref{sec:combo-design}.
+\ref{sec:combo-methodology}.
 
-\cone{} asks whether a single topic model can be used for more than a single
+\cone asks whether a single topic model can be used for more than a single
 task, specifically for feature location and developer identification. Tables
 \ref{table:all_model_sweep} and \ref{table:all_corpus_sweep} show the summary
 results over all subject systems for model construction and corpus
@@ -49,7 +49,7 @@ choosing an alternate over the optimal is low.
 \input{tables/tika_model_sweep}
 \input{tables/zookeeper_model_sweep}
 
-\ctwo{} asks what portions of a changeset are most critical for performance of
+\ctwo asks what portions of a changeset are most critical for performance of
 different tasks, specifically for feature location and developer
 identification.  Table \ref{table:all_corpus_sweep} shows the summary results
 over all subject systems. As in \cone, our goal is not to find which

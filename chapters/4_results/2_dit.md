@@ -1,11 +1,11 @@
-## Developer Identification {#sec:dit-results}
+## RP2: Developer Identification {#sec:dit-results}
 
 In this section, we will describe the results of the study outlined in Section
-\ref{sec:dit-design}.
+\ref{sec:dit-methodolody}.
 
 \input{tables/triage_rq1}
 
-\done{} asks how well a topic model trained on changesets performs against one
+\done asks how well a topic model trained on changesets performs against one
 trained on source code entities.  Table \ref{table:triage_rq1} summarizes the
 results of each subject system.  In the table, we bold which of the two MRRs is
 greater.  Since our goal is to show that training with changesets is just as
@@ -25,7 +25,7 @@ albeit barely.
 
 \input{tables/triage_rq2}
 
-\dtwo{} asks how well a simulation of using a topic model would perform as it
+\dtwo asks how well a simulation of using a topic model would perform as it
 were to be used in real-time.  This is a much closer evaluation of an DIT to it
 being used in an actual development environment.  Table \ref{table:triage_rq2}
 summarizes the results of each subject system.  In each of the tables, we bold
