@@ -1,7 +1,7 @@
 ## RP2: Developer Identification {#sec:dit-results}
 
 In this section, we will describe the results of the study outlined in Section
-\ref{sec:dit-methodolody}.
+\ref{sec:dit-methodology}.
 
 \input{tables/triage_rq1}
 
@@ -16,12 +16,11 @@ snapshots and changesets is acceptable and also desirable as it showcases that
 the changeset approach is on par with snapshots.
 
 We note an improvement in MRR for only 2 of the 6 systems when using
-changesets.  Comparing all systems at once, snapshots show slight MRR
-improvement over changesets with statistical significance.  \pig is the only
-system with an MRR in favor of snapshots that is also statistically significant
-at $p < 0.01$.  For \pig, however, the difference in MRR is negligible (2.54%).
-This suggests that changeset-based TMs are on par with snapshot-based TMs,
-albeit barely.
+changesets.  \pig is the only system with an MRR in favor of snapshots that is
+also statistically significant at $p < 0.01$.  Comparing all systems at once,
+snapshots show slight MRR improvement over changesets with statistical
+significance.  This suggests that changeset-based TMs are on par with
+snapshot-based TMs.
 
 \input{tables/triage_rq2}
 
@@ -35,8 +34,8 @@ statistical significance when the MRR is in favor of batch.
 
 There is an improvement in favor of historical simulation in MRR for only 1 of
 the 6 systems, which is statistically significant at $p<0.01$.  Two of the 5
-results in favor of batch changesets were statistically significant, with the
-last system.  Overall, batch changesets performs better than a full historical
-simulation, but is not statistically significant.  This suggests that under
-historical simulation, the accuracy of the DIT will fluctuate slightly as a
-project evolves, but will be mostly negligible.
+results in favor of batch changesets were statistically significant.  Overall,
+batch changesets performs better than a full historical simulation, but is not
+statistically significant.  This suggests that under historical simulation, the
+accuracy of the DIT will fluctuate as a project evolves, which may indicate a
+more accurate evaluation is possible with a historical simulation
