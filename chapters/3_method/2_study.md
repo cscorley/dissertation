@@ -11,10 +11,6 @@ describe the case study using the Goal-Question-Metric approach
 
 ### Definition and Context {#sec:questions}
 
-\attn{Nick, what format should these be in? 3.2.1.n where n = 1..6?}
-
-\attn{Currently they are labeled after each RP.}
-
 For this work, we pose the following research questions.  First, with respect
 to \frp, applying our approach to feature location, we ask:
 
@@ -46,12 +42,12 @@ by asking the following:
 
 For the first two Research Problems, there does exist various datasets and
 benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
-@Linares-Vasquez-etal_2012].  However, *Research Problem 3* (RP3) introduces a
-complication to using these benchmarks.  RP3 requires high overlap of the
-benchmarks.  The overlap of these benchmarks is small or non-existent, making
-it difficult to determine whether a technique is performing well because of the
-approach or if it happens to just be a challenging query for that technique.
-We have created our own benchmark fit for evaluating both an FLT and DIT.
+@Linares-Vasquez-etal_2012].  However, \crp introduces a complication to using
+these benchmarks, requiring high overlap of the benchmarks.  The overlap
+of these benchmarks is small or non-existent, making it difficult to determine
+whether a technique is performing well because of the approach or if it happens
+to just be a challenging query for that technique.  We have created our own
+benchmark fit for evaluating both an FLT and DIT.
 
 The 6 subjects of our studies vary in size and application domain.
 BookKeeper is a distributed logging service\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
@@ -241,12 +237,13 @@ or offline, model where possible.  We set the following LDA parameters for all
 systems: $500$ topics, a symmetric $\alpha=1/K$, and a symmetric $\eta=1/K$.
 These are default values for $\alpha$ and $\eta$ in Gensim, and have been found
 to work well for the FLT task [@Biggers-etal_2015].  Again, we adjust all three
-of these parameters for RP3.
+of these parameters for \crps, but these values are used in all research
+problems unless stated otherwise.
 
-For historical simulation (RP1 and RP2), since we must use online training, we
-found it beneficial to consider two new parameters for online LDA: $\kappa$ and
-$\tau_0$.  As noted in @Hoffman-etal_2010, it is beneficial to adjust $\kappa$
-and $\tau_0$ to higher values for smaller mini-batches, e.g. a single
+For historical simulation (\frps and \drps), since we must use online training,
+we found it beneficial to consider two new parameters for online LDA: $\kappa$
+and $\tau_0$.  As noted in @Hoffman-etal_2010, it is beneficial to adjust
+$\kappa$ and $\tau_0$ to higher values for smaller mini-batches, e.g. a single
 changeset.  These two parameters control how much influence a new mini-batch
 has on the model when training.  We follow the recommendations in
 @Hoffman-etal_2010, choosing $\tau_0=1024$ and $\kappa=0.9$ for all systems,
@@ -336,7 +333,6 @@ configurations varies the corpus construction inclusion parameters.  Each set
 is associated with a "default" configuration for the other, e.g., all
 variations of model configurations use the same corpus configuration and vice
 versa.  The default configurations are the same used throughout this thesis.
-\todo{Need to explicitly say which configurations are used for all chapters!}
 
 To answer \cone, we collect the effectiveness measures of each configuration
 variation and use them calculate the MRR.  For each task, we create a pair of
@@ -362,9 +358,3 @@ turn to Mann-Whitney U tests.  We compare effectiveness measures of all ranks
 when the text source is included against excluded.  We use Mann-Whitney here
 because there is an unequal amount of results between a text source inclusion
 and exclusion due to the invalid configuration of all text sources excluded.
-
-\todo{------------------------------------------------------------------------}
-
-\todo{anything after this point in the chapter is likely garbage}
-
-\todo{------------------------------------------------------------------------}
