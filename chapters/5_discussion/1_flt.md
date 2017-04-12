@@ -1,19 +1,19 @@
-## Feature Location {#sec:flt-discussion}
+## Feature Location (\frps) {#sec:flt-discussion}
 
-The results outlined in the previous section (\ref{sec:flt-results}) warrants
-some qualitative discussion.  In particular, our analysis shows significant
-affects between snapshots and changesets, and between batch changesets and
-changesets in the simulated environment.  The results are mixed between each
-and are not conclusive.  However, we argue this is desirable to show that the
-accuracy of a changeset-based FLT is similar to that of a snapshot-based FLT
-but without the retraining cost.
+The results for \frps outlined in the previous Chapter (specifically, Section
+\ref{sec:flt-results}) warrants some qualitative discussion.  In particular,
+our analysis shows significant affects between snapshots and changesets, and
+between batch changesets and changesets in the simulated environment.  The
+results are mixed between each subject system and are not generally conclusive.
+However, we argue this is desirable to show that the accuracy of a
+changeset-based FLT is similar to that of a snapshot-based FLT but without the
+retraining cost.
 
 
 ### \foneq
 
 <!--All
 max bound:	4968
-fancy:	False
 same:	155	0.2
 same (ones):	139	0.17935483871
 diff of 1:	87	0.112258064516
@@ -43,16 +43,13 @@ performs for each model.  With respect to \fone, we will investigate the
 queries and effectiveness measures between the batch snapshot and batch
 changesets in detail.
 
-\todo{We will first discuss all systems, and then each subject system in turn.}
-
 For the 1055 queries across all systems, only 775 were successful.  That is,
 280 queries did not retrieve any files identified as changed by fixing the
 related issues.  These are likely caused by files that were removed over time
 and did not make it into release and highlights the volatility of software
 development.  155 queries return the same effectiveness measure in both
-approaches, or about 20.0% of the time.  Of these 155 queries, 139 (17.9%)
-have an effectiveness measure of 1 (the best possible measure) for both
-approaches.
+approaches, or about 20.0% of the time.  Of these 155 queries, 139 (17.9%) have
+an effectiveness measure of 1 (the best possible measure) for both approaches.
 
 After excluding the 155 queries in which ranks which are the same, 87 (11.2%)
 of the remaining 620 queries have effectiveness measures is within 1 rank of
@@ -63,7 +60,6 @@ perform noticeably different ($> 50$ ranks apart).
 
 <!-- BookKeeper v4.3.0
 max bound:	843
-fancy:	False
 same:	38	0.265734265734
 same (ones):	34	0.237762237762
 diff of 1:	14	0.0979020979021
@@ -94,7 +90,6 @@ snapshots, even though the difference of MRR is only $0.0056$ (Table
 
 <!-- Mahout v0.10.0
 max bound:	1556
-fancy:	False
 same:	6	0.12
 same (ones):	5	0.1
 diff of 1:	5	0.1
@@ -120,7 +115,6 @@ total:	50
 
 <!-- OpenJPA v2.3.0
 max bound:	4968
-fancy:	False
 same:	16	0.12213740458
 same (ones):	14	0.106870229008
 diff of 1:	12	0.0916030534351
@@ -146,7 +140,6 @@ total:	131
 
 <!-- Pig v0.14.0
 max bound:	2098
-fancy:	False
 same:	30	0.172413793103
 same (ones):	26	0.149425287356
 diff of 1:	15	0.0862068965517
@@ -171,7 +164,6 @@ total:	174
 
 <!-- Tika v1.8
 max bound:	954
-fancy:	False
 same:	5	0.138888888889
 same (ones):	4	0.111111111111
 diff of 1:	9	0.25
@@ -197,7 +189,6 @@ total:	36
 
 <!-- ZooKeeper v3.5.0
 max bound:	927
-fancy:	False
 same:	60	0.248962655602
 same (ones):	56	0.232365145228
 diff of 1:	32	0.132780082988
@@ -502,3 +493,5 @@ to arrive at the same conclusion as \fone, but unable to for \ftwo.  That is,
 while we found that our changeset-based approach was as accurate as snapshots
 (\fonep), we were unable to find that the accuracy of the changeset-based model
 under historical simulation is consistent with the batch counterpart (\ftwop).
+
+\todo{do we care to add more to this? pretty sparse as-is}

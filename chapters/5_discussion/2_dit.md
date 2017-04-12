@@ -41,8 +41,6 @@ but does not help to understand how each feature query performs for each model.
 With respect to \done, we will investigate the queries and effectiveness
 measures between the batch snapshot and batch changesets in detail.
 
-\todo{We will first discuss all systems, and then each subject system in turn.}
-
 For the 1055 queries across all systems, 154 queries return the same
 effectiveness measure in both approaches, or about 14.6% of the time.  Of these
 154 queries, 58 (5.5%) share an effectiveness measure of 1 (the best possible
