@@ -14,17 +14,21 @@ snapshots, we only care about statistical significance when the MRR is in favor
 of snapshots.  That is, statistical significance in favor of changesets is
 desirable.  However, statistical *insignificance* between snapshots and
 changesets is acceptable and also desirable as it showcases that the changeset
-approach is on par with snapshots.
+approach is on par with snapshots.  For example, with respect to \fone,
+\openjpa is a favorable case for changesets as it has a higher MRR, along with
+statistical significance ($p < 0.01$) and a notably large effect size
+($0.3867$).  Likewise, \tika displays a favorable case for snapshots in terms
+of higher MRR, but does not achieve statistical significance and is hence is
+not a definite unfavorable case.
 
 We note an improvement in MRR for 4 of the 6 systems when using changesets.
 \mahout is the only system with an MRR in favor of snapshots and statistically
-significant at $p < 0.01$.  For \mahout, however, the difference in MRR is
-negligible (2.54%).  Comparing all systems at once, changesets show slight MRR
-improvement over snapshots with statistical significance.  This suggests that
-changeset-based TMs are on par with snapshot-based TMs.
-
-\todo{Break down each system's result individually even though people can read
-the table?}
+significant at $p < 0.01$ with the greatest effect size of all systems
+($0.4556$).  For \mahout, however, the difference in MRR is negligible (2.54%).
+Comparing all systems at once by combining all effectiveness measures,
+changesets show slight MRR improvement over snapshots with statistical
+significance.  This suggests that changeset-based TMs are on par with
+snapshot-based TMs, and for the majority of systems, the better choice.
 
 \input{tables/feature_location_rq2}
 
