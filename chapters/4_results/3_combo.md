@@ -47,13 +47,6 @@ test also reveals that the \optimalDITcorpus is statistically significant
 suggests that correct corpus construction plays a somewhat important role in
 both tasks, but the effect of choosing an alternate over the optimal is low.
 
-\input{tables/all_model_sweep}
-\input{tables/bookkeeper_model_sweep}
-\input{tables/mahout_model_sweep}
-\input{tables/openjpa_model_sweep}
-\input{tables/pig_model_sweep}
-\input{tables/tika_model_sweep}
-\input{tables/zookeeper_model_sweep}
 
 \ctwo asks what portions of a changeset are most critical for performance of
 different tasks, specifically for feature location and developer
@@ -90,11 +83,4 @@ statistically significant at $p<0.01$.
 
 \todo{output the wilcoxon significant counts to the friedman results tables?}
 
-\input{tables/all_corpus_sweep}
-\input{tables/bookkeeper_corpus_sweep}
-\input{tables/mahout_corpus_sweep}
-\input{tables/openjpa_corpus_sweep}
-\input{tables/pig_corpus_sweep}
-\input{tables/tika_corpus_sweep}
-\input{tables/zookeeper_corpus_sweep}
 
