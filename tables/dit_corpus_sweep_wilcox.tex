@@ -1,0 +1,25 @@
+
+% new fig
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{Wilcoxon test results for DIT optimal and alternative corpus configurations}
+\label{table:combo-dit-corpus-sweep-wilcox}
+\begin{tabular}{lllrrrr}
+\toprule
+                      Subject &  Optimal Config & Alternate Config & Optimal MRR & Alternate MRR &  p-value & Effect size \\
+\midrule
+            BookKeeper v4.3.0 &  $(A, R, C, M)$ &      $(A, C, M)$ &    $0.7216$ &      $0.6974$ & $p<0.01$ &    $0.7783$ \\
+               Mahout v0.10.0 &           $(A)$ &         $(C, M)$ &    $0.3827$ &      $0.3413$ & $0.8252$ &    $0.0238$ \\
+               OpenJPA v2.3.0 &        $(A, C)$ &      $(A, C, M)$ &    $0.4096$ &      $0.3935$ & $0.5454$ &    $0.0687$ \\
+                  Pig v0.14.0 &           $(C)$ &         $(A, R)$ &    $0.3032$ &      $0.1437$ & $p<0.01$ &    $0.8348$ \\
+                    Tika v1.8 &        $(A, C)$ &   $(A, R, C, M)$ &    $0.4522$ &      $0.3943$ & $0.4990$ &    $0.1569$ \\
+             ZooKeeper v3.5.0 &           $(C)$ &      $(A, C, M)$ &    $0.4565$ &      $0.3667$ & $p<0.01$ &    $0.3818$ \\
+ \midrule
+All subject systems &        $(C, M)$ &      $(A, C, M)$ &    $0.4165$ &      $0.3785$ & $p<0.01$ &    $0.2580$ \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}
+

@@ -1,0 +1,25 @@
+
+% new fig
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{Wilcoxon test results for FLT optimal and alternative model configurations}
+\label{table:combo-flt-model-sweep-wilcox}
+\begin{tabular}{lllrrrr}
+\toprule
+                      Subject &                      Optimal Config &                    Alternate Config & Optimal MRR & Alternate MRR &  p-value & Effect size \\
+\midrule
+            BookKeeper v4.3.0 &  $(K=500.0, \alpha=0.5, \eta=auto)$ &  $(K=500.0, \alpha=0.5, \eta=auto)$ &    $0.4884$ &      $0.4884$ &    $nan$ &       $nan$ \\
+               Mahout v0.10.0 &  $(K=500.0, \alpha=0.2, \eta=auto)$ &   $(K=500.0, \alpha=0.1, \eta=0.5)$ &    $0.3390$ &      $0.2802$ & $0.0595$ &    $0.3474$ \\
+               OpenJPA v2.3.0 &  $(K=500.0, \alpha=0.2, \eta=auto)$ &  $(K=500.0, \alpha=auto, \eta=0.1)$ &    $0.3089$ &      $0.2983$ & $0.1182$ &    $0.1928$ \\
+                  Pig v0.14.0 &   $(K=500.0, \alpha=0.1, \eta=0.2)$ &   $(K=200.0, \alpha=0.5, \eta=0.1)$ &    $0.3964$ &      $0.2859$ & $0.0873$ &    $0.1589$ \\
+                    Tika v1.8 &   $(K=200.0, \alpha=0.2, \eta=0.2)$ &   $(K=500.0, \alpha=0.2, \eta=0.5)$ &    $0.4831$ &      $0.3922$ & $0.5445$ &    $0.1310$ \\
+             ZooKeeper v3.5.0 &  $(K=500.0, \alpha=0.1, \eta=auto)$ &   $(K=500.0, \alpha=0.2, \eta=0.2)$ &    $0.4882$ &      $0.4670$ & $0.0667$ &    $0.1737$ \\
+ \midrule
+All subject systems &  $(K=500.0, \alpha=0.2, \eta=auto)$ &  $(K=500.0, \alpha=0.5, \eta=auto)$ &    $0.4162$ &      $0.4107$ & $p<0.01$ &    $0.2181$ \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}
+

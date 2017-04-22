@@ -1,0 +1,25 @@
+
+% new fig
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{Wilcoxon test results for FLT optimal and alternative corpus configurations}
+\label{table:combo-flt-corpus-sweep-wilcox}
+\begin{tabular}{lllrrrr}
+\toprule
+                      Subject &  Optimal Config & Alternate Config & Optimal MRR & Alternate MRR &  p-value & Effect size \\
+\midrule
+            BookKeeper v4.3.0 &     $(A, C, M)$ &   $(A, R, C, M)$ &    $0.5327$ &      $0.5246$ & $0.7311$ &    $0.0410$ \\
+               Mahout v0.10.0 &        $(C, M)$ &            $(A)$ &    $0.3650$ &      $0.2601$ & $0.3049$ &    $0.1827$ \\
+               OpenJPA v2.3.0 &     $(A, C, M)$ &         $(A, C)$ &    $0.3687$ &      $0.2869$ & $0.1908$ &    $0.1425$ \\
+                  Pig v0.14.0 &        $(A, R)$ &            $(C)$ &    $0.4360$ &      $0.3124$ & $p<0.01$ &    $0.2529$ \\
+                    Tika v1.8 &  $(A, R, C, M)$ &         $(A, C)$ &    $0.6482$ &      $0.5572$ & $0.3943$ &    $0.2165$ \\
+             ZooKeeper v3.5.0 &     $(A, C, M)$ &            $(C)$ &    $0.4950$ &      $0.3930$ & $p<0.01$ &    $0.2400$ \\
+ \midrule
+All subject systems &     $(A, C, M)$ &         $(C, M)$ &    $0.4517$ &      $0.3971$ & $p<0.01$ &    $0.1273$ \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}
+
