@@ -1,0 +1,52 @@
+\begin{landscape}
+
+% new fig
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{Wilcoxon test results for FLT optimal and alternative model configurations}
+\label{table:combo-flt-model-sweep-wilcox}
+\begin{tabular}{lllrrrr}
+\toprule
+                      Subject &                      Optimal Config &                    Alternate Config & Optimal MRR & Alternate MRR &  p-value & Effect size \\
+\midrule
+            BookKeeper v4.3.0 &  $(K=500.0, \alpha=0.5, \eta=auto)$ &  $(K=500.0, \alpha=0.5, \eta=auto)$ &    $0.4884$ &      $0.4884$ &    $nan$ &       $nan$ \\
+               Mahout v0.10.0 &  $(K=500.0, \alpha=0.2, \eta=auto)$ &   $(K=500.0, \alpha=0.1, \eta=0.5)$ &    $0.3390$ &      $0.2802$ & $0.0595$ &    $0.3474$ \\
+               OpenJPA v2.3.0 &  $(K=500.0, \alpha=0.2, \eta=auto)$ &  $(K=500.0, \alpha=auto, \eta=0.1)$ &    $0.3089$ &      $0.2983$ & $0.1182$ &    $0.1928$ \\
+                  Pig v0.14.0 &   $(K=500.0, \alpha=0.1, \eta=0.2)$ &   $(K=200.0, \alpha=0.5, \eta=0.1)$ &    $0.3964$ &      $0.2859$ & $0.0873$ &    $0.1589$ \\
+                    Tika v1.8 &   $(K=200.0, \alpha=0.2, \eta=0.2)$ &   $(K=500.0, \alpha=0.2, \eta=0.5)$ &    $0.4831$ &      $0.3922$ & $0.5445$ &    $0.1310$ \\
+             ZooKeeper v3.5.0 &  $(K=500.0, \alpha=0.1, \eta=auto)$ &   $(K=500.0, \alpha=0.2, \eta=0.2)$ &    $0.4882$ &      $0.4670$ & $0.0667$ &    $0.1737$ \\
+ \midrule
+All subject systems &  $(K=500.0, \alpha=0.2, \eta=auto)$ &  $(K=500.0, \alpha=0.5, \eta=auto)$ &    $0.4162$ &      $0.4107$ & $p<0.01$ &    $0.2181$ \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}
+
+
+% new fig
+\begin{table}
+\begin{spacing}{1.2}
+\centering
+\caption{Wilcoxon test results for DIT optimal and alternative model configurations}
+\label{table:combo-dit-model-sweep-wilcox}
+\begin{tabular}{lllrrrr}
+\toprule
+                      Subject &                      Optimal Config &                    Alternate Config & Optimal MRR & Alternate MRR &  p-value & Effect size \\
+\midrule
+            BookKeeper v4.3.0 &  $(K=500.0, \alpha=0.5, \eta=auto)$ &  $(K=500.0, \alpha=0.5, \eta=auto)$ &    $0.6642$ &      $0.6642$ &    $nan$ &       $nan$ \\
+               Mahout v0.10.0 &   $(K=500.0, \alpha=0.1, \eta=0.5)$ &  $(K=500.0, \alpha=0.2, \eta=auto)$ &    $0.3544$ &      $0.3504$ & $0.9324$ &    $0.0099$ \\
+               OpenJPA v2.3.0 &  $(K=500.0, \alpha=auto, \eta=0.1)$ &  $(K=500.0, \alpha=0.2, \eta=auto)$ &    $0.3695$ &      $0.3466$ & $0.0112$ &    $0.3628$ \\
+                  Pig v0.14.0 &   $(K=200.0, \alpha=0.5, \eta=0.1)$ &   $(K=500.0, \alpha=0.1, \eta=0.2)$ &    $0.2173$ &      $0.1631$ & $0.0114$ &    $0.2070$ \\
+                    Tika v1.8 &   $(K=500.0, \alpha=0.2, \eta=0.5)$ &   $(K=200.0, \alpha=0.2, \eta=0.2)$ &    $0.3775$ &      $0.3328$ & $0.0208$ &    $0.4617$ \\
+             ZooKeeper v3.5.0 &   $(K=500.0, \alpha=0.2, \eta=0.2)$ &  $(K=500.0, \alpha=0.1, \eta=auto)$ &    $0.4213$ &      $0.4011$ & $0.1747$ &    $0.1045$ \\
+ \midrule
+All subject systems &  $(K=500.0, \alpha=0.5, \eta=auto)$ &  $(K=500.0, \alpha=0.2, \eta=auto)$ &    $0.3818$ &      $0.3718$ & $0.2262$ &    $0.0632$ \\
+\bottomrule
+\end{tabular}
+
+\end{spacing}
+\end{table}
+
+\end{landscape}
