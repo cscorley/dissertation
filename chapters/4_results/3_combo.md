@@ -3,6 +3,11 @@
 In this section, we will describe the results of the study outlined in Section
 \ref{sec:combo-methodology}.
 
+\input{tables/landscape_model_sweep_wilcox}
+\input{tables/landscape_corpus_sweep_wilcox}
+
+\todo{re-write \cone para to reference the new tables instead of appendix}
+
 \cone asks whether a single topic model can be used for more than a single
 task, specifically for feature location and developer identification. Tables
 \ref{table:all_model_sweep} and \ref{table:all_corpus_sweep} show the summary
@@ -14,13 +19,11 @@ configuration works best for each system and task, but rather to determine
 whether one configuration is *capable* of producing acceptable results for both
 tasks.
 
-\todo{repeat the following test against each system, construct wilcoxon table?}
+\newcommand{\optimalFLTmodel}{optimal model for FLT ($K=500$, $\alpha=2/K$, $\eta=auto$)\xspace}
+\newcommand{\optimalDITmodel}{optimal model for DIT ($K=500$, $\alpha=5/K$, $\eta=auto$)\xspace}
 
-\newcommand{\optimalFLTmodel}{optimal model for FLT ($K=500$, $\alpha=2/K$, $\eta=auto$)}
-\newcommand{\optimalDITmodel}{optimal model for DIT ($K=500$, $\alpha=5/K$, $\eta=auto$)}
-
-\newcommand{\optimalFLTcorpus}{optimal corpus for FLT (additions, context, message)}
-\newcommand{\optimalDITcorpus}{optimal corpus for DIT (context, message)}
+\newcommand{\optimalFLTcorpus}{optimal corpus for FLT (additions, context, message)\xspace}
+\newcommand{\optimalDITcorpus}{optimal corpus for DIT (context, message)\xspace}
 
 When we consider all systems together for model construction (Table
 \ref{table:all_model_sweep}), the both tasks perform best when $K=500$ and
@@ -80,7 +83,5 @@ effectiveness measures of all subject systems, 49 pairs were statistically
 significant at $p<0.01$ for the FLT task.  Similarly, for the DIT task,
 combined results of all subject systems contains 86 pairs that are
 statistically significant at $p<0.01$.
-
-\todo{output the wilcoxon significant counts to the friedman results tables?}
 
 
