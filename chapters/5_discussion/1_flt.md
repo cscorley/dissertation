@@ -1,4 +1,4 @@
-## Feature Location (\frps) {#sec:flt-discussion}
+## Feature Location {#sec:flt-discussion}
 
 The results for \frps outlined in the previous Chapter (specifically, Section
 \ref{sec:flt-results}) warrants some qualitative discussion.  In particular,

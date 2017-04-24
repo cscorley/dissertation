@@ -1,4 +1,4 @@
-## RP3: Combining and Configuring Changeset-based Topic Models {#sec:combo-results}
+## Combining and Configuring Changeset-based Topic Models {#sec:combo-results}
 
 In this section, we will describe the results of the study outlined in Section
 \ref{sec:combo-methodology}.
