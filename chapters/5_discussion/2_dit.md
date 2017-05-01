@@ -35,11 +35,13 @@ total:	1055
 \input{figures/dit/rq1_overview}
 
 Figure \ref{fig:dit:rq1:overview} shows the effectiveness measures across all
-systems. The figure suggests that snapshot-based models and changeset-based
-models have similar results overall with changesets performing slightly better,
-but does not help to understand how each feature query performs for each model.
-With respect to \done, we will investigate the queries and effectiveness
-measures between the batch snapshot and batch changesets in detail.
+systems (figures for all subject systems are available in
+Appendix \ref{app:dit}). The figure suggests that snapshot-based models and
+changeset-based models have similar results overall with changesets performing
+slightly better, but does not help to understand how each feature query
+performs for each model.  With respect to \done, we will investigate the
+queries and effectiveness measures between the batch snapshot and batch
+changesets in detail.
 
 For the 1055 queries across all systems, 154 queries return the same
 effectiveness measure in both approaches, or about 14.6% of the time.  Of these
@@ -80,11 +82,13 @@ total:	1043
 \input{figures/dit/rq2_overview}
 
 Figure \ref{fig:dit:rq2:overview} shows the effectiveness measures across all
-systems. The figure suggests that snapshot-based models and changeset-based
-models have similar results overall with changesets performing slightly better,
-but does not help to understand how each feature query performs for each model.
-With respect to \dtwo, we will investigate the queries and effectiveness
-measures between the batch snapshot and batch changesets in detail.
+systems (figures for all subject systems are available in Appendix
+\ref{app:dit}). The figure suggests that snapshot-based models and
+changeset-based models have similar results overall with changesets performing
+slightly better, but does not help to understand how each feature query
+performs for each model.  With respect to \dtwo, we will investigate the
+queries and effectiveness measures between the batch snapshot and batch
+changesets in detail.
 
 \todo{We will first discuss all systems, and then each subject system in turn.}
 

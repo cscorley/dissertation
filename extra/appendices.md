@@ -1,4 +1,6 @@
-# Feature Location Boxplots
+# Feature Location Boxplots {#app:flt}
+
+slugline
 
 <!-- BookKeeper v4.3.0
 max bound:	843
@@ -300,7 +302,10 @@ total:	241
 
 \input{figures/flt/rq2_zookeeper}
 
-# Developer Identification Boxplots
+
+# Developer Identification Boxplots  {#app:dit}
+
+slugline
  
 <!-- BookKeeper v4.3.0
 max bound:	5
@@ -591,7 +596,13 @@ total:	354
 
 \input{figures/dit/rq2_zookeeper}
 
-# Model Configuration Sweep
+
+
+# Model Configuration Sweep {#app:model}
+
+In these tables, we bold entries where the MRR is highest for each of the two
+tasks and also highlight the row of the configuration used throughout this
+dissertation.  
 
 \input{tables/all_model_sweep}
 \input{figures/combo/flt_rq1_all}
@@ -621,7 +632,11 @@ total:	354
 \input{figures/combo/flt_rq1_zookeeper}
 \input{figures/combo/dit_rq1_zookeeper}
 
-# Corpus Construction Sweep
+# Corpus Construction Sweep {#app:corpus}
+
+In these tables, we bold entries where the MRR is highest for each of the two
+tasks and also highlight the row of the configuration used throughout this
+dissertation.  
 
 \input{tables/all_corpus_sweep}
 \input{figures/combo/flt_rq2_all}

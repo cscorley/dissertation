@@ -23,6 +23,9 @@ Corpus:
 It seems OK to reuse the same model, but you can always improve results by
 optimizing your configuration per task.
 
+(figures and data for all subject systems are available in Appendices
+\ref{app:model} and \ref{app:corpus})
+
 ### \ctwoq
 
 \input{figures/combo/flt_rq2_all}
@@ -30,3 +33,6 @@ optimizing your configuration per task.
 
 There are affects of choosing differing text sources.  It is usually best to
 exclude removals.
+
+(figures and data for all subject systems are available in Appendix
+\ref{app:corpus})

@@ -36,7 +36,8 @@ total:	775
 \input{figures/flt/rq1_overview}
 
 Figure \ref{fig:flt:rq1:overview} shows the effectiveness measures for files
-across all systems. The figure suggests that snapshot-based models and
+across all systems (figures for all subject systems are available in
+Appendix \ref{app:flt}). The figure suggests that snapshot-based models and
 changeset-based models have similar results overall with changesets performing
 slightly better, but does not help to understand how each feature query
 performs for each model.  With respect to \fone, we will investigate the
@@ -85,7 +86,8 @@ total:	775
 \input{figures/flt/rq2_overview}
 
 Figure \ref{fig:flt:rq2:overview} shows the effectiveness measures for files
-across all systems. The figure suggests that historical simulation slightly
+across all systems (figures for all subject systems are available in
+Appendix \ref{app:flt}). The figure suggests that historical simulation slightly
 underperforms a batch changeset model, but does not help to understand how each
 feature query performs for each model.  With respect to \ftwo, we will
 investigate the queries and effectiveness measures between the batch changesets
