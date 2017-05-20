@@ -1,13 +1,11 @@
 ## Feature Location {#sec:flt-discussion}
 
-The results for \frps outlined in the previous Chapter (specifically, Section
-\ref{sec:flt-results}) warrants some qualitative discussion.  In particular,
-our analysis shows significant affects between snapshots and changesets, and
-between batch changesets and changesets in the simulated environment.  The
-results are mixed between each subject system and are not generally conclusive.
-However, we argue this is desirable to show that the accuracy of a
-changeset-based FLT is similar to that of a snapshot-based FLT but without the
-retraining cost.
+Our analysis in Section \ref{sec:flt-results} shows significant affects between
+snapshots and changesets, and between batch changesets and changesets in the
+simulated environment.  The results are mixed between each subject system and
+are not generally conclusive.  However, we argue this is desirable to show that
+the accuracy of a changeset-based FLT is similar to that of a snapshot-based
+FLT but without the retraining cost.
 
 
 ### \foneq

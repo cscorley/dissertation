@@ -89,4 +89,3 @@ significant at $p<0.01$ for the FLT task.  Similarly, for the DIT task,
 combined results of all subject systems contains 86 pairs that are
 statistically significant at $p<0.01$.
 
-

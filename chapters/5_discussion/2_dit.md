@@ -1,9 +1,8 @@
 ## Developer Identification {#sec:dit-discussion}
 
-The results outlined in the Results Section \ref{sec:dit-results} warrants some
-qualitative discussion.  In particular, our analysis shows significant affects
-between snapshots and changesets, and between batch changesets and changesets
-in the simulated environment.  The results are mixed between each and are not
+The results Section \ref{sec:dit-results} shows significant affects between
+snapshots and changesets, and between batch changesets and changesets in the
+simulated environment.  The results are mixed between each and are not
 conclusive.  However, we argue this is desirable to show that the accuracy of a
 changeset-based DIT is similar to that of a snapshot-based DIT but without the
 retraining cost.
