@@ -89,8 +89,6 @@ performs for each model.  With respect to \dtwo, we will investigate the
 queries and effectiveness measures between the batch snapshot and batch
 changesets in detail.
 
-\todo{We will first discuss all systems, and then each subject system in turn.}
-
 For the 1055 queries across all systems, only 1043 were successful.  These 12
 that were unsuccessful were likely due to excluding the commit that fixed the
 issue related to the query.  These commits were the first change in the

@@ -6,7 +6,6 @@ In this section, we will describe the results of the study outlined in Section
 \input{tables/landscape_model_sweep_wilcox}
 \input{tables/landscape_corpus_sweep_wilcox}
 
-
 \cone asks whether a single topic model can be used for more than a single
 task, specifically for feature location and developer identification. Tables
 \ref{table:combo-flt-model-sweep-wilcox} and
