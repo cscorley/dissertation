@@ -95,6 +95,8 @@ As we saw in \cone, it seems feasible to use a single model for two tasks, but
 the choice of corpus construction seems most critical. In \ctwo, we explore
 further just how critical those choices may be.
 
+\todo{'Intuitive view' of which text source vs results. Why they may differ}
+
 \todo{which source has the most negative impact? most positive?}
 
 Main takeaway:
