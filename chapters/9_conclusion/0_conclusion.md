@@ -39,16 +39,34 @@ across tasks.  However, we found there were significant effects in corpus
 construction, which will require more careful consideration when choosing to
 optimize for a task.
 
+My personal perspective from industry is as follows.  First, search tools,
+i.e., feature location tools, aren't used by developers because they often
+aren't needed in large systems.  However, the caveat to this is that the system
+is generally modular and abstracted properly enough to mitigate this issue.  I
+would like to see more work towards feature location as applied to poorly
+engineered systems, which may face new problems.  Rather, I see feature
+location tools being more useful for feature discovery for external users and
+stakeholders, who are often not aware of internal system implementation details
+or progress.
 
-## Future Work {#sec:conclusion-future}
+I do believe there is much more usefulness in a developer identification tool.
+Anecdotally, I often have the need to find other developers to gain perspective
+as to *why* a system behaves a certain way.  Additionally, often it seems that
+external users and stakeholders need to be able to quickly find a developer to
+gain similar perspectives.  The conundrum we currently find ourselves in is
+that the typical DIT will ultimately rely on an FLT or variant thereof.  Hence,
+while I see the most impact in industry with improving DITs, there will also be
+a need to continue to work towards improving FLTs and the insights gained will
+impact both.
 
 Our results encourage the idea that there is still much to explore in the area
-of feature location. What other untapped resources might be available? We show
-changesets are yet another viable resource researchers and practitioners should
-be taking advantage of for the feature location task.  Our results also show
-that research remains not only in improving accuracies of FLTs and DITs, but
-also in solving the practical aspects of building FLTs and DITs that are robust
-*and* agile enough to keep up with fast-changing software.
+of feature location and developer identification. What other untapped resources
+might be available? We show changesets are yet another viable resource
+researchers and practitioners should be taking advantage of for the feature
+location task.  Our results also show that research remains not only in
+improving accuracies of FLTs and DITs, but also in solving the practical
+aspects of building FLTs and DITs that are robust *and* agile enough to keep up
+with fast-changing software.
 
 Future work includes deploying this approach in a development environment.
 Since the source code to our approach is online, we encourage other researchers
@@ -74,6 +92,7 @@ TODO:
       can we use a standard sized mini-batch and still remain robust?
 - Replicate to a "temporal" snapshot evaluation -- will take time
 - Replicate to other online models -- LSI, D2V when possible
+    - Deep learning
 - How does DIT perform with insider knowledge of people joining/leaving group?
 - Language models (trained on N Java projects) vs single-project models
 - Streaming models: This work allows for models to take in streams of data,
