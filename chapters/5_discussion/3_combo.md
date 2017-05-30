@@ -99,6 +99,7 @@ further just how critical those choices may be.
 
 \todo{which source has the most negative impact? most positive?}
 
+
 Main takeaway:
 
 There are affects of choosing differing text sources.  It is usually best to

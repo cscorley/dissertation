@@ -306,7 +306,7 @@ total:	241
 # Developer Identification Boxplots  {#app:dit}
 
 slugline
- 
+
 <!-- BookKeeper v4.3.0
 max bound:	5
 same:	30	0.182926829268
@@ -602,7 +602,11 @@ total:	354
 
 In these tables, we bold entries where the MRR is highest for each of the two
 tasks and also highlight the row of the configuration used throughout this
-dissertation.  
+dissertation.
+
+\input{tables/all_model_sweep}
+\input{figures/combo/flt_rq1_all}
+\input{figures/combo/dit_rq1_all}
 
 \input{tables/bookkeeper_model_sweep}
 \input{figures/combo/flt_rq1_bookkeeper}
@@ -632,7 +636,11 @@ dissertation.
 
 In these tables, we bold entries where the MRR is highest for each of the two
 tasks and also highlight the row of the configuration used throughout this
-dissertation.  
+dissertation.
+
+\input{tables/all_corpus_sweep}
+\input{figures/combo/flt_rq2_all}
+\input{figures/combo/dit_rq2_all}
 
 \input{tables/bookkeeper_corpus_sweep}
 \input{figures/combo/flt_rq2_bookkeeper}
