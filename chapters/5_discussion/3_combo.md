@@ -92,18 +92,67 @@ alternate configurations.
 ### \ctwoq
 
 As we saw in \cone, it seems feasible to use a single model for two tasks, but
-the choice of corpus construction seems most critical. In \ctwo, we explore
-further just how critical those choices may be.
+the choice of corpus construction seems most critical.  In \ctwo, we explore
+further just how critical those choices may be.  Indeed, we see in our results
+in Section \ref{sec:combo-results} that choice of text source is significant in
+all but one subject system for each task, or two insignificant results.
+
+Our changeset corpus sweep was completed on four elements: additions $(A)$
+context $(C)$, messages $(M)$, and removals $(R)$.  Figure \ref{fig:diff} shows
+three of these four elements, while the fourth is the message of the commit
+written by the committing developer.  Intuitively, it makes sense to always
+include additions, as they represent the new words (code) that represent the
+software at that moment.  Likewise, the message is also an intuitive inclusion
+as it contains words that describe the change itself in natural language, which
+may help the model learn words more likely to be used in queries.  It may not
+make sense, however, to include both context and removals during corpus
+construction as they would increase noise of certain words, e.g., over valuing
+words that have already appeared in additions over and over again, as in
+context words, and duplicating value of words that have already appeared in
+additions when they are no longer valid, as in removed words.
+
+\todo{update git diff example with message}
+
+To gain insight into whether a particular source is detrimental to the
+performance, we can compare MRRs of configurations that include a source to the
+same configuration without that particular text source, e.g., for the additions
+text source, we can compare configuration $(A, R, C)$, which includes
+additions, removals, and context, to configuration $(R, C)$, which includes
+removals and context.  Table \ref{table:all_corpus_sweep} shows all
+configurations and their MRRs for each task of all subject systems.  With our
+example, we can see that configuration $(A, R, C)$ outperforms configuration
+$(R, C)$ for both tasks.  Indeed, for all seven possible configuration pairs,
+additions improve the MRR of all configurations for FLT, but only degrades
+performance for DIT under two configurations, one of the two, $(A, C, M)$,
+being the pair optimal DIT configuration $(C, M)$, and the other configuration,
+$(A, C)$, underperforming the corpus only containing context $(C)$.
+
+For the context text source, we see a similar result as additions.  For DIT,
+all seven pairs improve when context is included.  Two configurations, $(A, R,
+C)$ and $(A, C)$, degrade in performance for the FLT task while all other
+configurations see improvements.  We also note that the context text source is
+included in both optimal configurations.  Together, this suggests that context
+is worthwhile for inclusion, which does not align with our intuitive view for
+this source.
+
+For messages, we see improvements in MRR for nearly all including
+configurations, except for one configuration in each task. For FLT, the
+configuration $(A, R, M)$ performs slightly worse than configuration $(A, R)$
+
+\todo{I have wilcoxons of these... worth adding?}
+
+\input{tables/all_corpus_sweep}
+
 
 \todo{'Intuitive view' of which text source vs results. Why they may differ}
-
-\todo{which source has the most negative impact? most positive?}
 
 
 Main takeaway:
 
 There are affects of choosing differing text sources.  It is usually best to
-exclude removals.
+exclude removals and include additions, context, and messages.  This tends to
+match our intuitive view that removals would be detrimental to the performance
+of our FLT and DIT.
 
 Corpus:
 
