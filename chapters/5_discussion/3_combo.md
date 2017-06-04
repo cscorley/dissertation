@@ -102,14 +102,15 @@ context $(C)$, messages $(M)$, and removals $(R)$.  Figure \ref{fig:diff} shows
 three of these four elements, while the fourth is the message of the commit
 written by the committing developer.  Intuitively, it makes sense to always
 include additions, as they represent the new words (code) that represent the
-software at that moment.  Likewise, the message is also an intuitive inclusion
-as it contains words that describe the change itself in natural language, which
-may help the model learn words more likely to be used in queries.  It may not
-make sense, however, to include both context and removals during corpus
-construction as they would increase noise of certain words, e.g., over valuing
-words that have already appeared in additions over and over again, as in
-context words, and duplicating value of words that have already appeared in
-additions when they are no longer valid, as in removed words.
+code that was being worked on at that moment.  Likewise, the message is also an
+intuitive inclusion as it contains words that describe the change itself in
+natural language, which may help the model learn words more likely to be used
+in queries.  It may not make sense, however, to include both context and
+removals during corpus construction as they would increase noise of certain
+words, e.g., over valuing words that have already appeared in additions over
+and over again, as in context words, and duplicating value of words that have
+already appeared in additions when they are no longer valid, as in removed
+words.
 
 \todo{update git diff example with message}
 
@@ -137,23 +138,30 @@ this source.
 
 For messages, we see improvements in MRR for nearly all including
 configurations, except for one configuration in each task. For FLT, the
-configuration $(A, R, M)$ performs slightly worse than configuration $(A, R)$
+configuration $(A, R, M)$ performs worse than configuration $(A, R)$.
+The DIT configuration $(A, C, M)$ worse than the configuration $(A, C)$.
+Again, both optimal configurations contain the message text source.
+This aligns with our intuitive view that messages would benefit the model and
+suggests they would be included.
 
-\todo{I have wilcoxons of these... worth adding?}
+The removal text source, however, is the only source that performs generally
+worse when included.  Overall, for 7 of the configuration pairs, including
+removals had a negative impact, while only 6 of the configuration pairs had a
+positive impact.  Neither of the optimal configurations include removals.
+This suggests that removals should be used with caution, and also aligns with
+our intuitive view that we would expect them to be harmful.
+
+\todo{Generate table of all wilcoxon values for these}
 
 \input{tables/all_corpus_sweep}
 
+In sum, there are affects of choosing differing text sources.  It is usually
+best to exclude removals and include additions, context, and messages.  This
+tends to match our intuitive view that removals would be detrimental to the
+performance of our FLT and DIT.
 
-\todo{'Intuitive view' of which text source vs results. Why they may differ}
 
-
-Main takeaway:
-
-There are affects of choosing differing text sources.  It is usually best to
-exclude removals and include additions, context, and messages.  This tends to
-match our intuitive view that removals would be detrimental to the performance
-of our FLT and DIT.
-
+<!--
 Corpus:
 
 1. There is a need to choose inputs during corpus construction.
@@ -161,4 +169,5 @@ Corpus:
 3. Additions generally improve the results, likely because it was the code
    written that resolved the issue.  Message is the same.
 4. Context inclusion seems less impactful, but is generally positive.
+-->
 
