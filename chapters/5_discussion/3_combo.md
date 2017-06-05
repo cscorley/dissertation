@@ -161,6 +161,15 @@ tends to match our intuitive view that removals would be detrimental to the
 performance of our FLT and DIT.
 
 
+\input{tables/versus-wilcox-all-flt-additions}
+\input{tables/versus-wilcox-all-flt-removals}
+\input{tables/versus-wilcox-all-flt-context}
+\input{tables/versus-wilcox-all-flt-message}
+\input{tables/versus-wilcox-all-dit-additions}
+\input{tables/versus-wilcox-all-dit-removals}
+\input{tables/versus-wilcox-all-dit-context}
+\input{tables/versus-wilcox-all-dit-message}
+
 <!--
 Corpus:
 
