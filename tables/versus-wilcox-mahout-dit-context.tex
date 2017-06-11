@@ -2,19 +2,19 @@
 \begin{table}
 \begin{spacing}{1.2}
 \centering
-\caption{Wilcoxon test results for context inclusion and exlusion configurations of the DIT task for Mahout v0.10.0}
+\caption{Wilcoxon test results for context inclusion and exclusion configurations of the DIT task for Mahout v0.10.0}
 \label{table:versus-wilcox-mahout-dit-context}
-\begin{tabular}{ll|ll|ll}
+\begin{tabular}{ll|rr|rr}
 \toprule
- \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &  p-value & Effect size \\
+      \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &       p-value & Effect size \\
 \midrule
- $ACMR$ &   $AMR$ & $0.2785$ & $0.2797$ & $0.1708$ &    $0.1475$ \\
-  $ACM$ &    $AM$ & $0.3124$ & $0.3116$ & $0.2858$ &    $0.1200$ \\
-  $ACR$ &    $AR$ & $0.3340$ & $0.3052$ & $0.0056$ &    $0.3107$ \\
-   $AC$ &     $A$ & $0.3492$ & $0.3827$ & $0.8116$ &    $0.0258$ \\
-  $CMR$ &    $MR$ & $0.2505$ & $0.2885$ & $0.8384$ &    $0.0221$ \\
-   $CM$ &     $M$ & $0.3413$ & $0.2835$ & $0.6532$ &    $0.0469$ \\
-   $CR$ &     $R$ & $0.2719$ & $0.2969$ & $0.0166$ &    $0.2607$ \\
+ $(A,C,M,R)$ &  $(A,M,R)$ & $0.2785$ & $0.2797$ & $0.1708$ &    $0.1475$ \\
+   $(A,C,M)$ &    $(A,M)$ & $0.3124$ & $0.3116$ & $0.2858$ &    $0.1200$ \\
+   $(A,C,R)$ &    $(A,R)$ & $0.3340$ & $0.3052$ &  $p<0.01 &    $0.3107$ \\
+     $(A,C)$ &      $(A)$ & $0.3492$ & $0.3827$ & $0.8116$ &    $0.0258$ \\
+   $(C,M,R)$ &    $(M,R)$ & $0.2505$ & $0.2885$ & $0.8384$ &    $0.0221$ \\
+     $(C,M)$ &      $(M)$ & $0.3413$ & $0.2835$ & $0.6532$ &    $0.0469$ \\
+     $(C,R)$ &      $(R)$ & $0.2719$ & $0.2969$ & $0.0166$ &    $0.2607$ \\
 \bottomrule
 \end{tabular}
 

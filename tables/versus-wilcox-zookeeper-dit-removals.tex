@@ -2,19 +2,19 @@
 \begin{table}
 \begin{spacing}{1.2}
 \centering
-\caption{Wilcoxon test results for removals inclusion and exlusion configurations of the DIT task for ZooKeeper v3.5.0}
+\caption{Wilcoxon test results for removals inclusion and exclusion configurations of the DIT task for ZooKeeper v3.5.0}
 \label{table:versus-wilcox-zookeeper-dit-removals}
-\begin{tabular}{ll|ll|ll}
+\begin{tabular}{ll|rr|rr}
 \toprule
- \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &  p-value & Effect size \\
+      \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &       p-value & Effect size \\
 \midrule
- $ACMR$ &   $ACM$ & $0.3776$ & $0.3667$ & $0.0014$ &    $0.2277$ \\
-  $ACR$ &    $AC$ & $0.3985$ & $0.3579$ & $0.0000$ &    $0.3952$ \\
-  $AMR$ &    $AM$ & $0.3706$ & $0.3643$ & $0.9356$ &    $0.0059$ \\
-   $AR$ &     $A$ & $0.3858$ & $0.3637$ & $0.0035$ &    $0.2080$ \\
-  $CMR$ &    $CM$ & $0.3189$ & $0.4247$ & $0.0000$ &    $0.4575$ \\
-   $CR$ &     $C$ & $0.3456$ & $0.4565$ & $0.0000$ &    $0.4250$ \\
-   $MR$ &     $M$ & $0.2970$ & $0.3188$ & $0.0000$ &    $0.2718$ \\
+ $(A,C,M,R)$ &  $(A,C,M)$ & $0.3776$ & $0.3667$ &  $p<0.01 &    $0.2277$ \\
+   $(A,C,R)$ &    $(A,C)$ & $0.3985$ & $0.3579$ &  $p<0.01 &    $0.3952$ \\
+   $(A,M,R)$ &    $(A,M)$ & $0.3706$ & $0.3643$ & $0.9356$ &    $0.0059$ \\
+     $(A,R)$ &      $(A)$ & $0.3858$ & $0.3637$ &  $p<0.01 &    $0.2080$ \\
+   $(C,M,R)$ &    $(C,M)$ & $0.3189$ & $0.4247$ &  $p<0.01 &    $0.4575$ \\
+     $(C,R)$ &      $(C)$ & $0.3456$ & $0.4565$ &  $p<0.01 &    $0.4250$ \\
+     $(M,R)$ &      $(M)$ & $0.2970$ & $0.3188$ &  $p<0.01 &    $0.2718$ \\
 \bottomrule
 \end{tabular}
 

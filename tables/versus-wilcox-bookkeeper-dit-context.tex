@@ -2,19 +2,19 @@
 \begin{table}
 \begin{spacing}{1.2}
 \centering
-\caption{Wilcoxon test results for context inclusion and exlusion configurations of the DIT task for BookKeeper v4.3.0}
+\caption{Wilcoxon test results for context inclusion and exclusion configurations of the DIT task for BookKeeper v4.3.0}
 \label{table:versus-wilcox-bookkeeper-dit-context}
-\begin{tabular}{ll|ll|ll}
+\begin{tabular}{ll|rr|rr}
 \toprule
- \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &  p-value & Effect size \\
+      \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &       p-value & Effect size \\
 \midrule
- $ACMR$ &   $AMR$ & $0.7216$ & $0.6465$ & $0.0000$ &    $0.8575$ \\
-  $ACM$ &    $AM$ & $0.6974$ & $0.6722$ & $0.1609$ &    $0.2667$ \\
-  $ACR$ &    $AR$ & $0.6513$ & $0.5425$ & $0.0000$ &    $0.6881$ \\
-   $AC$ &     $A$ & $0.6517$ & $0.4821$ & $0.0000$ &    $0.5113$ \\
-  $CMR$ &    $MR$ & $0.6530$ & $0.6507$ & $0.6651$ &    $0.0646$ \\
-   $CM$ &     $M$ & $0.7114$ & $0.5132$ & $0.0000$ &    $0.6510$ \\
-   $CR$ &     $R$ & $0.6526$ & $0.6375$ & $0.4704$ &    $0.0966$ \\
+ $(A,C,M,R)$ &  $(A,M,R)$ & $0.7216$ & $0.6465$ &  $p<0.01 &    $0.8575$ \\
+   $(A,C,M)$ &    $(A,M)$ & $0.6974$ & $0.6722$ & $0.1609$ &    $0.2667$ \\
+   $(A,C,R)$ &    $(A,R)$ & $0.6513$ & $0.5425$ &  $p<0.01 &    $0.6881$ \\
+     $(A,C)$ &      $(A)$ & $0.6517$ & $0.4821$ &  $p<0.01 &    $0.5113$ \\
+   $(C,M,R)$ &    $(M,R)$ & $0.6530$ & $0.6507$ & $0.6651$ &    $0.0646$ \\
+     $(C,M)$ &      $(M)$ & $0.7114$ & $0.5132$ &  $p<0.01 &    $0.6510$ \\
+     $(C,R)$ &      $(R)$ & $0.6526$ & $0.6375$ & $0.4704$ &    $0.0966$ \\
 \bottomrule
 \end{tabular}
 

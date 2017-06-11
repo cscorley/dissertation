@@ -2,19 +2,19 @@
 \begin{table}
 \begin{spacing}{1.2}
 \centering
-\caption{Wilcoxon test results for removals inclusion and exlusion configurations of the DIT task for Pig v0.14.0}
+\caption{Wilcoxon test results for removals inclusion and exclusion configurations of the DIT task for Pig v0.14.0}
 \label{table:versus-wilcox-pig-dit-removals}
-\begin{tabular}{ll|ll|ll}
+\begin{tabular}{ll|rr|rr}
 \toprule
- \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &  p-value & Effect size \\
+      \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &       p-value & Effect size \\
 \midrule
- $ACMR$ &   $ACM$ & $0.1801$ & $0.1874$ & $0.0029$ &    $0.2497$ \\
-  $ACR$ &    $AC$ & $0.1759$ & $0.2032$ & $0.8779$ &    $0.0129$ \\
-  $AMR$ &    $AM$ & $0.1824$ & $0.1416$ & $0.0000$ &    $0.6179$ \\
-   $AR$ &     $A$ & $0.1437$ & $0.1421$ & $0.8170$ &    $0.0198$ \\
-  $CMR$ &    $CM$ & $0.1771$ & $0.2933$ & $0.0000$ &    $0.7480$ \\
-   $CR$ &     $C$ & $0.1316$ & $0.3032$ & $0.0000$ &    $0.8995$ \\
-   $MR$ &     $M$ & $0.1694$ & $0.2703$ & $0.0001$ &    $0.3320$ \\
+ $(A,C,M,R)$ &  $(A,C,M)$ & $0.1801$ & $0.1874$ &  $p<0.01 &    $0.2497$ \\
+   $(A,C,R)$ &    $(A,C)$ & $0.1759$ & $0.2032$ & $0.8779$ &    $0.0129$ \\
+   $(A,M,R)$ &    $(A,M)$ & $0.1824$ & $0.1416$ &  $p<0.01 &    $0.6179$ \\
+     $(A,R)$ &      $(A)$ & $0.1437$ & $0.1421$ & $0.8170$ &    $0.0198$ \\
+   $(C,M,R)$ &    $(C,M)$ & $0.1771$ & $0.2933$ &  $p<0.01 &    $0.7480$ \\
+     $(C,R)$ &      $(C)$ & $0.1316$ & $0.3032$ &  $p<0.01 &    $0.8995$ \\
+     $(M,R)$ &      $(M)$ & $0.1694$ & $0.2703$ &  $p<0.01 &    $0.3320$ \\
 \bottomrule
 \end{tabular}
 

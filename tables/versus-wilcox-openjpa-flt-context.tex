@@ -2,19 +2,19 @@
 \begin{table}
 \begin{spacing}{1.2}
 \centering
-\caption{Wilcoxon test results for context inclusion and exlusion configurations of the FLT task for OpenJPA v2.3.0}
+\caption{Wilcoxon test results for context inclusion and exclusion configurations of the FLT task for OpenJPA v2.3.0}
 \label{table:versus-wilcox-openjpa-flt-context}
-\begin{tabular}{ll|ll|ll}
+\begin{tabular}{ll|rr|rr}
 \toprule
- \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &  p-value & Effect size \\
+      \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &       p-value & Effect size \\
 \midrule
- $ACMR$ &   $AMR$ & $0.3137$ & $0.2933$ & $0.6027$ &    $0.0573$ \\
-  $ACM$ &    $AM$ & $0.3687$ & $0.3281$ & $0.7511$ &    $0.0364$ \\
-  $ACR$ &    $AR$ & $0.2989$ & $0.2999$ & $0.9225$ &    $0.0107$ \\
-   $AC$ &     $A$ & $0.2869$ & $0.2990$ & $0.6567$ &    $0.0492$ \\
-  $CMR$ &    $MR$ & $0.2996$ & $0.2207$ & $0.0642$ &    $0.1990$ \\
-   $CM$ &     $M$ & $0.2502$ & $0.2928$ & $0.0025$ &    $0.3195$ \\
-   $CR$ &     $R$ & $0.2314$ & $0.2706$ & $0.4836$ &    $0.0761$ \\
+ $(A,C,M,R)$ &  $(A,M,R)$ & $0.3137$ & $0.2933$ & $0.6027$ &    $0.0573$ \\
+   $(A,C,M)$ &    $(A,M)$ & $0.3687$ & $0.3281$ & $0.7511$ &    $0.0364$ \\
+   $(A,C,R)$ &    $(A,R)$ & $0.2989$ & $0.2999$ & $0.9225$ &    $0.0107$ \\
+     $(A,C)$ &      $(A)$ & $0.2869$ & $0.2990$ & $0.6567$ &    $0.0492$ \\
+   $(C,M,R)$ &    $(M,R)$ & $0.2996$ & $0.2207$ & $0.0642$ &    $0.1990$ \\
+     $(C,M)$ &      $(M)$ & $0.2502$ & $0.2928$ &  $p<0.01 &    $0.3195$ \\
+     $(C,R)$ &      $(R)$ & $0.2314$ & $0.2706$ & $0.4836$ &    $0.0761$ \\
 \bottomrule
 \end{tabular}
 

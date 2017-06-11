@@ -2,19 +2,19 @@
 \begin{table}
 \begin{spacing}{1.2}
 \centering
-\caption{Wilcoxon test results for message inclusion and exlusion configurations of the FLT task for Tika v1.8}
+\caption{Wilcoxon test results for message inclusion and exclusion configurations of the FLT task for Tika v1.8}
 \label{table:versus-wilcox-tika-flt-message}
-\begin{tabular}{ll|ll|ll}
+\begin{tabular}{ll|rr|rr}
 \toprule
- \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &  p-value & Effect size \\
+      \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &       p-value & Effect size \\
 \midrule
- $ACMR$ &   $ACR$ & $0.6482$ & $0.4033$ & $0.0485$ &    $0.4207$ \\
-  $ACM$ &    $AC$ & $0.4759$ & $0.5572$ & $0.9493$ &    $0.0171$ \\
-  $AMR$ &    $AR$ & $0.4713$ & $0.5231$ & $0.6567$ &    $0.1046$ \\
-   $AM$ &     $A$ & $0.4864$ & $0.3829$ & $0.0527$ &    $0.4138$ \\
-  $CMR$ &    $CR$ & $0.4494$ & $0.3940$ & $0.2741$ &    $0.2389$ \\
-   $CM$ &     $C$ & $0.4507$ & $0.4198$ & $0.4160$ &    $0.1852$ \\
-   $MR$ &     $R$ & $0.3759$ & $0.4109$ & $0.5801$ &    $0.1243$ \\
+ $(A,C,M,R)$ &  $(A,C,R)$ & $0.6482$ & $0.4033$ & $0.0485$ &    $0.4207$ \\
+   $(A,C,M)$ &    $(A,C)$ & $0.4759$ & $0.5572$ & $0.9493$ &    $0.0171$ \\
+   $(A,M,R)$ &    $(A,R)$ & $0.4713$ & $0.5231$ & $0.6567$ &    $0.1046$ \\
+     $(A,M)$ &      $(A)$ & $0.4864$ & $0.3829$ & $0.0527$ &    $0.4138$ \\
+   $(C,M,R)$ &    $(C,R)$ & $0.4494$ & $0.3940$ & $0.2741$ &    $0.2389$ \\
+     $(C,M)$ &      $(C)$ & $0.4507$ & $0.4198$ & $0.4160$ &    $0.1852$ \\
+     $(M,R)$ &      $(R)$ & $0.3759$ & $0.4109$ & $0.5801$ &    $0.1243$ \\
 \bottomrule
 \end{tabular}
 

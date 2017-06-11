@@ -2,19 +2,19 @@
 \begin{table}
 \begin{spacing}{1.2}
 \centering
-\caption{Wilcoxon test results for removals inclusion and exlusion configurations of the FLT task for BookKeeper v4.3.0}
+\caption{Wilcoxon test results for removals inclusion and exclusion configurations of the FLT task for BookKeeper v4.3.0}
 \label{table:versus-wilcox-bookkeeper-flt-removals}
-\begin{tabular}{ll|ll|ll}
+\begin{tabular}{ll|rr|rr}
 \toprule
- \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &  p-value & Effect size \\
+      \multicolumn{2}{c|}{Configurations} &          \multicolumn{2}{c|}{MRRs} &       p-value & Effect size \\
 \midrule
- $ACMR$ &   $ACM$ & $0.5246$ & $0.5327$ & $0.7311$ &    $0.0410$ \\
-  $ACR$ &    $AC$ & $0.4567$ & $0.4450$ & $0.4925$ &    $0.0796$ \\
-  $AMR$ &    $AM$ & $0.5316$ & $0.5260$ & $0.8400$ &    $0.0238$ \\
-   $AR$ &     $A$ & $0.4970$ & $0.4881$ & $0.9703$ &    $0.0045$ \\
-  $CMR$ &    $CM$ & $0.4786$ & $0.4968$ & $0.8254$ &    $0.0251$ \\
-   $CR$ &     $C$ & $0.4036$ & $0.3366$ & $0.4352$ &    $0.0818$ \\
-   $MR$ &     $M$ & $0.3978$ & $0.3826$ & $0.0038$ &    $0.3029$ \\
+ $(A,C,M,R)$ &  $(A,C,M)$ & $0.5246$ & $0.5327$ & $0.7311$ &    $0.0410$ \\
+   $(A,C,R)$ &    $(A,C)$ & $0.4567$ & $0.4450$ & $0.4925$ &    $0.0796$ \\
+   $(A,M,R)$ &    $(A,M)$ & $0.5316$ & $0.5260$ & $0.8400$ &    $0.0238$ \\
+     $(A,R)$ &      $(A)$ & $0.4970$ & $0.4881$ & $0.9703$ &    $0.0045$ \\
+   $(C,M,R)$ &    $(C,M)$ & $0.4786$ & $0.4968$ & $0.8254$ &    $0.0251$ \\
+     $(C,R)$ &      $(C)$ & $0.4036$ & $0.3366$ & $0.4352$ &    $0.0818$ \\
+     $(M,R)$ &      $(M)$ & $0.3978$ & $0.3826$ &  $p<0.01 &    $0.3029$ \\
 \bottomrule
 \end{tabular}
 
