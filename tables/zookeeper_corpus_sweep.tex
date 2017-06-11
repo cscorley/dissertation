@@ -5,25 +5,25 @@
 \caption{MRR values of \zookeeper corpus construction sweep}
 \label{table:zookeeper_corpus_sweep}
 \vspace{0.2em}
-\begin{tabular}{llll|rr}
+\begin{tabular}{lrr}
 \toprule
-Additions &  Removals &   Context &   Message &           FLT &           DIT \\
+Configuration &           FLT &           DIT \\
 \midrule
- Included &  Included &  Included &  Included &      $0.4788$ &      $0.3776$ \\
- \myrowcolor Included &  Included &  Included &           &      $0.4818$ &      $0.3985$ \\
- Included &  Included &           &  Included &      $0.4790$ &      $0.3706$ \\
- Included &  Included &           &           &      $0.4503$ &      $0.3858$ \\
- Included &           &  Included &  Included & $\bm{0.4950}$ &      $0.3667$ \\
- Included &           &  Included &           &      $0.4745$ &      $0.3579$ \\
- Included &           &           &  Included &      $0.4531$ &      $0.3643$ \\
- Included &           &           &           &      $0.4548$ &      $0.3637$ \\
-          &  Included &  Included &  Included &      $0.4576$ &      $0.3189$ \\
-          &  Included &  Included &           &      $0.4003$ &      $0.3456$ \\
-          &  Included &           &  Included &      $0.4062$ &      $0.2970$ \\
-          &  Included &           &           &      $0.3669$ &      $0.2973$ \\
-          &           &  Included &  Included &      $0.4720$ &      $0.4247$ \\
-          &           &  Included &           &      $0.3930$ & $\bm{0.4565}$ \\
-          &           &           &  Included &      $0.4574$ &      $0.3188$ \\
+  $(A,R,C,M)$ &      $0.4788$ &      $0.3776$ \\
+    $(A,R,C)$ &      $0.4818$ &      $0.3985$ \\
+    $(A,R,M)$ &      $0.4790$ &      $0.3706$ \\
+      $(A,R)$ &      $0.4503$ &      $0.3858$ \\
+    $(A,C,M)$ & $\bm{0.4950}$ &      $0.3667$ \\
+      $(A,C)$ &      $0.4745$ &      $0.3579$ \\
+      $(A,M)$ &      $0.4531$ &      $0.3643$ \\
+        $(A)$ &      $0.4548$ &      $0.3637$ \\
+    $(R,C,M)$ &      $0.4576$ &      $0.3189$ \\
+      $(R,C)$ &      $0.4003$ &      $0.3456$ \\
+      $(R,M)$ &      $0.4062$ &      $0.2970$ \\
+        $(R)$ &      $0.3669$ &      $0.2973$ \\
+      $(C,M)$ &      $0.4720$ &      $0.4247$ \\
+        $(C)$ &      $0.3930$ & $\bm{0.4565}$ \\
+        $(M)$ &      $0.4574$ &      $0.3188$ \\
 \bottomrule
 \end{tabular}
 

@@ -5,25 +5,25 @@
 \caption{MRR values of \openjpa corpus construction sweep}
 \label{table:openjpa_corpus_sweep}
 \vspace{0.2em}
-\begin{tabular}{llll|rr}
+\begin{tabular}{lrr}
 \toprule
-Additions &  Removals &   Context &   Message &           FLT &           DIT \\
+Configuration &           FLT &           DIT \\
 \midrule
- Included &  Included &  Included &  Included &      $0.3137$ &      $0.3833$ \\
- \myrowcolor Included &  Included &  Included &           &      $0.2989$ &      $0.3648$ \\
- Included &  Included &           &  Included &      $0.2933$ &      $0.3916$ \\
- Included &  Included &           &           &      $0.2999$ &      $0.3568$ \\
- Included &           &  Included &  Included & $\bm{0.3687}$ &      $0.3935$ \\
- Included &           &  Included &           &      $0.2869$ & $\bm{0.4096}$ \\
- Included &           &           &  Included &      $0.3281$ &      $0.3349$ \\
- Included &           &           &           &      $0.2990$ &      $0.3446$ \\
-          &  Included &  Included &  Included &      $0.2996$ &      $0.3544$ \\
-          &  Included &  Included &           &      $0.2314$ &      $0.3256$ \\
-          &  Included &           &  Included &      $0.2207$ &      $0.3317$ \\
-          &  Included &           &           &      $0.2706$ &      $0.2563$ \\
-          &           &  Included &  Included &      $0.2502$ &      $0.3236$ \\
-          &           &  Included &           &      $0.2809$ &      $0.2744$ \\
-          &           &           &  Included &      $0.2928$ &      $0.3157$ \\
+  $(A,R,C,M)$ &      $0.3137$ &      $0.3833$ \\
+    $(A,R,C)$ &      $0.2989$ &      $0.3648$ \\
+    $(A,R,M)$ &      $0.2933$ &      $0.3916$ \\
+      $(A,R)$ &      $0.2999$ &      $0.3568$ \\
+    $(A,C,M)$ & $\bm{0.3687}$ &      $0.3935$ \\
+      $(A,C)$ &      $0.2869$ & $\bm{0.4096}$ \\
+      $(A,M)$ &      $0.3281$ &      $0.3349$ \\
+        $(A)$ &      $0.2990$ &      $0.3446$ \\
+    $(R,C,M)$ &      $0.2996$ &      $0.3544$ \\
+      $(R,C)$ &      $0.2314$ &      $0.3256$ \\
+      $(R,M)$ &      $0.2207$ &      $0.3317$ \\
+        $(R)$ &      $0.2706$ &      $0.2563$ \\
+      $(C,M)$ &      $0.2502$ &      $0.3236$ \\
+        $(C)$ &      $0.2809$ &      $0.2744$ \\
+        $(M)$ &      $0.2928$ &      $0.3157$ \\
 \bottomrule
 \end{tabular}
 
