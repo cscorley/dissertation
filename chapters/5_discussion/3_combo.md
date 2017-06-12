@@ -114,6 +114,8 @@ words.
 
 \todo{update git diff example with message}
 
+\input{tables/all_corpus_sweep}
+
 To gain insight into whether a particular source is detrimental to the
 performance, we can compare MRRs of configurations that include a source to the
 same configuration without that particular text source, e.g., for the additions
@@ -123,52 +125,58 @@ removals and context.  Table \ref{table:all_corpus_sweep} shows all
 configurations and their MRRs for each task of all subject systems.  With our
 example, we can see that configuration $(A, R, C)$ outperforms configuration
 $(R, C)$ for both tasks.  Indeed, for all seven possible configuration pairs,
-additions improve the MRR of all configurations for FLT, but only degrades
-performance for DIT under two configurations, one of the two, $(A, C, M)$,
-being the pair optimal DIT configuration $(C, M)$, and the other configuration,
-$(A, C)$, underperforming the corpus only containing context $(C)$.
-
-For the context text source, we see a similar result as additions.  For DIT,
-all seven pairs improve when context is included.  Two configurations, $(A, R,
-C)$ and $(A, C)$, degrade in performance for the FLT task while all other
-configurations see improvements.  We also note that the context text source is
-included in both optimal configurations.  Together, this suggests that context
-is worthwhile for inclusion, which does not align with our intuitive view for
-this source.
-
-For messages, we see improvements in MRR for nearly all including
-configurations, except for one configuration in each task. For FLT, the
-configuration $(A, R, M)$ performs worse than configuration $(A, R)$.
-The DIT configuration $(A, C, M)$ worse than the configuration $(A, C)$.
-Again, both optimal configurations contain the message text source.
-This aligns with our intuitive view that messages would benefit the model and
-suggests they would be included.
-
-The removal text source, however, is the only source that performs generally
-worse when included.  Overall, for 7 of the configuration pairs, including
-removals had a negative impact, while only 6 of the configuration pairs had a
-positive impact.  Neither of the optimal configurations include removals.
-This suggests that removals should be used with caution, and also aligns with
-our intuitive view that we would expect them to be harmful.
-
-\todo{Generate table of all wilcoxon values for these}
-
-\input{tables/all_corpus_sweep}
-
-In sum, there are affects of choosing differing text sources.  It is usually
-best to exclude removals and include additions, context, and messages.  This
-tends to match our intuitive view that removals would be detrimental to the
-performance of our FLT and DIT.
-
+as shown in Table \ref{table:versus-wilcox-all-flt-additions}, additions
+improve the MRR of all configurations for FLT.  Table
+\ref{table:versus-wilcox-all-dit-additions} shows DIT performance degrades
+under two configurations; one of the two, $(A, C, M)$, being the optimal DIT
+configuration $(C, M)$, and the other configuration, $(A, C)$, underperforming
+the corpus only containing context $(C)$.
 
 \input{tables/versus-wilcox-all-flt-additions}
-\input{tables/versus-wilcox-all-flt-removals}
-\input{tables/versus-wilcox-all-flt-context}
-\input{tables/versus-wilcox-all-flt-message}
 \input{tables/versus-wilcox-all-dit-additions}
-\input{tables/versus-wilcox-all-dit-removals}
+
+For the context text source, we see a similar result as additions in Tables
+\ref{table:versus-wilcox-all-flt-context} and
+\ref{table:versus-wilcox-all-dit-context}.  For DIT, all seven pairs improve
+when context is included.  Two configurations, $(A, R, C)$ and $(A, C)$,
+degrade in performance for the FLT task while all other configurations see
+improvements.  We also note that the context text source is included in both
+optimal configurations.  Together, this suggests that context is worthwhile for
+inclusion, which does not align with our intuitive view for this source.
+
+\input{tables/versus-wilcox-all-flt-context}
 \input{tables/versus-wilcox-all-dit-context}
+
+For messages, we see improvements in MRR for nearly all including
+configurations, except for one configuration in each task. As seen in Table
+\ref{table:versus-wilcox-all-flt-message}, the configuration $(A, R, M)$
+performs worse than configuration $(A, R)$ for FLT.  The DIT configuration $(A,
+C, M)$ worse than the configuration $(A, C)$ (Table
+\ref{table:versus-wilcox-all-dit-message}.  Again, both optimal configurations
+contain the message text source.  This aligns with our intuitive view that
+messages would benefit the model and suggests they would be included.
+
+\input{tables/versus-wilcox-all-flt-message}
 \input{tables/versus-wilcox-all-dit-message}
+
+The removal text source, however, is the only source that performs generally
+worse when included.  Tables \ref{table:versus-wilcox-all-flt-removals} and
+\ref{table:versus-wilcox-all-dit-removals} show the Wilcoxon test results of
+removal inclusion and exclusion for FLT and DIT, respectively.  Overall, for 7
+of the configuration pairs, including removals had a negative impact, while
+only 6 of the configuration pairs had a positive impact.  Neither of the
+optimal configurations include removals.  This suggests that removals should be
+used with caution, and also aligns with our intuitive view that we would expect
+them to be harmful.
+
+\input{tables/versus-wilcox-all-flt-removals}
+\input{tables/versus-wilcox-all-dit-removals}
+
+In sum, there are affects of choosing differing text sources, as shown in
+results Section \ref{sec:combo-results}.  It is usually best to exclude
+removals and include additions, context, and messages.  This tends to match our
+intuitive view that removals would be detrimental to the performance of our FLT
+and DIT.
 
 <!--
 Corpus:
