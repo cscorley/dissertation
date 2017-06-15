@@ -152,7 +152,7 @@ configurations, except for one configuration in each task. As seen in Table
 \ref{table:versus-wilcox-all-flt-message}, the configuration $(A, R, M)$
 performs worse than configuration $(A, R)$ for FLT.  The DIT configuration $(A,
 C, M)$ worse than the configuration $(A, C)$ (Table
-\ref{table:versus-wilcox-all-dit-message}.  Again, both optimal configurations
+\ref{table:versus-wilcox-all-dit-message}).  Again, both optimal configurations
 contain the message text source.  This aligns with our intuitive view that
 messages would benefit the model and suggests they would be included.
 

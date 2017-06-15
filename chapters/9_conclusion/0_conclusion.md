@@ -41,13 +41,13 @@ optimize for a task.
 
 My personal perspective from industry is as follows.  First, search tools,
 i.e., feature location tools, aren't used by developers because they often
-aren't needed in large systems.  However, the caveat to this is that the system
-is generally modular and abstracted properly enough to mitigate this issue.  I
-would like to see more work towards feature location as applied to poorly
-engineered systems, which may face new problems.  Rather, I see feature
-location tools being more useful for feature discovery for external users and
-stakeholders, who are often not aware of internal system implementation details
-or progress.
+aren't needed, even in large systems.  However, the caveat to this is that the
+system I've encountered are generally modular and abstracted properly enough to
+mitigate this issue.  I would like to see more work towards feature location as
+applied to poorly engineered systems, which may face new problems.  Rather, I
+see feature location tools being more useful for feature discovery for external
+users and stakeholders, who are often not aware of internal system
+implementation details or progress.
 
 I do believe there is much more usefulness in a developer identification tool.
 Anecdotally, I often have the need to find other developers to gain perspective
@@ -61,12 +61,13 @@ impact both.
 
 Our results encourage the idea that there is still much to explore in the area
 of feature location and developer identification. What other untapped resources
-might be available? We show changesets are yet another viable resource
+might be available?  We show changesets are yet another viable resource
 researchers and practitioners should be taking advantage of for the feature
-location task.  Our results also show that research remains not only in
-improving accuracies of FLTs and DITs, but also in solving the practical
-aspects of building FLTs and DITs that are robust *and* agile enough to keep up
-with fast-changing software.
+location task.  For example, future work includes investigating along with the
+message text source, whether code reviews are valuable to model performance.
+Our results also show that research remains not only in improving accuracies of
+FLTs and DITs, but also in solving the practical aspects of building FLTs and
+DITs that are robust *and* agile enough to keep up with fast-changing software.
 
 Future work includes deploying this approach in a development environment.
 Since the source code to our approach is online, we encourage other researchers
