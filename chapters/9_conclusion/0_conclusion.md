@@ -60,63 +60,65 @@ a need to continue to work towards improving FLTs and the insights gained will
 impact both.
 
 Our results encourage the idea that there is still much to explore in the area
-of feature location and developer identification. What other untapped resources
-might be available?  We show changesets are yet another viable resource
-researchers and practitioners should be taking advantage of for the feature
-location task.  For example, future work includes investigating along with the
-message text source, whether code reviews are valuable to model performance.
+of feature location and developer identification.  What other untapped
+resources might be available?  We show changesets are yet another viable
+resource researchers and practitioners should be taking advantage of for the
+feature location task.  For example, future work includes investigating
+whether, along with the message text source, code reviews are valuable.
+Likewise, it may also be beneficial to begin including changes to other systems
+the subject system is dependent on, as call-site inclusion may benefit the
+model [@Bassett-Kraft_2013].
+
 Our results also show that research remains not only in improving accuracies of
 FLTs and DITs, but also in solving the practical aspects of building FLTs and
 DITs that are robust *and* agile enough to keep up with fast-changing software.
+This includes work not just with topic models, such as LDA, but promising deep
+learning models, such as Doc2Vec [@Corley-etal_2015a].  We hope future work
+with deep learning models includes extension of our historical simulation work
+once more of these deep learning algorithms can be updated online, instead of
+in batch.
 
-Future work includes deploying this approach in a development environment.
-Since the source code to our approach is online, we encourage other researchers
-to investigate this future work as well.  We also would like to expand the
-simulation parts of this study to include both snapshots and changesets.  It
-would be particularly useful to compare results between batch snapshots and
-simulated snapshots.
+Additional future work exists in regard to configuration.  In a changeset it
+may be desirable to parse further for source code entities using island grammar
+parsing [@Moonen_2001].  As shown, it is desirable to only use portions of the
+changeset, hence extracting changes between the abstract syntax trees
+[@Fluri-etal_2007] may be just as fruitful for gaining more precise changesets.
+The experiments explored in this work were non-exhaustive.  For example, our
+corpus construction sweep for DIT only included a sweep of the model corpus,
+i.e., the source changesets, but not of the indexed corpus, i.e.  the developer
+profile corpus, which was only the default configuration of $(A, R, C)$.  Most
+importantly, like previous work [@Biggers-etal_2014], it would be wise to
+further investigate the two online LDA variables, $\tau_0$ and $\kappa$, to
+measure their effect on our historical simulation.
 
-Additional future work exists in regard to configuration.  In a changeset it may
-be desirable to parse further for source code entities using island grammar
-parsing [@Moonen_2001].  It may also be desirable to only use portions of the
-changeset, such as only using added or removed lines, or extracting changes
-between the abstract syntax trees [@Fluri-etal_2007].  Most importantly, like
-previous work [@Biggers-etal_2014], it would be wise to further investigate the
-effects of the two online LDA variables, $\tau_0$ and $\kappa$.  We leave these
-options for future work.
+We also would like to expand the historical simulation parts of this study to
+include both snapshots and changesets, as it would be useful to compare results
+between batch snapshots and simulated snapshots.  We did not conduct a
+historical evaluation of the snapshot approaches due to the brute-force nature
+of the approach increasing the amount of time the experiment would take.  In
+this future work, a new model would be constructed for each issue at the time
+of the query, rather than a single model constructed at the end of a release
+cycle.  Performing a historical snapshot experiment would also likely decrease
+the number of failures that occur during query-time, as the model and index
+would be more representative of the code that that time.  However, there has
+yet to be an in-depth study, to our best knowledge, of why failures occur in
+the snapshot approach.
 
+\todo{confirm 12 failures} We found that during our DIT evaluation, we had 12
+query failures.  This was due to ....  Future work towards resolving these
+failures could include integrating "insider knowledge" about when new members
+join a team or project.  This sort of insight could also boost DIT performance
+once members that have left a team or project are no longer being recommended.
 
-TODO:
-
-- Developer corpus during sweep was only ACR, did not sweep
-- Need to look at closer at online parameters
-    - Windowing: how much "lag" is acceptable in a historical simulation, e.g.,
-      can we use a standard sized mini-batch and still remain robust?
-- Replicate to a "temporal" snapshot evaluation -- will take time
-- Replicate to other online models -- LSI, D2V when possible
-- How does DIT perform with insider knowledge of people joining/leaving group?
-- maybe exclude? -- Streaming models: This work allows for models to take in
-  streams of data, e.g., from Github, to create models that can be used in
-  general cases.
-- Dependencies: update a model with text from dependencies as they are updated
-    - call site inclusion aka @Bassett-Kraft_2015
-- Code reviews of changes?
-- Need to investigate why failures happen (my feeling is that they fail because
-  the goldsets are bad -- e.g., the files changed by an issue were not in the
-  corpus at query time)
-- Randomness and runs:
-    - However, LDA is known to get "stuck" in local minima [@Binkley-etal_2014]
-      due to its non-convexity.  Evaluating and comparing techniques based on
-      single runs does not show whether one is somehow better or more effective
-      than another.  In order to accurately judge an approach in comparison to
-      another, we must run multiple experiments to show that one approach
-      typically scores higher than another.  This allows for us to eliminate
-      outlier results in order to create a more fair comparison.
-- Goldset quality
-    - @Huo-etal_2014 finds differences in bug reports (i.e., the queries)
-      written by experts vs non-experts.  The found statistically significant
-      differences in all four of their tests while evaluating the VSM-based FLT
-      [@Zhou-etal_2012], but only one for their DIT, a technique inspired by
-      @Anvik-etal_2006.
-
-
+Finally, a closer look at the experimental approach used in modern FLT and DIT
+is needed, in particular how models vary with different random starting states.
+We have observed it possible to change the result of an experiment by simply
+re-running the experiment without setting a random seed, i.e., without setting
+a random seed before an experiment the results are not reproducible.  Topic
+models, like LDA, are known to get "stuck" in local minima [@Binkley-etal_2014]
+due to its non-convexity.  Evaluating and comparing techniques based on single
+runs does not show whether one is somehow better or more effective than
+another.  In order to accurately judge an approach in comparison to another, we
+must run multiple experiments to show that one approach typically scores higher
+than another.  This allows for us to eliminate outlier results in order to
+create a more fair comparison.
