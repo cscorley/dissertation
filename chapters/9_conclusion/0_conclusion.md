@@ -104,8 +104,12 @@ would be more representative of the code that that time.  However, there has
 yet to be an in-depth study, to our best knowledge, of why failures occur in
 the snapshot approach.
 
-\todo{confirm 12 failures} We found that during our DIT evaluation, we had 12
-query failures.  This was due to ....  Future work towards resolving these
+We found that we had 12 query failures during our DIT historical simulation.
+For DIT, this was due to that commit being the author's first check-in under
+that alias.  The non-historical simulations succeeded on each of these 12
+failures since they had knowledge of every developer to have worked on that
+project.  Indeed, better alias linking could potentially alleviate some of this
+issue, but would not remedy it entirely.  Future work towards resolving these
 failures could include integrating "insider knowledge" about when new members
 join a team or project.  This sort of insight could also boost DIT performance
 once members that have left a team or project are no longer being recommended.
