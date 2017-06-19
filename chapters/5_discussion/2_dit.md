@@ -89,14 +89,16 @@ performs for each model.  With respect to \dtwo, we will investigate the
 queries and effectiveness measures between the batch snapshot and batch
 changesets in detail.
 
-For the 1055 queries across all systems, only 1043 were successful.  These 12
-that were unsuccessful were likely due to excluding the commit that fixed the
-issue related to the query.  These commits were the first change in the
-repository by that maintainer, resulting in them missing from the ranking until
-that point \todo{PLEASE FULLY CONFIRM THIS}.  126 queries return the same
-effectiveness measure in both approaches, or about 12.1% of the time.  Of these
-126 queries, 45 (4.3%) share an effectiveness measure of 1 (the best possible
-measure) for both approaches.
+For the 1055 queries across all systems, only 1043 were successful.  After
+manual investigation, we determined these 12 that were unsuccessful due to
+excluding the commit that fixed the issue related to the query.  These commits
+were the first change in the repository by that maintainer[^alias], resulting in that
+maintainer missing from the ranking until that point.  126 queries return the
+same effectiveness measure in both approaches, or about 12.1% of the time.  Of
+these 126 queries, 45 (4.3%) share an effectiveness measure of 1 (the best
+possible measure) for both approaches.
+
+[^alias]: Or an alias of that developer, e.g., committed under a different email
 
 After excluding the 126 queries in which ranks which are the same, 213 (20.4%)
 of the remaining 917 queries have effectiveness measures is within 1 rank of
