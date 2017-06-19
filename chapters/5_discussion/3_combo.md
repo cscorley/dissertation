@@ -156,6 +156,9 @@ C, M)$ worse than the configuration $(A, C)$ (Table
 contain the message text source.  This aligns with our intuitive view that
 messages would benefit the model and suggests they would be included.
 
+<!-- did bookeeper perf degrade when adding message source because of
+     duplication in changes.txt ? -->
+
 \input{tables/versus-wilcox-all-flt-message}
 \input{tables/versus-wilcox-all-dit-message}
 
@@ -187,4 +190,5 @@ Corpus:
    written that resolved the issue.  Message is the same.
 4. Context inclusion seems less impactful, but is generally positive.
 -->
+
 

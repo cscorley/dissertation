@@ -11,11 +11,14 @@
 \definecolor{lightblue}{RGB}{50,50,175}
 
 \lstdefinelanguage{diff}{%
+%  morecomment=[f][\color{orange}]{commit },
+%  morecomment=[f][\color{orange}]{Author: },
+%  morecomment=[f][\color{orange}]{Date: },
   morecomment=[f][\color{lightblue}]{diff },
   morecomment=[f][\color{lightblue}]{index },
   morecomment=[f][\color{lightblue}]{@@},     % group identifier
-  morecomment=[f][\color{lightred}]-,         % deleted lines
-  morecomment=[f][\color{lightgreen}]+,       % added lines
+  morecomment=[f][\color{lightred}]{-},         % deleted lines
+  morecomment=[f][\color{lightgreen}]{+},       % added lines
   morecomment=[f][\color{lightblue}]{---}, % Diff header lines (must appear after +,-)
   morecomment=[f][\color{lightblue}]{+++},
 }

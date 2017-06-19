@@ -103,6 +103,7 @@ software repository
 project, maintained by a VCS
 
 
+<!--
 \begin{figure*}[t]
 \centering
 \begin{lstlisting}[language=diff, basicstyle=\ttfamily\scriptsize, numbers=none]
@@ -130,5 +131,50 @@ and green lines (beginning with a single~\texttt{+}) denote line additions.
 \label{fig:diff}
 \vspace{-10pt}
 \end{figure*}
+-->
 
+\definecolor{myorange}{rgb}{0.7,0.2,0}
 
+\begin{figure*}[t]
+\centering
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize\color{myorange}, numbers=none]
+commit b1432f097ada17573c2dbf81e982915e3e81c815
+Author: Tim Allison <tallison@apache.org>
+Date:   Fri Jul 24 18:22:47 2015 +0000
+
+    TIKA-1689: revert mistakenly flipped sort order of parsers from r1677328
+
+    git-svn-id: https://svn.apache.org/repos/asf/tika/trunk@1692564 13f79535-47bb-0310-9956-ffa450edef68
+\end{lstlisting}
+\begin{lstlisting}[language=diff, basicstyle=\ttfamily\scriptsize, numbers=none]
+diff --git a/tika-core/src/main/java/org/apache/tika/utils/ServiceLoaderUtils.java b/tika-core/src/main/java/org/apache/tika/utils/ServiceLoaderUtils.java
+index ef278808..5ee1fe86 100644
+--- a/tika-core/src/main/java/org/apache/tika/utils/ServiceLoaderUtils.java
++++ b/tika-core/src/main/java/org/apache/tika/utils/ServiceLoaderUtils.java
+@@ -38,9 +38,9 @@ public class ServiceLoaderUtils {
+                 if (t1 == t2) {
+                     return n1.compareTo(n2);
+                 } else if (t1) {
+-                    return 1;
+-                } else {
+                     return -1;
++                } else {
++                    return 1;
+                 }
+             }
+         });
+\end{lstlisting}
+\caption{Example of a \texttt{git diff}}
+
+    This changeset addresses \tika Issue \#1689.  The first half (in orange),
+    shows the commit id, author name, date of commit, and the message
+    associated with the change, followed by the actual diff of the change.
+    Green lines (beginning with a single~\texttt{+}) denote addition lines, and
+    red lines (beginning with a single~\texttt{-}) denote removals lines. Black
+    or blue lines denote metadata about the change useful for applying the
+    patch.  In particular, black lines (beginning with a single space)
+    represent context lines.
+
+\label{fig:diff}
+\vspace{-10pt}
+\end{figure*}
