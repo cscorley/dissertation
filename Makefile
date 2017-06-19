@@ -65,7 +65,6 @@ debug: $(DEP_FILES) $(GENERATED)
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
 		-M draft:Yes \
-		-M fontfamily:libertine \
 		--from=markdown \
 		metadata.yaml $(CHAP_FILES) -o $(DRAFT).tex
 
