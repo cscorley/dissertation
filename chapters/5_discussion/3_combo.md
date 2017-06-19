@@ -99,18 +99,16 @@ all but one subject system for each task, or two insignificant results.
 
 Our changeset corpus sweep was completed on four elements: additions $(A)$
 context $(C)$, messages $(M)$, and removals $(R)$.  Figure \ref{fig:diff} shows
-three of these four elements, while the fourth is the message of the commit
-written by the committing developer.  Intuitively, it makes sense to always
-include additions, as they represent the new words (code) that represent the
-code that was being worked on at that moment.  Likewise, the message is also an
-intuitive inclusion as it contains words that describe the change itself in
-natural language, which may help the model learn words more likely to be used
-in queries.  It may not make sense, however, to include both context and
-removals during corpus construction as they would increase noise of certain
-words, e.g., over valuing words that have already appeared in additions over
-and over again, as in context words, and duplicating value of words that have
-already appeared in additions when they are no longer valid, as in removed
-words.
+these four elements.  Intuitively, it makes sense to always include additions,
+as they represent the new words (code) that represent the code that was being
+worked on at that moment.  Likewise, the message is also an intuitive inclusion
+as it contains words that describe the change itself in natural language, which
+may help the model learn words more likely to be used in queries.  It may not
+make sense, however, to include both context and removals during corpus
+construction as they would increase noise of certain words, e.g., over valuing
+words that have already appeared in additions over and over again, as in
+context words, and duplicating value of words that have already appeared in
+additions when they are no longer valid, as in removed words.
 
 \todo{update git diff example with message}
 

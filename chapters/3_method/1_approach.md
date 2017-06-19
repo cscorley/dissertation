@@ -134,14 +134,12 @@ Snapshot\label{fig:sliding}](figures/sliding_window_example.pdf)
 
 Changeset topic modeling is akin to summarizing code snippets with machine
 learning [@Ying-Robillard_2013], where in our case a changeset gives a
-snippet-like view of the code required to complete a task.  For example, in
-Figure \ref{fig:diff}, we can see the entire method affected by the changeset.
-
-Additionally, @Vasa-etal_2007 observe that code rarely changes as software
-evolves.  The implication is that the topic modeler will see changesets
-containing the same source code entity only a few times -- perhaps only once.
-Since topic modeling a snapshot only sees an entity once, topic modeling a
-changeset can miss no information.
+snippet-like view of the code required to complete a task.  Additionally,
+@Vasa-etal_2007 observe that code rarely changes as software evolves.  The
+implication is that the topic modeler will see changesets containing the same
+source code entity only a few times -- perhaps only once.  Since topic modeling
+a snapshot only sees an entity once, topic modeling a changeset can miss no
+information.
 
 Using changesets also implies that the topic model may gain some noisy
 information from these additional documents, especially when considering
