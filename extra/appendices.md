@@ -597,7 +597,6 @@ total:	354
 \input{figures/dit/rq2_zookeeper}
 
 
-
 # Model Configuration Sweep {#app:model}
 
 In these tables, we bold entries where the MRR is highest for each of the two
@@ -666,10 +665,19 @@ dissertation.
 \input{figures/combo/flt_rq2_zookeeper}
 \input{figures/combo/dit_rq2_zookeeper}
 
-# Corpus Construction Inclusion and Exclusion {#app:corpus-versus}
+# Corpus Construction Inclusion and Exclusion {#app:comparison}
 
 In these tables, we bold entries where the MRR is highest between each of the
 two inclusion or exclusion configurations.
+
+\input{tables/versus-wilcox-all-flt-additions}
+\input{tables/versus-wilcox-all-dit-additions}
+\input{tables/versus-wilcox-all-flt-removals}
+\input{tables/versus-wilcox-all-dit-removals}
+\input{tables/versus-wilcox-all-flt-context}
+\input{tables/versus-wilcox-all-dit-context}
+\input{tables/versus-wilcox-all-flt-message}
+\input{tables/versus-wilcox-all-dit-message}
 
 \input{tables/versus-wilcox-bookkeeper-flt-additions}
 \input{tables/versus-wilcox-bookkeeper-dit-additions}
