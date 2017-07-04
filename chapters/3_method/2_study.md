@@ -342,7 +342,7 @@ FLT result pair consists of the FLT configuration with the highest MRR as its
 optimal configuration and the results of the same configuration for the DIT
 task.  The DIT pairing is analogous.  We then use the Wilcoxon signed-rank test
 with Holm correction to determine the statistical significance of the
-difference between the optimal and alternative results for any given
+difference between the optimal and alternate results for any given
 configuration and task.
 
 To answer \ctwo, we focus on configurations that vary the inclusion of text

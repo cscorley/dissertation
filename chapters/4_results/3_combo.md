@@ -33,10 +33,10 @@ When we consider all systems together for model construction (Tables
 $K=500$ and $\eta=auto$, but differ when it comes to $\alpha$. FLT prefers the
 lower alpha, $2/K$, while DIT is best with the highest alpha, $5/K$.  A
 Wilcoxon rank-sum test reveals that the \optimalFLTmodel is statistically
-significant ($p<0.01$) compared to the alternative with an effect size low at
+significant ($p<0.01$) compared to the alternate with an effect size low at
 $r=0.2181$.  Likewise, a Wilcoxon rank-sum test reveals that the
 \optimalDITmodel is not statistically significant ($p=0.2262$) compared to the
-alternative.  This suggests that the DIT is less sensitive to parameter
+alternate.  This suggests that the DIT is less sensitive to parameter
 changes, allowing the user to select the model configuration that works best
 for FLT.
 
@@ -49,11 +49,11 @@ including the context and message, but differ when it comes to including
 additions. FLT prefers additions to be included, while DIT does not.  Neither
 task performs best when removals are included.  A Wilcoxon rank-sum test
 reveals that the \optimalFLTcorpus is statistically significant ($p<0.01$)
-compared to the alternative with an effect size of $r=0.1273$.  Likewise, a
+compared to the alternate with an effect size of $r=0.1273$.  Likewise, a
 Wilcoxon rank-sum test also reveals that the \optimalDITcorpus is statistically
-significant ($p<0.01$) compared to the alternative with an effect size of
+significant ($p<0.01$) compared to the alternate with an effect size of
 $r=0.2580$.  This suggests that correct corpus construction plays a somewhat
-important role in both tasks, but the effect of choosing an alternative over
+important role in both tasks, but the effect of choosing an alternate over
 the optimal is low.
 
 \ctwo asks what portions of a changeset are most critical for performance of
