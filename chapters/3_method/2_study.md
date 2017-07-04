@@ -173,9 +173,9 @@ more topics for optimal performance.  Table \ref{table:combo-rq1} outlines the
 factors about the model construction we will consider, giving us 48 possible
 combinations.  The factors $\alpha$ and $\eta$ vary between several common
 values, but also include automatic learning of these two hyper-parameters
-[@Hoffman-etal_2010].  As in sections \ref{sec:flt} and \ref{sec:dit}, the
-changeset corpus construction for \cone does not change and includes the entire
-`diff`, but does not include the message.
+[@Hoffman-etal_2010].  As in sections \ref{sec:flt-methodology} and
+\ref{sec:dit-methodology}, the changeset corpus construction for \cone does not
+change and includes the entire `diff`, but does not include the message.
 
 \input{tables/case_study_factors}
 
@@ -236,7 +236,7 @@ in the evidence lower bound.  That is, we allow the model to behave as a batch,
 or offline, model where possible.  We set the following LDA parameters for all
 systems: $500$ topics, a symmetric $\alpha=1/K$, and a symmetric $\eta=1/K$.
 These are default values for $\alpha$ and $\eta$ in Gensim, and have been found
-to work well for the FLT task [@Biggers-etal_2015].  Again, we adjust all three
+to work well for the FLT task [@Biggers-etal_2014].  Again, we adjust all three
 of these parameters for \crps, but these values are used in all research
 problems unless stated otherwise.
 

@@ -19,8 +19,8 @@ on the related classes in the past?
 ##### a random example {#sec:dit-background}
 
 Location-based techniques are a common developer identification technique and
-build upon feature location techniques.  We refer the reader to Section
-\ref{sec:flt-background} for a background on how a typical feature location
+build upon location techniques.  We refer the reader to Section
+\ref{sec:related-general} for a background on how a typical feature location
 techniques works.
 
 We can use an FLT to identify a ranked list of source code entities related to
