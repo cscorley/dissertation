@@ -1,6 +1,9 @@
 <!-- this fixes the issue with all tables having label A.nn -->
 \renewcommand{\thetable}{\Alph{chapter}.\arabic{table}}
 
+<!-- this disables any of these figures or tables appearing in LoF or LoT -->
+\captionsetup{list=no}
+
 # Feature Location Boxplots {#flt}
 
 slugline
