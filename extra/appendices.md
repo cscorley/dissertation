@@ -1,7 +1,7 @@
 <!-- this fixes the issue with all tables having label A.nn -->
 \renewcommand{\thetable}{\Alph{chapter}.\arabic{table}}
 
-# Feature Location Boxplots {#app:flt}
+# Feature Location Boxplots {#flt}
 
 slugline
 
@@ -306,7 +306,7 @@ total:	241
 \input{figures/flt/rq2_zookeeper}
 
 
-# Developer Identification Boxplots  {#app:dit}
+# Developer Identification Boxplots  {#dit}
 
 slugline
 
@@ -600,7 +600,7 @@ total:	354
 \input{figures/dit/rq2_zookeeper}
 
 
-# Model Configuration Sweep {#app:model}
+# Model Configuration Sweep {#model}
 
 In these tables, we bold entries where the MRR is highest for each of the two
 tasks and also highlight the row of the configuration used throughout this
@@ -634,7 +634,7 @@ dissertation.
 \input{figures/combo/flt_rq1_zookeeper}
 \input{figures/combo/dit_rq1_zookeeper}
 
-# Corpus Construction Sweep {#app:corpus}
+# Corpus Construction Sweep {#corpus}
 
 In these tables, we bold entries where the MRR is highest for each of the two
 tasks and also highlight the row of the configuration used throughout this
@@ -668,7 +668,7 @@ dissertation.
 \input{figures/combo/flt_rq2_zookeeper}
 \input{figures/combo/dit_rq2_zookeeper}
 
-# Corpus Construction Inclusion and Exclusion {#app:comparison}
+# Corpus Construction Inclusion and Exclusion {#comparison}
 
 In these tables, we bold entries where the MRR is highest between each of the
 two inclusion or exclusion configurations.

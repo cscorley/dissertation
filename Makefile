@@ -42,6 +42,10 @@ $(GENERATED) :: $(EXTRA_FILES)
 		--from=markdown \
 		--to=latex \
 		extra/$@.md -o tmp/$@.tex
+	cp -R figures tmp
+	cp -R tables tmp
+	sed -i 's/\\input{/\\input{tmp\//g' tmp/appendices.tex
+	for each in $(shell find tmp -name '*.tex'); do sed -i 's/\\label{/\\label{app:/g' $$each; done
 
 pandoc: $(DEP_FILES) $(GENERATED)
 	$(PANDOC) \
