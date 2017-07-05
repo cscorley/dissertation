@@ -1,3 +1,6 @@
+<!-- this fixes the issue with all tables having label A.nn -->
+\renewcommand{\thetable}{\Alph{chapter}.\arabic{table}}
+
 # Feature Location Boxplots {#app:flt}
 
 slugline
