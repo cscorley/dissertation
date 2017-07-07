@@ -2,7 +2,8 @@
 \renewcommand{\thetable}{\Alph{chapter}.\arabic{table}}
 
 <!-- this disables any of these figures or tables appearing in LoF or LoT -->
-\captionsetup{list=no}
+<!-- \captionsetup{list=no} -->
+<!-- update: grad school said to list everything -->
 
 # Feature Location Boxplots {#flt}
 
