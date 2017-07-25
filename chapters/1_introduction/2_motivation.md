@@ -45,8 +45,6 @@ source code, even as developers are using the model for work.
 costs while maintaining accuracy of a traditional snapshot-based topic model
 for different software maintenance problems.
 
-\attn{Nick, should I edit the following into the main text, or keep separate?}
-
 ### Feature Location {#sec:flt-motivation}
 
 The state-of-the-practice in feature location is to use an IDE tool based on
@@ -106,11 +104,6 @@ changeset topics.  By contrast, the training and indexing steps of the standard
 methodology have the conceptual effect of relating files to file topics.
 
 ### Developer Identification {#sec:dit-motivation}
-
-\todo{this section definitely needs to be re-written.}
-
-\todo{the flt section is a good example and this should rely on what it has
-already stated}
 
 Software features are functionalities defined by requirements and are
 accessible to developers and users.  Software change is continual, because
