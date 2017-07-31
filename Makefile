@@ -43,11 +43,13 @@ $(GENERATED) :: $(EXTRA_FILES)
 		--to=latex \
 		extra/$@.md -o tmp/$@.tex
 
-pandoc: $(DEP_FILES) $(GENERATED)
+appendix: $(DEP_FILES) $(GENERATED)
 	cp -R figures tmp
 	cp -R tables tmp
 	sed -i 's/\\input{/\\input{tmp\//g' tmp/appendices.tex
-	for each in $(shell find tmp -name '*.tex'); do sed -i 's/\\label{/\\label{app:/g' $$each; done
+	find tmp -name '*.tex' | xargs sed -i 's/\\label{/\\label{app:/g'
+
+pandoc: appendix
 	$(PANDOC) \
 		--filter pandoc-citeproc \
 		--smart \
@@ -59,7 +61,7 @@ pandoc: $(DEP_FILES) $(GENERATED)
 		--from=markdown \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).pdf
 
-debug: $(DEP_FILES) $(GENERATED)
+debug: appendix
 	$(PANDOC) \
 		--natbib \
 		--smart \
@@ -72,7 +74,7 @@ debug: $(DEP_FILES) $(GENERATED)
 		--from=markdown \
 		metadata.yaml $(CHAP_FILES) -o $(DRAFT).tex
 
-nodraftpandoc: $(DEP_FILES) $(GENERATED)
+nodraftpandoc: appendix
 	$(PANDOC) \
 		--natbib \
 		--smart \
@@ -93,6 +95,7 @@ natbib: debug
 	$(BIBTEX) $(DRAFT)
 	$(LATEX) $(DRAFT)
 	$(LATEX) $(DRAFT)
+	$(LATEX) $(DRAFT)
 
 nodraft: nodraftpandoc
 	cp ~/papers/papers.bib .
@@ -101,11 +104,12 @@ nodraft: nodraftpandoc
 	$(BIBTEX) $(PAPER)
 	$(LATEX) $(PAPER)
 	$(LATEX) $(PAPER)
+	$(LATEX) $(PAPER)
 
 count: nodraft
 	texcount -sum $(PAPER).tex | grep "Sum count"
 
-$(PAPER).html: $(DEP_FILES) $(GENERATED)
+$(PAPER).html: appendix
 	$(PANDOC) \
 		--standalone \
 		--filter pandoc-citeproc \
