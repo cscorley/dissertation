@@ -323,8 +323,6 @@ developer or triager would have to view before reaching a relevant one.  Most
 importantly, this effectiveness measure allows evaluating our approach by using
 various rank-based metrics and statistical methods.
 
-\todo{Should I break down \cone into two subquestions: model and corpus?}
-
 For both research questions, we run the experiment of each task across all
 possible configurations from two sets of configurations, shown in Tables
 \ref{table:combo-rq1} and \ref{table:combo-rq2}.  The first set of

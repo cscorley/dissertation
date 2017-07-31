@@ -1,5 +1,14 @@
 # Introduction {#chap:intro}
 
+Software features are functionalities defined by requirements and are
+accessible to developers and users.  Software change is continual, because
+revised requirements lead to new features, increasing expectations lead to
+feature enhancements, achieving intended behavior leads to removal of defective
+features (i.e., bugs).  Users and developers propose change requests to the
+project issue tracker.  Change requests are sometimes called issue reports, and
+specific kinds of change requests include feature requests, enhancement
+requests, and bug reports.
+
 Software developers are often confronted with maintenance tasks that involve
 navigation of repositories that preserve large amounts of project history.
 Navigating these software repositories can be a time-consuming task, because
@@ -20,6 +29,7 @@ knowledge can be a time-consuming task.  Topic models of source code can help
 such developers to understand the system by revealing a latent structure that
 is not obvious from the package hierarchy or system documentation
 [@Savage-etal_2010].
+
 
 In software engineering, topic models uncover thematic structure (e.g., topics)
 of source code entities grouped by their natural language content (i.e., the
