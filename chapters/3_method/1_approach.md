@@ -107,10 +107,6 @@ task separately.  In the source code search engine we build an index from the
 snapshot corpus.  In the developer search engine we build an index from the
 developer corpus.
 
-\attn{Nick, should I add any more notes about configuration here?}
-
-\attn{That is currently covered later in the description of the study.}
-
 ### Why changesets?
 
 We choose to train the model on changesets, rather than another source of
