@@ -1,6 +1,6 @@
 ## Feature Location {#sec:flt-discussion}
 
-Our analysis in Section \ref{sec:flt-results} shows significant affects between
+Our analysis in Section \ref{sec:flt-results} shows significant effects between
 snapshots and changesets, and between batch changesets and changesets in the
 simulated environment.  The results are mixed between each subject system and
 are not generally conclusive.  However, we argue this is desirable to show that
@@ -50,12 +50,16 @@ development.  155 queries return the same effectiveness measure in both
 approaches, or about 20.0% of the time.  Of these 155 queries, 139 (17.9%) have
 an effectiveness measure of 1 (the best possible measure) for both approaches.
 
+\todo{the unsuccessful queries are typical, usually filtered from benchmark}
+
 After excluding the 155 queries in which ranks which are the same, 87 (11.2%)
 of the remaining 620 queries have effectiveness measures is within 1 rank of
 each other.  Likewise, 254 (32.8%) queries have a difference in effectiveness
 measure less than or equal to 10.  Finally, 398 (51.4%) have the effectiveness
 measure is within 50 ranks of each other.  The remaining 222 queries (28.6%)
 perform noticeably different ($> 50$ ranks apart).
+
+\todo{50 too large, better to compare by percentage?}
 
 ### \ftwoq
 
@@ -156,10 +160,10 @@ We note that this situation never occurs. This also supports the hypothesis
 that historical simulation more accurately portrays the system over time as it
 more accurately captures the correct state of the system (i.e., the source code
 entities) at the point in time when querying is done.  Since querying on the
-batch models is after the model is completely trained, there may be source code
-entities that do not exist in the system anymore that were at one time changed
-to complete a certain task.  Again, the historical simulation better captures
-this scenario.
+batch models is after the model is trained, there may be source code entities
+that do not exist in the system anymore that were at one time changed to
+complete a certain task.  Again, the historical simulation better captures this
+scenario.
 
 #### Batch snapshot are better than batch changeset *and* changesets in the simulated environment are better than batch changesets
 
@@ -168,6 +172,8 @@ because of how the models are trained.  Although batch changesets perform worse
 in both cases, historical simulation using changesets outweighs batch snapshot
 modelling.  This does not necessarily mean that changesets are bad, but may
 more accurately model the system over time.
+
+\todo{why would this occur for mahout?}
 
 #### Batch snapshot are better than batch changeset *and* batch changesets are better than changesets in the simulated environment
 
@@ -178,6 +184,8 @@ time.  However, we cannot conclude this without also historically simulating
 snapshot TM-based FLTs.
 
 \todo{how does any of this make sense}
+
+\todo{summarize all discussion in ending subsection}
 
 ### A study on classes and methods
 

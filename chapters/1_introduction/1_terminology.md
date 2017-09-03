@@ -6,11 +6,14 @@ define the following:
 
 feature location
 :   the act of identifying the source code entity or entities implementing a
-system feature
+feature
 
 developer identification
 :   the act of identifying the developer most apt to completing a software
 maintenance task
+
+query, $q$
+:   a document created by a user
 
 term (word), $w$
 :   the smallest free-form of a language
@@ -61,9 +64,6 @@ index, $\theta$
 inferring the thematic structure of each document (i.e., a $N \times K$
 document-topic matrix)
 
-query, $q$
-:   a document created by a user
-
 search engine
 :   ranks documents by their similarity to a query
 
@@ -91,12 +91,12 @@ changeset
 :   ideally represents a single feature modification, addition, or deletion,
 which may crosscut two or more source code entities
 
-commit
-:   a representation of a changeset in a version control system
-
 version control system (VCS)
 :   tool that assists a developer in maintaining software , such as Git or
 Subversion
+
+commit
+:   a representation of a changeset in a version control system
 
 software repository
 :   collection of commits over time which represent the history of a software

@@ -1,9 +1,9 @@
 ## Text Retrieval {#sec:related-general}
 
-In this section, we review and summarize the text retrieval process.  The text
-retrieval process consists of two general steps: document extraction and
-retrieval.  Then, we discuss methods of measuring similarity.  Finally, we
-discuss measures for evaluating a text retrieval technique.
+In this section, we review and summarize the text retrieval process, which
+consists of two general steps: document extraction and document retrieval.  We
+discuss methods of measuring similarity.  Finally, we discuss measures for
+evaluating a text retrieval technique.
 
 
 ### Document Extraction
@@ -30,9 +30,9 @@ token.  The transformations commonly used are [@Manning-etal_2008]:
     :   remove common words such as natural language articles (e.g., "an" or
     "the"), stop words, or short words
 4) Stem
-    :   remove prefixes and suffixes to leave just the root word (e.g.,
-    "name", "names", "named", and "naming" all reduce to "name")) A common
-    stemmer used is by @Porter_1980.
+    :   remove prefixes and suffixes to leave just the root word (e.g., "name",
+    "names", "named", and "naming" all reduce to "name" using the stemmer
+    described by @Porter_1980)
 5) Weigh
     :   adjust the representation of a term in a document by some scheme,
     such as term-frequency inverse-document-frequency (tf-idf)
@@ -61,7 +61,7 @@ software are:
     as by the entity type [@Bassett-Kraft_2013].
 
 
-### Search Engine Construction and Retrieval
+### Search Engine Construction and Document Retrieval
 
 The right side of Figure \ref{fig:TR} illustrates the retrieval process.  The
 main component of the retrieval process is the search engine
@@ -73,7 +73,7 @@ to rank documents in relation to the query.
 First, the engine transforms the corpus into an index.  If the search engine
 relies on a topic model, then the engine uses the model to infer an index
 document-topic distributions for each document.  Otherwise, the document-terms
-may have further transformations applied or used directly as the index.
+may have further transformations applied or be used directly as the index.
 
 Next, the engine takes a pairwise classification of the query to each document
 in the index and ranks the documents according to similarity.  We use a
@@ -99,10 +99,12 @@ and is easy to implement:
 \end{equation}
 
 where $P$ and $Q$ are term vectors.  Since cosine similarity does not operate
-on probability distributions, it is not a fit measurement for some models.
+on probability distributions, it is not a suitable measurement for some models.
 
 
 #### Hellinger distance
+
+\todo{define/describe better}
 
 We define Hellinger distance ($H$) as:
 
@@ -212,8 +214,8 @@ balanced F-measure, the formula simplifies to:
 ##### Precision at k
 
 Precision at k is easy to compute and understand.  It is the calculated
-precision for the first $k$ retrieved documents.  It awards for more relevant
-documents appearing in the first $k$ retrieved documents.  However, it has the
+precision for the first $k$ retrieved documents, excluding documents after the
+first $k$ documents from the metric calculation.  However, it has the
 disadvantage of not distinguishing between the rankings of the relevant
 document, and is merely a count-based score.
 
@@ -231,14 +233,15 @@ where $B_{1..k}$ is the top $k$ documents retrieved.  This is also written as
 #### Ranked-based measures
 
 Since text retrieval techniques can also return a ranking of all documents
-searched, it is not beneficial to use set-based measures without only looking
+searched, it is not beneficial to use set-based measures by only looking
 at the top-$k$ documents, as in *precision@k*.
 
 
 ##### Average Precision (AP)
 
-Average precision is useful for scoring single queries.  It awards for highly
-ranking relevant documents.
+The average precision measure helps consider the order of returned documents by
+including the rank of relevant documents in its calculation.  This measure is
+useful for scoring single queries.
 
 \begin{equation}
 \operatorname{AP} =
@@ -290,9 +293,8 @@ where $bestRank$ is a function equaling the rank of the first relevant item $a
 Discounted Cumulative Gain is an intuitive measure based on the assumptions
 that highly relevant documents are more useful than marginally relevant
 documents and that relevant documents with bad rank is not useful to the user
-[@Jaervelin-Kekaelaeinen_2002].  Essentially, it awards when more relevant
-documents are ranked higher and penalizes, or discounts, when those relevant
-documents are not ranked high.
+[@Jaervelin-Kekaelaeinen_2002].  Essentially, it penalizes, or discounts, when
+relevant documents are not highly ranked.
 
 \begin{equation}
 \operatorname{DCG}(k) = rel(1) + \sum_{i=2}^{k} \frac{rel(i)}{log_2i}
@@ -330,7 +332,7 @@ The t-test assumes a normal distribution of samples.  That is, in the case of
 matched pairs, that the difference between effectiveness measures for each
 query is taken from a normal distribution.  However, the t-test assumes that
 the effectiveness measure is interval, while effectiveness measures are
-typically ordinal, making the t-test an objectionable choice depending on the
+typically ordinal, making the t-test an questionable choice depending on the
 effectiveness measure used.
 
 #### Wilcoxon signed-rank test
@@ -354,3 +356,6 @@ An effect size can be derived from the Wilcoxon signed-rank test statistic,
 $w$ [@Kerby_2014]. Given $w$, a rank correlation $r$ can be defined as $r =
 w/S$, where $S$ is the sum of all ranks.
 
+#### Sign test
+
+\todo{find sign test}

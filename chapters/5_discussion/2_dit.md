@@ -1,6 +1,6 @@
 ## Developer Identification {#sec:dit-discussion}
 
-The results Section \ref{sec:dit-results} shows significant affects between
+The results Section \ref{sec:dit-results} shows significant effects between
 snapshots and changesets, and between batch changesets and changesets in the
 simulated environment.  The results are mixed between each and are not
 conclusive.  However, we argue this is desirable to show that the accuracy of a
@@ -180,3 +180,4 @@ hypothesis that historical simulation more accurately portrays the system over
 time.  However, we cannot conclude this without also historically simulating
 snapshot TM-based DITs.
 
+\todo{summarize all discussion in ending subsection}

@@ -5,6 +5,6 @@ discusses related work in the area of text retrieval, configuration, and
 applications in software maintenance. Chapter \ref{chap:methodology} describes
 our methodologies of the changeset-based approach as they apply to each
 research problem.  We present and discuss the results of our studies in
-chapters \ref{chap:results} and \ref{chap:discussion}, respectfully. Finally,
+chapters \ref{chap:results} and \ref{chap:discussion}, respectively. Finally,
 in Chapter \ref{chap:conclusion} we conclude and describe future directions for
 this work.

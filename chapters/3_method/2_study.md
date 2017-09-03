@@ -4,10 +4,10 @@ In this work, we introduce topic-modeling-based FLT and DIT in which we
 incrementally build the model from source code *changesets*.  By training an
 online learning algorithm using changesets, our FLT and DIT maintain up-to-date
 models without incurring the non-trivial computational cost associated with
-retraining the topic model.  In this section we describe the design of our
-study in which we compare our new methodology with the current practice.  We
-describe the case study using the Goal-Question-Metric approach
-[@Basili-etal_1994].
+retraining a snapshot-based topic model from scratch.  In this section, we
+describe the design of our study in which we compare our new methodology with
+the current practice.  We describe the case study using the
+Goal-Question-Metric approach [@Basili-etal_1994].
 
 ### Definition and Context {#sec:questions}
 
@@ -40,10 +40,10 @@ by asking the following:
 
 ### Datasets and Benchmarks
 
-For the first two Research Problems, there does exist various datasets and
+For the first two Research Problems, there do exist various datasets and
 benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
 @Linares-Vasquez-etal_2012].  However, \crp introduces a complication to using
-these benchmarks, requiring high overlap of the benchmarks.  The overlap
+these benchmarks: requiring high overlap of the benchmarks.  The overlap
 of these benchmarks is small or non-existent, making it difficult to determine
 whether a technique is performing well because of the approach or if it happens
 to just be a challenging query for that technique.  We have created our own
@@ -86,7 +86,7 @@ changed in the linked commit.  The second goldset is for evaluating DITs, and
 contains the developer(s) that committed those changes.  We do not consider
 whether the change was submitted by another developer and committed by a core
 contributor.  In this case, we assume that the core contributor understands and
-agrees with the change.
+agrees with the change \needcite.
 
 ### Evaluation
 
@@ -136,6 +136,20 @@ those documents.  To accomplish this, we turn to the source code history.
 Following @Bird-etal_2011, we identify which developer has changed the
 documents the most.  This implies that the snapshot approach is *dependent* on
 the performance of the snapshot-based FLT.
+
+<!--
+We can use an FLT to identify a ranked list of source code entities related to
+a particular task.  Using heuristics about the identified entities, we
+can choose an appropriate developer to complete the task.  For example, if the
+FLT identifies the file `foo.py` as the most related entity, then we would want
+to know about the maintainer, or owner, of `foo.py`..
+
+A simple, example ownership metric is the number of times a developer has
+committed changes to a file.  That is, if over the software history Johanna
+modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
+then we consider Johanna as the owner of `foo.py`.  Here, we would assign all
+tasks related to `foo.py` to Johanna.
+-->
 
 For changesets, the approach will not necessarily be dependent on an FLT.  We
 can utilize the same approach as we did for the FLT evaluation.  First, we
@@ -209,7 +223,8 @@ ignored unless stated otherwise.  Note that we do not consider where the text
 originates from, only that it is text changed by the commit.
 
 After extracting tokens, we split the tokens based on camel case, underscores,
-and non-letters.  We only keep the split tokens; original tokens are discarded.
+and non-letters.  We only keep the split tokens; original tokens are discarded
+\todo{why do we discard}.
 We normalize to lower case before filtering non-letters, English stop
 words [@Fox_1992], Java keywords, and words shorter than three characters
 long.  We do not stem words.
@@ -254,9 +269,11 @@ historical simulation.
 
 #### On LDA
 
-\todo{Explain randomness and setting seed?}
+\todo{Explain randomness and setting seed}
 
 ### Data Collection and Analysis
+
+\todo{re-write all 3 intro para to remove repetitiveness}
 
 #### Feature Location {#sec:flt-data-collection}
 
@@ -349,9 +366,9 @@ but our statistical analysis will differ from \cone.  For each task, since we
 have paired data across all 15 configurations, i.e., each configuration has
 effectiveness measures for the same issues, we conduct a Friedman Chi-Square
 ($\chi^2$) test.  We perform post-hoc tests using Wilcoxon rank-sum test
-to determine which configurations have an affect.
+to determine which configurations have an effect.
 
-To determine whether including a particular text sources have an affect, we
+To determine whether including a particular text sources have an effect, we
 turn to Mann-Whitney U tests.  We compare effectiveness measures of all ranks
 when the text source is included against excluded.  We use Mann-Whitney here
 because there is an unequal amount of results between a text source inclusion

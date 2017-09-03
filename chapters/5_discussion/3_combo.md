@@ -1,7 +1,7 @@
 ## Combining and Configuring Changeset-based Topic Models {#sec:combo-discussion}
 
 The results for \crp in Section \ref{sec:combo-results} shows significant
-affects between different configurations of the topic model and corpus
+effects between different configurations of the topic model and corpus
 construction.
 
 ### \coneq
@@ -15,11 +15,11 @@ for two tasks, then some trade-offs must be considered and made.
 
 Figures \ref{fig:combo:flt:rq1:all} and \ref{fig:combo:dit:rq1:all} show the
 effectiveness measures for across all systems of the optimal and alternate
-model configuration of the FLT and DIT tasks, respectfully (figures and data
+model configuration of the FLT and DIT tasks, respectively (figures and data
 for individual subject systems are available in Appendix \ref{app:model}).
 Likewise, Figure \ref{fig:combo:flt:rq2:all} and \ref{fig:combo:dit:rq2:all}
 show the effectiveness measures for across all systems of the optimal and
-alternate corpus construction of the FLT and DIT tasks, respectfully (figures
+alternate corpus construction of the FLT and DIT tasks, respectively (figures
 and data for individual subject systems are available in Appendix
 \ref{app:corpus}).
 
@@ -82,12 +82,12 @@ seem to advocate for their exclusion for best performance.
 \todo{dit seemed to be the task impacted more by corpus selection}
 
 In sum, there will always be improvement by hyper-optimizing the configuration
-of a topic model and corpus construction.  It would appear okay to reuse the
-same model for two tasks, as differences are often by one configuration
-parameter and not statistically significant. Corpus construction, however,
-would appear to require more consideration towards which task is more important
-as there are statistically significant effects between the optimal and
-alternate configurations.
+of a topic model and corpus construction.  Our results suggest that it is
+possible reuse the same model for two tasks, as differences are often by one
+configuration parameter and not statistically significant. Corpus construction,
+however, would appear to require more consideration towards which task is more
+important as there are statistically significant effects between the optimal
+and alternate configurations.
 
 ### \ctwoq
 
@@ -236,7 +236,7 @@ intuitive view that we would expect them to be harmful.
 
 #### Summary
 
-As shown in results Section \ref{sec:combo-results}, there are affects of
+As shown in results Section \ref{sec:combo-results}, there are effects of
 choosing differing text sources.  We have discussed each of these text sources,
 comparing configurations that include a particular source to the equivalent
 configuration that excludes that same source.  Our results and discussion

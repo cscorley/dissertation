@@ -1,9 +1,9 @@
 # Introduction {#chap:intro}
 
-Software features are functionalities defined by requirements and are
+Software features are functionalities defined by requirements and
 accessible to developers and users.  Software change is continual, because
 revised requirements lead to new features, increasing expectations lead to
-feature enhancements, achieving intended behavior leads to removal of defective
+feature enhancements, and achieving intended behavior leads to removal of defective
 features (i.e., bugs).  Users and developers propose change requests to the
 project issue tracker.  Change requests are sometimes called issue reports, and
 specific kinds of change requests include feature requests, enhancement
@@ -13,7 +13,7 @@ Software developers are often confronted with maintenance tasks that involve
 navigation of repositories that preserve large amounts of project history.
 Navigating these software repositories can be a time-consuming task, because
 their organization can be difficult to understand, especially when the
-organization is evolving over time.  Fortunately, topic models such as latent
+organization evolves over time.  Fortunately, topic models such as latent
 Dirichlet allocation (LDA) [@Blei-etal_2003] can help developers to navigate
 and understand software repositories by discovering topics (word distributions)
 that reveal the thematic structure of the data [@Linstead-etal_2007;
@@ -52,5 +52,5 @@ developer identification [@Kagdi-etal_2012], traceability link recovery
 [@Asuncion-etal_2010], and other areas [@Biggers_2012].  Yet, while researchers
 have had success in using topic models on source code entities, a fundamental
 issue exists with the current approaches.  This issue is that the input
-documents used to build a topic model are mutable source code entities, and
-will be the motivating point of this work.
+documents used to build a topic model are mutable source code entities, which
+is the motivating point of this work.

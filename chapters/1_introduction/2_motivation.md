@@ -60,7 +60,7 @@ Topic models (TMs) [@Blei_2012] such as latent Dirichlet allocation (LDA)
 models (VSMs) in the contexts of natural language [@Deerwester-etal_1990;
 @Blei-etal_2003] and source code [@Poshyvanyk-etal_2007; @Lukins-etal_2010].
 Yet, modern TMs such as online LDA [@Hoffman-etal_2010] natively support only
-the online addition of a new document, whereas VSMs also natively support
+the online addition of a new document, whereas som VSMs also natively support
 online modification or removal of an existing document.  So, TM-based FLTs
 provide the best accuracy, but unlike VSM-based FLTs, they require
 computationally-expensive retraining subsequent to source code changes.
@@ -131,7 +131,7 @@ change heuristics to select the correct developer [@Bird-etal_2011;
 exhibit the same issues as we described in the previous section.
 
 We would like to further adapt our vision for an accurate, easy-to-update FLT
-to DIT.  In this work, we propose a new methodology for DITs that is not
+to a DIT.  In this work, we propose a new methodology for DITs that is not
 necessarily based on the performance of an FLT.  Again, our methodology is to
 extract a document for each changeset in the source code history and to train a
 TR model on the changeset documents.  However, rather than using a
@@ -188,7 +188,7 @@ Likewise, we must also make choice with respect to corpus construction, as LDA
 can achieve higher performance by adjusting certain elements of a corpus
 [@Biggers-etal_2014] or by increasing and decreasing the importance of certain
 elements of the corpus [@Bassett-Kraft_2013].  While we do not have enough
-source code in changesets to be extract fully parsed elements -- such as
+source code in changesets to extract fully parsed elements -- such as
 comments, identifiers, literals, and so on -- we do have structure in the
 changeset itself in the form of the `diff` (see Figure \ref{fig:diff}).  That
 is, we have lines removed and added that represent the change, and also lines

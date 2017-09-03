@@ -38,7 +38,7 @@ occur in a corpus.  For example, documents on Babe Ruth and baseball should end
 up in the same topic, while Dennis Rodman and basketball should end up in
 another.  Additionally, documents may also express multiple topics.  That is, a
 document on Dennis Rodman could relate to multiple topics: basketball, tattoos,
-and vibrant hair coloring.  In this section, we will describe popular topic
+and vibrant hair coloring.  In this section, we will describe common topic
 modeling algorithms and give a brief overview of the related works.
 
 ##### Latent Semantic Indexing
@@ -86,8 +86,8 @@ Latent Dirichlet allocation (LDA) [@Blei-etal_2003] is a fully generative
 model, assuming documents are generated according to a latent document-topic
 distribution and topic-word distribution.  Of course, the goal of LDA is not to
 generate new documents from these distributions, although you certainly could,
-but instead infer the distributions of observed and unobserved documents.  That
-is, LDA models each document as a probability distribution indicating the
+but is instead to infer the distributions of observed and unobserved documents.
+That is, LDA models each document as a probability distribution indicating the
 likelihood that it expresses each topic and models each topic that it infers as
 a probability distribution indicating the likelihood of a word from the corpus
 coming from the topic.

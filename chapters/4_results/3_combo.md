@@ -1,6 +1,6 @@
 ## Combining and Configuring Changeset-based Topic Models {#sec:combo-results}
 
-In this section, we will describe the results of the study outlined in Section
+In this section, we describe the results of the study outlined in Section
 \ref{sec:combo-methodology}.
 
 \input{tables/landscape_model_sweep_wilcox}
@@ -40,7 +40,7 @@ alternate.  This suggests that the DIT is less sensitive to parameter
 changes, allowing the user to select the model configuration that works best
 for FLT.
 
-\attn{i think this is probably due to the less actual ranks possible}
+\todo{i think this is probably due to the less actual ranks possible}
 
 When we consider all systems together for corpus construction (Tables
 \ref{table:combo-flt-corpus-sweep-wilcox} and
@@ -88,3 +88,4 @@ significant at $p<0.01$ for the FLT task.  Similarly, for the DIT task,
 combined results of all subject systems contains 86 pairs that are
 statistically significant at $p<0.01$.
 
+\todo{answer RQs}

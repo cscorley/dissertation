@@ -37,7 +37,7 @@ Likewise, so are other unseen documents.  In our approach, the seen documents
 are changesets and the unseen documents are the source code entities of the
 snapshot.
 
-Hence, we train a topic model on the changeset corpus and use the model to
+We train a topic model on the changeset corpus and use the model to
 index the snapshot corpus.  Note that we never construct an index of the
 changeset documents used to train the model.  We only use the changesets to
 continuously update the topic model and only use the snapshot for indexing.
@@ -70,7 +70,7 @@ identification varies slightly from the general approach, as seen in Figure
 \ref{fig:changeset-triage}.  Following @Matter-etal_2009, each developer will
 have their own document, or profile, consisting of each changeset they have
 committed to the source code repository.  That is, the snapshot in this case is
-a corpus of developer documents that consists of only words a particular
+a corpus of developer documents that consists of all lines a particular
 developer has changed.  As with our FLT, this ensures that each developer
 profile indexed is a subset of the modeled corpus.
 
@@ -89,8 +89,8 @@ investigate that at this time.
 The changeset topic modeling approach requires three types of document
 extraction: one for the snapshot of the state of source code at a commit of
 interest, such as a tagged release; one for the every changeset in the source
-code history leading up to that commit; and a developer profile of the words
-each individual developer changed in those changesets.  The left side of Figure
+code history leading up to that commit; and a developer profile of all lines
+each individual developer changed in their changesets.  The left side of Figure
 \ref{fig:changeset-combo} illustrates the tri-document extraction approach.
 
 The document extraction process for snapshot and changesets corpora remain the
@@ -110,7 +110,7 @@ developer corpus.
 ### Why changesets?
 
 We choose to train the model on changesets, rather than another source of
-information, because they also represent what we are primarily interested in:
+information, because they represent what we are primarily interested in:
 program features.  A single changeset gives us a view of an addition, removal,
 or modification of a single feature.  A developer may, to some degree,
 comprehend what a changeset accomplishes by examining it, much like examining a
@@ -119,11 +119,14 @@ source file \needcite.
 While a snapshot corpus has documents that represent a program, a changeset
 corpus has documents that represent programming.  If we consider every
 changeset affecting a particular source code entity, then we gain a
-sliding-window view of that source code entity over time and the contexts those
-changes took place within.  Figure \ref{fig:sliding} shows an example, where
-green areas denote text added and red areas denote text removed in that
+sliding-window view of that source code entity over time and the contexts in
+which those changes took place.  Figure \ref{fig:sliding} shows an example,
+where green areas denote text added and red areas denote text removed in that
 changeset.  Here, the summation of all changes affecting a class over its
 lifetime would approximate the same words in its current version.
+
+\todo{edit sliding figure to have color-blind friendly notation (patterns vs
+colors)}
 
 ![Changesets over time approximate a
 Snapshot\label{fig:sliding}](figures/sliding_window_example.pdf)
@@ -137,6 +140,9 @@ source code entity only a few times -- perhaps only once.  Since topic modeling
 a snapshot only sees an entity once, topic modeling a changeset can miss no
 information.
 
+\todo{need to note that the initial check-in of a file is the entire file at
+the time, much like a snapshot}
+
 Using changesets also implies that the topic model may gain some noisy
 information from these additional documents, especially when considering
 removals.  However, @Vasa-etal_2007 also observe that code is less likely to be
@@ -144,7 +150,7 @@ removed than it is to be changed.  This implies that the noisy information
 would likely remain in both snapshot-based models and changeset-based models.
 
 Indeed, it would appear desirable to remove changesets from the model that are
-old and no longer relevant.  There is no need for this because online LDA
-already contains features for increasing the influence newer documents have on
-the model, thereby decaying the affect of the older documents on the model.
+old and no longer relevant.  Online LDA already accounts for this by increasing
+the influence newer documents have on the model, thereby decaying the affect of
+the older documents on the model.
 

@@ -1,14 +1,16 @@
 ## Feature Location {#sec:flt-results}
 
-In this section, we will describe the results of the study outlined in Section
+In this section, we describe the results of the study outlined in Section
 \ref{sec:flt-methodology}.
+
+\todo{regenerate figures with clearer captions}
 
 \input{tables/feature_location_rq1}
 
-\fone asks how well a topic model trained on changesets performs against one
-trained on source code entities.  Table \ref{table:feature_location_rq1}
+\fone asks how well a topic model trained on changesets performs compared to
+one trained on source code entities.  Table \ref{table:feature_location_rq1}
 summarizes the results of each subject system when evaluated at the file-level.
-In the table, we bold which of the two MRRs is greater.  Since our goal is to
+In the table, we bold the greater of the two MRRs.  Since our goal is to
 show that training with changesets is just as good, or better than, training on
 snapshots, we only care about statistical significance when the MRR is in favor
 of snapshots.  That is, statistical significance in favor of changesets is
@@ -36,10 +38,10 @@ snapshot-based TMs, and for the majority of systems, the better choice.
 were to be used in real-time.  This is a much closer evaluation of an FLT to it
 being used in an actual development environment.  Table
 \ref{table:feature_location_rq2} summarizes the results of each subject system
-when evaluated at the file-level.  In each of the tables, we bold which of the
-two MRRs is greater.  Again, since our goal is to show that temporal
-considerations must be given during FLT evaluation, we only care about
-statistical significance when the MRR is in favor of batch.
+when evaluated at the file-level.  In each of the tables, we bold the greater
+of the two MRRs.  Again, since our goal is to show that temporal considerations
+must be given during FLT evaluation, we only care about statistical
+significance when the MRR is in favor of batch.
 
 There is an improvement in favor of historical simulation in MRR for only 1 of
 the 6 systems, which is not statistically significant at $p=0.96$.  Four of the
@@ -49,3 +51,5 @@ changeset-based TMs perform better than a full historical simulation with
 statistical significance.  This suggests that under historical simulation, the
 accuracy of the FLT will fluctuate as a project evolves, which may indicate a
 more accurate evaluation is possible with a historical simulation.
+
+\todo{answer RQs}

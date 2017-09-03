@@ -86,3 +86,4 @@ adjust the rank of a file based on three features that determine the
 probability of the file being buggy.  @Moreno-etal_2014 also use stack traces
 with a VSM-based FLT to improve their accuracy of their FLT.
 
+\todo{read over recent ICSMEs for additional new refs}

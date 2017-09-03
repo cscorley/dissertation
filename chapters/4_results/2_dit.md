@@ -1,11 +1,11 @@
 ## Developer Identification {#sec:dit-results}
 
-In this section, we will describe the results of the study outlined in Section
+In this section, we describe the results of the study outlined in Section
 \ref{sec:dit-methodology}.
 
 \input{tables/triage_rq1}
 
-\done asks how well a topic model trained on changesets performs against one
+\done asks how well a topic model trained on changesets performs compared to one
 trained on source code entities.  Table \ref{table:triage_rq1} summarizes the
 results of each subject system.  In the table, we bold which of the two MRRs is
 greater.  Since our goal is to show that training with changesets is just as
@@ -44,3 +44,5 @@ batch changesets performs better than a full historical simulation, but is not
 statistically significant.  This suggests that under historical simulation, the
 accuracy of the DIT will fluctuate as a project evolves, which may indicate a
 more accurate evaluation is possible with a historical simulation
+
+\todo{answer RQs}
