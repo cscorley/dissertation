@@ -46,8 +46,8 @@ $(GENERATED) :: $(EXTRA_FILES)
 appendix: $(DEP_FILES) $(GENERATED)
 	cp -R figures tmp
 	cp -R tables tmp
-	sed -i 's/\\input{/\\input{tmp\//g' tmp/appendices.tex
-	find tmp -name '*.tex' | xargs sed -i 's/\\label{/\\label{app:/g'
+	sed -E -i bak -e "s/\\input{/\\input{tmp\//g" ./tmp/appendices.tex
+	find tmp -name "*.tex" | xargs sed -E -i bak -e "s/\\label{/\\label{app:/g"
 
 pandoc: appendix
 	$(PANDOC) \
