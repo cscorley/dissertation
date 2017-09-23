@@ -25,7 +25,13 @@ changesets.  \pig is the only system with an MRR in favor of snapshots that is
 also statistically significant at $p < 0.01$.  Comparing all systems at once,
 snapshots show slight MRR improvement over changesets with statistical
 significance.  This suggests that changeset-based TMs are on par with
-snapshot-based TMs.
+snapshot-based TMs, and aligns with the result we see for FLT in the previous
+section.
+
+\begin{framed}
+    \textbf{\done}:
+    Changeset-based FLTs are as accurate as snapshot-based DITs.
+\end{framed}
 
 \input{tables/triage_rq2}
 
@@ -43,6 +49,13 @@ results in favor of batch changesets were statistically significant.  Overall,
 batch changesets performs better than a full historical simulation, but is not
 statistically significant.  This suggests that under historical simulation, the
 accuracy of the DIT will fluctuate as a project evolves, which may indicate a
-more accurate evaluation is possible with a historical simulation
+more accurate evaluation is possible with a historical simulation. Again,
+this aligns with the result we see for FLT in the previous section.
 
-\todo{answer RQs}
+\begin{framed}
+    \textbf{\dtwo}:
+    Historical simulation reveals that the accuracy of the changeset-based DIT
+    is inconsistent as a project evolves, and is actually lower than indicated by
+    batch evaluation.
+\end{framed}
+

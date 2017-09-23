@@ -13,13 +13,11 @@ task, specifically for feature location and developer identification. Tables
 subject systems for model construction for the FLT and DIT tasks, respectively,
 while Tables \ref{table:combo-flt-corpus-sweep-wilcox} and
 \ref{table:combo-dit-corpus-sweep-wilcox} show the summary corpus construction
-for each respective task 
-(figures and data for all subject systems are available in Appendices \ref{app:model} and \ref{app:corpus})
-.  Our goal is not to find which
-configuration works best for each system and task, but rather to determine
-whether one configuration is *capable* of producing acceptable results for both
-tasks.
-
+for each respective task (figures and data for all subject systems are
+available in Appendices \ref{app:model} and \ref{app:corpus}).  Our goal is not
+to find which configuration works best for each system and task, but rather to
+determine whether one configuration is *capable* of producing acceptable
+results for both tasks.
 
 \newcommand{\optimalFLTmodel}{optimal model for FLT ($K=500$, $\alpha=2/K$, $\eta=auto$)\xspace}
 \newcommand{\optimalDITmodel}{optimal model for DIT ($K=500$, $\alpha=5/K$, $\eta=auto$)\xspace}
@@ -36,11 +34,8 @@ Wilcoxon rank-sum test reveals that the \optimalFLTmodel is statistically
 significant ($p<0.01$) compared to the alternate with an effect size low at
 $r=0.2181$.  Likewise, a Wilcoxon rank-sum test reveals that the
 \optimalDITmodel is not statistically significant ($p=0.2262$) compared to the
-alternate.  This suggests that the DIT is less sensitive to parameter
-changes, allowing the user to select the model configuration that works best
-for FLT.
-
-\todo{i think this is probably due to the less actual ranks possible}
+alternate.  This suggests that the DIT is less sensitive to parameter changes,
+allowing the user to select the model configuration that works best for FLT.
 
 When we consider all systems together for corpus construction (Tables
 \ref{table:combo-flt-corpus-sweep-wilcox} and
@@ -53,8 +48,14 @@ compared to the alternate with an effect size of $r=0.1273$.  Likewise, a
 Wilcoxon rank-sum test also reveals that the \optimalDITcorpus is statistically
 significant ($p<0.01$) compared to the alternate with an effect size of
 $r=0.2580$.  This suggests that correct corpus construction plays a somewhat
-important role in both tasks, but the effect of choosing an alternate over
-the optimal is low.
+important role in both tasks, but the effect of choosing an alternate over the
+optimal is low.
+
+\begin{framed}
+    \textbf{\cone}:
+    The same topic model can be used in more than one context, though more
+    optimal configurations may exist on a per-context basis.
+\end{framed}
 
 \ctwo asks what portions of a changeset are most critical for performance of
 different tasks, specifically for feature location and developer
@@ -88,4 +89,9 @@ significant at $p<0.01$ for the FLT task.  Similarly, for the DIT task,
 combined results of all subject systems contains 86 pairs that are
 statistically significant at $p<0.01$.
 
-\todo{answer RQs}
+\begin{framed}
+    \textbf{\ctwo}:
+    There are significant differences when choosing from the possible elements
+    of a changeset for corpus construction.
+\end{framed}
+
