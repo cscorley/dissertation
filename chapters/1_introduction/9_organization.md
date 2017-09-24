@@ -2,7 +2,7 @@
 
 The organization of this work is as follows.  Chapter \ref{chap:related}
 discusses related work in the area of text retrieval, configuration, and
-applications in software maintenance. Chapter \ref{chap:methodology} describes
+applications in software maintenance.  Chapter \ref{chap:methodology} describes
 our methodologies of the changeset-based approach as they apply to each
 research problem.  We present and discuss the results of our studies in
 chapters \ref{chap:results} and \ref{chap:discussion}, respectively. Finally,

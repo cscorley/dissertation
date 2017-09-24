@@ -109,6 +109,17 @@ nodraft: nodraftpandoc
 count: nodraft
 	texcount -sum $(PAPER).tex | grep "Sum count"
 
+plain: appendix
+	$(PANDOC) \
+		--natbib \
+		--smart \
+		--toc \
+		--top-level-division=chapter \
+		--listings \
+		--from=markdown \
+		--to=plain \
+		metadata.yaml $(CHAP_FILES) -o $(PAPER).txt
+
 $(PAPER).html: appendix
 	$(PANDOC) \
 		--standalone \

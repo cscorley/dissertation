@@ -5,7 +5,6 @@ consists of two general steps: document extraction and document retrieval.  We
 discuss methods of measuring similarity.  Finally, we discuss measures for
 evaluating a text retrieval technique.
 
-
 ### Document Extraction
 
 ![The general text retrieval process\label{fig:TR}](figures/text-retrieval.pdf)
@@ -71,8 +70,8 @@ models also need a trained model.  The primary function of the search engine is
 to rank documents in relation to the query.
 
 First, the engine transforms the corpus into an index.  If the search engine
-relies on a topic model, then the engine uses the model to infer an index
-document-topic distributions for each document.  Otherwise, the document-terms
+relies on a topic model, then the engine uses the model to infer a
+document-topic distribution for each document.  Otherwise, the document-terms
 may have further transformations applied or be used directly as the index.
 
 Next, the engine takes a pairwise classification of the query to each document
@@ -112,6 +111,10 @@ We define Hellinger distance ($H$) as:
     {\rm H}(P, Q) = \frac{1}{\sqrt{2}} \; \sqrt{\sum_{i=1}^{K} (\sqrt{P_i} - \sqrt{Q_i})^2}
 \label{eq:hellinger}
 \end{equation}
+
+where P and Q are probability distributions, making this a good measure to use
+with topic models since topic models return topic-probability distributions for
+documents of interest.
 
 ####  Kullback-Leibler divergence
 
@@ -312,8 +315,8 @@ Note that DCG does not penalize the relevance of the first retrieved document.
 The simplest experiment for text retrieval involves comparing two approaches: a
 baseline approach and some new approach.  This design could use a set of common
 queries for each approach, obtaining matched pairs of *effectiveness measures*.
-A popular effectiveness measure used in software is by @Poshyvanyk-etal_2007,
-and uses the rank of the first relevant document found.
+A popular effectiveness measure used in software is described by
+@Poshyvanyk-etal_2007, and uses the rank of the first relevant document found.
 
 We can form a null and alternative hypotheses for a one-tailed test using the
 evaluation measures discussed above to determine which of the approaches is
@@ -323,8 +326,14 @@ two-sided test to determine if there is a difference between the two
 approaches.
 
 There are several applicable ranked-based significance tests we can use.
-According to @Croft-etal_2010, the most common ones are the t-test, the
-Wilcoxon sign-ranked test, and the sign test.
+According to @Croft-etal_2010, the most common ones are the sign test, the
+t-test, and the Wilcoxon sign-ranked test
+
+\todo{mention friedman, mann-whitney?}
+
+#### Sign test
+
+\todo{find sign test}
 
 #### t-test
 
@@ -337,7 +346,7 @@ effectiveness measure used.
 
 #### Wilcoxon signed-rank test
 
-The Wilcoxon sign-ranked test is nonparametric and does not make the same
+The Wilcoxon sign-ranked test is non-parametric and does not make the same
 assumptions that the t-test does, making it a more desirable choice of a test
 when the effectiveness measure is ordinal.  We define the test as:
 
@@ -355,7 +364,3 @@ the rank of the pair in a sorted list of their differences.
 An effect size can be derived from the Wilcoxon signed-rank test statistic,
 $w$ [@Kerby_2014]. Given $w$, a rank correlation $r$ can be defined as $r =
 w/S$, where $S$ is the sum of all ranks.
-
-#### Sign test
-
-\todo{find sign test}

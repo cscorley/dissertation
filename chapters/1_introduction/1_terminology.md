@@ -28,11 +28,11 @@ identifier
 :   a token representing the name of an entity
 
 comment
-:   a sequence of tokens delimited by language specific markers (e.g., `/* */`
+:   a sequence of tokens delimited by language-specific markers (e.g., `/* */`
 or `#`)
 
 literal
-:   a sequence of tokens delimited by language specific markers (e.g., `' '`
+:   a sequence of tokens delimited by language-specific markers (e.g., `' '`
 for strings)
 
 document, $d$

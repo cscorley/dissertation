@@ -13,9 +13,9 @@ topics that characterize their previous changes.  In this scenario, a model of
 the text changed by each developer may be more useful than a model of the
 entities changed by each developer.
 
-While using file-based models is a natural fit for program comprehension tasks
-such as feature location and bug localization, they still are unable to stay
-up-to-date entirely [@Rao_2013].  Further, much of the work for assigning
+While using entity-based models is a natural fit for program comprehension
+tasks such as feature location and bug localization, they still are unable to
+stay up-to-date entirely [@Rao_2013].  Further, much of the work for assigning
 developers to change requests still use source code entities as input and an
 array of heuristics to identify a developer [@Kagdi-etal_2012;
 @Hossen-etal_2014].  These methods also have the same flaw in that they
@@ -26,7 +26,7 @@ a topic model.  Like @Rao-etal_2013, the motivation of this work is to create
 topic models that can be incrementally updated over time.  Unlike
 @Rao-etal_2013, we can rely on the source code history itself to build the
 model without needing to manually adjust model latent variables to account for
-document changes.  This gains the benefit of an decrease in model construction
+document changes.  This gains the benefit of a decrease in model construction
 and query times, but also could lead to a more reliable model.
 
 The key intuition to this approach is that a topic model algorithm such as
@@ -60,7 +60,7 @@ Topic models (TMs) [@Blei_2012] such as latent Dirichlet allocation (LDA)
 models (VSMs) in the contexts of natural language [@Deerwester-etal_1990;
 @Blei-etal_2003] and source code [@Poshyvanyk-etal_2007; @Lukins-etal_2010].
 Yet, modern TMs such as online LDA [@Hoffman-etal_2010] natively support only
-the online addition of a new document, whereas som VSMs also natively support
+the online addition of a new document, whereas some VSMs also natively support
 online modification or removal of an existing document.  So, TM-based FLTs
 provide the best accuracy, but unlike VSM-based FLTs, they require
 computationally-expensive retraining subsequent to source code changes.
@@ -180,16 +180,16 @@ configuration.
 @Biggers-etal_2014 were the first to explore the parameters of a LDA-based FLT.
 Unfortunately, these findings for model training parameters may not directly
 apply to a LDA-based DIT.  Further, there is no work on optimal configurations
-when using a topic model for two tasks.  There is also evidence in the
-literature that different configurations may be better suited for different
-tasks [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
+when using a topic model for two tasks.  There is also evidence that different
+configurations may be better suited for different tasks
+[@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
-Likewise, we must also make choice with respect to corpus construction, as LDA
+Likewise, we must also make choices with respect to corpus construction, as LDA
 can achieve higher performance by adjusting certain elements of a corpus
 [@Biggers-etal_2014] or by increasing and decreasing the importance of certain
 elements of the corpus [@Bassett-Kraft_2013].  While we do not have enough
-source code in changesets to extract fully parsed elements -- such as
-comments, identifiers, literals, and so on -- we do have structure in the
-changeset itself in the form of the `diff` (see Figure \ref{fig:diff}).  That
-is, we have lines removed and added that represent the change, and also lines
-for context for where the change is to be applied.
+source code in changesets to extract fully parsed elements -- such as comments,
+identifiers, literals, and so on -- we do have structure in the changeset
+itself in the form of the `diff` (see Figure \ref{fig:diff}).  That is, we have
+lines removed and added that represent the change, and also lines for context
+for where the change is to be applied.

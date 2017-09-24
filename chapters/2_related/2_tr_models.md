@@ -77,8 +77,8 @@ Extensions to SVD enable the algorithm to be *online* [@Zha-Simon_1999;
 an online LSI.  Online LSI allows for incremental updates to the model without
 needing to know about the documents prior to model construction.  @Rehurek_2011
 further extends the work of @Brand_2006 to an LSI implementation that is both
-online and distributed.  @Halko-etal_2011 outline a distributed algorithm , but
-not online.
+online and distributed.  @Halko-etal_2011 outline a distributed algorithm, but
+it is not online.
 
 ##### Latent Dirichlet Allocation
 
@@ -112,21 +112,21 @@ with $\phi_z$ as the term-topic distribution for topic z.
 The hyperparameters $\alpha$ and $\beta$ influence the "smoothness" of the
 model.  Hyperparameter $\alpha$ influences the topic distribution per document,
 and hyperparameter $\beta$ influences the word distribution per topic.  For
-example, lowering $\beta$ results in each topic will become more specific
-(i.e., a topic is likely to consist of words not in any other topics), while
-increasing $\beta$ causes each topic to become more general (i.e., it causes
-words to begin to appear across multiple topics).  Likewise, lowering $\alpha$
-causes each document to express less topics while raising $\alpha$ causes
-documents to relate to more topics.
+example, lowering $\beta$ causes each topic to become more specific (i.e., a
+topic is likely to consist of words not in any other topics), while increasing
+$\beta$ causes each topic to become more general (i.e., it causes words to
+begin to appear across multiple topics).  Likewise, lowering $\alpha$ causes
+each document to express less topics while raising $\alpha$ causes documents to
+relate to more topics.
 
 To search in LDA, we transform a query document $q$ into a topic probability
-distribution, similiar to LSI.  First, we vectorize $q$ into a vector of term
+distribution, similar to LSI.  First, we vectorize $q$ into a vector of term
 weights, as in VSM.  Next, we *infer* from the model the topic probability
 distribution for the query.  Afterwards, we use this distribution to make
 pairwise comparisons against all documents of $\theta$.
 
 @Hoffman-etal_2010 introduce a version of LDA which is online.
-@Zhai-Boyd-Graber_2013 introduce an extension of LDA in which the model also
+@Zhai-Boyd-Graber_2013 introduce an extension of LDA in which the model
 does not need to know about the corpus vocabulary prior to training.
 The Hierarchical Dirichlet Process (HDP) [@Teh-etal_2006] is a similar model,
 in that it does not not need to have a pre-determined number of topics set.

@@ -1,12 +1,12 @@
 # Introduction {#chap:intro}
 
-Software features are functionalities defined by requirements and
-accessible to developers and users.  Software change is continual, because
-revised requirements lead to new features, increasing expectations lead to
-feature enhancements, and achieving intended behavior leads to removal of defective
+Software features are functionalities defined by requirements and accessible to
+developers and users.  Software change is continual, because revised
+requirements lead to new features, increasing expectations lead to feature
+enhancements, and achieving intended behavior leads to removal of defective
 features (i.e., bugs).  Users and developers propose change requests to the
-project issue tracker.  Change requests are sometimes called issue reports, and
-specific kinds of change requests include feature requests, enhancement
+project issue tracker.  Change requests are sometimes called issue reports.
+Specific kinds of change requests include feature requests, enhancement
 requests, and bug reports.
 
 Software developers are often confronted with maintenance tasks that involve

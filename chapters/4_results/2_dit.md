@@ -5,20 +5,20 @@ In this section, we describe the results of the study outlined in Section
 
 \input{tables/triage_rq1}
 
-\done asks how well a topic model trained on changesets performs compared to one
-trained on source code entities.  Table \ref{table:triage_rq1} summarizes the
-results of each subject system.  In the table, we bold which of the two MRRs is
-greater.  Since our goal is to show that training with changesets is just as
-good, or better than, training on snapshots, we only care about statistical
-significance when the MRR is in favor of snapshots.  Statistical significance
-in favor of changesets is desirable.  Statistical *insignificance* between
-snapshots and changesets is acceptable and also desirable as it showcases that
-the changeset approach is on par with snapshots.  For example, with respect to
-\done, \openjpa is a favorable case for changesets as it has a higher MRR,
-along with statistical significance ($p < 0.01$) and a notably large effect
-size ($0.3642$).  Likewise, \tika displays a favorable case for snapshots in
-terms of higher MRR, but does not achieve statistical significance and is hence
-is not a definite unfavorable case.
+\done asks how well a topic model trained on changesets performs compared to
+one trained on source code entities.  Table \ref{table:triage_rq1} summarizes
+the results of each subject system.  In the table, we bold which of the two
+MRRs is greater.  Since our goal is to show that training with changesets is
+just as good, or better than, training on snapshots, we only care about
+statistical significance when the MRR is in favor of snapshots.  While
+statistical significance in favor of changesets is desirable, statistical
+*insignificance* between snapshots and changesets is acceptable and also
+desirable as it showcases that the changeset approach is on par with snapshots.
+For example, with respect to \done, \openjpa is a favorable case for changesets
+as it has a higher MRR, along with statistical significance ($p < 0.01$) and a
+notably large effect size ($0.3642$).  Likewise, \tika displays a favorable
+case for snapshots in terms of higher MRR, but does not achieve statistical
+significance and is hence is not a definite unfavorable case.
 
 We note an improvement in MRR for only 2 of the 6 systems when using
 changesets.  \pig is the only system with an MRR in favor of snapshots that is

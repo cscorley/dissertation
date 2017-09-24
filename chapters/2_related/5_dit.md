@@ -1,17 +1,17 @@
 ## Developer Identification {#sec:related-dit} {#sec:dit-background}
 
-In this section we survey the literature on developer identification.
+In this section we review literature on developer identification.
 Developer identification is a triaging activity in which a team member
 identifies a list of developers that are most apt to complete a change request
 and assigning one or more of those developers to the task
 [@McDonald-Ackerman_1998].  @Begel-etal_2010 show that developers need help
 finding expertise within their organization *more than they need help finding
-source code elements*. 
+source code elements*.
 
 As noted by @Shokripour-etal_2013, there are two broad categories of work in
 this area: activity-based approaches and location-based approaches.  An
 activity-based approach uses information gained from a developers *activity*,
-e.g., which change requests they have worked on in the past.  Location-based
+e.g., the change requests they have worked on in the past.  Location-based
 approaches resemble a feature location technique in that they rely on source
 code entity information to derive a developer, e.g., which developer has worked
 on the related classes in the past?  There are multiple ways to determine the
@@ -30,7 +30,7 @@ developer's expertise on that domain or file.
 @Cubranic-Murphy_2004 propose a machine learning approach that uses text
 categorization on change request descriptions.  @Cubranic-Murphy_2004 also
 report on heuristics used for classification of change requests.
-@Anvik-etal_2006 also use machine learning in an approach for semi-automated
+@Anvik-etal_2006 use machine learning in an approach for semi-automated
 triage by using change request history to learn which requests a developer
 changes.
 
@@ -59,9 +59,9 @@ Microsoft Windows Vista operating system project.  The study finds five primary
 reasons for reassignment: finding the root cause, expertise identification, low
 quality reports, difficulty in determining a proper fix, and workload balance.
 These reasons suggest considerations in triage that can potentially improve
-assignment.  The study also validates previous observations [@Guo-etal_2010]
-that reassignment is not always harmful, but can be beneficial in finding the
-best developer to complete a request.
+automatic assignment.  The study also validates previous observations
+[@Guo-etal_2010] that reassignment is not always harmful, but can be beneficial
+in finding the best developer to complete a request.
 
 @Somasundaram-Murphy_2012 propose an approach combining LDA with a machine
 learning algorithm for automated change request categorization.  Improving
@@ -70,9 +70,9 @@ requests by reducing the space of expertise that requires consideration.
 Knowing which component a request belongs to provides two benefits: knowing the
 component reduces the time-to-fix of a report [@Guo-etal_2011], and only
 members of the team associated with the component need consideration for
-recommendation.  The paper reports a comparative study on three variations ofwould 
-categorization approaches and finds LDA improves categorization over other
-approaches [@Anvik-etal_2006].
+recommendation.  The paper reports a comparative study on three variations
+of categorization approaches and finds LDA improves categorization over
+other approaches [@Anvik-etal_2006].
 
 @Jeong-etal_2009 use a Markov chain-based learning algorithm that considers bug
 reassignment information.  Using their bug reassignment model, they reduce the
@@ -83,7 +83,6 @@ further employ this idea using different learning algorithms incrementally
 improves triaging bugs the first time.
 
 ### Location-based approaches
-
 
 @McDonald-Ackerman_2000 present a heuristic-based recommender system named
 Expertise Recommender.  The recommender uses heuristics derived in a previous
@@ -135,16 +134,16 @@ usage-expertise-based recommendations have an accuracy comparable to
 implementation-based recommendations.
 
 @Linares-Vasquez-etal_2012 present an approach that does not require mining the
-software history nor a learning from previously completed change requests.
-Using the author indicated in source code comments with an LSI-based FLT, they
-are able to identify the correct developer.  @Hossen-etal_2014 extend this
-approach to also include change proneness to adjust the rank of relevant source
-code entities before selecting a developer.
+software history nor learning from previously completed change requests.  Using
+the author indicated in source code comments with an LSI-based FLT, they are
+able to identify a correct developer.  @Hossen-etal_2014 extend this approach
+to also include change proneness to adjust the rank of relevant source code
+entities before selecting a developer.
 
 @Weissgerber-etal_2007 present three visualization techniques that can help a
 triager identify the developer most appropriate for a task.
 @Bortis-VanderHoek_2013 present an approach that tags bugs to help developers
 explore relevant bugs.  @Tamrawi-etal_2011 present an incremental DIT approach
 based on fuzzy sets.  Like @Bassett-Kraft_2013, @Shokripour-etal_2013 show that
-using a term weighting scheme increases the accuracy of an DIT.
+using a term weighting scheme increases the accuracy of a DIT.
 

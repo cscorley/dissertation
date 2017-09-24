@@ -63,7 +63,7 @@ dataset.
 \input{tables/subjects}
 
 We chose these systems for our work because developers use descriptive commit
-messages that allow for easy traceability linking to issue reports.  Further,
+messages that allow for easy traceability-linking to issue reports.  Further,
 all projects use JIRA as an issue tracker, which has been found to encourage
 more accurate traceability link recovery [@Bissyande-etal_2013].  Finally, each
 system varies in domain and in size, in terms of developers, changesets, and
@@ -86,7 +86,7 @@ changed in the linked commit.  The second goldset is for evaluating DITs, and
 contains the developer(s) that committed those changes.  We do not consider
 whether the change was submitted by another developer and committed by a core
 contributor.  In this case, we assume that the core contributor understands and
-agrees with the change \needcite.
+agrees with the change since they were the one that committed the changeset.
 
 ### Evaluation
 
@@ -110,13 +110,13 @@ pairwise comparisons.
 For the historical simulation, we must take a different approach.  We first
 determine which commits relate to each query (or issue) and partition
 mini-batches out of the changesets.  We then proceed by initializing a model
-for online training with no initial corpus.  Using each mini-batch, or
-partition, we update the model.  Then, we infer an index of topic distributions
-with the snapshot corpus at the commit the partition ends on.  We also obtain a
-topic distribution for each query related to the commit.  For each query, we
-infer the query's topic distribution and rank each entity in the snapshot index
-with pairwise comparisons.  Finally, we continue by updating the model with the
-next mini-batch.
+for online training with no initial corpus.  We then update the model with each
+mini-batch.  Then, we infer an index of topic distributions with the snapshot
+corpus at the commit the partition ends on.  We also obtain a topic
+distribution for each query related to the commit.  For each query, we infer
+the query's topic distribution and rank each entity in the snapshot index with
+pairwise comparisons.  Finally, we continue by updating the model with the next
+mini-batch.
 
 Since our dataset is extracted from the commit that implemented the change, our
 partitioning is inclusive of that commit.  That is, we update the model with
@@ -129,13 +129,15 @@ change.
 #### DIT {#sec:dit-methodology}
 
 For developer identification snapshots, our process requires two separate
-steps.  First, we need to build a topic model for searching over the source
-code snapshot (i.e., just like in the FLT evaluation).  Once we determine the
-relevant documents, we need to determine which developer is the *owner* of
-those documents.  To accomplish this, we turn to the source code history.
-Following @Bird-etal_2011, we identify which developer has changed the
-documents the most.  This implies that the snapshot approach is *dependent* on
-the performance of the snapshot-based FLT.
+steps.  First, we build a topic model for searching over the source code
+snapshot (i.e., like the FLT evaluation).  Once we determine the relevant
+documents, we need to determine which developer is the *owner* of those
+documents.  To accomplish this, we turn to the source code history.  Following
+@Bird-etal_2011, we identify which developer has changed the documents the
+most.  This implies that the snapshot approach is *dependent* on the
+performance of the snapshot-based FLT.
+
+\todo{perhaps change this to be like matter etal instead?}
 
 <!--
 We can use an FLT to identify a ranked list of source code entities related to
@@ -173,7 +175,7 @@ mini-batch.
 
 
 
-#### Combo  {#sec:combo-methodology}
+#### Combining and Configuring Changeset-based Topic Models {#sec:combo-methodology}
 
 In this work, we reuse the already-created framework from the previous two
 research areas covered in this work.  We will not need to instantiate snapshot
@@ -212,7 +214,7 @@ Our document extraction process is shown on the left side of Figure
 \ref{fig:changeset-flt}.  We implemented our document extractor in Python v2.7
 using the [Dulwich library](http://www.samba.org/~jelmer/dulwich/) for
 interacting with the source code repository.  We extract documents from both a
-snapshot of the repository at a tagged snapshot and each commit reachable from
+snapshot of the repository at a tagged commit and each commit reachable from
 that tag's commit.  The same preprocessing steps are employed on all extracted
 documents, regardless of corpus source.
 
@@ -220,14 +222,13 @@ To extract text from the changesets, we use the `git diff` between two commits.
 In our changeset text extractor, we extract all text related to the change,
 e.g., context, removed, and added lines; metadata, such as commit messages, are
 ignored unless stated otherwise.  Note that we do not consider where the text
-originates from, only that it is text changed by the commit.
+originates from, only that it is text of the changeset.
 
 After extracting tokens, we split the tokens based on camel case, underscores,
 and non-letters.  We only keep the split tokens; original tokens are discarded
-\todo{why do we discard}.
-We normalize to lower case before filtering non-letters, English stop
-words [@Fox_1992], Java keywords, and words shorter than three characters
-long.  We do not stem words.
+to keep the corpus vocabulary small.  We normalize to lower case before
+filtering non-letters, English stop words [@Fox_1992], Java keywords, and words
+shorter than three characters long.  We do not stem words.
 
 We implemented our modeling using the Python library Gensim
 [@Rehurek-Sojk_2010], version 0.12.1. We use the same configurations on each
@@ -258,12 +259,12 @@ problems unless stated otherwise.
 For historical simulation (\frps and \drps), since we must use online training,
 we found it beneficial to consider two new parameters for online LDA: $\kappa$
 and $\tau_0$.  As noted in @Hoffman-etal_2010, it is beneficial to adjust
-$\kappa$ and $\tau_0$ to higher values for smaller mini-batches, e.g. a single
+$\kappa$ and $\tau_0$ to higher values for smaller mini-batches, e.g., a single
 changeset.  These two parameters control how much influence a new mini-batch
 has on the model when training.  We follow the recommendations in
 @Hoffman-etal_2010, choosing $\tau_0=1024$ and $\kappa=0.9$ for all systems,
 because the historical simulation often has mini-batch sizes in single digits.
-Additionally, since we are operating in fully online mode, we cannot take
+Additionally, since we are operating in a truly online mode, we cannot take
 multiple passes over the entire corpus as that would defeat the purpose of a
 historical simulation.
 
@@ -277,7 +278,7 @@ historical simulation.
 
 #### Feature Location {#sec:flt-data-collection}
 
-To evaluate the performance of a topic-modeling-based FLT we cannot use
+To evaluate the performance of a topic-modeling-based FLT we should not use
 measures such as precision and recall.  This is because the FLT creates
 rankings pairwise, causing every entity to appear in the rankings.
 @Poshyvanyk-etal_2007 define an effectiveness measure for topic-modeling-based
@@ -368,7 +369,7 @@ effectiveness measures for the same issues, we conduct a Friedman Chi-Square
 ($\chi^2$) test.  We perform post-hoc tests using Wilcoxon rank-sum test
 to determine which configurations have an effect.
 
-To determine whether including a particular text sources have an effect, we
+To determine whether including a particular text source has an effect, we
 turn to Mann-Whitney U tests.  We compare effectiveness measures of all ranks
 when the text source is included against excluded.  We use Mann-Whitney here
 because there is an unequal amount of results between a text source inclusion

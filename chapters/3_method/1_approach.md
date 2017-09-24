@@ -16,7 +16,7 @@ changeset approach, we only need to replace the training documents while the
 remainder of the approach remains the same.
 
 The changeset-based approach requires two types of document extraction: a
-corpus at the point of interest, or snapshot, and every changeset in the source
+corpus at a point of interest, or snapshot, and every changeset in the source
 code history leading up to the same point of interest.  The left side of Figure
 \ref{fig:changeset-flt} illustrates the dual-document extraction approach.
 
@@ -24,9 +24,9 @@ The document extraction process for the snapshot remains the same as covered in
 Section \ref{sec:related-general}, but may be modified to fit the task
 required.  The document extractor for the changesets parses each changeset for
 the removed, added, and context lines.  From there, the text extractor
-tokenizes each line.  The same preprocessor transformations occur in both the
-snapshot and changesets.  This helps ensure that the snapshot vocabulary is a
-subset of the changeset vocabulary [@Corley-etal_2014].
+tokenizes each line.  The same preprocessor transformations occur for both
+snapshot and changeset corpora.  This helps ensure that the snapshot vocabulary
+is a subset of the changeset vocabulary [@Corley-etal_2014].
 
 The right side of Figure \ref{fig:changeset-flt} illustrates the retrieval
 process.  The key intuition to our approach is that a topic model such as LDA
@@ -56,10 +56,9 @@ Application of the constructed changeset-based topic model for feature location
 does not require any more work than described above.  The snapshot we will
 index is a release version, and we have two options for this:  the release
 source code package or the state of the source code repository at the commit
-tagged with the corresponding release identifier.  We choose the latter option,
-a snapshot, to ensure that the vocabulary of the indexed corpus is a subset of
-the modeled corpus [@Corley-etal_2014], although the former option is entirely
-possible.
+tagged with the corresponding release identifier.  We choose the latter option
+to ensure that the vocabulary of the indexed corpus is a subset of the modeled
+corpus [@Corley-etal_2014], although the former option is entirely possible.
 
 #### Developer Identification with Changeset Topics {#sec:dit-approach}
 
@@ -67,8 +66,8 @@ possible.
 
 Application of the constructed changeset-based topic model for developer
 identification varies slightly from the general approach, as seen in Figure
-\ref{fig:changeset-triage}.  Following @Matter-etal_2009, each developer will
-have their own document, or profile, consisting of each changeset they have
+\ref{fig:changeset-triage}.  Following @Matter-etal_2009, each developer has
+their own document, or profile, consisting of each changeset they have
 committed to the source code repository.  That is, the snapshot in this case is
 a corpus of developer documents that consists of all lines a particular
 developer has changed.  As with our FLT, this ensures that each developer
@@ -83,23 +82,23 @@ investigate that at this time.
 
 #### Combining and Configuring Changeset-based Topic Models {#sec:combo-approach}
 
-![Combining changeset-based feature location and developer identifiation
+![Combining changeset-based feature location and developer identification
 \label{fig:changeset-combo}](figures/changeset-combo.pdf)
 
 The changeset topic modeling approach requires three types of document
 extraction: one for the snapshot of the state of source code at a commit of
-interest, such as a tagged release; one for the every changeset in the source
+interest, such as a tagged release; one for every changeset in the source
 code history leading up to that commit; and a developer profile of all lines
 each individual developer changed in their changesets.  The left side of Figure
 \ref{fig:changeset-combo} illustrates the tri-document extraction approach.
 
-The document extraction process for snapshot and changesets corpora remain the
+The document extraction process for snapshot and changeset corpora remain the
 same as covered in Section \ref{sec:flt-approach}.  The document extraction
 process for the corpus of developer profiles remains the same as covered in
 Section \ref{sec:dit-approach}.
 
 The right side of Figure \ref{fig:changeset-combo} illustrates the retrieval
-process.  For brevity, the queries and ranking do not appear in the diagram as
+process.  For brevity, the queries and ranking do not appear in the diagram, as
 they remain the same as described for each search engine in their respective
 sections, Sections \ref{sec:flt-approach} and \ref{sec:dit-approach}.  We train
 a topic model on the changeset corpus and construct search engines for each
@@ -117,7 +116,7 @@ comprehend what a changeset accomplishes by examining it, much like examining a
 source file \needcite.
 
 While a snapshot corpus has documents that represent a program, a changeset
-corpus has documents that represent programming.  If we consider every
+corpus has documents that represent *programming*.  If we consider every
 changeset affecting a particular source code entity, then we gain a
 sliding-window view of that source code entity over time and the contexts in
 which those changes took place.  Figure \ref{fig:sliding} shows an example,

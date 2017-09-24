@@ -185,8 +185,6 @@ snapshot TM-based FLTs.
 
 \todo{how does any of this make sense}
 
-\todo{summarize all discussion in ending subsection}
-
 ### A study on classes and methods
 
 An initial study was completed in @Corley-etal_2015.  This study is largely the
@@ -202,3 +200,7 @@ while we found that our changeset-based approach was as accurate as snapshots
 under historical simulation is consistent with the batch counterpart (\ftwop).
 
 \todo{do we care to add more to this? pretty sparse as-is}
+
+### Discussion summary
+
+

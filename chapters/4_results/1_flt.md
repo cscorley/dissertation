@@ -13,8 +13,8 @@ summarizes the results of each subject system when evaluated at the file-level.
 In the table, we bold the greater of the two MRRs.  Since our goal is to
 show that training with changesets is just as good, or better than, training on
 snapshots, we only care about statistical significance when the MRR is in favor
-of snapshots.  That is, statistical significance in favor of changesets is
-desirable.  However, statistical *insignificance* between snapshots and
+of snapshots.  While statistical significance in favor of changesets is
+desirable, statistical *insignificance* between snapshots and
 changesets is acceptable and also desirable as it showcases that the changeset
 approach is on par with snapshots.  For example, with respect to \fone,
 \openjpa is a favorable case for changesets as it has a higher MRR, along with
