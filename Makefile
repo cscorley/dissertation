@@ -3,7 +3,7 @@ DRAFT 		= draft
 
 LATEX 		= pdflatex -halt-on-error
 BIBTEX		= bibtex
-PANDOC		= pandoc +RTS -V0 -RTS
+PANDOC		= pandoc #+RTS -V0 -RTS
 
 GRAPHICS	= graphics
 
@@ -36,6 +36,7 @@ $(DRAFT): $(DRAFT).pdf
 all: $(PAPER).pdf $(DRAFT).pdf
 
 $(GENERATED) :: $(EXTRA_FILES)
+	cp ~/papers/papers.bib .
 	mkdir -p tmp
 	$(PANDOC) \
 		--top-level-division=chapter \
@@ -46,8 +47,8 @@ $(GENERATED) :: $(EXTRA_FILES)
 appendix: $(DEP_FILES) $(GENERATED)
 	cp -R figures tmp
 	cp -R tables tmp
-	sed -E -i bak -e "s/\\input{/\\input{tmp\//g" ./tmp/appendices.tex
-	find tmp -name "*.tex" | xargs sed -E -i bak -e "s/\\label{/\\label{app:/g"
+	sed -E -ibak -e "s/\\input\{/\\input\{tmp\//g" ./tmp/appendices.tex
+	find tmp -name "*.tex" | xargs sed -E -ibak -e "s/\\label\{/\\label\{app:/g"
 
 pandoc: appendix
 	$(PANDOC) \
@@ -89,7 +90,6 @@ nodraftpandoc: appendix
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
 
 natbib: debug
-	cp ~/papers/papers.bib .
 	$(LATEX) $(DRAFT)
 	$(LATEX) $(DRAFT)
 	$(BIBTEX) $(DRAFT)
@@ -98,7 +98,6 @@ natbib: debug
 	$(LATEX) $(DRAFT)
 
 nodraft: nodraftpandoc
-	cp ~/papers/papers.bib .
 	$(LATEX) $(PAPER)
 	$(LATEX) $(PAPER)
 	$(BIBTEX) $(PAPER)

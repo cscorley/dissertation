@@ -1,5 +1,7 @@
 # Introduction {#chap:intro}
 
+\todo{rewrite}
+
 Software features are functionalities defined by requirements and accessible to
 developers and users.  Software change is continual, because revised
 requirements lead to new features, increasing expectations lead to feature
@@ -29,7 +31,6 @@ knowledge can be a time-consuming task.  Topic models of source code can help
 such developers to understand the system by revealing a latent structure that
 is not obvious from the package hierarchy or system documentation
 [@Savage-etal_2010].
-
 
 In software engineering, topic models uncover thematic structure (e.g., topics)
 of source code entities grouped by their natural language content (i.e., the

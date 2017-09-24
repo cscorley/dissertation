@@ -30,7 +30,7 @@ and data for individual subject systems are available in Appendix
 
 With respect to model configuration, some interesting results can be found.
 For example, \bookkeeper has the same optimal configuration for both tasks, so
-the no trade-offs must be made. \todo{say something nice about other 3 systems}
+no trade-offs must be made. \todo{say something nice about other 3 systems}
 
 \mahout varied the most for FLT with the highest effect size, but has the least
 difference for DIT, indicating that the application should defer to the FLT

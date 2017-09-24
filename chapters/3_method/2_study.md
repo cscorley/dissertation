@@ -226,9 +226,10 @@ originates from, only that it is text of the changeset.
 
 After extracting tokens, we split the tokens based on camel case, underscores,
 and non-letters.  We only keep the split tokens; original tokens are discarded
-to keep the corpus vocabulary small.  We normalize to lower case before
-filtering non-letters, English stop words [@Fox_1992], Java keywords, and words
-shorter than three characters long.  We do not stem words.
+to remove duplication of information and keep the corpus vocabulary small.  We
+normalize to lower case before filtering non-letters, English stop words
+[@Fox_1992], Java keywords, and words shorter than three characters long.  We
+do not stem words.
 
 We implemented our modeling using the Python library Gensim
 [@Rehurek-Sojk_2010], version 0.12.1. We use the same configurations on each
