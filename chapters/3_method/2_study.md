@@ -90,7 +90,10 @@ agrees with the change since they were the one that committed the changeset.
 
 ### Evaluation
 
-#### FLT {#sec:flt-methodology}
+#### Feature Location {#sec:flt-methodology}
+
+To answer \fone, we evaluate two batch-trained models: one trained on a
+snapshot corpus, and the other on a changeset corpus.
 
 For snapshots, the process is straightforward and corresponds to Figure
 \ref{fig:snapshot-flt}.  We first train a model on the snapshot corpus using
@@ -107,12 +110,12 @@ the changeset corpus.  Finally, for each query in the dataset, we infer the
 query's topic distribution and rank each entity in the snapshot index with
 pairwise comparisons.
 
-For the historical simulation, we must take a different approach.  We first
-determine which commits relate to each query (or issue) and partition
-mini-batches out of the changesets.  We then proceed by initializing a model
-for online training with no initial corpus.  We then update the model with each
-mini-batch.  Then, we infer an index of topic distributions with the snapshot
-corpus at the commit the partition ends on.  We also obtain a topic
+To answer \ftwo, for the historical simulation, we must take a different
+approach.  We first determine which commits relate to each query (or issue) and
+partition mini-batches out of the changesets.  We then proceed by initializing
+a model for online training with no initial corpus.  We then update the model
+with each mini-batch.  Then, we infer an index of topic distributions with the
+snapshot corpus at the commit the partition ends on.  We also obtain a topic
 distribution for each query related to the commit.  For each query, we infer
 the query's topic distribution and rank each entity in the snapshot index with
 pairwise comparisons.  Finally, we continue by updating the model with the next
@@ -126,54 +129,41 @@ well as changed entities, but does not capture any entities removed by the
 change.
 
 
-#### DIT {#sec:dit-methodology}
+#### Developer Identification {#sec:dit-methodology}
 
-For developer identification snapshots, our process requires two separate
-steps.  First, we build a topic model for searching over the source code
-snapshot (i.e., like the FLT evaluation).  Once we determine the relevant
-documents, we need to determine which developer is the *owner* of those
-documents.  To accomplish this, we turn to the source code history.  Following
-@Bird-etal_2011, we identify which developer has changed the documents the
-most.  This implies that the snapshot approach is *dependent* on the
-performance of the snapshot-based FLT.
+To answer \done, we take the approach described by @Matter-etal_2009, but
+instead of using a VSM, we apply the approach using LDA.  This evaluation
+requires a snapshot corpus, a changeset corpus, and a corpus of *developer
+profiles*, as described in Section \ref{sec:dit-approach}.  Using the developer
+profile approach rather than a heuristic-based approach, such as
+@Bird-etal_2011, allows for us to construct a more fair evaluation of
+batch-trained models by only varying the training corpus.
 
-\todo{perhaps change this to be like matter etal instead?}
+For developer identification using snapshots, we first build a topic model for
+searching over the source code snapshot (i.e., like the FLT evaluation).  Then,
+we infer an index of topic distributions with a corpus of developer profiles.
+Note that we *do not* infer topic distributions with the snapshot corpus used
+to train the model.  For each query in the dataset, we infer the query's topic
+distribution and rank each entity in the index with pairwise comparisons.
 
-<!--
-We can use an FLT to identify a ranked list of source code entities related to
-a particular task.  Using heuristics about the identified entities, we
-can choose an appropriate developer to complete the task.  For example, if the
-FLT identifies the file `foo.py` as the most related entity, then we would want
-to know about the maintainer, or owner, of `foo.py`..
+For changesets, the process varies slightly from a snapshot approach, as shown
+in Figure \ref{fig:changeset-triage}.  First, we train a model of the changeset
+corpus using batch training.  Second, we infer an index of topic distributions
+with the developer profiles.  Note, again, that we *do not* infer topic
+distributions with the changeset corpus used to train the model.  Finally, for
+each query in the dataset, we infer the query's topic distribution and rank
+each entity in the developer profiles index with pairwise comparisons.
 
-A simple, example ownership metric is the number of times a developer has
-committed changes to a file.  That is, if over the software history Johanna
-modified `foo.py` 20 times, while Heather only has 5 modifications to `foo.py`,
-then we consider Johanna as the owner of `foo.py`.  Here, we would assign all
-tasks related to `foo.py` to Johanna.
--->
-
-For changesets, the approach will not necessarily be dependent on an FLT.  We
-can utilize the same approach as we did for the FLT evaluation.  First, we
-train a model of the changeset corpus using batch training.  Second, we infer
-an index of topic distributions with the developer profiles.  Note that we *do
-not* infer topic distributions with the changeset corpus used to train the
-model.  Finally, for each query in the dataset, we infer the query's topic
-distribution and rank each entity in the developer profiles index with pairwise
-comparisons.
-
-For the historical simulation, we take a slightly different approach.  We first
-determine which commits relate to each query (or issue) and partition
-mini-batches out of the changesets.  We then proceed by initializing a model
-for online training.  Using each mini-batch, or partition, we update the model.
-Then, we infer an index of topic distributions with the developer profiles at
-the commit the partition ends on.  We also obtain a topic distribution for each
-query related to the commit.  For each query, we infer the query's topic
-distribution and rank each entity in the developer index with pairwise
-comparisons.  Finally, we continue by updating the model with the next
-mini-batch.
-
-
+To answer \dtwo, the historical simulation, the approach is analogous of the
+approach described in the previous section, Section \ref{sec:flt-methodology}.
+The approach for developer identification, however, needs to vary from the
+previous approach only with respect to indexing.  With each mini-batch, instead
+of indexing a snapshot corpus of the commit at the end of the mini-batch, we
+index of topic distributions with the developer profiles at that commit.  Note
+that each developer profile of any mini-batch includes all developer activity
+up to that commit, i.e., it is an aggregation of all previous mini-batches,
+with the addition of activity since the last mini-batch.  The remainder of the
+approach remains the same.
 
 #### Combining and Configuring Changeset-based Topic Models {#sec:combo-methodology}
 
@@ -195,7 +185,7 @@ change and includes the entire `diff`, but does not include the message.
 
 \input{tables/case_study_factors}
 
-While \cone{} focuses on model construction, \ctwo{} focuses on training-corpus
+While \cone focuses on model construction, \ctwo focuses on training-corpus
 construction.  For \ctwo, there are several combinations to consider.  While
 thus far we have always included the entire changeset when training, it may be
 beneficial to consider only including portions (i.e., added lines only) while
@@ -205,7 +195,6 @@ include the natural language text of the commit message.  Table
 changeset text.  One combination is invalid because it constructs an empty
 corpus and thus impossible to train a topic model, leaving 15 total
 combinations.
-
 
 
 ### Setting {#sec:setting}
