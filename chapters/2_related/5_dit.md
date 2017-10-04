@@ -1,13 +1,6 @@
 ## Developer Identification {#sec:related-dit} {#sec:dit-background}
 
 In this section we review literature on developer identification.
-Developer identification is a triaging activity in which a team member
-identifies a list of developers that are most apt to complete a change request
-and assigning one or more of those developers to the task
-[@McDonald-Ackerman_1998].  @Begel-etal_2010 show that developers need help
-finding expertise within their organization *more than they need help finding
-source code elements*.
-
 As noted by @Shokripour-etal_2013, there are two broad categories of work in
 this area: activity-based approaches and location-based approaches.  An
 activity-based approach uses information gained from a developers *activity*,
