@@ -7,7 +7,7 @@ process of identifying source code entities that implement a bug, or an
 fundamental activity for a developer tasked with changing a software system.
 Whether a change task involves adding, modifying, or removing a feature, a
 developer cannot complete the task without first locating the source code that
-implements the feature.
+implements the feature or where the feature is to be implemented and used.
 
 The most closely related work to this work is @Rao-etal_2013.  @Rao-etal_2013
 also target the problem of building topic models, introducing an incremental

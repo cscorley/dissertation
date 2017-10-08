@@ -1,4 +1,4 @@
-## Developer Identification {#sec:related-dit} {#sec:dit-background}
+## Developer Identification {#sec:related-dit}
 
 In this section we review literature on developer identification.
 As noted by @Shokripour-etal_2013, there are two broad categories of work in

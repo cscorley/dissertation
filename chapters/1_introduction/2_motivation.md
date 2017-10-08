@@ -89,12 +89,11 @@ extract a document for each changeset in the source code history and to train a
 TR model on the changeset documents, and then to extract a document for each
 source file in a source code snapshot and to create an index of the
 source file documents from the trained (changeset) model.  This new
-methodology stems from four key observations:
+methodology stems from three key observations:
 
-- Like a source code file, a changeset contains program text.
-- Unlike a source code file, a changeset is immutable.
-- A changeset corresponds to a commit.
-- An atomic commit involves a single feature.
+1) like a source code file, a changeset contains program text,
+2) unlike a source code file, a changeset is immutable,
+3) and an atomic changeset involves a single feature.
 
 It follows from the first two observations that it is possible for an FLT
 following our methodology to satisfy all three of the aforementioned criteria.
@@ -106,18 +105,14 @@ methodology have the conceptual effect of relating files to file topics.
 ### Developer Identification {#sec:dit-motivation}
 
 The state-of-the-practice in developer identification is largely a manual,
-communicative process.  However, developer identification can be a time
-consuming and error prone process when done manually.  @Jeong-etal_2009 found
-that reassignment occurs between 37%--44% of the time and introduces an average
-of 50 days delay in completing the request.  Developer identification is a
-common and difficult task, and is even more difficult on projects where
-developer teams are large or geographically distributed [@Herbsleb-etal_2001].
-Developer identification requires contextual knowledge about the product, team
-structure, individual expertise, workload balance, and development schedules in
-order to correctly assign a change request.  A project member triaging a change
-request will need to consider these factors in order to correctly assign the
-change request to a set of developers with appropriate expertise
-[@McDonald-Ackerman_1998].
+communicative process.  Developer identification is a common and difficult
+task, and is even more difficult on projects where developer teams are large or
+geographically distributed [@Herbsleb-etal_2001].  Developer identification
+requires contextual knowledge about the product, team structure, individual
+expertise, workload balance, and development schedules in order to correctly
+assign a change request.  A project member triaging a change request will need
+to consider these factors in order to correctly assign the change request to a
+set of developers with appropriate expertise [@McDonald-Ackerman_1998].
 
 The state-of-the-art in developer identification [@Kagdi-etal_2012] aims to
 automate this process, either partially or fully.  @Anvik-etal_2006 notes that
@@ -135,10 +130,10 @@ to a DIT.  In this work, we propose a new methodology for DITs that is not
 necessarily based on the performance of an FLT.  Again, our methodology is to
 extract a document for each changeset in the source code history and to train a
 TR model on the changeset documents.  However, rather than using a
-heuristic-and-FLT-based approach, we choose to use extract *developer
-profiles*: documents which describe all changes a developer has made on the
-project.  We can then create an index of the developer profiles from the
-trained (changeset) model and skip all heuristics.
+heuristic-and-FLT-based approach, we choose to follow @Matter-etal_2009 and
+extract *developer profiles*: documents which describe all changes a developer
+has made on the project.  We can then create an index of the developer profiles
+from the trained (changeset) model and skip all heuristics.
 
 <!--
 @McDonald-Ackerman_1998 show that there are two expertise finding problems:
@@ -173,7 +168,7 @@ time-to-triage and to correct, or prevent, human error.
 
 Topic model reuse for two tasks would halve the computational cost required for
 model training.  This presumes, however, that the configuration choices made
-for corpus construction and the model itself are acceptable for each task.
+for corpus construction and the model itself are acceptable for both tasks.
 That is, the model used does not negatively impact either task due to
 configuration.
 
@@ -191,5 +186,6 @@ elements of the corpus [@Bassett-Kraft_2013].  While we do not have enough
 source code in changesets to extract fully parsed elements -- such as comments,
 identifiers, literals, and so on -- we do have structure in the changeset
 itself in the form of the `diff` (see Figure \ref{fig:diff}).  That is, we have
-lines removed and added that represent the change, and also lines for context
-for where the change is to be applied.
+lines removed and added that represent the change, lines for context for where
+the change is to be applied, and a natural language commit message describing
+the change.

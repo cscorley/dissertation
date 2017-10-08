@@ -1,7 +1,7 @@
 ## Study Design {#sec:study}
 
 In this work, we introduce topic-modeling-based FLT and DIT in which we
-incrementally build the model from source code *changesets*.  By training an
+incrementally build the model from source code changesets.  By training an
 online learning algorithm using changesets, our FLT and DIT maintain up-to-date
 models without incurring the non-trivial computational cost associated with
 retraining a snapshot-based topic model from scratch.  In this section, we
@@ -11,8 +11,11 @@ Goal-Question-Metric approach [@Basili-etal_1994].
 
 ### Definition and Context {#sec:questions}
 
-For this work, we pose the following research questions.  First, with respect
-to \frp, applying our approach to feature location, we ask:
+The primary goal of this work is to evaluate the performance and reliability of
+topic models built on the source code histories, i.e., changeset-based topic
+modeling, in order to move towards more robust approaches that can be utilized
+by practitioners.  For this work, we pose the following research questions.
+First, with respect to \frp, applying our approach to feature location, we ask:
 
 \fonep
 :   \foneq
@@ -43,15 +46,16 @@ by asking the following:
 For the first two Research Problems, there do exist various datasets and
 benchmarks for each [@Dit-etal_2013; @Moreno-etal_2014; @Kagdi-etal_2012;
 @Linares-Vasquez-etal_2012].  However, \crp introduces a complication to using
-these benchmarks: requiring high overlap of the benchmarks.  The overlap
-of these benchmarks is small or non-existent, making it difficult to determine
+these benchmarks: requiring high overlap of the benchmarks.  The overlap of
+these benchmarks is small or non-existent, making it difficult to determine
 whether a technique is performing well because of the approach or if it happens
-to just be a challenging query for that technique.  We have created our own
+to just be a challenging query for that technique.  Further, these datasets
+often only contain processed data, e.g., @Moreno-etal_2014 does not provide
+original issue numbers of the extracted data.  We have created our own
 benchmark fit for evaluating both an FLT and DIT.
 
 The 6 subjects of our studies vary in size and application domain.
 BookKeeper is a distributed logging service\footnote{\url{http://zookeeper.apache.org/bookkeeper/}}.
-<!-- Derby is a relational database management system\footnote{\url{http://db.apache.org/derby/}}.  -->
 Mahout is a tool for scalable machine learning\footnote{\url{https://mahout.apache.org/}}.
 OpenJPA is object-relational mapping tool\footnote{\url{http://openjpa.apache.org/}}.
 Pig is a platform for analyzing large datasets\footnote{\url{http://pig.apache.org/}}.
@@ -63,30 +67,36 @@ dataset.
 \input{tables/subjects}
 
 We chose these systems for our work because developers use descriptive commit
-messages that allow for easy traceability-linking to issue reports.  Further,
+messages that allow for easy traceability-linking to issue reports.  These
+systems are also studied by other researchers [@Moreno-etal_2014].  Further,
 all projects use JIRA as an issue tracker, which has been found to encourage
-more accurate traceability link recovery [@Bissyande-etal_2013].  Finally, each
-system varies in domain and in size, in terms of developers, changesets, and
-number of source code files.
+more accurate traceability link recovery [@Bissyande-etal_2013].  Each system
+varies in domain and in size, in terms of developers, changesets, and number of
+source code files.
 
 To build our dataset we mine the Git repository for information about each
 commit: the committer, message, and files changed.  We use the files changed
 information during the location-based approach.  Using the message, we extract
-the traceability links to issues in JIRA with the regular expression: `%s-\d+`,
-where `%s` is the project's name (e.g., BookKeeper).  This matches for
-JIRA-based issue identifiers, such as `BOOKKEEPER-439` or `TIKA-42`.
+the traceability links to issues in JIRA with the case-insensitive regular
+expression: `%s-\d+`, where `%s` is the project's name (e.g., BookKeeper).
+This matches for JIRA-based issue identifiers, such as `BOOKKEEPER-439` or
+`TIKA-42`.
 
-From the issue reports, we extract the version the issue marked as fixed in.
-We ignore issues that are not marked with a fixed version.  We also extract the
-title and description of the issue.
+From the issue reports, we extract the release version the issue marked as
+fixed in.  We ignore issues that are not marked with a fixed version.  We also
+extract the title and description of the issue, which will as our query for
+that particular issue.
 
 We construct two goldsets for each commit linked to an issue report.  The first
 goldset is for evaluating FLTs, and contains the files, classes, and methods
 changed in the linked commit.  The second goldset is for evaluating DITs, and
-contains the developer(s) that committed those changes.  We do not consider
-whether the change was submitted by another developer and committed by a core
-contributor.  In this case, we assume that the core contributor understands and
-agrees with the change since they were the one that committed the changeset.
+contains the developer(s) that committed those changes.  On occasion, an issue
+will be addressed multiple times by two developers, and we consider both developers as
+valid selections when ranking queries.  We do not consider the case when the
+change was submitted by another developer as a patch, and then applied and
+committed by a core contributor.  In this case, we assume that the core
+contributor, being a subject matter expert, understands and agrees with the
+change since they were the one that committed the changeset.
 
 ### Evaluation
 
@@ -137,7 +147,8 @@ requires a snapshot corpus, a changeset corpus, and a corpus of *developer
 profiles*, as described in Section \ref{sec:dit-approach}.  Using the developer
 profile approach rather than a heuristic-based approach, such as
 @Bird-etal_2011, allows for us to construct a more fair evaluation of
-batch-trained models by only varying the training corpus.
+batch-trained models by only varying the training corpus, i.e., the snapshot
+corpus or the changeset corpus.
 
 For developer identification using snapshots, we first build a topic model for
 searching over the source code snapshot (i.e., like the FLT evaluation).  Then,
@@ -258,25 +269,24 @@ Additionally, since we are operating in a truly online mode, we cannot take
 multiple passes over the entire corpus as that would defeat the purpose of a
 historical simulation.
 
-#### On LDA
 
 \todo{Explain randomness and setting seed}
 
 ### Data Collection and Analysis
 
-\todo{re-write all 3 intro para to remove repetitiveness}
-
-#### Feature Location {#sec:flt-data-collection}
-
-To evaluate the performance of a topic-modeling-based FLT we should not use
-measures such as precision and recall.  This is because the FLT creates
+To evaluate the performance of a topic-modeling-based FLT and DIT we cannot use
+measures such as precision and recall.  This is because each approach creates
 rankings pairwise, causing every entity to appear in the rankings.
 @Poshyvanyk-etal_2007 define an effectiveness measure for topic-modeling-based
-FLTs.  This effectiveness measure is the rank of the first relevant document
-and represents the number of source code entities a developer would have to
-view before reaching a relevant one.  Most importantly, this effectiveness
-measure allows evaluating the FLT by using the mean reciprocal rank (MRR) and
-the Wilcoxon signed-rank test.
+FLTs, which is also applicable to DIT.  This effectiveness measure is the rank
+of the first relevant document, whether that document represents a source code
+entity or developer profile, and represents the number of documents entities a
+developer or triager would have to view before reaching a relevant one.  Most
+importantly, this effectiveness measure allows evaluating our approach by using
+various rank-based metrics and statistical methods, such as the mean reciprocal
+rank (MRR) and the Wilcoxon signed-rank test.
+
+#### Feature Location {#sec:flt-data-collection}
 
 To answer \fone, we run the experiment on the snapshot and changeset corpora as
 outlined in Section \ref{sec:flt-methodology}.  We then calculate the MRR
@@ -300,15 +310,6 @@ supporting penalization to the best of our knowledge.
 
 #### Developer Identification {#sec:dit-data-collection}
 
-To evaluate the performance of a topic-modeling-based DIT we cannot use
-measures such as precision and recall.  This is because the DIT creates
-rankings pairwise, causing every developer to appear in the rankings.  Again,
-@Poshyvanyk-etal_2007 define an effectiveness measure for topic-modeling-based
-FLTs, which is usable for a DIT.  The effectiveness measure is the rank of the
-first relevant document and represents the number of developers the triager
-would have to assign before choosing the right developer.  The effectiveness
-measure allows evaluating the FLT by using the mean reciprocal rank (MRR).
-
 To answer \done, we run the experiment on the snapshot and changeset corpora as
 outlined in Section \ref{sec:dit-methodology}.  We then calculate the MRR
 between the two sets of effectiveness measures.  We use the Wilcoxon
@@ -319,17 +320,6 @@ compare it to the results of batch changesets from \done.  Again, we calculate
 the MRR and use the Wilcoxon signed-rank test.
 
 #### Combining and Configuring Changeset-based Topic Models {#sec:combo-data-collection}
-
-To evaluate the performance of a topic-modeling-based FLT and DIT we cannot use
-measures such as precision and recall.  This is because each approach creates
-rankings pairwise, causing every entity to appear in the rankings.
-@Poshyvanyk-etal_2007 define an effectiveness measure for topic-modeling-based
-FLTs, which is also applicable to DIT.  This effectiveness measure is the rank
-of the first relevant document, whether that document represents a source code
-entity or developer profile, and represents the number of documents entities a
-developer or triager would have to view before reaching a relevant one.  Most
-importantly, this effectiveness measure allows evaluating our approach by using
-various rank-based metrics and statistical methods.
 
 For both research questions, we run the experiment of each task across all
 possible configurations from two sets of configurations, shown in Tables

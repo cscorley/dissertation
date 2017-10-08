@@ -34,6 +34,6 @@ Here, we explore whether we can re-use the same model for different tasks.  In
 particular, because topic models are sensitive to parameter selection
 [@Biggers-etal_2014], we perform parameter sweeps across both tasks of feature
 location and developer identification.  We seek, per project, an optimal
-parameter configuration that works well on either task.  Further, as changesets
+parameter configuration that works well on both tasks.  Further, as changesets
 themselves have different features, such as added, removed, and context lines,
 we investigate which seem to be most beneficial to each approach.

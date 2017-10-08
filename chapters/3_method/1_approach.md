@@ -67,7 +67,7 @@ corpus [@Corley-etal_2014], although the former option is entirely possible.
 Application of the constructed changeset-based topic model for developer
 identification varies slightly from the general approach, as seen in Figure
 \ref{fig:changeset-triage}.  Following @Matter-etal_2009, each developer has
-their own document, or profile, consisting of each changeset they have
+their own document, or profile, consisting of all changesets they have
 committed to the source code repository.  That is, the snapshot in this case is
 a corpus of developer documents that consists of all lines a particular
 developer has changed.  As with our FLT, this ensures that each developer
@@ -135,12 +135,10 @@ learning [@Ying-Robillard_2013], where in our case a changeset gives a
 snippet-like view of the code required to complete a task.  Additionally,
 @Vasa-etal_2007 observe that code rarely changes as software evolves.  The
 implication is that the topic modeler will see changesets containing the same
-source code entity only a few times -- perhaps only once.  Since topic modeling
-a snapshot only sees an entity once, topic modeling a changeset can miss no
-information.
-
-\todo{need to note that the initial check-in of a file is the entire file at
-the time, much like a snapshot}
+source code entity only a few times -- perhaps only once.  We note that the
+initial commit of a file is the entire file at the time, conceptually much like
+a snapshot.  Since topic modeling a snapshot only sees an entity once, topic
+modeling a changeset can miss no information.
 
 Using changesets also implies that the topic model may gain some noisy
 information from these additional documents, especially when considering

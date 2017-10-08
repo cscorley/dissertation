@@ -9,7 +9,7 @@ models that make up the basis of this work.
 The Boolean model is the simplest of the models used for constructing a search
 engine.  This approach builds an index of the corpus by treating each document
 as a set of unique terms.  Essentially, a boolean model weights all terms
-equally: either the term is in the document or it isn't.  A user constructs
+equally: either the term is in the document or it is not.  A user constructs
 queries with single keywords joined by boolean expressions such as `AND`, `OR`,
 and `NOT`.
 

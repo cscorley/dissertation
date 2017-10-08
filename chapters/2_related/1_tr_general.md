@@ -103,7 +103,9 @@ on probability distributions, it is not a suitable measurement for some models.
 
 #### Hellinger distance
 
-\todo{define/describe better}
+Hellinger distance can be used to measure the similarity between probability
+distributions, making it a good measure to use with topic models since topic
+models return topic-probability distributions for documents of interest.
 
 We define Hellinger distance ($H$) as:
 
@@ -112,9 +114,7 @@ We define Hellinger distance ($H$) as:
 \label{eq:hellinger}
 \end{equation}
 
-where P and Q are probability distributions, making this a good measure to use
-with topic models since topic models return topic-probability distributions for
-documents of interest.
+where P and Q are probability distributions.
 
 ####  Kullback-Leibler divergence
 
@@ -216,11 +216,10 @@ balanced F-measure, the formula simplifies to:
 
 ##### Precision at k
 
-Precision at k is easy to compute and understand.  It is the calculated
-precision for the first $k$ retrieved documents, excluding documents after the
-first $k$ documents from the metric calculation.  However, it has the
-disadvantage of not distinguishing between the rankings of the relevant
-document, and is merely a count-based score.
+Precision at k is the calculated precision for the first $k$ retrieved
+documents, excluding documents after the first $k$ documents from the metric
+calculation.  However, it has the disadvantage of not distinguishing between
+the rankings of the relevant document and is a count-based score.
 
 \begin{equation}
 \operatorname{precision}(k) =
@@ -236,9 +235,8 @@ where $B_{1..k}$ is the top $k$ documents retrieved.  This is also written as
 #### Ranked-based measures
 
 Since text retrieval techniques can also return a ranking of all documents
-searched, it is not beneficial to use set-based measures by only looking
-at the top-$k$ documents, as in *precision@k*.
-
+searched (i.e., indexed), it is not beneficial to use set-based measures by
+only looking at the top-$k$ documents, as in *precision@k*.
 
 ##### Average Precision (AP)
 
@@ -277,10 +275,10 @@ where $AP(q)$ is the average precision for query $q$.
 
 ##### Mean Reciprocal Rank (MRR)
 
-Reciprocal rank is often useful when there is one relevant document to the
-query.  *Mean reciprocal rank* is an average of reciprocal ranks over different
-queries, hence it is useful for evaluating the effectiveness of a search engine
-[@Croft-etal_2010].
+Reciprocal rank is often useful when there are few documents, or only one,
+relevant to the query.  *Mean reciprocal rank* is an average of reciprocal
+ranks over different queries, hence it is useful for evaluating the
+effectiveness of a search engine [@Croft-etal_2010].
 
 \begin{equation}
 \operatorname{MRR} =
@@ -293,9 +291,9 @@ where $bestRank$ is a function equaling the rank of the first relevant item $a
 
 ##### Discounted Cumulative Gain (DCG)
 
-Discounted Cumulative Gain is an intuitive measure based on the assumptions
-that highly relevant documents are more useful than marginally relevant
-documents and that relevant documents with bad rank is not useful to the user
+Discounted Cumulative Gain is a measure based on the assumptions that highly
+relevant documents are more useful than marginally relevant documents and that
+relevant documents with bad rank is not useful to the user
 [@Jaervelin-Kekaelaeinen_2002].  Essentially, it penalizes, or discounts, when
 relevant documents are not highly ranked.
 
@@ -313,9 +311,9 @@ Note that DCG does not penalize the relevance of the first retrieved document.
 ### Statistical significance tests
 
 The simplest experiment for text retrieval involves comparing two approaches: a
-baseline approach and some new approach.  This design could use a set of common
-queries for each approach, obtaining matched pairs of *effectiveness measures*.
-A popular effectiveness measure used in software is described by
+baseline approach and an approach of interest.  This design could use a set of
+common queries for each approach, obtaining matched pairs of *effectiveness
+measures*.  A popular effectiveness measure used in software is described by
 @Poshyvanyk-etal_2007, and uses the rank of the first relevant document found.
 
 We can form a null and alternative hypotheses for a one-tailed test using the
@@ -327,7 +325,7 @@ approaches.
 
 There are several applicable ranked-based significance tests we can use.
 According to @Croft-etal_2010, the most common ones are the sign test, the
-t-test, and the Wilcoxon sign-ranked test
+t-test, and the Wilcoxon sign-ranked test.
 
 \todo{mention friedman, mann-whitney?}
 
@@ -361,6 +359,6 @@ the rank of the pair in a sorted list of their differences.
 
 ##### Effect size
 
-An effect size can be derived from the Wilcoxon signed-rank test statistic,
-$w$ [@Kerby_2014]. Given $w$, a rank correlation $r$ can be defined as $r =
-w/S$, where $S$ is the sum of all ranks.
+An effect size can be derived from $w$, the Wilcoxon signed-rank test
+statistic[@Kerby_2014]. Given $w$, a rank correlation $r$ can be defined as $r
+= w/S$, where $S$ is the sum of all ranks.
