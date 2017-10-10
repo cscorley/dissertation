@@ -54,9 +54,9 @@ bug localization [@Lukins-etal_2008; @Rao-etal_2013], developer identification
 [@Kagdi-etal_2012], traceability link recovery [@Asuncion-etal_2010], and other
 areas [@Biggers_2012].  Yet, while researchers have had success in using topic
 models on source code entities for a variety of applications, a fundamental
-issue exists with the current approaches:  topic modeling typically assume the
-input is comprised of immutable documents, while source code entities are
-mutable.  This conflict in assumptions is the motivating point of this work.
+issue exists with the current approaches:  topic modeling algorithms typically
+assume the input is comprised of immutable documents, while source code entities
+are mutable.  This conflict in assumptions is the motivating point of this work.
 
 <!--
 Topic models of source code can help such developers to understand the
