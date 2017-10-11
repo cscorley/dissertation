@@ -165,7 +165,7 @@ scenario.
 
 #### Batch snapshot are better than batch changeset *and* changesets in the simulated environment are better than batch changesets
 
-This situation occurs in 2 out of 6 systems: \bookkeeper, \tika, and
+This situation occurs in 3 out of 6 systems: \bookkeeper, \tika, and
 \zookeeper.  Similarly, this could be because of how the models are trained.
 Although batch changesets perform worse in both cases, historical simulation
 using changesets outweighs batch snapshot modelling.  This does not necessarily
