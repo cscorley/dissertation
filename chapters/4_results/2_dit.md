@@ -35,12 +35,12 @@ section.
 
 \input{tables/triage_rq2}
 
-\dtwo asks how well a simulation of using a topic model would perform as it
-were to be used in real-time.  This is a much closer evaluation of an DIT to it
-being used in an actual development environment.  Table \ref{table:triage_rq2}
-summarizes the results of each subject system.  In each of the tables, we bold
-which of the two MRRs is greater.  Again, since our goal is to show that
-temporal considerations must be given during DIT evaluation, we only care about
+\dtwo asks how well a TM-based FLT would perform as it were to be used in
+real-time.  This is a much closer evaluation of an DIT to it being used in an
+actual development environment.  Table \ref{table:triage_rq2} summarizes the
+results of each subject system.  In each of the tables, we bold which of the
+two MRRs is greater.  Again, since our goal is to show that temporal
+considerations must be given during DIT evaluation, we only care about
 statistical significance when the MRR is in favor of batch.
 
 There is an improvement in favor of historical simulation in MRR for only 1 of

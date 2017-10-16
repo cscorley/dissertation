@@ -45,14 +45,12 @@ changesets in detail.
 For the 1055 queries across all systems, 154 queries return the same
 effectiveness measure in both approaches, or about 14.6% of the time.  Of these
 154 queries, 58 (5.5%) share an effectiveness measure of 1 (the best possible
-measure) for both approaches.
-
-After excluding the 154 queries in which ranks which are the same, 245 (23.2%)
-of the remaining 901 queries have effectiveness measures is within 1 rank of
-each other.  Likewise, 145 (13.8%) queries have a difference in effectiveness
-measure of 2.  Finally, 166 (15.7%) have the effectiveness measure difference
-of 3.  The remaining 345 queries (38.3%) perform noticeably different ($> 3$
-ranks apart).
+measure) for both approaches.  After excluding the 154 queries in which ranks
+which are the same, 245 (23.2%) of the remaining 901 queries have effectiveness
+measures is within 1 rank of each other.  Likewise, 145 (13.8%) queries have a
+difference in effectiveness measure of 2.  Finally, 166 (15.7%) have the
+effectiveness measure difference of 3.  The remaining 345 queries (38.3%)
+perform noticeably different ($> 3$ ranks apart).
 
 
 ### \dtwoq
@@ -109,14 +107,13 @@ ranks apart).
 
 ### Situations
 
-
-In this study, we've also asked two research questions which lead to two
-distinct comparisons.  First, we compare a batch TM-based DIT trained on the
-changesets of a project's history to one trained on the snapshot of source code
-entities.  Second, we compare a batch TM-based DIT trained on changesets to a
-online TM-based DIT trained on the same changesets over time.  Our results are
-mixed between the research questions, hence we end up with four possible
-situations; we will now discuss each of these situations in detail.
+In this study, we've asked two research questions which lead to two distinct
+comparisons.  First, we compare a batch TM-based DIT trained on the changesets
+of a project's history to one trained on the snapshot of source code entities.
+Second, we compare a batch TM-based DIT trained on changesets to a online
+TM-based DIT trained on the same changesets over time.  Our results are mixed
+between the research questions, hence we end up with four possible situations;
+we will now discuss each of these situations in detail.
 
 <!--
     SS < CS && CS > HS
@@ -180,4 +177,15 @@ hypothesis that historical simulation more accurately portrays the system over
 time.  However, we cannot conclude this without also historically simulating
 snapshot TM-based DITs.
 
-\todo{summarize all discussion in ending subsection}
+### Changeset-based Developer Identification {#sec:dit-summary}
+
+In this work we have shown that it is not only possible to use a
+changeset-based TM for DIT, but also desirable.  For \done, we find that the
+changeset-based approach can produce a more accurate model for searching over
+developer profiles over the traditional snapshot-based approach.  We also
+find evidence under \dtwo that batch-evaluated approaches may be both
+over-informed and under-informed, e.g., models trained on data from the future,
+but does not make good use data available at particular points of interest.  As
+in Section \ref{sec:flt-summary}, we arrive at the conclusion that the current
+approaches using batched evaluation do not accurately reflect the model
+performance or the state of the indexed corpus over time.

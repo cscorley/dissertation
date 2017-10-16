@@ -3,8 +3,6 @@
 In this section, we describe the results of the study outlined in Section
 \ref{sec:flt-methodology}.
 
-\todo{regenerate figures with clearer captions}
-
 \input{tables/feature_location_rq1}
 
 \fone asks how well a topic model trained on changesets performs compared to
@@ -30,7 +28,7 @@ significant at $p < 0.01$ with the greatest effect size of all systems
 Comparing all systems at once by combining all effectiveness measures,
 changesets show slight MRR improvement over snapshots with statistical
 significance.  This suggests that changeset-based TMs are on par with
-snapshot-based TMs, and for the majority of systems, the better choice.
+snapshot-based TMs and the better choice for the majority of systems.
 
 \begin{framed}
     \textbf{\fone}:
@@ -39,14 +37,14 @@ snapshot-based TMs, and for the majority of systems, the better choice.
 
 \input{tables/feature_location_rq2}
 
-\ftwo asks how well a simulation of using a topic model would perform as it
-were to be used in real-time.  This is a much closer evaluation of an FLT to it
-being used in an actual development environment.  Table
-\ref{table:feature_location_rq2} summarizes the results of each subject system
-when evaluated at the file-level.  In each of the tables, we bold the greater
-of the two MRRs.  Again, since our goal is to show that temporal considerations
-must be given during FLT evaluation, we only care about statistical
-significance when the MRR is in favor of batch.
+\ftwo asks how well a TM-based FLT would perform as it were to be used in
+real-time.  This is a much closer evaluation of an FLT to it being used in an
+actual development environment.  Table \ref{table:feature_location_rq2}
+summarizes the results of each subject system when evaluated at the file-level.
+In each of the tables, we bold the greater of the two MRRs.  Again, since our
+goal is to show that temporal considerations must be given during FLT
+evaluation, we only care about statistical significance when the MRR is in
+favor of batch.
 
 There is an improvement in favor of historical simulation in MRR for only 1 of
 the 6 systems, which is not statistically significant at $p=0.96$.  Four of the

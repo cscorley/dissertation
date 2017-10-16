@@ -30,7 +30,8 @@ and data for individual subject systems are available in Appendix
 
 With respect to model configuration, some interesting results can be found.
 For example, \bookkeeper has the same optimal configuration for both tasks, so
-no trade-offs must be made. \todo{say something nice about other 3 systems}
+no trade-offs must be made.
+\todo{say something nice about other 3 systems}
 
 \mahout varied the most for FLT with the highest effect size, but has the least
 difference for DIT, indicating that the application should defer to the FLT
@@ -78,16 +79,6 @@ seem to advocate for their exclusion for best performance.
 
 \input{figures/combo/flt_rq2_bookkeeper}
 \input{figures/combo/dit_rq2_bookkeeper}
-
-\todo{dit seemed to be the task impacted more by corpus selection}
-
-In sum, there will always be improvement by hyper-optimizing the configuration
-of a topic model and corpus construction.  Our results suggest that it is
-possible reuse the same model for two tasks, as differences are often by one
-configuration parameter and not statistically significant. Corpus construction,
-however, would appear to require more consideration towards which task is more
-important as there are statistically significant effects between the optimal
-and alternate configurations.
 
 ### \ctwoq
 
@@ -234,15 +225,23 @@ again removals do not make an appearance in the optimal configuration.  This
 suggests that removals should be used with caution, and also aligns with our
 intuitive view that we would expect them to be harmful.
 
-#### Summary
+### Model Configuration and Corpus Construction
+
+There will always be improvement by hyper-optimizing the configuration of a
+topic model and corpus construction.  Our results for \cone suggest that it is
+possible reuse the same model for two tasks, as differences are often by one
+configuration parameter and not statistically significant. Corpus construction,
+however, would appear to require more consideration towards which task is more
+important as there are statistically significant effects between the optimal
+and alternate configurations.
 
 As shown in results Section \ref{sec:combo-results}, there are effects of
 choosing differing text sources.  We have discussed each of these text sources,
 comparing configurations that include a particular source to the equivalent
 configuration that excludes that same source.  Our results and discussion
-suggest that it is beneficial to include additions, context, and messages while
-excluding removals.  This tends to match our intuitive view that removals would
-be detrimental to the performance of our FLT and DIT.
+surrounding \ctwo suggest that it is beneficial to include additions, context,
+and messages while excluding removals.  This tends to match our intuitive view
+that removals would be detrimental to the performance of our FLT and DIT.
 
 <!--
 Corpus:

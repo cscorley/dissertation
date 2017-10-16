@@ -46,12 +46,15 @@ For the 1055 queries across all systems, only 775 were successful.  That is,
 280 queries did not retrieve any files identified as changed by fixing the
 related issues.  These are likely caused by files that were removed over time
 and did not make it into release and highlights the volatility of software
-development.  155 queries return the same effectiveness measure in both
+development.  It is typical for unsuccessful queries to be filtered from the
+benchmark, hence we have removed them from our data analyses instead of
+penalizing a particular approach.
+
+\todo{here is a nice place for a table show-casing which approach is missing most}
+
+There were 155 queries that return the same effectiveness measure in both
 approaches, or about 20.0% of the time.  Of these 155 queries, 139 (17.9%) have
 an effectiveness measure of 1 (the best possible measure) for both approaches.
-
-\todo{the unsuccessful queries are typical, usually filtered from benchmark}
-
 After excluding the 155 queries in which ranks which are the same, 87 (11.2%)
 of the remaining 620 queries have effectiveness measures is within 1 rank of
 each other.  Likewise, 254 (32.8%) queries have a difference in effectiveness
@@ -110,8 +113,7 @@ perform noticeably different ($> 50$ ranks apart).
 
 ### Situations
 
-
-In this study, we've also asked two research questions which lead to two
+In this study, we've asked two research questions which lead to two
 distinct comparisons.  First, we compare a batch TM-based FLT trained on the
 changesets of a project's history to one trained on the snapshot of source code
 entities.  Second, we compare a batch TM-based FLT trained on changesets to a
@@ -173,8 +175,6 @@ in both cases, historical simulation using changesets outweighs batch snapshot
 modelling.  This does not necessarily mean that changesets are bad, but may
 more accurately model the system over time.
 
-\todo{why would this occur for mahout?}
-
 #### Batch snapshot are better than batch changeset *and* batch changesets are better than changesets in the simulated environment
 
 This situation occurs in a single system: \tika.  We note that this system does
@@ -183,24 +183,36 @@ hypothesis that historical simulation more accurately portrays the system over
 time.  However, we cannot conclude this without also historically simulating
 snapshot TM-based FLTs.
 
-\todo{how does any of this make sense}
+### Changeset-based Feature Location {#sec:flt-summary}
 
-### A study on classes and methods
+In this work we have shown that it is not only possible to use a
+changeset-based TM for FLT, but also desirable.  For \fone, we find that the
+changeset-based approach can produce a more accurate model for searching over
+source code elements over the traditional snapshot-based approach.  We also
+find evidence under \ftwo that batch-evaluated approaches may be both
+over-informed and under-informed, e.g., models trained on data from the future,
+but does not make good use data available at particular points of interest.
 
-An initial study was completed in @Corley-etal_2015.  This study is largely the
-same as already presented, with the exceptions that we used different subject
-systems from other researchers @Moreno-etal_2014 and investigated the approach
-using classes and methods.
-
-The results of our study differ slightly, but it is difficult to compare the
+We have also explored class- and method-level granularity searches with
+different subject systems in prior work [@Corley-etal_2015].  The results of
+our study presented here differ slightly, but it is difficult to compare the
 two, given the aforementioned exceptions.  In @Corley-etal_2015, we were able
 to arrive at the same conclusion as \fone, but unable to for \ftwo.  That is,
 while we found that our changeset-based approach was as accurate as snapshots
 (\fonep), we were unable to find that the accuracy of the changeset-based model
 under historical simulation is consistent with the batch counterpart (\ftwop).
+It is difficult to determine the source of this inconsistency, as our prior
+work used datasets constructed by other researchers [@Moreno-etal_2014].  We
+leave as future work extending our current study and dataset to include class-
+and method-level granularity searches.
 
-\todo{do we care to add more to this? pretty sparse as-is}
-
-### Discussion summary
-
-
+We arrive at the conclusion that the current approaches using batched
+evaluation do not accurately reflect the model performance or the state of the
+indexed corpus over time.  Both of these issues combined present serious
+threats to validity of prior work in this field.  However, researchers can
+mitigate both of these threats by using a historical simulation of their
+approaches, instead of only using a batch evaluation.  That does not mean
+researchers must use online LDA as we have, but pay closer attention to whether
+the approach considers time in their assumptions.  That is, researchers need to
+be to ensure their search engines are constructed only from data that existed
+*before* the query they are evaluating.
