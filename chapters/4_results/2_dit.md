@@ -30,7 +30,7 @@ section.
 
 \begin{framed}
     \textbf{\done}:
-    Changeset-based FLTs are as accurate as snapshot-based DITs.
+    Changeset-based DITs are as accurate as snapshot-based DITs.
 \end{framed}
 
 \input{tables/triage_rq2}

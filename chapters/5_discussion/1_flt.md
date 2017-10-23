@@ -183,36 +183,3 @@ hypothesis that historical simulation more accurately portrays the system over
 time.  However, we cannot conclude this without also historically simulating
 snapshot TM-based FLTs.
 
-### Changeset-based Feature Location {#sec:flt-summary}
-
-In this work we have shown that it is not only possible to use a
-changeset-based TM for FLT, but also desirable.  For \fone, we find that the
-changeset-based approach can produce a more accurate model for searching over
-source code elements over the traditional snapshot-based approach.  We also
-find evidence under \ftwo that batch-evaluated approaches may be both
-over-informed and under-informed, e.g., models trained on data from the future,
-but does not make good use data available at particular points of interest.
-
-We have also explored class- and method-level granularity searches with
-different subject systems in prior work [@Corley-etal_2015].  The results of
-our study presented here differ slightly, but it is difficult to compare the
-two, given the aforementioned exceptions.  In @Corley-etal_2015, we were able
-to arrive at the same conclusion as \fone, but unable to for \ftwo.  That is,
-while we found that our changeset-based approach was as accurate as snapshots
-(\fonep), we were unable to find that the accuracy of the changeset-based model
-under historical simulation is consistent with the batch counterpart (\ftwop).
-It is difficult to determine the source of this inconsistency, as our prior
-work used datasets constructed by other researchers [@Moreno-etal_2014].  We
-leave as future work extending our current study and dataset to include class-
-and method-level granularity searches.
-
-We arrive at the conclusion that the current approaches using batched
-evaluation do not accurately reflect the model performance or the state of the
-indexed corpus over time.  Both of these issues combined present serious
-threats to validity of prior work in this field.  However, researchers can
-mitigate both of these threats by using a historical simulation of their
-approaches, instead of only using a batch evaluation.  That does not mean
-researchers must use online LDA as we have, but pay closer attention to whether
-the approach considers time in their assumptions.  That is, researchers need to
-be to ensure their search engines are constructed only from data that existed
-*before* the query they are evaluating.

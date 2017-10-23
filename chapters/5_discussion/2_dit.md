@@ -176,16 +176,3 @@ not achieve statistical significance for either case.  This also supports the
 hypothesis that historical simulation more accurately portrays the system over
 time.  However, we cannot conclude this without also historically simulating
 snapshot TM-based DITs.
-
-### Changeset-based Developer Identification {#sec:dit-summary}
-
-In this work we have shown that it is not only possible to use a
-changeset-based TM for DIT, but also desirable.  For \done, we find that the
-changeset-based approach can produce a more accurate model for searching over
-developer profiles over the traditional snapshot-based approach.  We also
-find evidence under \dtwo that batch-evaluated approaches may be both
-over-informed and under-informed, e.g., models trained on data from the future,
-but does not make good use data available at particular points of interest.  As
-in Section \ref{sec:flt-summary}, we arrive at the conclusion that the current
-approaches using batched evaluation do not accurately reflect the model
-performance or the state of the indexed corpus over time.
