@@ -52,6 +52,6 @@ Threats to conclusion validity concern our choice of measurements and how those
 choices impact our evaluation and conclusion.  We chose to use mean reciprocal
 rank (MRR), but we could have also used mean average precision (MAP) instead.
 We chose the former because it lends itself to being paired with the Wilcoxon
-signed-rank test as both rely on the same input data.
-
-\todo{write something better than "this is what everyone does"}
+signed-rank test as both rely on the same input data.  We also chose the former
+to establish a baseline that can be used to compare our approach against prior
+work in the field [@Dit-etal_2013a].
