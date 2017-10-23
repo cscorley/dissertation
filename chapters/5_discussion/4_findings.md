@@ -37,15 +37,17 @@ available at particular points of interest.
 We have also explored class- and method-level granularity searches with
 different subject systems in prior work [@Corley-etal_2015].  The results of
 our study presented here differ slightly, but it is difficult to compare the
-two, given the aforementioned exceptions.  In @Corley-etal_2015, we were able
-to arrive at the same conclusion as \fone, but unable to for \ftwo.  That is,
-while we found that our changeset-based approach was as accurate as snapshots
-(\fonep), we were unable to find that the accuracy of the changeset-based model
-under historical simulation is consistent with the batch counterpart (\ftwop).
-It is difficult to determine the source of this inconsistency, as our prior
-work used datasets constructed by other researchers [@Moreno-etal_2014].  We
-leave as future work extending our current study and dataset to include class-
-and method-level granularity searches.
+two, given the data granularities are different.  In @Corley-etal_2015, we were
+able to arrive at the same conclusion as \fone, but unable to for \ftwo.  That
+is, while we found that our changeset-based approach was as accurate as
+snapshots (\fonep), we were unable to find that the accuracy of the
+changeset-based model under historical simulation is consistent with the batch
+counterpart (\ftwop).  It is difficult to determine the source of this
+inconsistency, as our prior work used datasets constructed by other researchers
+[@Moreno-etal_2014].  However, the inconsistency increases suspicion that batch
+evaluations are inadequate or non-representational of reality.  We leave
+extending our current study and dataset to include class- and method-level
+granularity searches as future work.
 
 We arrive at the conclusion that the current approaches using batched
 evaluation do not accurately reflect the model performance or the state of the
@@ -60,7 +62,7 @@ be to ensure their search engines are constructed only from data that existed
 
 ### Developer Identification
 
-Then, for \drp, applying our approach to developer identification, we ask:
+For \drp, applying our approach to developer identification, we ask:
 
 \donep
 :   \doneq
@@ -91,7 +93,7 @@ performance or the state of the indexed corpus over time.
 
 ### Combining and Configuring Changeset-based Topic Models
 
-Finally, we determine for \crp whether we can gain model re-use for both tasks
+We determine for \crp whether we can gain model re-use for both tasks
 by asking the following:
 
 \conep
