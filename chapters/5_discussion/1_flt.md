@@ -62,7 +62,7 @@ measure less than or equal to 10.  Finally, 398 (51.4%) have the effectiveness
 measure is within 50 ranks of each other.  The remaining 222 queries (28.6%)
 perform noticeably different ($> 50$ ranks apart).
 
-\todo{50 too large, better to compare by percentage?}
+\todo{50 too large, maybe use 20 (citation for number before reformulation?)}
 
 ### \ftwoq
 

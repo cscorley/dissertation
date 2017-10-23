@@ -61,5 +61,3 @@ more accurate evaluation is possible with a historical simulation.
     is inconsistent as a project evolves, and is actually lower than indicated by
     batch evaluation.
 \end{framed}
-
-\todo{this result conflicts with our method/class experiments}
