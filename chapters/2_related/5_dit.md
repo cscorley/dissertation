@@ -23,9 +23,11 @@ developer's expertise on that domain or file.
 @Cubranic-Murphy_2004 propose a machine learning approach that uses text
 categorization on change request descriptions.  @Cubranic-Murphy_2004 also
 report on heuristics used for classification of change requests.
-@Anvik-etal_2006 use machine learning in an approach for semi-automated
-triage by using change request history to learn which requests a developer
-changes.
+@Anvik-etal_2006 use machine learning in an approach for semi-automated triage
+by using change request history to learn which requests a developer completes.
+@Liu-etal_2016 use an LDA-based approach to find bug reports that are similar
+to one another and take into consideration how long each similar bug took to
+fix before making recommendations.
 
 @Anvik-Murphy_2007 conduct an empirical evaluation of two approaches for
 recommending: one that uses software repository mining, and one that uses
@@ -140,3 +142,8 @@ explore relevant bugs.  @Tamrawi-etal_2011 present an incremental DIT approach
 based on fuzzy sets.  Like @Bassett-Kraft_2013, @Shokripour-etal_2013 show that
 using a term weighting scheme increases the accuracy of a DIT.
 
+@Ouni-etal_2016 present a DIT for use in finding a code reviewer.  Their
+approach uses the source code change history to build an expertise model of
+each developer's previously changed files and the files changed in previously
+completed code reviews.  Their evaluation takes into consideration only the
+changes or reviews completed prior to the review of interest.

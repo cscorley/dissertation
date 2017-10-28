@@ -40,6 +40,9 @@ N
 S
 :   In LSI, a singular values matrix
 
+BLT
+:   Bug localization technique
+
 DIT
 :   Developer identification technique
 
