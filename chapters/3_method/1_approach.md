@@ -124,8 +124,7 @@ where green areas denote text added and red areas denote text removed in that
 changeset.  Here, the summation of all changes affecting a class over its
 lifetime would approximate the same words in its current version.
 
-![Changesets over time approximate a
-Snapshot\label{fig:sliding}](figures/sliding_window_example.pdf)
+\input{figures/sliding_window_example}
 
 Changeset topic modeling is akin to summarizing code snippets with machine
 learning [@Ying-Robillard_2013], where in our case a changeset gives a
