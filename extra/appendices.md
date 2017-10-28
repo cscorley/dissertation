@@ -5,9 +5,10 @@
 <!-- \captionsetup{list=no} -->
 <!-- update: grad school said to list everything -->
 
-# Feature Location Boxplots {#flt}
+# \frph Boxplots {#flt}
 
-slugline
+In these figures, we display the effectiveness measures for each subject system
+for \frp.
 
 <!-- BookKeeper v4.3.0
 max bound:	843
@@ -310,9 +311,10 @@ total:	241
 \input{figures/flt/rq2_zookeeper}
 
 
-# Developer Identification Boxplots  {#dit}
+# \drph Boxplots  {#dit}
 
-slugline
+In these figures, we display the effectiveness measures for each subject system
+for \drp.
 
 <!-- BookKeeper v4.3.0
 max bound:	5
@@ -604,7 +606,7 @@ total:	354
 \input{figures/dit/rq2_zookeeper}
 
 
-# Model Configuration Sweep {#model}
+# RP3: Model Configuration Sweep {#model}
 
 In these tables, we bold entries where the MRR is highest for each of the two
 tasks and also highlight the row of the configuration used throughout this
@@ -638,7 +640,7 @@ dissertation.
 \input{figures/combo/flt_rq1_zookeeper}
 \input{figures/combo/dit_rq1_zookeeper}
 
-# Corpus Construction Sweep {#corpus}
+# RP3:  Corpus Construction Sweep {#corpus}
 
 In these tables, we bold entries where the MRR is highest for each of the two
 tasks and also highlight the row of the configuration used throughout this
@@ -672,7 +674,7 @@ dissertation.
 \input{figures/combo/flt_rq2_zookeeper}
 \input{figures/combo/dit_rq2_zookeeper}
 
-# Corpus Construction Inclusion and Exclusion {#comparison}
+# RP3: Corpus Construction Inclusion and Exclusion {#comparison}
 
 In these tables, we bold entries where the MRR is highest between each of the
 two inclusion or exclusion configurations.
