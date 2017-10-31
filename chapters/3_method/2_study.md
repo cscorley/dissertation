@@ -270,8 +270,16 @@ Additionally, since we are operating in a truly online mode, we cannot take
 multiple passes over the entire corpus as that would defeat the purpose of a
 historical simulation.
 
-
-\todo{Explain randomness and setting seed}
+For all training and querying of our LDA models we hold two things constant:
+first, the pseudo-random number generator seed is set to 1 before each model is
+instantiated, and second, we ensure that corpus documents are always read in
+the same order for each pass over them.  This corpus order is maintained on
+*all* documents used in this study, including training data and query data.
+The first, the random seed, is a result of the random and generative nature of
+LDA, though no known study yet exists showing its impact on model performance
+for software engineering tasks.  The second requirement stems from the same
+observations first made by @Agrawal-etal_2016:  LDA suffers from "order
+effects" when the training data is shuffled.
 
 ### Data Collection and Analysis
 
