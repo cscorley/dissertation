@@ -30,16 +30,14 @@ and data for individual subject systems are available in Appendix
 
 With respect to model configuration, some interesting results can be found.
 For example, \bookkeeper has the same optimal configuration for both tasks, so
-no trade-offs must be made.
-\todo{say something nice about other 3 systems}
-
-\mahout varied the most for FLT with the highest effect size, but has the least
-difference for DIT, indicating that the application should defer to the FLT
-configuration as DIT does not significantly suffer from this decision.  Figures
-\ref{fig:combo:flt:rq1:mahout} and \ref{fig:combo:dit:rq1:mahout} show the
-effectiveness measures of \mahout and showcase a unique property: if outliers
-were to be excluded, the performance of DIT would be in favor of the alternate
-configuration, i.e., both tasks could have the same optimal configuration.
+no trade-offs must be made.  \mahout varied the most for FLT with the highest
+effect size, but has the least difference for DIT, indicating that the
+application should defer to the FLT configuration as DIT does not significantly
+suffer from this decision.  Figures \ref{fig:combo:flt:rq1:mahout} and
+\ref{fig:combo:dit:rq1:mahout} show the effectiveness measures of \mahout and
+showcase a unique property: if outliers were to be excluded, the performance of
+DIT would be in favor of the alternate configuration, i.e., both tasks could
+have the same optimal configuration.
 
 \input{figures/combo/flt_rq1_mahout}
 \input{figures/combo/dit_rq1_mahout}
