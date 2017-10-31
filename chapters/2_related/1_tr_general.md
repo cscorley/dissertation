@@ -327,12 +327,6 @@ There are several applicable ranked-based significance tests we can use.
 According to @Croft-etal_2010, the most common ones are the sign test, the
 t-test, and the Wilcoxon sign-ranked test.
 
-\todo{mention friedman, mann-whitney?}
-
-#### Sign test
-
-\todo{find sign test}
-
 #### t-test
 
 The t-test assumes a normal distribution of samples.  That is, in the case of
@@ -342,11 +336,19 @@ the effectiveness measure is interval, while effectiveness measures are
 typically ordinal, making the t-test an questionable choice depending on the
 effectiveness measure used.
 
+#### Mann-Whitney U test
+
+The Mann-Whitney U test is a non-parametric test similar to the t-test, but
+unlike the t-test, it does not require the assumption of normal distributions.
+This makes the Mann-Whitney U test a good choice when the effectiveness measure
+is ordinal and each sample is independent between two treatments.
+
 #### Wilcoxon signed-rank test
 
 The Wilcoxon sign-ranked test is non-parametric and does not make the same
 assumptions that the t-test does, making it a more desirable choice of a test
-when the effectiveness measure is ordinal.  We define the test as:
+when the effectiveness measure is ordinal and each sample is dependent between
+two treatments.  We define the test as:
 
 \begin{equation}
     w = \sum_{i=1}^{N} sign(x_i - y_i) \times R_i
@@ -360,5 +362,13 @@ the rank of the pair in a sorted list of their differences.
 ##### Effect size
 
 An effect size can be derived from $w$, the Wilcoxon signed-rank test
-statistic[@Kerby_2014]. Given $w$, a rank correlation $r$ can be defined as $r
+statistic [@Kerby_2014]. Given $w$, a rank correlation $r$ can be defined as $r
 = w/S$, where $S$ is the sum of all ranks.
+
+#### Friedman test
+
+Like the Wilcoxon sign-ranked test, the Friedman test is non-parametric and is
+desirable choice of a test when the effectiveness measure is ordinal.  However,
+the Friedman test is useful when each sample has three or more dependent
+treatments.
+ 
