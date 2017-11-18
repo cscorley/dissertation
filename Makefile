@@ -40,8 +40,8 @@ $(GENERATED) :: $(EXTRA_FILES)
 	mkdir -p tmp
 	$(PANDOC) \
 		--top-level-division=chapter \
-		--from=markdown \
-		--to=latex \
+		--from=markdown+smart \
+		--to=latex+smart \
 		extra/$@.md -o tmp/$@.tex
 
 appendix: $(DEP_FILES) $(GENERATED)
@@ -53,32 +53,29 @@ appendix: $(DEP_FILES) $(GENERATED)
 pandoc: appendix
 	$(PANDOC) \
 		--filter pandoc-citeproc \
-		--smart \
 		--toc \
 		--top-level-division=chapter \
 		--listings \
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
-		--from=markdown \
+		--from=markdown+smart \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).pdf
 
 debug: appendix
 	$(PANDOC) \
 		--natbib \
-		--smart \
 		--toc \
 		--top-level-division=chapter \
 		--listings \
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
 		-M draft:Yes \
-		--from=markdown \
+		--from=markdown+smart \
 		metadata.yaml $(CHAP_FILES) -o $(DRAFT).tex
 
 nodraftpandoc: appendix
 	$(PANDOC) \
 		--natbib \
-		--smart \
 		--toc \
 		--top-level-division=chapter \
 		--listings \
@@ -86,7 +83,7 @@ nodraftpandoc: appendix
 		-H extra/header.tex \
 		-M draft:No \
 		-M fontfamily:times \
-		--from=markdown \
+		--from=markdown+smart \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
 
 natbib: debug
@@ -111,11 +108,10 @@ count: nodraft
 plain: appendix
 	$(PANDOC) \
 		--natbib \
-		--smart \
 		--toc \
 		--top-level-division=chapter \
 		--listings \
-		--from=markdown \
+		--from=markdown+smart \
 		--to=plain \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).txt
 
@@ -123,11 +119,10 @@ $(PAPER).html: appendix
 	$(PANDOC) \
 		--standalone \
 		--filter pandoc-citeproc \
-		--smart \
 		--toc \
 		--top-level-division=chapter \
 		--listings \
-		--from=markdown \
+		--from=markdown+smart \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).html
 
 edit:
