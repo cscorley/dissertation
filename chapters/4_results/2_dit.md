@@ -22,20 +22,20 @@ significance and is hence is not a definite unfavorable case.
 
 We note an improvement in MRR for only 2 of the 6 systems when using
 changesets.  \pig is the only system with an MRR in favor of snapshots that is
-also statistically significant at $p < 0.01$.  Comparing all systems at once,
+also statistically significant at $p < 0.01$ with an effect size of $0.64$.
+Comparing all systems at once by combining all effectiveness measures,
 snapshots show slight MRR improvement over changesets with statistical
-significance.  This suggests that changeset-based TMs are on par with
-snapshot-based TMs, and aligns with the result we see for FLT in the previous
-section.
+significance.  This suggests that the changeset-based DIT is not on par with
+snapshot-based DIT.
 
 \begin{framed}
     \textbf{\done}:
-    Changeset-based DITs are as accurate as snapshot-based DITs.
+    Changeset-based DITs are not as accurate as snapshot-based DITs.
 \end{framed}
 
 \input{tables/triage_rq2}
 
-\dtwo asks how well a TM-based FLT would perform as it were to be used in
+\dtwo asks how well a TM-based DIT would perform as it were to be used in
 real-time.  This is a much closer evaluation of an DIT to it being used in an
 actual development environment.  Table \ref{table:triage_rq2} summarizes the
 results of each subject system.  In each of the tables, we bold which of the
@@ -45,12 +45,17 @@ statistical significance when the MRR is in favor of batch.
 
 There is an improvement in favor of historical simulation in MRR for only 1 of
 the 6 systems, which is statistically significant at $p<0.01$.  Two of the 5
-results in favor of batch changesets were statistically significant.  Overall,
+results in favor of batch changesets were statistically significant.  We note
+that \pig, in favor of snapshots over batch changesets with statistical
+significance for \done, is statistically significant in favor of historical
+simulation over batch changesets for \dtwo.
+
+Comparing all systems at once by combining all effectiveness measures,
 batch changesets performs better than a full historical simulation, but is not
 statistically significant.  This suggests that under historical simulation, the
 accuracy of the DIT will fluctuate as a project evolves, which may indicate a
-more accurate evaluation is possible with a historical simulation. Again,
-this aligns with the result we see for FLT in the previous section.
+more accurate evaluation is possible with a historical simulation.  This aligns
+with the result we see for FLT in the previous section.
 
 \begin{framed}
     \textbf{\dtwo}:

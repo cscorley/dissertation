@@ -27,8 +27,8 @@ significant at $p < 0.01$ with the greatest effect size of all systems
 ($0.4556$).  For \mahout, however, the difference in MRR is negligible (2.54%).
 Comparing all systems at once by combining all effectiveness measures,
 changesets show slight MRR improvement over snapshots with statistical
-significance.  This suggests that changeset-based TMs are on par with
-snapshot-based TMs and the better choice for the majority of systems.
+significance.  This suggests that changeset-based FLT is on par with
+snapshot-based DIT and the better choice for the majority of systems.
 
 \begin{framed}
     \textbf{\fone}:
