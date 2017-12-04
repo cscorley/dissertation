@@ -19,15 +19,15 @@ accurately portrays how a FLT would execute in a real environment.  This study
 extended @Corley-etal_2015 to the file-level granularity, where we found
 similar results for methods and classes.
 
-We found for developer identification, in \drp, an analogous conclusion as in
-\frps.  Again, we compare a batch TM-based FLT trained on the changesets of a
+We found for developer identification, in \drp, a different conclusion from
+\frps.  Again, we compare a batch TM-based DIT trained on the changesets of a
 project's history to one trained on the snapshot of source code entities and
-find the former performs as well as the latter.  Next, we compare a batch
-TM-based FLT trained on changesets to a historical simulation of a TM-based DIT
-trained on the same changesets over time.  We show that the historical
-simulation more accurately portrays how a DIT would execute in a real
-environment.  We also see under historical simulation results that show less
-fluctuation for DIT than FLT, though some fluctuation does exist.
+find the former does not perform as well as the latter.  Next, we compare a
+batch TM-based DIT trained on changesets to a historical simulation of a
+TM-based DIT trained on the same changesets over time.  We find that the
+historical simulation may more accurately portray how a DIT would execute in a
+real environment.  We also see under historical simulation results that show
+less fluctuation for DIT than FLT, though some fluctuation does exist.
 
 Finally, in \crp, we explore whether using the same changeset-based model for
 two different tasks is feasible and what configuration considerations might

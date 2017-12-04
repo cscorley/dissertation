@@ -80,16 +80,16 @@ For \drp, applying our approach to developer identification, we ask:
     batch evaluation.
 -->
 
-In this work we have shown that it is not only possible to use a
-changeset-based TM for DIT, but also desirable.  For \done, we find that the
-changeset-based approach can produce a more accurate model for searching over
-developer profiles over the traditional snapshot-based approach.  We also find
-evidence under \dtwo that batch-evaluated approaches may be both over-informed
-and under-informed, e.g., models trained on data from the future, but does not
-make good use data available at particular points of interest.  As in the
-previous section on our FLT, we arrive at the conclusion that the current
-approaches using batched evaluation do not accurately reflect the model
-performance or the state of the indexed corpus over time.
+In this work we have shown that although it is possible to use a
+changeset-based TM for DIT, it may not be desirable.  For \done, we find that
+the changeset-based approach does not produce a more accurate model for
+searching over developer profiles over the traditional snapshot-based approach.
+We also find evidence, however, under \dtwo that batch-evaluated approaches may
+be both over-informed and under-informed, e.g., models trained on data from the
+future, but does not make good use data available at particular points of
+interest.  As in the previous section on our FLT, we arrive at the conclusion
+that the current approaches using batched evaluation do not accurately reflect
+the model performance or the state of the indexed corpus over time.
 
 ### Combining and Configuring Changeset-based Topic Models
 

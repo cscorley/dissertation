@@ -60,7 +60,7 @@ with the result we see for FLT in the previous section.
 \begin{framed}
     \textbf{\dtwo}:
     Historical simulation reveals that the accuracy of the changeset-based DIT
-    is inconsistent as a project evolves, and is actually lower than indicated by
-    batch evaluation.
+    is inconsistent as a project evolves, and is lower than indicated by batch
+    evaluation.
 \end{framed}
 
