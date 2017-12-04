@@ -50,11 +50,10 @@ abstract: |
     need to retrain the model from the latest snapshot, incurring a non-trivial
     computational cost of model re-learning.
 
-    <!-- probably need to split this paragraph, it contains two distinct ideas -->
     This work proposes and investigates an approach that can remedy the
     obsolescence problem.  Conventional wisdom in the software maintenance
     community holds that the topic model training information must be the same
-    information that is of interest for retrieval.  The primary insight of this
+    information that is of interest for retrieval.  The primary insight for this
     work is that topic models can infer the topics of any information,
     regardless of the information used to train the model.  Pairing online topic
     modeling with mining software repositories, we can remove the need to

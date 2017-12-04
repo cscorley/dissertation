@@ -17,28 +17,32 @@ modeling, in order to move towards more robust approaches that can be utilized
 by practitioners.  For this work, we pose the following research questions.
 First, with respect to \frp, applying our approach to feature location, we ask:
 
-\fonep
+
+RQ 1.1
 :   \foneq
 
-
-\ftwop
+RQ 1.2
 :   \ftwoq
+
 
 Then, for \drp, applying our approach to developer identification, we ask:
 
-\donep
+
+RQ 2.1
 :   \doneq
 
-\dtwop
+RQ 2.2
 :   \dtwoq
+
 
 Finally, we determine for \crp whether we can gain model re-use for both tasks
 by asking the following:
 
-\conep
+
+RQ 3.1
 :   \coneq
 
-\ctwop
+RQ 3.2
 :   \ctwoq
 
 

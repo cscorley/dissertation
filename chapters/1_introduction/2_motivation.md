@@ -27,7 +27,9 @@ topic models that can be incrementally updated over time.  Unlike
 @Rao-etal_2013, we can rely on the source code history itself to build the
 model without needing to manually adjust model latent variables to account for
 document changes.  This gains the benefit of a decrease in model construction
-and query times, but also could lead to a more reliable model.
+and query times, could lead to a more reliable model, and  for software
+maintenance tasks removes the need for custom implementations of complex topic
+modeling algorithms.
 
 The key intuition to this approach is that a topic model algorithm such as
 latent Dirichlet allocation can *infer* any given document's topic proportions

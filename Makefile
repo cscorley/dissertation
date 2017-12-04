@@ -40,7 +40,7 @@ $(GENERATED) :: $(EXTRA_FILES)
 	mkdir -p tmp
 	$(PANDOC) \
 		--top-level-division=chapter \
-		--from=markdown+smart \
+		--from=markdown+smart+definition_lists \
 		--to=latex+smart \
 		extra/$@.md -o tmp/$@.tex
 
@@ -58,7 +58,7 @@ pandoc: appendix
 		--listings \
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
-		--from=markdown+smart \
+		--from=markdown+smart+definition_lists  \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).pdf
 
 debug: appendix
@@ -70,7 +70,7 @@ debug: appendix
 		--template=./Manuscript.latex \
 		-H extra/header.tex \
 		-M draft:Yes \
-		--from=markdown+smart \
+		--from=markdown+smart+definition_lists  \
 		metadata.yaml $(CHAP_FILES) -o $(DRAFT).tex
 
 nodraftpandoc: appendix
@@ -83,7 +83,7 @@ nodraftpandoc: appendix
 		-H extra/header.tex \
 		-M draft:No \
 		-M fontfamily:times \
-		--from=markdown+smart \
+		--from=markdown+smart+definition_lists  \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).tex
 
 natbib: debug
@@ -111,7 +111,7 @@ plain: appendix
 		--toc \
 		--top-level-division=chapter \
 		--listings \
-		--from=markdown+smart \
+		--from=markdown+smart+definition_lists  \
 		--to=plain \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).txt
 
@@ -122,7 +122,7 @@ $(PAPER).html: appendix
 		--toc \
 		--top-level-division=chapter \
 		--listings \
-		--from=markdown+smart \
+		--from=markdown+smart+definition_lists  \
 		metadata.yaml $(CHAP_FILES) -o $(PAPER).html
 
 edit:

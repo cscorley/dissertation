@@ -53,11 +53,10 @@ I do believe there is much more usefulness in a developer identification tool.
 Anecdotally, I often have the need to find other developers to gain perspective
 as to *why* a system behaves a certain way.  Additionally, often it seems that
 external users and stakeholders need to be able to quickly find a developer to
-gain similar perspectives.  The conundrum we currently find ourselves in is
-that the typical DIT will ultimately rely on an FLT or variant thereof.  Hence,
-while I see the most impact in industry with improving DITs, there will also be
-a need to continue to work towards improving FLTs and the insights gained will
-impact both.
+gain similar perspectives.  One issue with the approach many DITs take is that
+they ultimately rely on an FLT or variant thereof.  Hence, while I see the most
+impact in industry with improving DITs, there will also be a need to continue
+to work towards improving FLTs and the insights gained will impact both.
 
 Our results encourage the idea that there is still much to explore in the area
 of feature location and developer identification.  What other untapped

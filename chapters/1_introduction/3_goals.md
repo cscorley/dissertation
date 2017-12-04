@@ -4,10 +4,8 @@ The primary research goal of this work is to evaluate the performance and
 reliability of topic models built on the source code histories, i.e.,
 changeset-based topic modeling.  This requires configuring and executing
 studies in different contexts of software maintenance work, such as feature
-location and developer identification.
-
-Towards achieving this goal, we've identified three core research problems,
-defined below.
+location and developer identification.  Towards achieving this goal, we've
+identified three core research problems, defined below.
 
 ### Effectively using software repository history for an online topic-modeling-based feature location technique to remove retraining costs
 

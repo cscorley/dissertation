@@ -47,8 +47,8 @@ the model training, indexing, and retrieval steps.  First, we initialize a
 model in online mode.  We update the model with new changesets whenever a
 developer makes a new commit.  That is, with changesets, we incrementally
 update a model and can query it at any moment.  This allows for a *historical
-simulation* of how a changeset-based approach would perform in a realistic
-scenario.
+simulation* of how a changeset-based approach would perform in a more realistic
+scenario than batch training allows.
 
 #### Feature Location with Changeset Topics {#sec:flt-approach}
 
