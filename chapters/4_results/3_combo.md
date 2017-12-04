@@ -3,9 +3,6 @@
 In this section, we describe the results of the study outlined in Section
 \ref{sec:combo-methodology}.
 
-\input{tables/landscape_model_sweep_wilcox}
-\input{tables/landscape_corpus_sweep_wilcox}
-
 \cone asks whether a single topic model can be used for more than a single
 task, specifically for feature location and developer identification. Tables
 \ref{table:combo-flt-model-sweep-wilcox} and
@@ -18,6 +15,9 @@ available in Appendices \ref{app:model} and \ref{app:corpus}).  Our goal is not
 to find which configuration works best for each system and task, but rather to
 determine whether one configuration is *capable* of producing acceptable
 results for both tasks.
+
+\input{tables/landscape_model_sweep_wilcox}
+\input{tables/landscape_corpus_sweep_wilcox}
 
 \newcommand{\optimalFLTmodel}{optimal model for FLT ($K=500$, $\alpha=2/K$, $\eta=auto$)\xspace}
 \newcommand{\optimalDITmodel}{optimal model for DIT ($K=500$, $\alpha=5/K$, $\eta=auto$)\xspace}
