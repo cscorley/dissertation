@@ -7,17 +7,16 @@ by practitioners.
 
 ### Feature Location
 
-First, with respect to \frp, applying our approach to feature location, we ask
-and find the following:
+First, with respect to \frp, applying our approach to feature location, we ask:
 
-\fonep
+RQ 1.1
 :   \foneq
 
 <!--
     Changeset-based FLTs are as accurate as snapshot-based FLTs.
 -->
 
-\ftwop
+RQ 1.2
 :   \ftwoq
 
 <!--
@@ -64,14 +63,14 @@ be to ensure their search engines are constructed only from data that existed
 
 For \drp, applying our approach to developer identification, we ask:
 
-\donep
+RQ 2.1
 :   \doneq
 
 <!--
     Changeset-based FLTs are as accurate as snapshot-based DITs.
 -->
 
-\dtwop
+RQ 2.2
 :   \dtwoq
 
 <!--
@@ -96,7 +95,7 @@ the model performance or the state of the indexed corpus over time.
 We determine for \crp whether we can gain model re-use for both tasks
 by asking the following:
 
-\conep
+RQ 3.1
 :   \coneq
 
 <!--
@@ -104,7 +103,7 @@ by asking the following:
     optimal configurations may exist on a per-context basis.
 -->
 
-\ctwop
+RQ 3.2
 :   \ctwoq
 
 <!--
