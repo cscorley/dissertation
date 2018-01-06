@@ -19,11 +19,11 @@ results for both tasks.
 \input{tables/landscape_model_sweep_wilcox}
 \input{tables/landscape_corpus_sweep_wilcox}
 
-\newcommand{\optimalFLTmodel}{optimal model for FLT ($K=500$, $\alpha=2/K$, $\eta=auto$)\xspace}
-\newcommand{\optimalDITmodel}{optimal model for DIT ($K=500$, $\alpha=5/K$, $\eta=auto$)\xspace}
+\newcommand{\optimalFLTmodel}{optimal model for FLT ($K=500$, $\alpha=2/K$, $\eta=auto$)\xspace{}}
+\newcommand{\optimalDITmodel}{optimal model for DIT ($K=500$, $\alpha=5/K$, $\eta=auto$)\xspace{}}
 
-\newcommand{\optimalFLTcorpus}{optimal corpus for FLT (additions, context, message)\xspace}
-\newcommand{\optimalDITcorpus}{optimal corpus for DIT (context, message)\xspace}
+\newcommand{\optimalFLTcorpus}{optimal corpus for FLT (additions, context, message)\xspace{}}
+\newcommand{\optimalDITcorpus}{optimal corpus for DIT (context, message)\xspace{}}
 
 When we consider all systems together for model construction (Tables
 \ref{table:combo-flt-model-sweep-wilcox} and
