@@ -2,7 +2,6 @@
 
 \usepackage[page,title,toc]{appendix}
 \usepackage{amsfonts}
-\usepackage{amsmath}
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{chngcntr}
