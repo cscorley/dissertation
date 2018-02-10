@@ -105,6 +105,8 @@ change since they were the one that committed the changeset.
 
 ### Evaluation
 
+In this section, we discuss the evaluations for each research question.
+
 #### Feature Location {#sec:flt-methodology}
 
 To answer \fone, we evaluate two batch-trained models: one trained on a

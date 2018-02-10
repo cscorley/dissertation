@@ -4,7 +4,7 @@ Our studies have limitations that impact the validity of our findings, as well
 as our ability to generalize them. We describe some of these limitations and
 their impacts.
 
-#### Construct Validity
+### Construct Validity
 
 Threats to construct validity concern measurements accurately reflecting the
 features of interest.  A possible threat to construct validity is our
@@ -15,7 +15,7 @@ Additionally, datasets extracted source code entities automatically from
 changesets, previous work shows this approach is on par with manual extraction
 [@Corley-etal_2011].
 
-#### Internal Validity
+### Internal Validity
 
 Threats to internal validity include possible defects in our tool chain and
 possible errors in our execution of the study procedure, the presence of which
@@ -38,7 +38,7 @@ the same initial state.  This is achieved by running each experiment in
 isolation and using a uniform random seed value of $1$ on the system's
 pseudo-random number generator.
 
-#### External Validity
+### External Validity
 
 Threats to external validity concern the extent to which we can generalize our
 results.  The subjects of our study comprise six open source projects in Java,
@@ -46,7 +46,7 @@ so we cannot generalize our results to systems implemented in other languages.
 However, the systems are of different sizes, are from different domains, and
 have characteristics in common with those of systems developed in industry.
 
-#### Conclusion Validity
+### Conclusion Validity
 
 Threats to conclusion validity concern our choice of measurements and how those
 choices impact our evaluation and conclusion.  We chose to use mean reciprocal
