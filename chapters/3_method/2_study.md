@@ -6,8 +6,7 @@ online learning algorithm using changesets, our FLT and DIT maintain up-to-date
 models without incurring the non-trivial computational cost associated with
 retraining a snapshot-based topic model from scratch.  In this section, we
 describe the design of our study in which we compare our new methodology with
-the current practice.  We describe the case study using the
-Goal-Question-Metric approach [@Basili-etal_1994].
+the current practice.
 
 ### Definition and Context {#sec:questions}
 
