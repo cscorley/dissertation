@@ -30,11 +30,6 @@ changesets show slight MRR improvement over snapshots with statistical
 significance.  This suggests that changeset-based FLT is on par with
 snapshot-based DIT and the better choice for the majority of systems.
 
-\begin{framed}
-    \textbf{\fone}:
-    Changeset-based FLTs are as accurate as snapshot-based FLTs.
-\end{framed}
-
 \input{tables/feature_location_rq2}
 
 \ftwo asks how well a TM-based FLT would perform as it were to be used in
@@ -55,9 +50,7 @@ statistical significance.  This suggests that under historical simulation, the
 accuracy of the FLT will fluctuate as a project evolves, which may indicate a
 more accurate evaluation is possible with a historical simulation.
 
-\begin{framed}
-    \textbf{\ftwo}:
-    Historical simulation reveals that the accuracy of the changeset-based FLT
-    is inconsistent as a project evolves, and is actually lower than indicated by
-    batch evaluation.
-\end{framed}
+To summarize, in \fone we found that changeset-based FLTs can be as accurate
+as snapshot-based FLTs.  We find in \ftwo that historical simulation reveals
+that the accuracy of the changeset-based FLT is inconsistent as a project
+evolves, and is lower than indicated by batch evaluation.

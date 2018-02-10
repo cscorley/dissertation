@@ -28,11 +28,6 @@ snapshots show slight MRR improvement over changesets with statistical
 significance.  This suggests that the changeset-based DIT is not on par with
 snapshot-based DIT.
 
-\begin{framed}
-    \textbf{\done}:
-    Changeset-based DITs are not as accurate as snapshot-based DITs.
-\end{framed}
-
 \input{tables/triage_rq2}
 
 \dtwo asks how well a TM-based DIT would perform as it were to be used in
@@ -57,10 +52,7 @@ accuracy of the DIT will fluctuate as a project evolves, which may indicate a
 more accurate evaluation is possible with a historical simulation.  This aligns
 with the result we see for FLT in the previous section.
 
-\begin{framed}
-    \textbf{\dtwo}:
-    Historical simulation reveals that the accuracy of the changeset-based DIT
-    is inconsistent as a project evolves, and is lower than indicated by batch
-    evaluation.
-\end{framed}
-
+To summarize, in \done we found changeset-based DITs are *not* as accurate as
+snapshot-based DITs.  We find in \dtwo historical simulation reveals that the
+accuracy of the changeset-based DIT is inconsistent as a project evolves, and
+is lower than indicated by batch evaluation.

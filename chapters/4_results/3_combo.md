@@ -51,12 +51,6 @@ $r=0.2580$.  This suggests that correct corpus construction plays a somewhat
 important role in both tasks, but the effect of choosing an alternate over the
 optimal is low.
 
-\begin{framed}
-    \textbf{\cone}:
-    The same topic model can be used in more than one context, though more
-    optimal configurations may exist on a per-context basis.
-\end{framed}
-
 \ctwo asks what portions of a changeset are most critical for performance of
 different tasks, specifically for feature location and developer
 identification.  As in \cone, our goal is not to find which configuration works
@@ -89,9 +83,7 @@ significant at $p<0.01$ for the FLT task.  Similarly, for the DIT task,
 combined results of all subject systems contains 86 pairs that are
 statistically significant at $p<0.01$.
 
-\begin{framed}
-    \textbf{\ctwo}:
-    There are significant differences when choosing from the possible elements
-    of a changeset for corpus construction.
-\end{framed}
-
+To summarize, in \cone we found that the same topic model can be used in more
+than one context, though more optimal configurations may exist on a per-context
+basis.  In \ctwo we find that there are significant differences when choosing
+from the possible elements of a changeset for corpus construction.
