@@ -12,6 +12,11 @@ loa: Yes
 appendices: Yes
 links-as-notes: Yes
 
+urlcolor: black
+citecolor: black
+linkcolor: black
+toccolor: black
+
 # front matter
 location: Tuscaloosa, Alabama
 thesistype: A dissertation
