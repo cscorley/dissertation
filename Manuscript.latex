@@ -5,7 +5,6 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{chngcntr}
-\usepackage{cleveref}
 \usepackage{epigraph}
 \usepackage{etoolbox}
 \usepackage{framed}
@@ -32,6 +31,7 @@ $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
 \usepackage{amssymb,amsmath}
+\usepackage{cleveref}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex

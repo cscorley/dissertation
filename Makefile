@@ -25,9 +25,9 @@ DEP_FILES	= metadata.yaml $(CLS_FILES) $(TEX_FILES) $(BIB_FILES) $(GFX_FILES) $(
 
 URL="https://github.com/cscorley/dissertation/commits"
 
-$(DRAFT).pdf: natbib
-
 $(PAPER).pdf: nodraft
+
+$(DRAFT).pdf: natbib
 
 $(PAPER): $(PAPER).pdf
 
