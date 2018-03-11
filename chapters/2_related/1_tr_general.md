@@ -93,7 +93,7 @@ Cosine similarity (CS) is a commonly seen similarity measure [@Croft-etal_2010]
 and is easy to implement:
 
 \begin{equation}
-    {\rm CS}(P, Q) = {P \cdot Q \over \|P\| \|Q\|}
+    {\rm CS}(P, Q) = \frac{P \cdot Q}{\|P\| \|Q\|}
 \label{eq:cosine}
 \end{equation}
 

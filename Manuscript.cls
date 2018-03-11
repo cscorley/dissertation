@@ -87,7 +87,6 @@
 \RequirePackage{ulem}
 \RequirePackage[
 ,  pdftex
-,  letterpaper
 ,  colorlinks
 ,  hyperfootnotes
 ,  linktocpage
