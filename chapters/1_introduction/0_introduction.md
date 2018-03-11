@@ -16,7 +16,7 @@ prerequisite to incremental change [@Corbi_1989].  For example, the developer
 spends effort to understand the system architecture or to locate the parts of
 the source code implementing the feature(s).  For developers who are unfamiliar
 with the system, gaining such knowledge can be a time-consuming task
-[@Muller-etal_2000].  One approach to assisting building program comprehension
+[@Mueller-etal_2000].  One approach to assisting building program comprehension
 is to use text retrieval techniques [@Lukins-etal_2008].
 
 Developer identification is the process of determining which developer has
@@ -49,7 +49,7 @@ correlations among documents, such as Relational Topic Models
 [@Chang-Blei_2010].
 
 Useful for more than just general program comprehension, topic models of source
-code have concrete applications including: feature location [@Dit-etal_2011a],
+code have concrete applications including: feature location [@Dit-etal_2013a],
 bug localization [@Lukins-etal_2008; @Rao-etal_2013], developer identification
 [@Kagdi-etal_2012], traceability link recovery [@Asuncion-etal_2010], and other
 areas [@Biggers_2012].  Yet, while researchers have had success in using topic

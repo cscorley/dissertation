@@ -238,7 +238,7 @@ normalize to lower case before filtering non-letters, English stop words
 do not stem words.
 
 We implemented our modeling using the Python library Gensim
-[@Rehurek-Sojk_2010], version 0.12.1. We use the same configurations on each
+[@Rehurek-Sojka_2010], version 0.12.1. We use the same configurations on each
 subject system.  We do not try to adjust parameters between the different
 systems to attempt to find a better, or best, solution; rather, we leave them
 the same to reduce confounding variables.  We do realize that this may lead to
@@ -283,7 +283,7 @@ the same order for each pass over them.  This corpus order is maintained on
 The first, the random seed, is a result of the random and generative nature of
 LDA, though no known study yet exists showing its impact on model performance
 for software engineering tasks.  The second requirement stems from the same
-observations first made by @Agrawal-etal_2016:  LDA suffers from "order
+observations first made by @Agrawal-etal_2018:  LDA suffers from "order
 effects" when the training data is shuffled.
 
 ### Data Collection and Analysis

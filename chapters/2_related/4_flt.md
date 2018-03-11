@@ -20,7 +20,7 @@ equivalent to topic modeling in batch, @Rao_2013 notes that these algorithm
 modifications have limitations and thus models may need to be periodically
 retrained.
 
-@Dit-etal_2011a provide a taxonomy and survey of feature location in source
+@Dit-etal_2013a provide a taxonomy and survey of feature location in source
 code covering the scope of FLTs.  They identify 89 works related to feature
 location in their systematic literature survey and extract 7 dimensions for
 their taxonomy.  We use the primary dimension, type of analysis, for
@@ -62,7 +62,7 @@ FLT.  They show that excluding source code text such as comments and literals
 negatively impacts the accuracy of the FLT.  Most importantly, they show that
 configuration parameters taken from the machine learning and natural language
 processing (NLP) communities are not good choices for software.
-@Dit-etal_2011a show the need for better term splitting techniques for software
+@Dit-etal_2011 show the need for better term splitting techniques for software
 TR.
 
 @Bassett-Kraft_2013 explore new term weighting schemes based on the structural
