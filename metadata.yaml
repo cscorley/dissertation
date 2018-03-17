@@ -38,9 +38,63 @@ committee:
     - Travis L. Atkison
 
 # change the dedication and acknowledgements to text
-dedication: No
+dedication: \centering \textit{For Mom and Sis}
 
-acknowledgments: No
+acknowledgments: |
+
+    There are many, *many* people I would like to acknowledge and thank for
+    their continued support and friendship over the years.  Honestly, I have too
+    many people I would like to thank and I am sorry that I will not be able to
+    thank everyone.
+
+    I will start with the obvious and thank my advisor, Nicholas Kraft.
+    I thank him for taking a risk on me and allowing me to study under him.
+    I would also like to thank him for always being there when I needed support,
+    for being patient and understanding, and most importantly for encouraging me
+    to be a better person and to do more with my life.  He has always been, and
+    always will be, more than just an advisor to me -- he is a friend.
+
+    Of course, this dissertation would not have materialized without the
+    guidance and encouragement of my committee.  I would especially like to
+    thank Dr. Carver for becoming my committee chair in the middle of my studies
+    and keeping me on track to graduate.
+
+    I thank my various co-authors, to everyone that had the patience to work
+    with me, and to those that encouraged me to continue this work.  I'd
+    particularly like to thank Hazel Victoria Campbell and Kelly Kashuda.  Other
+    co-authors include those I worked with during my year at ABB Corporate
+    Research.  Thank you all for allowing me to do something different, and for
+    helping me manually solder a bunch of silly lights!  Thank you David
+    Shepherd for allowing me to pursue such a fun project and for encouragement
+    to finish this dissertation.
+
+    Thank you to the software engineering research community for their
+    encouragement, support, and kind wisdom.  I'd like to thank
+    Chris Parnin, Abram Hindle, Felienne Hermans, Mike Godfrey, Neil Ernst,
+    Patrick Wagstrom, and Dave Binkley.
+
+    I would also not be here without the emotional support and friendship
+    I found during my time in Tuscaloosa.  Thank you Heather Wyatt, Brian Oliu,
+    Bob Weatherly, Chris Skinner, Austin Stickney, Drew Brooks, Erik Kline, and
+    Jeb Richter.  I always look forward to seeing you whenever I visit
+    Tuscaloosa.
+
+    I would also like to thank those I've befriended in Chattanooga.  Thank you
+    in particular to Brian Hennen and Amanda Norris for being great friends that
+    I look forward to knowing for a long time to come.  Thanks also to my former
+    and current coworkers Steve Medlin, Russ Wilson, and James Gardner for their
+    patience, understanding, and encouragement as I attempted to find a balance
+    between working and researching.
+
+    Thanks to my all my lifelong friends for always being there for me.  Thank
+    you Cliff and Clay Davis for their friendship, support, encouragement, and
+    wisdom.  Thanks to David Stewart and the rest of the Stewart family for
+    getting me through my undergraduate studies and into graduate school.  My
+    final thank you goes to my dear friend, James Holden, for being my longest
+    and kindest friend, and for sparking my interest in computing.
+
+    I have been so fortunate to know all of you.
+
 
 # This must be limited to 350 words!
 abstract: |
@@ -73,7 +127,7 @@ abstract: |
     locating the source code entity that relates to a feature of interest.
     Developer identification is similar, but focuses on identifying the
     developer most apt for working on a feature of interest.  Further, to
-    demonstrate the usability of changeset-based topic models, I 
+    demonstrate the usability of changeset-based topic models, I
     investigate whether I can coalesce topic-modeling-based maintenance tasks
     into using a *single* model, rather than needing to train a model for each
     task at hand.  In sum, this work aims to show that *training online topic
