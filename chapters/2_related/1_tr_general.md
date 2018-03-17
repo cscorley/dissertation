@@ -1,8 +1,8 @@
 ## Text Retrieval {#sec:related-general}
 
-In this section, we review and summarize the text retrieval process, which
-consists of two general steps: document extraction and document retrieval.  We
-discuss methods of measuring similarity.  Finally, we discuss measures for
+In this section, I review and summarize the text retrieval process, which
+consists of two general steps: document extraction and document retrieval.  I
+discuss methods of measuring similarity.  Finally, I discuss measures for
 evaluating a text retrieval technique.
 
 ### Document Extraction
@@ -75,14 +75,14 @@ document-topic distribution for each document.  Otherwise, the document-terms
 may have further transformations applied or be used directly as the index.
 
 Next, the engine takes a pairwise classification of the query to each document
-in the index and ranks the documents according to similarity.  We use a
+in the index and ranks the documents according to similarity.  I use a
 similarity measure for probability distributions for the pairwise comparisons.
 
 ### Similarity measures
 
 A similarity measure in text retrieval is useful for comparing two documents.
 Typically, documents are represented as a bag-of-words, or a term vector.
-Hence, we can use any vector-based similarity measure.  Further, we can use
+Hence, I can use any vector-based similarity measure.  Further, I can use
 discrete probability distributions, such as a document-topic proportion, as a
 vector.  In the following definitions, $P$ and $Q$ are two discrete probability
 distributions of the same length $K$ unless noted otherwise.
@@ -107,7 +107,7 @@ Hellinger distance can be used to measure the similarity between probability
 distributions, making it a good measure to use with topic models since topic
 models return topic-probability distributions for documents of interest.
 
-We define Hellinger distance ($H$) as:
+I define Hellinger distance ($H$) as:
 
 \begin{equation}
     {\rm H}(P, Q) = \frac{1}{\sqrt{2}} \; \sqrt{\sum_{i=1}^{K} (\sqrt{P_i} - \sqrt{Q_i})^2}
@@ -142,10 +142,10 @@ measure for probability distributions over KL-divergence.
 
 ### Evaluation measures
 
-In the following section, we describe evaluation measures.  We divide the
+In the following section, I describe evaluation measures.  I divide the
 measures into two groups: set-based measures and ranked-based measures.
 
-For the following discussion, we define the following sets: $A =
+For the following discussion, I define the following sets: $A =
 \{\mbox{relevant documents}\}$, the documents related to some query
 $q \in Q$; and $B = \{\mbox{retrieved documents}\}$, the documents retrieved
 for some query $q \in Q$.
@@ -157,7 +157,7 @@ sub-set of the documents being searched over, i.e., the top 100 documents.
 
 ##### Recall
 
-*Recall* is the fraction of relevant retrieved documents.  We define recall as:
+*Recall* is the fraction of relevant retrieved documents.  I define recall as:
 
 \begin{equation}
 \operatorname{recall} =
@@ -170,7 +170,7 @@ sub-set of the documents being searched over, i.e., the top 100 documents.
 
 ##### Precision
 
-*Precision* is the fraction of retrieved documents that are relevant.  We
+*Precision* is the fraction of retrieved documents that are relevant.  I
 define precision as:
 
 \begin{equation}
@@ -183,8 +183,8 @@ define precision as:
 
 ##### F-measure
 
-In some situations, we may want to make trade-offs between precision and
-recall.  For this, we can use the *F-measure*.  The F-measure is a weighted
+In some situations, I may want to make trade-offs between precision and
+recall.  For this, I can use the *F-measure*.  The F-measure is a weighted
 harmonic mean of precision and recall:
 
 \begin{equation}
@@ -316,14 +316,14 @@ common queries for each approach, obtaining matched pairs of *effectiveness
 measures*.  A popular effectiveness measure used in software is described by
 @Poshyvanyk-etal_2007, and uses the rank of the first relevant document found.
 
-We can form a null and alternative hypotheses for a one-tailed test using the
+I can form a null and alternative hypotheses for a one-tailed test using the
 evaluation measures discussed above to determine which of the approaches is
 better and by using a significance test on the effectiveness measures to
-determine if we should reject or accept a hypothesis.  We can also use a
+determine if I should reject or accept a hypothesis.  I can also use a
 two-sided test to determine if there is a difference between the two
 approaches.
 
-There are several applicable ranked-based significance tests we can use.
+There are several applicable ranked-based significance tests I can use.
 According to @Croft-etal_2010, the most common ones are the sign test, the
 t-test, and the Wilcoxon sign-ranked test.
 
@@ -348,7 +348,7 @@ is ordinal and each sample is independent between two treatments.
 The Wilcoxon sign-ranked test is non-parametric and does not make the same
 assumptions that the t-test does, making it a more desirable choice of a test
 when the effectiveness measure is ordinal and each sample is dependent between
-two treatments.  We define the test as:
+two treatments.  I define the test as:
 
 \begin{equation}
     w = \sum_{i=1}^{N} sign(x_i - y_i) \times R_i

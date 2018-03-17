@@ -1,7 +1,7 @@
 ### Text Retrieval Models {#sec:related-models}
 
-In this section, we review commonly used text retrieval models.  First, we
-review the boolean and vector space models.  Then, we delve into the topic
+In this section, I review commonly used text retrieval models.  First, I
+review the boolean and vector space models.  Then, I delve into the topic
 models that make up the basis of this work.
 
 #### Boolean Model
@@ -24,9 +24,9 @@ some weighting scheme and words that do not appear a weight of zero.  That is,
 $C_{ij}$ is the weight of the $i$th term in the $j$th document in the corpus
 $C$.
 
-To search in the VSM, we transform a query document $q$ (i.e., any document of
-interest) into a vector of term weights.  Then, we perform pairwise comparisons
-of this document to each document in the index.  We can use any vector-based
+To search in the VSM, I transform a query document $q$ (i.e., any document of
+interest) into a vector of term weights.  Then, I perform pairwise comparisons
+of this document to each document in the index.  I can use any vector-based
 measurement metric, such as cosine similarity, during the pairwise comparisons
 to measure the query document similarity.  Documents in the index are then
 ranked according to how similar they are to the query document.
@@ -38,7 +38,7 @@ occur in a corpus.  For example, documents on Babe Ruth and baseball should end
 up in the same topic, while Dennis Rodman and basketball should end up in
 another.  Additionally, documents may also express multiple topics.  That is, a
 document on Dennis Rodman could relate to multiple topics: basketball, tattoos,
-and vibrant hair coloring.  In this section, we will describe common topic
+and vibrant hair coloring.  In this section, I will describe common topic
 modeling algorithms and give a brief overview of the related works.
 
 ##### Latent Semantic Indexing
@@ -66,10 +66,10 @@ operation is a topic space approximation $C_K$, or $C \approx C_K =
 T_KS_KD_K^T$.  Now, the dot product between two columns in $C_K$ reflects the
 extent to which two documents (i.e., the columns) contain similar topics.
 
-To search in LSI, we transform a query document $q$ into the LSI topic space.
-First, we vectorize $q$ into a vector of term weights, as in VSM.  Next,
-because $C = TSD^T$, and hence $D = C^TS^{-1}$, we multiply $q$ by $TS^{-1}$ to
-transform $q$ into a topic-document vector.  Afterwards, we use this vector to
+To search in LSI, I transform a query document $q$ into the LSI topic space.
+First, I vectorize $q$ into a vector of term weights, as in VSM.  Next,
+because $C = TSD^T$, and hence $D = C^TS^{-1}$, I multiply $q$ by $TS^{-1}$ to
+transform $q$ into a topic-document vector.  Afterwards, I use this vector to
 make pairwise comparisons against all documents of $C_K$ as before.
 
 Extensions to SVD enable the algorithm to be *online* [@Zha-Simon_1999;
@@ -119,10 +119,10 @@ begin to appear across multiple topics).  Likewise, lowering $\alpha$ causes
 each document to express less topics while raising $\alpha$ causes documents to
 relate to more topics.
 
-To search in LDA, we transform a query document $q$ into a topic probability
-distribution, similar to LSI.  First, we vectorize $q$ into a vector of term
-weights, as in VSM.  Next, we *infer* from the model the topic probability
-distribution for the query.  Afterwards, we use this distribution to make
+To search in LDA, I transform a query document $q$ into a topic probability
+distribution, similar to LSI.  First, I vectorize $q$ into a vector of term
+weights, as in VSM.  Next, I *infer* from the model the topic probability
+distribution for the query.  Afterwards, I use this distribution to make
 pairwise comparisons against all documents of $\theta$.
 
 @Hoffman-etal_2010 introduce a version of LDA which is online.

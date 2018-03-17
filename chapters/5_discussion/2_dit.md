@@ -3,7 +3,7 @@
 The results Section \ref{sec:dit-results} shows significant effects between
 snapshots and changesets, and between batch changesets and changesets in the
 simulated environment.  The results are mixed between each and are not
-conclusive.  However, we argue this is desirable to show that the accuracy of a
+conclusive.  However, I argue this is desirable to show that the accuracy of a
 changeset-based DIT is similar to that of a snapshot-based DIT but without the
 retraining cost.
 
@@ -38,7 +38,7 @@ systems (figures for all subject systems are available in
 Appendix \ref{app:dit}). The figure suggests that snapshot-based models and
 changeset-based models have similar results overall with changesets performing
 slightly better, but does not help to understand how each feature query
-performs for each model.  With respect to \done, we will investigate the
+performs for each model.  With respect to \done, I will investigate the
 queries and effectiveness measures between the batch snapshot and batch
 changesets in detail.
 
@@ -83,12 +83,12 @@ systems (figures for all subject systems are available in Appendix
 \ref{app:dit}). The figure suggests that snapshot-based models and
 changeset-based models have similar results overall with changesets performing
 slightly better, but does not help to understand how each feature query
-performs for each model.  With respect to \dtwo, we will investigate the
+performs for each model.  With respect to \dtwo, I will investigate the
 queries and effectiveness measures between the batch snapshot and batch
 changesets in detail.
 
 For the 1055 queries across all systems, only 1043 were successful.  After
-manual investigation, we determined these 12 that were unsuccessful due to
+manual investigation, I determined these 12 that were unsuccessful due to
 excluding the commit that fixed the issue related to the query.  These commits
 were the first change in the repository by that maintainer[^alias], resulting in that
 maintainer missing from the ranking until that point.  126 queries return the
@@ -107,13 +107,13 @@ ranks apart).
 
 ### Situations
 
-In this study, we've asked two research questions which lead to two distinct
-comparisons.  First, we compare a batch TM-based DIT trained on the changesets
+In this study, I've asked two research questions which lead to two distinct
+comparisons.  First, I compare a batch TM-based DIT trained on the changesets
 of a project's history to one trained on the snapshot of source code entities.
-Second, we compare a batch TM-based DIT trained on changesets to a online
-TM-based DIT trained on the same changesets over time.  Our results are mixed
-between the research questions, hence we end up with four possible situations;
-we will now discuss each of these situations in detail.
+Second, I compare a batch TM-based DIT trained on changesets to a online
+TM-based DIT trained on the same changesets over time.  My results are mixed
+between the research questions, hence I end up with four possible situations;
+I will now discuss each of these situations in detail.
 
 <!--
     SS < CS && CS > HS
@@ -141,7 +141,7 @@ we will now discuss each of these situations in detail.
 
 #### Batch changesets are better than batch snapshot *and* batch changesets are better than changesets in the simulated environment
 
-This situation occurs in 2 out of 6 systems: \mahout and \openjpa.  We
+This situation occurs in 2 out of 6 systems: \mahout and \openjpa.  I
 hypothesize that this is because in the batch evaluation, the model is trained
 on all data before being queried, while in the historical simulation the model
 is trained on partial data before being queried.  This allows for the batch
@@ -151,7 +151,7 @@ DIT would perform in a real scenario.
 
 #### Batch changesets are better than batch snapshot *and* changesets in the simulated environment are better than batch changesets
 
-We note that this situation never occurs. This also supports the hypothesis
+I note that this situation never occurs. This also supports the hypothesis
 that historical simulation more accurately portrays the system over time as it
 more accurately captures the correct state of the system (i.e., the developers
 maintaining the system) at the point in time when querying is done.  Since
@@ -171,8 +171,8 @@ time.
 
 #### Batch snapshot are better than batch changeset *and* batch changesets are better than changesets in the simulated environment
 
-This situation occurs in a single system: \pig.  We note that this system does
+This situation occurs in a single system: \pig.  I note that this system does
 not achieve statistical significance for either case.  This also supports the
 hypothesis that historical simulation more accurately portrays the system over
-time.  However, we cannot conclude this without also historically simulating
+time.  However, I cannot conclude this without also historically simulating
 snapshot TM-based DITs.

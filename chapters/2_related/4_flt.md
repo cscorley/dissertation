@@ -23,7 +23,7 @@ retrained.
 @Dit-etal_2013a provide a taxonomy and survey of feature location in source
 code covering the scope of FLTs.  They identify 89 works related to feature
 location in their systematic literature survey and extract 7 dimensions for
-their taxonomy.  We use the primary dimension, type of analysis, for
+their taxonomy.  I use the primary dimension, type of analysis, for
 categorization purposes.  The different types of analysis are: dynamic, static,
 historical (mining), and textual.
 
@@ -34,7 +34,7 @@ Historical FLTs use software repository mining to extract meaningful
 information, such as in @Cubranic-etal_2005.  Textual FLTs use textual
 information extracted from software artifacts, such as source code comments,
 identifiers, and literals [@Biggers-etal_2014].  Textual FLTs are the most
-closely related category of our work and comprise the remainder of this
+closely related category of my work and comprise the remainder of this
 section.
 
 Currently, developers rely on tools such as `grep` to find relevant source code

@@ -1,6 +1,6 @@
 ## Developer Identification {#sec:related-dit}
 
-In this section we review literature on developer identification.
+In this section I review literature on developer identification.
 As noted by @Shokripour-etal_2013, there are two broad categories of work in
 this area: activity-based approaches and location-based approaches.  An
 activity-based approach uses information gained from a developers *activity*,
@@ -9,7 +9,7 @@ approaches resemble a feature location technique in that they rely on source
 code entity information to derive a developer, e.g., which developer has worked
 on the related classes in the past?  There are multiple ways to determine the
 ownership of a source code entity [@Bird-etal_2011; @Kagdi-etal_2012;
-@Corley-etal_2012; @Hossen-etal_2014] We refer the reader to Section
+@Corley-etal_2012; @Hossen-etal_2014].  I refer the reader to Section
 \ref{sec:related-general} for a background on how a typical feature location
 techniques works.
 

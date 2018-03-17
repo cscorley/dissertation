@@ -1,6 +1,6 @@
 ## Feature Location {#sec:flt-results}
 
-In this section, we describe the results of the study outlined in Section
+In this section, I describe the results of the study outlined in Section
 \ref{sec:flt-methodology}.
 
 \input{tables/feature_location_rq1}
@@ -8,9 +8,9 @@ In this section, we describe the results of the study outlined in Section
 \fone asks how well a topic model trained on changesets performs compared to
 one trained on source code entities.  Table \ref{table:feature_location_rq1}
 summarizes the results of each subject system when evaluated at the file-level.
-In the table, we bold the greater of the two MRRs.  Since our goal is to
+In the table, I bold the greater of the two MRRs.  Since the goal is to
 show that training with changesets is just as good, or better than, training on
-snapshots, we only care about statistical significance when the MRR is in favor
+snapshots, I only care about statistical significance when the MRR is in favor
 of snapshots.  While statistical significance in favor of changesets is
 desirable, statistical *insignificance* between snapshots and
 changesets is acceptable and also desirable as it showcases that the changeset
@@ -21,7 +21,7 @@ statistical significance ($p < 0.01$) and a notably large effect size
 of higher MRR, but does not achieve statistical significance and is hence is
 not a definite unfavorable case.
 
-We note an improvement in MRR for 4 of the 6 systems when using changesets.
+I note an improvement in MRR for 4 of the 6 systems when using changesets.
 \mahout is the only system with an MRR in favor of snapshots and statistically
 significant at $p < 0.01$ with the greatest effect size of all systems
 ($0.4556$).  For \mahout, however, the difference in MRR is negligible (2.54%).
@@ -36,9 +36,9 @@ snapshot-based DIT and the better choice for the majority of systems.
 real-time.  This is a much closer evaluation of an FLT to it being used in an
 actual development environment.  Table \ref{table:feature_location_rq2}
 summarizes the results of each subject system when evaluated at the file-level.
-In each of the tables, we bold the greater of the two MRRs.  Again, since our
+In each of the tables, I bold the greater of the two MRRs.  Again, since the
 goal is to show that temporal considerations must be given during FLT
-evaluation, we only care about statistical significance when the MRR is in
+evaluation, I only care about statistical significance when the MRR is in
 favor of batch.
 
 There is an improvement in favor of historical simulation in MRR for only 1 of
@@ -50,7 +50,7 @@ statistical significance.  This suggests that under historical simulation, the
 accuracy of the FLT will fluctuate as a project evolves, which may indicate a
 more accurate evaluation is possible with a historical simulation.
 
-To summarize, in \fone we found that changeset-based FLTs can be as accurate
-as snapshot-based FLTs.  We find in \ftwo that historical simulation reveals
+To summarize, in \fone I found that changeset-based FLTs can be as accurate
+as snapshot-based FLTs.  I find in \ftwo that historical simulation reveals
 that the accuracy of the changeset-based FLT is inconsistent as a project
 evolves, and is lower than indicated by batch evaluation.

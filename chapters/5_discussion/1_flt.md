@@ -1,9 +1,9 @@
 ## Feature Location {#sec:flt-discussion}
 
-Our analysis in Section \ref{sec:flt-results} shows significant effects between
+The analysis in Section \ref{sec:flt-results} shows significant effects between
 snapshots and changesets, and between batch changesets and changesets in the
 simulated environment.  The results are mixed between each subject system and
-are not generally conclusive.  However, we argue this is desirable to show that
+are not generally conclusive.  However, I argue this is desirable to show that
 the accuracy of a changeset-based FLT is similar to that of a snapshot-based
 FLT but without the retraining cost.
 
@@ -38,7 +38,7 @@ across all systems (figures for all subject systems are available in
 Appendix \ref{app:flt}). The figure suggests that snapshot-based models and
 changeset-based models have similar results overall with changesets performing
 slightly better, but does not help to understand how each feature query
-performs for each model.  With respect to \fone, we will investigate the
+performs for each model.  With respect to \fone, I will investigate the
 queries and effectiveness measures between the batch snapshot and batch
 changesets in detail.
 
@@ -47,7 +47,7 @@ For the 1055 queries across all systems, only 775 were successful.  That is,
 related issues.  These are likely caused by files that were removed over time
 and did not make it into release and highlights the volatility of software
 development.  It is typical for unsuccessful queries to be filtered from the
-benchmark, hence we have removed them from our data analyses instead of
+benchmark, hence I have removed them from my data analyses instead of
 penalizing a particular approach.
 
 \todo{here is a nice place for a table show-casing which approach is missing most}
@@ -94,7 +94,7 @@ Figure \ref{fig:flt:rq2:overview} shows the effectiveness measures for files
 across all systems (figures for all subject systems are available in
 Appendix \ref{app:flt}). The figure suggests that historical simulation slightly
 underperforms a batch changeset model, but does not help to understand how each
-feature query performs for each model.  With respect to \ftwo, we will
+feature query performs for each model.  With respect to \ftwo, I will
 investigate the queries and effectiveness measures between the batch changesets
 and historical simulation using changesets in detail.
 
@@ -113,13 +113,13 @@ perform noticeably different ($> 50$ ranks apart).
 
 ### Situations
 
-In this study, we've asked two research questions which lead to two
-distinct comparisons.  First, we compare a batch TM-based FLT trained on the
+In this study, I've asked two research questions which lead to two
+distinct comparisons.  First, I compare a batch TM-based FLT trained on the
 changesets of a project's history to one trained on the snapshot of source code
-entities.  Second, we compare a batch TM-based FLT trained on changesets to a
-online TM-based FLT trained on the same changesets over time.  Our results are
-mixed between the research questions, hence we end up with four possible
-situations; we will now discuss each of these situations in detail.
+entities.  Second, I compare a batch TM-based FLT trained on changesets to a
+online TM-based FLT trained on the same changesets over time.  My results are
+mixed between the research questions, hence I end up with four possible
+situations; I will now discuss each of these situations in detail.
 
 <!--
     SS < CS && CS > HS
@@ -148,17 +148,17 @@ situations; we will now discuss each of these situations in detail.
 #### Batch changesets are better than batch snapshot *and* batch changesets are better than changesets in the simulated environment
 
 This situation occurs in 4 out of 6 systems: \bookkeeper, \openjpa, \pig,
-\zookeeper.  We hypothesize that this is because in the batch evaluation, the
+\zookeeper.  I hypothesize that this is because in the batch evaluation, the
 model is trained on all data before being queried, while in the historical
 simulation the model is trained on partial data before being queried.  This
 allows for the batch model to be more accurate because it is trained on more
 data and reveals feature location research evaluations may not be accurately
-portraying how an FLT would perform in a real scenario.  We note that this is
+portraying how an FLT would perform in a real scenario.  I note that this is
 the scenario that occurs the most and aligns with the statistical results.
 
 #### Batch changesets are better than batch snapshot *and* changesets in the simulated environment are better than batch changesets
 
-We note that this situation never occurs. This also supports the hypothesis
+I note that this situation never occurs. This also supports the hypothesis
 that historical simulation more accurately portrays the system over time as it
 more accurately captures the correct state of the system (i.e., the source code
 entities) at the point in time when querying is done.  Since querying on the
@@ -177,9 +177,9 @@ more accurately model the system over time.
 
 #### Batch snapshot are better than batch changeset *and* batch changesets are better than changesets in the simulated environment
 
-This situation occurs in a single system: \tika.  We note that this system does
+This situation occurs in a single system: \tika.  I note that this system does
 not achieve statistical significance for either case.  This also supports the
 hypothesis that historical simulation more accurately portrays the system over
-time.  However, we cannot conclude this without also historically simulating
+time.  However, I cannot conclude this without also historically simulating
 snapshot TM-based FLTs.
 

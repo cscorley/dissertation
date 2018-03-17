@@ -6,8 +6,8 @@ construction.
 
 ### \coneq
 
-In \cone, we ask whether it is feasible to use a single model for two tasks,
-FLT and DIT.  We explore this question from two directions: the input to the
+In \cone, I ask whether it is feasible to use a single model for two tasks,
+FLT and DIT.  I explore this question from two directions: the input to the
 model, i.e., corpus construction, and the model configuration itself.  Each of
 these directions contains choices that every application must make to train an
 optimal model for the application's task.  However, to choose an optimal model
@@ -52,7 +52,7 @@ but for FLT performance.
 \input{figures/combo/flt_rq1_openjpa}
 \input{figures/combo/dit_rq1_openjpa}
 
-For all subject systems, however, we do have a statistical significant result
+For all subject systems, however, I do have a statistical significant result
 when comparing the optimal FLT to it's alternate configuration (DIT optimal).
 However, the effect size is not large and the difference in MRR insignificant,
 indicating there are some queries which perform well in the optimal FLT
@@ -80,13 +80,13 @@ seem to advocate for their exclusion for best performance.
 
 ### \ctwoq
 
-As we saw in \cone, it seems feasible to use a single model for two tasks, but
-the choice of corpus construction seems most critical.  In \ctwo, we explore
-further just how critical those choices may be.  Indeed, we see in our results
+As I saw in \cone, it seems feasible to use a single model for two tasks, but
+the choice of corpus construction seems most critical.  In \ctwo, I explore
+further just how critical those choices may be.  Indeed, I see in the results
 in Section \ref{sec:combo-results} that choice of text source is significant in
 all but one subject system for each task, or two insignificant results.
 
-Our changeset corpus sweep was completed on four elements: additions $(A)$
+The changeset corpus sweep was completed on four elements: additions $(A)$
 context $(C)$, messages $(M)$, and removals $(R)$.  Figure \ref{fig:diff} shows
 these four elements.  Intuitively, it makes sense to always include additions,
 as they represent the new words (code) that represent the code that was being
@@ -102,21 +102,21 @@ additions when they are no longer valid, as in removed words.
 \input{tables/all_corpus_sweep}
 
 To gain insight into whether a particular source is beneficial, or detrimental,
-to performance of a task, we can compare MRRs of configurations that include a
+to performance of a task, I can compare MRRs of configurations that include a
 source to the same configuration without that particular text source, e.g., for
-the additions text source, we can compare configuration $(A,R,C)$, which
+the additions text source, I can compare configuration $(A,R,C)$, which
 includes additions, removals, and context, to configuration $(R,C)$, which
-includes removals and context, but excludes additions.  We use this comparison,
+includes removals and context, but excludes additions.  I use this comparison,
 in conjunction with the mean reciprocal rank (MRR) and the Wilcoxon signed-rank
-test to explore our various text sources.  Table \ref{table:all_corpus_sweep}
+test to explore the various text sources.  Table \ref{table:all_corpus_sweep}
 summarizes all configurations and their MRRs for each task of all subject
-systems.  With our example, we can see that configuration $(A,R,C)$ outperforms
+systems.  With the example, I can see that configuration $(A,R,C)$ outperforms
 configuration $(R,C)$ for both tasks.  Note that for configurations
 with a singular text source, such as $(A)$ for additions, there can be no
-comparison made because the exclusion of additions leaves us with the empty
+comparison made because the exclusion of additions leaves me with the empty
 corpus.
 
-Below we discuss these comparisons for both the FLT and DIT tasks.  Each
+Below I discuss these comparisons for both the FLT and DIT tasks.  Each
 includes a discussion concerning the comparisons as applied to issues across
 all subject systems.  Appendix \ref{app:comparison} contains comparisons tables
 for each individual subject system.
@@ -143,7 +143,7 @@ addition inclusion degrades under two configurations: the first, $(A,C,M)$,
 being paired with the optimal DIT configuration $(C,M)$, and the second,
 $(A,C)$, underperforming the corpus only containing context $(C)$.  Six of
 these configurations were significant with effect sizes varying between low
-($0.1686$) and moderate ($0.4174$). We note that the top four largest effect
+($0.1686$) and moderate ($0.4174$). I note that the top four largest effect
 sizes were in favor of including additions.  This suggests that including
 additions in an DIT is likely beneficial, but the choice is not necessarily
 straight-forward and caution is advised.
@@ -152,7 +152,7 @@ straight-forward and caution is advised.
 
 \input{tables/versus-wilcox-all-flt-context}
 
-In Table \ref{table:versus-wilcox-all-flt-context}, we see five out of seven
+In Table \ref{table:versus-wilcox-all-flt-context}, I see five out of seven
 configuration comparisons favoring context inclusion for the FLT task.
 Strikingly, only one out of all comparisons was statistically significant,
 $(C,M)$ compared to $(M)$.  Two configurations, $(A,R,C)$ and $(A,C)$, degrade
@@ -161,24 +161,24 @@ improvements.  For these two, the results were both non-significant and each
 MRR spread was low.  Indeed, all MRR spreads were close, with the largest
 difference being $0.0525$ between $(R,C,M)$ and $(R,M)$.  This suggests that
 for the FLT task, context inclusion is neither notably beneficial nor
-detrimental.  We note that, however, the optimal configuration for the FLT,
-$(A,C,M)$, includes context, so we cannot advocate for its exclusion.
+detrimental.  I note that, however, the optimal configuration for the FLT,
+$(A,C,M)$, includes context, so I cannot advocate for its exclusion.
 
 \input{tables/versus-wilcox-all-dit-context}
 
-For the DIT task, however, we get very different results than for FLT, as shown
+For the DIT task, however, I get very different results than for FLT, as shown
 in Table \ref{table:versus-wilcox-all-dit-context}.  All seven pairs improve
 when context is included, and all seven are statistically significant with
-somewhat moderate ($0.2445$) to moderate ($0.4001$) effect sizes.  We also note
+somewhat moderate ($0.2445$) to moderate ($0.4001$) effect sizes.  I also note
 that the context text source is included in the optimal configuration for DIT.
 Together, this suggests that context is worthwhile for inclusion, which does
-not align with our intuitive view for this source.
+not align with the intuitive view for this source.
 
 #### Messages {#discussion:messages}
 
 \input{tables/versus-wilcox-all-flt-message}
 
-We see improvements in the FLT task MRR for nearly all message-including
+I see improvements in the FLT task MRR for nearly all message-including
 configurations, except for one configuration. As seen in Table
 \ref{table:versus-wilcox-all-flt-message}, the configuration $(A,R,M)$ performs
 worse than configuration $(A,R)$ for FLT.  None of the configurations, however,
@@ -188,12 +188,12 @@ source is included in the optimal FLT configuration $(A,C,M)$.
 
 \input{tables/versus-wilcox-all-dit-message}
 
-Under the DIT task, Table \ref{table:versus-wilcox-all-dit-message}, we again
+Under the DIT task, Table \ref{table:versus-wilcox-all-dit-message}, I again
 see only one configuration that does not favor the inclusion of messages:
 $(A,C,M)$ compared to $(A,C)$.  However, two of the six in favor of inclusion
 were statistically significant, although each has low effect sizes.  Again, the
 optimal DIT configuration, $(C,M)$, contain the message text source.  This
-aligns with our intuitive view that messages would benefit the model and
+aligns with the intuitive view that messages would benefit the model and
 suggests they should be included.
 
 <!-- did bookeeper perf degrade when adding message source because of
@@ -204,7 +204,7 @@ suggests they should be included.
 \input{tables/versus-wilcox-all-flt-removals}
 
 Table \ref{table:versus-wilcox-all-flt-removals} shows the Wilcoxon test
-results of removal inclusion and exclusion for FLT.  We see that there is only
+results of removal inclusion and exclusion for FLT.  I see that there is only
 one statistically significant result, and that it favors the intuitive view of
 excluding removals.  Only two of the other six results also favor exclusion.
 However, it is notable that removals are not included in the optimal FLT
@@ -213,13 +213,13 @@ whether removals should be included or excluded.
 
 \input{tables/versus-wilcox-all-dit-removals}
 
-We see many more significant results for the DIT task, as shown in Table
+I see many more significant results for the DIT task, as shown in Table
 \ref{table:versus-wilcox-all-dit-removals}.  Including removals had a negative
 impact for five of the configuration pairs, all of which were significant with
 low ($0.1162$) to moderate ($0.4621$) effect sizes.  Two of the configuration
 comparisons favored inclusion of removals, with one being statistically
 significant with a somewhat low effect size of $0.1847$.  As in the FLT task,
 again removals do not make an appearance in the optimal configuration.  This
-suggests that removals should be used with caution, and also aligns with our
-intuitive view that we would expect them to be harmful.
+suggests that removals should be used with caution, and also aligns with the 
+intuitive view that I would expect them to be harmful.
 

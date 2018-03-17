@@ -1,6 +1,6 @@
 ## Combining and Configuring Changeset-based Topic Models {#sec:combo-results}
 
-In this section, we describe the results of the study outlined in Section
+In this section, I describe the results of the study outlined in Section
 \ref{sec:combo-methodology}.
 
 \cone asks whether a single topic model can be used for more than a single
@@ -11,7 +11,7 @@ subject systems for model construction for the FLT and DIT tasks, respectively,
 while Tables \ref{table:combo-flt-corpus-sweep-wilcox} and
 \ref{table:combo-dit-corpus-sweep-wilcox} show the summary corpus construction
 for each respective task (figures and data for all subject systems are
-available in Appendices \ref{app:model} and \ref{app:corpus}).  Our goal is not
+available in Appendices \ref{app:model} and \ref{app:corpus}).  The goal is not
 to find which configuration works best for each system and task, but rather to
 determine whether one configuration is *capable* of producing acceptable
 results for both tasks.
@@ -25,7 +25,7 @@ results for both tasks.
 \newcommand{\optimalFLTcorpus}{optimal corpus for FLT (additions, context, message)\xspace{}}
 \newcommand{\optimalDITcorpus}{optimal corpus for DIT (context, message)\xspace{}}
 
-When we consider all systems together for model construction (Tables
+When I consider all systems together for model construction (Tables
 \ref{table:combo-flt-model-sweep-wilcox} and
 \ref{table:combo-dit-model-sweep-wilcox}), the both tasks perform best when
 $K=500$ and $\eta=auto$, but differ when it comes to $\alpha$. FLT prefers the
@@ -37,7 +37,7 @@ $r=0.2181$.  Likewise, a Wilcoxon rank-sum test reveals that the
 alternate.  This suggests that the DIT is less sensitive to parameter changes,
 allowing the user to select the model configuration that works best for FLT.
 
-When we consider all systems together for corpus construction (Tables
+When I consider all systems together for corpus construction (Tables
 \ref{table:combo-flt-corpus-sweep-wilcox} and
 \ref{table:combo-dit-corpus-sweep-wilcox}), the both tasks perform best when
 including the context and message, but differ when it comes to including
@@ -53,7 +53,7 @@ optimal is low.
 
 \ctwo asks what portions of a changeset are most critical for performance of
 different tasks, specifically for feature location and developer
-identification.  As in \cone, our goal is not to find which configuration works
+identification.  As in \cone, the goal is not to find which configuration works
 best for each system and task, but rather to determine whether a particular
 text source affects the tasks.  Tables \ref{table:combo-friedman-flt} and
 \ref{table:combo-friedman-dit} show the Friedman test results for FLT and DIT,
@@ -83,7 +83,7 @@ significant at $p<0.01$ for the FLT task.  Similarly, for the DIT task,
 combined results of all subject systems contains 86 pairs that are
 statistically significant at $p<0.01$.
 
-To summarize, in \cone we found that the same topic model can be used in more
+To summarize, in \cone I found that the same topic model can be used in more
 than one context, though more optimal configurations may exist on a per-context
-basis.  In \ctwo we find that there are significant differences when choosing
+basis.  In \ctwo I find that there are significant differences when choosing
 from the possible elements of a changeset for corpus construction.

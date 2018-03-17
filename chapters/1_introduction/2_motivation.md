@@ -8,7 +8,7 @@ time.  Keeping such a model up-to-date is expensive, because the frequency and
 scope of source code changes necessitate retraining the model on the updated
 corpus [@Rao_2013].  It may be possible to automate certain maintenance tasks
 without a model of the complete source code.  For example, when assigning a
-developer to a change task, we can use a topic model to relate developers with
+developer to a change task, I can use a topic model to relate developers with
 topics that characterize their previous changes.  In this scenario, a model of
 the text changed by each developer may be more useful than a model of the
 entities changed by each developer.
@@ -21,10 +21,10 @@ array of heuristics to identify a developer [@Kagdi-etal_2012;
 @Hossen-etal_2014].  These methods also have the same flaw in that they
 ultimately rely on source code entities for information.
 
-To remedy these shortcomings, we propose to use *changesets* in the training of
+To remedy these shortcomings, I propose to use *changesets* in the training of
 a topic model.  Like @Rao-etal_2013, the motivation of this work is to create
 topic models that can be incrementally updated over time.  Unlike
-@Rao-etal_2013, we can rely on the source code history itself to build the
+@Rao-etal_2013, I can rely on the source code history itself to build the
 model without needing to manually adjust model latent variables to account for
 document changes.  This gains the benefit of a decrease in model construction
 and query times, could lead to a more reliable model, and  for software
@@ -33,7 +33,7 @@ modeling algorithms.
 
 The key intuition to this approach is that a topic model algorithm such as
 latent Dirichlet allocation can *infer* any given document's topic proportions
-regardless of the documents used to train the model.  That is, we can train a
+regardless of the documents used to train the model.  That is, I can train a
 model a corpus of changesets and infer the topics of an entirely different
 corpus (e.g., source code entities).  Further, now that topic modeling
 algorithms are online [@Hoffman-etal_2010; @Rehurek_2011], the model can be
@@ -73,20 +73,20 @@ require less-frequent retraining than other TM-based FLTs, but the remaining
 cost of periodic retraining inhibits their application to large software, and
 the reliance on customization hinders their extension to new TMs.
 
-We envision an FLT that is:
+I envision an FLT that is:
 
 1) accurate like a TM-based FLT,
 2) inexpensive to update like a VSM-based FLT,
 3) and extensible to accommodate any off-the-shelf TR model that supports
    online addition of a new document.
 
-Unfortunately, our vision is incompatible with the standard methodology for
+Unfortunately, my vision is incompatible with the standard methodology for
 FLTs.  Existing VSM-based FLTs fail to satisfy the first criteria, and existing
 TM-based FLTs fail to satisfy the second or third criteria.  Indeed, given the
 current state-of-the-art in TR, it is impossible for a FLT to satisfy all three
 criteria while following the standard methodology.
 
-In this work, we propose a new methodology for FLTs.  Our methodology is to
+In this work, I propose a new methodology for FLTs.  My methodology is to
 extract a document for each changeset in the source code history and to train a
 TR model on the changeset documents, and then to extract a document for each
 source file in a source code snapshot and to create an index of the
@@ -98,8 +98,8 @@ methodology stems from three key observations:
 3) and an atomic changeset involves a single feature.
 
 It follows from the first two observations that it is possible for an FLT
-following our methodology to satisfy all three of the aforementioned criteria.
-The next two observations influence the training and indexing steps of our
+following my methodology to satisfy all three of the aforementioned criteria.
+The next two observations influence the training and indexing steps of my
 methodology, which have the conceptual effect of relating source files to
 changeset topics.  By contrast, the training and indexing steps of the standard
 methodology have the conceptual effect of relating files to file topics.
@@ -125,16 +125,16 @@ identification technique (DIT) based, again at least in part, on text retrieval
 involves combining an FLT to locate the features in source code and using
 change heuristics to select the correct developer [@Bird-etal_2011;
 @Corley-etal_2012; @Hossen-etal_2014].  Any DIT relying on a TR-based FLT will
-exhibit the same issues as we described in the previous section.
+exhibit the same issues as I described in the previous section.
 
-We would like to further adapt our vision for an accurate, easy-to-update FLT
-to a DIT.  In this work, we propose a new methodology for DITs that is not
-necessarily based on the performance of an FLT.  Again, our methodology is to
+I would like to further adapt my vision for an accurate, easy-to-update FLT
+to a DIT.  In this work, I propose a new methodology for DITs that is not
+necessarily based on the performance of an FLT.  Again, my methodology is to
 extract a document for each changeset in the source code history and to train a
 TR model on the changeset documents.  However, rather than using a
-heuristic-and-FLT-based approach, we choose to follow @Matter-etal_2009 and
+heuristic-and-FLT-based approach, I choose to follow @Matter-etal_2009 and
 extract *developer profiles*: documents which describe all changes a developer
-has made on the project.  We can then create an index of the developer profiles
+has made on the project.  I can then create an index of the developer profiles
 from the trained (changeset) model and skip all heuristics.
 
 <!--
@@ -181,13 +181,13 @@ when using a topic model for two tasks.  There is also evidence that different
 configurations may be better suited for different tasks
 [@Marcus-Poshyvanyk_2005; @Abadi-etal_2008].
 
-Likewise, we must also make choices with respect to corpus construction, as LDA
+Likewise, I must also make choices with respect to corpus construction, as LDA
 can achieve higher performance by adjusting certain elements of a corpus
 [@Biggers-etal_2014] or by increasing and decreasing the importance of certain
-elements of the corpus [@Bassett-Kraft_2013].  While we do not have enough
+elements of the corpus [@Bassett-Kraft_2013].  While I do not have enough
 source code in changesets to extract fully parsed elements -- such as comments,
-identifiers, literals, and so on -- we do have structure in the changeset
-itself in the form of the `diff` (see Figure \ref{fig:diff}).  That is, we have
+identifiers, literals, and so on -- I do have structure in the changeset
+itself in the form of the `diff` (see Figure \ref{fig:diff}).  That is, I have
 lines removed and added that represent the change, lines for context for where
 the change is to be applied, and a natural language commit message describing
 the change.
