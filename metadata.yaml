@@ -57,24 +57,24 @@ abstract: |
 
     This work proposes and investigates an approach that can remedy the
     obsolescence problem.  Conventional wisdom in the software maintenance
-    community holds that the topic model training information must be the same
-    information that is of interest for retrieval.  The primary insight for this
-    work is that topic models can infer the topics of any information,
+    research community holds that the topic model training information must be
+    the same information that is of interest for retrieval.  The primary insight
+    for this work is that topic models can infer the topics of any information,
     regardless of the information used to train the model.  Pairing online topic
-    modeling with mining software repositories, we can remove the need to
-    retrain a model and achieve model persistence.  For this, we suggest
-    training of topic models on the software repository history in the form of
-    the *changeset* -- a textual representation of the changes that occur
-    between two source code snapshots.
+    modeling with mining software repositories, I can remove the need to retrain
+    a model and achieve model persistence.  For this, I suggest training of
+    topic models on the software repository history in the form of the
+    *changeset* -- a textual representation of the changes that occur between
+    two source code snapshots.
 
-    To show the feasibility of this approach, we will investigate two popular
+    To show the feasibility of this approach, I investigate two popular
     applications of text retrieval in software maintenance, feature location and
     developer identification.  Feature location is a search activity for
     locating the source code entity that relates to a feature of interest.
     Developer identification is similar, but focuses on identifying the
     developer most apt for working on a feature of interest.  Further, to
-    demonstrate the usability of changeset-based topic models, we will
-    investigate whether we can coalesce topic-modeling-based maintenance tasks
+    demonstrate the usability of changeset-based topic models, I 
+    investigate whether I can coalesce topic-modeling-based maintenance tasks
     into using a *single* model, rather than needing to train a model for each
     task at hand.  In sum, this work aims to show that *training online topic
     models on software repositories removes retraining costs while maintaining
