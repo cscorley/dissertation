@@ -47,7 +47,7 @@ For the 1055 queries across all systems, only 775 were successful.  That is,
 related issues.  These are likely caused by files that were removed over time
 and did not make it into release and highlights the volatility of software
 development.  It is typical for unsuccessful queries to be filtered from the
-benchmark, hence I have removed them from my data analyses instead of
+benchmark, hence I have removed them from the data analyses instead of
 penalizing a particular approach.
 
 \todo{here is a nice place for a table show-casing which approach is missing most}
@@ -117,7 +117,7 @@ In this study, I've asked two research questions which lead to two
 distinct comparisons.  First, I compare a batch TM-based FLT trained on the
 changesets of a project's history to one trained on the snapshot of source code
 entities.  Second, I compare a batch TM-based FLT trained on changesets to a
-online TM-based FLT trained on the same changesets over time.  My results are
+online TM-based FLT trained on the same changesets over time.  The results are
 mixed between the research questions, hence I end up with four possible
 situations; I will now discuss each of these situations in detail.
 

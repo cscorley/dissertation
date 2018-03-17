@@ -220,6 +220,6 @@ low ($0.1162$) to moderate ($0.4621$) effect sizes.  Two of the configuration
 comparisons favored inclusion of removals, with one being statistically
 significant with a somewhat low effect size of $0.1847$.  As in the FLT task,
 again removals do not make an appearance in the optimal configuration.  This
-suggests that removals should be used with caution, and also aligns with the 
+suggests that removals should be used with caution, and also aligns with the
 intuitive view that I would expect them to be harmful.
 
