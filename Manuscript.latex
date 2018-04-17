@@ -201,6 +201,11 @@ $if(dedication)$
     $dedication$
 \end{dedication}
 $endif$
+$if(loa)$
+\begin{abbreviations}
+    \input{tmp/abbreviations.tex}
+\end{abbreviations}
+$endif$
 $if(acknowledgments)$
 \begin{acknowledgments}
     $acknowledgments$
@@ -217,11 +222,6 @@ $if(toc)$
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
 }
-$endif$
-$if(loa)$
-\begin{abbreviations}
-    \input{tmp/abbreviations.tex}
-\end{abbreviations}
 $endif$
 $if(lot)$
 \listoftables

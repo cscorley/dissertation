@@ -48,7 +48,12 @@ appendix: $(DEP_FILES) $(GENERATED)
 	cp -R figures tmp
 	cp -R tables tmp
 	sed -E -ibak -e "s/input\{/input{tmp\//g" ./tmp/appendices.tex
+	sed -E -ibak \
+		-e "s/begin\{description\}/begin{description}[itemsep=1em,labelwidth=2cm]/g" \
+		-e "/tightlist/d" \
+		./tmp/abbreviations.tex
 	find tmp -name "*.tex" | xargs sed -E -ibak -e "s/label\{/label{app:/g"
+
 
 pandoc: appendix
 	$(PANDOC) \

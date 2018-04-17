@@ -116,7 +116,8 @@
 
 %---- titlesec
 \titleformat{\chapter}[display]
-   {\centering\normalsize}{\vspace*{0.5\baselineskip}\@chapapp\space\thechapter}{0pt}{\MakeUppercase}
+   %{\centering\normalsize}{\vspace*{0.5\baselineskip}\MakeUppercase\@chapapp\space\thechapter}{0pt}{\MakeUppercase}
+    {\centering\normalsize}{\vspace*{-0.6\baselineskip}}{0pt}{\thechapter.\space\MakeUppercase}
 \titleformat{name=\chapter,numberless}[display]
    {\centering\normalsize}{\vspace*{\baselineskip}}{0pt}{\MakeUppercase}
 \titleformat{\section}[hang]
@@ -236,6 +237,22 @@
    \cleardoublepage
 }
 
+%---- List of Abbreviations and Symbols 
+\newenvironment{abbreviations}{%
+   \phantomsection
+   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS AND SYMBOLS}
+   \vspace*{0.5in}
+   \vspace*{\baselineskip}
+   \begin{center}
+      LIST OF ABBREVIATIONS AND SYMBOLS
+   \end{center}
+   \vspace{\baselineskip} % used to be -\baselineskip
+   \begin{spacing}{1.0}
+}{%
+   \end{spacing}
+   \cleardoublepage
+}
+
 %---- Acknowledgments
 \newenvironment{acknowledgments}{%
    \phantomsection
@@ -247,21 +264,6 @@
    \end{center}
    \vspace{-\baselineskip}
    \begin{spacing}{2.0}
-}{%
-   \end{spacing}
-   \cleardoublepage
-}
-
-\newenvironment{abbreviations}{%
-   \phantomsection
-   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS AND SYMBOLS}
-   \vspace*{0.5in}
-   \vspace*{\baselineskip}
-   \begin{center}
-      LIST OF ABBREVIATIONS AND SYMBOLS
-   \end{center}
-   \vspace{\baselineskip} % used to be -\baselineskip
-   \begin{spacing}{1.0}
 }{%
    \end{spacing}
    \cleardoublepage
